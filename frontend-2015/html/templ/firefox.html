@@ -1,0 +1,302 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="cs">
+	<head>
+		<?teng format space="onespace"?>
+		<title>Startovní stránka Mozilla Firefoxu</title>
+		<style type="text/css">
+		<!--
+			*											{ margin:0; padding:0; }
+			body										{ font-size:80%; font-family:"Arial CE", Arial, sans-serif; background:#fff url(${.scheme}://1.im.cz/homepage/img/ff/grgrad.gif) 0 0 repeat-x; margin:0; padding:0; text-align:center; }
+			img											{ border:0; }
+
+			a:link										{ color:#DE0000; text-decoration:underline; }
+			a:visited									{ color:#990000; }
+			a:hover										{ color:#0000CC !important; }
+
+			#page										{ text-align:left; width:560px; margin:20px auto 0; }
+
+			#box .top									{ background:transparent url(${.scheme}://1.im.cz/homepage/img/ff/title.gif) 0 0 no-repeat; height:116px; }
+			#box .top h1 								{ background:transparent url(${.scheme}://1.im.cz/homepage/img/ff/fox.gif) 100% 0 no-repeat; height:116px; }
+			#box .top h1 span							{ display:none; }
+			#box .middle								{ border-left:1px solid #ddd; border-right:1px solid #B0B0B0; margin:0 19px 0 0; }
+			#box .middle .content						{ padding:40px 10px 0 20px; }
+			#box .bottom								{ background:transparent url(${.scheme}://1.im.cz/homepage/img/ff/footer3.gif) 100% 0 no-repeat; height:34px; margin:0 19px 0 0;  }
+			#box										{ background:transparent url(${.scheme}://1.im.cz/homepage/img/ff/footer1.gif) 0 100% no-repeat; }
+
+			#search										{ clear:both; position:relative; height:40px; }
+			#search #logo								{ position:absolute; top:-32px; }
+			#search .sbox								{ display:none; position:relative; }
+			#search .active .sbox						{ display:block; padding:0; }
+			#search h2									{ position:absolute; top:-1.9em; font-size:13px; z-index:50; display:inline; }
+			#search h2 a								{ display:block; color:#DE0000; font-size:13px; font-weight:normal;}
+			#search h2 a:hover							{ }
+			#search .active h2 a						{ color:#000; font-weight:bold; text-decoration:none;  }
+			#search .active h2 a:hover					{ color:#000 !important; text-decoration:underline; }
+			#search form p								{ padding:2px 0 0 0 !important; padding:0px 0 0 0; }
+
+			#inet h2 									{ left:110px; }
+			#firms h2									{ left:181px; }
+			#maps h2									{ left:236px; }
+			#dict h2									{ left:288px; }
+			#goods h2 									{ left:349px; }
+			#encyc h2 									{ left:400px; }
+
+			#inet #inet-field							{ width:295px; margin-right:5px; }
+			#firms #firms-field							{ width:240px; margin-right:5px; }
+			#maps #maps-field							{ width:400px; margin-right:5px; }
+			#dict #dict-field							{ width:250px; margin-right:5px; }
+			#dict .button								{ width:9em; font-weight:normal; }
+			#goods #goods-field							{ width:400px; margin-right:5px; }
+			#encyc #encyc-field							{ width:400px; margin-right:5px; }
+
+			#snippet									{ margin:1em auto;  }
+			#snippet table								{ padding:0 19px 0 0; width:100%; }
+			#snippet table tr td						{ padding:0 1em;  }
+
+			#snippet .tip								{ padding:1em 0; height:50px; }
+			#snippet .tip .bulb							{ float:left; }
+			#snippet .tip p								{ margin:0 19px 0 60px; }
+
+			#snippet .links ul							{ list-style:none; height:2em; }
+			#snippet .links ul li						{ display:block; float:left; padding:0 30px; }
+
+			#sg-loader									{ position:absolute; top:-1000px;  }
+			#inet #sg-list								{ left:0; top:23px !important; top:24px; }
+			#inet #sg-list .cont						{ width:297px; }
+			#inet #sg-list								{ left:0; top:22px !important; top:23px; }
+			#firms #sg-list .cont						{ width:242px; }
+			#dict #sg-list								{ left:0; top:23px !important; top:24px; }
+			#dict #sg-list .cont						{ width:252px; }
+			#goods #sg-list								{ left:0; top:23px !important; top:24px; }
+			#goods #sg-list .cont						{ width:402px;}
+			#goods #sg-list p span						{ display:none; }
+			#encyc #sg-list								{ left:0; top:23px !important; top:24px; }
+			#encyc #sg-list .cont						{ width:402px;}
+
+			#sg-list									{ position:absolute; cursor:pointer; _cursor:hand; }
+			#sg-list .cont								{ border:1px solid #999; background:#fff; overflow:hidden; }
+			#search form #sg-list p						{ position:relative; margin:0 !important; padding:0.1em 0.2em  !important; font-size:89%; padding-right:80px;}
+			#sg-list p.act								{ background:#00f; color:#fff; }
+			#sg-list p.act span							{ color:#fff; }
+			#sg-list p span								{ position:absolute; width:80px; text-align:right; right:0.2em; color:#666; color:#999; }
+			#sg-list #sg-off 							{ padding:0.2em; background:url(${.scheme}://1.im.cz/suggest/dot.gif) 0 0 repeat-x; }
+			#sg-list #sg-off a							{ color:#00f; }
+			#sg-list #sg-off a:hover					{ color:#f00 !important; }
+
+			.no-display									{ position:absolute; top:-1000px; left:-1000px; }
+		// -->
+		</style>
+
+	</head>
+	<?teng endformat?>
+
+<?teng format space="onespace"?>
+<body class="${.scheme}">
+
+	<div id="page">
+
+		<div id="box">
+
+			<div class="top">
+				<h1><span>Firefox Start</span></h1>
+			</div>
+			<div class="middle">
+				<div class="content">
+
+					<div id="search">
+						<div id="logo"><a href="#{SERVICE_LOGO_LINK}" title="#{SERVICE_NAME_TITLE}"><img src="${.scheme}://1.im.cz/homepage/img/ff/logo-seznam.gif" width="90" height="27" alt="Seznam" /></a></div>
+						<div id="inet" class="active">
+							<h2><a href="#">#{inet}<span class="no-display"> - #{inet_hidden}</span></a></h2>
+							<div class="sbox">
+								<form action="#{SERVER_SEARCH_URL}" id="inet-f">
+									<p>
+										<input type="text" id="inet-field" name="w" size="65" />
+										<input id="hledej" class="bold" type="submit" value="#{seek}" />
+
+										<input id="cr" type="radio" name="mod" value="f" checked="checked" />
+										<label for="cr">#{in_CR}</label>
+										&nbsp;
+										<input id="world" type="radio" name="mod" value="g"  />
+										<label for="world">#{in_world}</label>
+									</p>
+									<input type="hidden" name="sourceid" id="sourceid" value="firefoxhp" />
+								</form>
+								<script type="text/javascript">/* <![CDATA[ */ document.getElementById('inet-field').focus(); /* ]]> */</script>
+							</div>
+						</div>
+
+						<div id="firms">
+							<h2><a href="#">#{firms}<span class="no-display"> - #{firms_hidden}</span></a></h2>
+							<div class="sbox">
+								<form action="#{SERVER_COMPANY_URL}" id="firms-f">
+									<p>
+										<input type="hidden" name="mod" value="c" />
+										<input value="" type="text" id="firms-field" name="w" size="40" />&nbsp;
+
+										<label for="reg-name">#{firm_region}: </label>
+										<select name="r" class="select" id="reg-name" >
+											<option value="">Celá ČR</option>
+											<option value="CZ010">Praha</option>
+											<option value="CZ031">Jihočeský</option>
+											<option value="CZ062">Jihomoravský</option>
+											<option value="CZ041">Karlovarský</option>
+											<option value="CZ052">Královéhradecký</option>
+											<option value="CZ051">Liberecký</option>
+											<option value="CZ080">Moravskoslezský</option>
+											<option value="CZ071">Olomoucký</option>
+											<option value="CZ053">Pardubický</option>
+											<option value="CZ032">Plzeňský</option>
+											<option value="CZ020">Středočeský</option>
+											<option value="CZ042">Ústecký</option>
+											<option value="CZ061">Vysočina</option>
+											<option value="CZ072">Zlínský</option>
+										</select>
+										<input class="bold" type="submit" value="#{seek}" />
+									</p>
+									<input type="hidden" name="sourceid" id="sourceid" value="firefoxhp" />
+								</form>
+							</div>
+						</div>
+
+						<div id="maps">
+							<h2><a href="http://mapy.#{_tld}/">#{maps}<span class="no-display"> - #{maps_hidden}</span></a></h2>
+							<div class="sbox">
+								<form action="#{SERVER_MAPY_URL}" method="get" id="maps-f">
+									<p>
+										<input value="" type="text" id="maps-field" name="query" size="50" />
+										<input type="submit" class="button" value="#{seek}" />
+									</p>
+									<input type="hidden" name="sourceid" id="sourceid" value="firefoxhp" />
+								</form>
+							</div>
+						</div>
+
+						<div id="dict">
+							<h2><a href="http://slovnik.seznam.#{_tld}/">#{dict}<span class="no-display"> - #{dict_hidden}</span></a></h2>
+							<div class="sbox">
+								<form action="#{SERVER_SLOVNIK_URL}" method="get" id="dict-f">
+									<p>
+										<input type="hidden" id="src_trg" name="src_trg" value="en_cz" />
+										<input value="" type="text" id="dict-field" name="word" size="55"/>
+
+										<input type="submit" class="button" value="#{dict_czToEn}" onclick="this.form.src_trg.value = 'cz_en'" />
+										<input type="submit" class="button" value="#{dict_enToCz}" onclick="this.form.src_trg.value = 'en_cz'" />
+									</p>
+									<p><a class="go" href="http://slovnik.seznam.#{_tld}/" onclick="if (document.getElementById('dict-field').value!=''){ document.getElementById('dict-f').submit(); return false; }">#{dict_more_lang}</a></p>
+									<input type="hidden" name="sourceid" id="sourceid" value="firefoxhp" />
+								</form>
+
+							</div>
+						</div>
+
+						<div id="goods">
+							<h2><a href="http://zbozi.seznam.#{_tld}/">#{goods}<span class="no-display"> - #{goods_hidden}</span></a></h2>
+							<div class="sbox">
+								<form action="#{SERVER_GOODS_URL}" method="get" id="goods-f">
+									<p>
+										<input value="" type="text" id="goods-field" name="q" size="55"  />
+										<input type="submit" class="button" value="#{seek}" />
+									</p>
+								</form>
+							</div>
+						</div>
+
+						<div id="encyc">
+							<h2><a href="#{SERVER_ENCYCLOPEDY_URL}">#{encyc}<span class="no-display"> - #{encyc_hidden}</span></a></h2>
+							<div class="sbox">
+								<form action="#{SERVER_ENCYCLOPEDY_URL}/search" method="get" id="encyc-f">
+									<p>
+										<input value="" type="text" id="encyc-field" name="s" size="55" />
+										<input type="submit" class="button" value="#{seek}" />
+									</p>
+									<input type="hidden" name="sourceid" id="sourceid" value="firefoxhp" />
+								</form>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<div class="bottom"></div>
+		</div>
+
+		<!--- snippets --->
+		<div id="snippet">
+
+			<div class="tip">
+				<img class="bulb" src="${.scheme}://1.im.cz/homepage/img/ff/light.gif" width=40 height=50 alt="" />
+				<p>
+				<?teng if $.snippet == 0?>
+					Na stránkách <a href="http://update.mozilla.org/">update.mozilla.org</a> najdete
+					přes 100 motivů vzhledu a rozšíření, kterými si můžete Firefox ještě vylepšit.
+				<?teng elseif $.snippet == 1?>
+					Do vyhledávacího pole Firefoxu může být nainstalováno až přes 100
+					<a href="http://update.mozilla.org/">vyhledávačů</a> umožňujících rychlý přístup k serverům jako Google, Seznam nebo Centrum.
+				<?teng elseif $.snippet == 2?>
+					Pomocí aktuálních záložek si můžete prohlížet RSS kanály vašich oblíbených serverů a weblogů.
+					<a href="http://www.mozilla-europe.org/cs/products/firefox/live-bookmarks/">Více o aktuálních záložkách</a>.
+				<?teng elseif $.snippet == 3?>
+					Navigační lištu a lištu Záložek můžete upravit klepnutím pravým tlačítkem myši na lištu
+					a vybráním "Vlastní..."
+				<?teng elseif $.snippet == 4?>
+					Naučte se používat klávesové zkratky. Ctrl+T otevře nový panel, Ctrl+B otevře Záložky, přes Ctrl+H nahlédnete do Historie
+					a Ctrl+K vás přesune do vyhledávací lišty. <a href="http://firefox.czilla.cz/otazky/klavesove-zkratky/">Více o klávesových zkratkách</a>.
+				<?teng elseif $.snippet == 5?>
+					Naučte se používat klávesové zkratky. Pomocí Ctrl+Tab nebo Ctrl+PgDn se můžete pohybovat mezi panely, Ctrl+L vás přesune do adresního řádku,
+					a Ctrl+M otevře novou poštovní zprávu. <a href="http://firefox.czilla.cz/otazky/klavesove-zkratky/">Více o klávesových zkratkách</a>.</font>
+				<?teng elseif $.snippet == 6?>
+					Líbí se Vám Firefox? Pomožte ho rozšířit mezi ostatní tím, že přidáte na své stránky
+					<a href="http://firefox.czilla.cz/propagace/">banner nebo tlačítko</a> Firefox.
+				<?teng elseif $.snippet == 7?>
+					Chcete doporučit Firefox svým přátelům? Ukažte jim stránky
+					<a href="http://firefox.czilla.cz/">Přejděte na Firefox</a>.
+				<?teng elseif $.snippet == 8?>
+					Líbí se Vám Firefox? Řekněte o něm ostatním, poskytněte příspěvek nebo se
+					<a href="http://www.czilla.cz/get-involved.html">zapojte přímo do projektu</a>.
+				<?teng else?>
+					Máte už dost spamu?
+					<a href="http://www.mozilla-europe.org/cs/products/thunderbird/">Vyzkoušejte Thunderbird</a>, poštovní program,
+					který dělá Firefoxu perfektního společníka.
+				<?teng endif?>
+				</p>
+			</div>
+
+			<div class="links">
+				<ul>
+					<li><a href="http://www.mozilla-europe.org/cs/products/firefox/start/central.html">O Firefoxu</a></li>
+					<li><a href="http://www.mozilla-europe.org/cs/products/firefox/start/about.html">O Mozille</a></li>
+					<li><a href="http://www.mozillastore.com/">CD a další zboží</a></li>
+					<li><a href="http://www.mozilla-europe.org/cs/contribute/">Podpořte Mozillu</a></li>
+				</ul>
+			</div>
+
+		</div>
+
+	</div>
+
+	<?teng format space="noformat"?>
+	<?teng if isenabled("debug")?>
+	<pre style=" text-align:left; border:2px solid #a0a0a0; padding:8px; background:#efefef; color:#33cc00; font-family:sans; font-size:12px;">
+		<?teng debug?>
+	</pre>
+	<?teng endif?>
+	<?teng endformat?>
+
+	<!-- (C)2000-2012 Gemius SA - gemiusAudience / homepage_Seznam.cz / HP_Seznam_Firefox -->
+	<script type="text/javascript">
+	
+	var pp_gemius_identifier = new String('py1FX3NFtdf95uzxhOhECXYZLaA15MO4Qclcu1302HD.W7');
+	var pp_gemius_extraparameters = new Array('gA=seznam.cz/homepage_Seznam.cz/HP_Seznam_Firefox');
+	
+
+	function gemius_pending(i) { window[i] = window[i] || function() {var x = window[i+'_pdata'] = window[i+'_pdata'] || []; x[x.length]=arguments;};};
+	gemius_pending('gemius_hit'); gemius_pending('gemius_event'); gemius_pending('pp_gemius_hit'); gemius_pending('pp_gemius_event');
+	(function(d,t) {try {var gt=d.createElement(t),s=d.getElementsByTagName(t)[0]; gt.setAttribute('async','async'); gt.setAttribute('defer','defer'); gt.src='https://gacz.hit.gemius.pl/xgemius.js'; s.parentNode.insertBefore(gt,s);} catch (e) {}})(document,'script');
+
+
+	</script>
+
+
+<?teng endformat?>
+</html>

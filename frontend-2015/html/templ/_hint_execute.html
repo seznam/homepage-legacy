@@ -1,0 +1,31 @@
+<?teng frag hint?>
+		<?teng frag hint?>
+			<!--- hinty pro uzivatele kulate rozky pres window v js --->
+			<div id="hint-cont">
+				<div id="hint-dog"></div>
+				<div id="hint-arrow"></div>
+				<div id="hint"${$kind == 1 ? ' class="add-hint"':''}>
+					<div class="body">
+						<span id="hint-body">${unescape($body)}</span>
+
+						<?teng if $kind == 1?>
+							<style type="text/css">
+                                #hint-form button {background: none !important; border: none; cursor: pointer;
+												  display: inline; font: inherit; margin: 6px 0; padding: 0;
+												  outline: none; outline-offset: 0;}
+								#gadget_link span {color: #7774D2; font: inherit; text-decoration: underline !important;}
+							</style>
+
+							<form id="hint-form" method="post" action="/jsHintExecute?id=${id}">
+								<span>
+									<button type="submit" id="gadget_link"><span>${arg2}</span></button>
+								</span>
+							</form>
+						<?teng endif?>
+					</div>
+					<a id="hint-close" href="/closeWave">Zavřít</a>
+				</div>
+				<div class="clear"></div>
+			</div>
+		<?teng endfrag?>
+	<?teng endfrag?>

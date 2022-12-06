@@ -1,0 +1,27 @@
+ <div class="election <?teng if $data_source =~ 'news' ?>online<?teng endif ?>">
+	<span class="title-election">${title}</span>
+	<div class="graf">
+		<?teng frag party ?>
+			<?teng if $_first ?>
+				<?teng set .winner = $rate ?>
+			<?teng endif?>
+			<?teng set .val = (50*$rate)/$.winner ?>
+			<div class="party">
+				<span class="col" style="background:${color}; height:${$.val}px; margin-top: ${50 - $.val}px"></span>
+				<span class="info">
+					<span class="percent"> ${replace($rate,".",",")}%</span>
+					<span class="name">${name}</span>
+				</span>
+			</div>
+		<?teng endfrag?>
+		<div class="clear"></div>
+	</div>
+	<?teng frag source?>
+		<span class="source">Zdroj: <a href="${href}">${title}</a></span>
+	<?teng endfrag ?>
+	<h4 class="more-news"><a href="<?teng if $link !~ '' && exist(link)?>${link}<?teng else?>http://www.novinky.cz/domaci/volby2013/<?teng endif?>">Volební speciál 2013 &raquo;</a></h4>
+	<div class="clear"></div>
+	<?teng if $data_source =~ 'fantasy' ?>
+		<h4 class="fantasy-news"><a href="http://fantasy.novinky.cz">Fantasy volby &raquo;</a></h4>
+	<?teng endif ?>
+</div>

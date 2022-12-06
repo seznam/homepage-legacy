@@ -1,0 +1,172 @@
+<!--- TV --->
+<?teng set ._serverUrlTV = defined(isOutage)? #OFFLINE_HANDLER : 'http://tv.seznam.'++#_tld ?>
+
+<?teng frag feed_tv?>
+<?teng set $.__tvType = $type?>
+<?teng if !exist(tip_item)?>
+	<?teng set $.__tvType = 'now'?>
+<?teng endif?>
+<?teng format space="onespace"?>
+	<div id="gadget-5" class="s_win" data-dot="gadgetTV">
+		<div class="gagdet-cont">
+			<div class="main-cont">
+				<h3 class="title s_win_title">
+					<span class="text entry-title">
+						<a href="${._serverUrlTV}">TV program</a>
+						<!---<?teng if $type =~ 'tips'?>
+							<span class="title-info">vybrané pořady</span>
+						<?teng else?>
+							<span class="title-info">právě běží</span>
+						<?teng endif?>--->
+
+					</span>
+
+					<span class="edit">
+						<?teng if exist(.tvgroup)?>
+							<?teng if $.userId > 0?>
+								<a href="/nastaveni-tv-programu" class="edit-text">Upravit</a>
+							<?teng endif?>
+						<?teng endif?>
+					</span>
+
+					<span class="bck"></span>
+				</h3>
+
+				<?teng if $.userId > 0 && exist(.tvgroup)?>
+					<div class="gadget-settings">
+						<div class="settings-cont">
+							<div class="settings-main">
+								<div class="setting-bck">
+									<div class="title-setting">
+										<?teng if $.userId > 0?>
+											<span class="close-win-img-span"><a href="#" class="close-win-img">Odebrat box</a></span>
+										<?teng endif?>
+										<span class="close-sett"><a href="" class="close-setting-link">Upravit</a></span>
+									</div>
+									<div class="setting-cont">
+										<form action="/">
+											<div class="row">
+												<input type="radio" id="tvTipDisabled1" ${$.tvTipDisabled == 0 ? ' checked="checked"' : ''} name="tvTipDisabled" value="1"/>
+												<label for="tvTipDisabled1">TV tip</label>
+											<br />
+												<input type="radio" id="tvTipDisabled0" ${$.tvTipDisabled == 1 ? ' checked="checked"' : ''} name="tvTipDisabled" value="0"/>
+												<label for="tvTipDisabled0">Právě běží</label>
+											</div>
+
+											<div class="tv-cont">
+												<h4>Právě běží - výběr TV stanic</h4>
+												<div class="tv-menu">
+													<ul>
+														<?teng frag .tvgroup?>
+															<li ${$_first ? 'class="sel"' : ''} id="grp_${id}">${@$name}</li>
+														<?teng endfrag?>
+													</ul>
+
+												</div>
+												<div class="tv-channels">
+												<?teng frag .tvgroup?>
+													<ul id="grplst_${id}"${$_first ? ' style="display:block"' : ''}>
+														<?teng frag tv?>
+														<li>
+															<input ${$selected ? 'checked="checked"': ''} type="checkbox" name="userTv" id="userTv${id}_${.tvgroup.id}" value="${id}" />
+															<label for="userTv${id}_${.tvgroup.id}">${name}</label>
+														</li>
+														<?teng endfrag?>
+													</ul>
+												<?teng endfrag?>
+												<div class="clear"></div>
+												</div>
+											</div>
+											<div class="clear"></div>
+											<div class="controls">
+												<input type="submit" name="" class="submit" value="Uložit nastavení" />
+												<input type="reset" name="" class="reset" value="Storno" />
+											</div>
+
+											<div class="next-settings">
+												<a href="/nove-nastaveni">Další nastavení Seznamu</a>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				<?teng endif?>
+
+				<div class="g-cnt s_win_area">
+					<div id="times"></div>
+					<div id="tv-cont">
+						<?teng if $.__tvType =~ 'tips'?>
+							<table class="tips" cellpadding="0" cellspacing="0">
+								<?teng frag tip_item?>
+									<tr data-dot="${$_number+1}">
+										<?teng if $_number == 0?>
+											<td class="top">
+												<div class="hlp">
+													<img  class="top-foto" src="${picture_url}" width="50" height="40" alt="" />
+													<div class="text-box">
+														<strong><a class="titl" data-dot="title" href="${exist(link) ? $link : '#'}" <?teng if $.userId > 0 ?>onclick="JAK.log(this, 'rss-title', '${$_number+1}', null, '${id}', '${.userId}')" <?teng endif?>>${title}</a></strong>
+														<span class="date">${date("%H:%M", $time_start)}</span>
+														<span class="channel">${channel_name}</span>
+														<span class="perex">${description}</span>
+													</div>
+												</div>
+											</td>
+										<?teng else?>
+											<td><div class="hlp"><a class="titl" href="${exist(link) ? $link : '#'}" <?teng if $.userId > 0 ?>onclick="JAK.log(this, 'rss-title', '${$_number+1}', null, '${id}', '${.userId}')" <?teng endif?>>${title}</a> <span class="date">${date("%H:%M", $time_start)}</span> <span class="channel">${channel_name}</span> <span class="perex">${description}</span></div></td>
+										<?teng endif?>
+									</tr>
+								<?teng endfrag?>
+							</table>
+						<?teng else?>
+							<?teng if exist(item)?>
+									<table cellpadding="0" cellspacing="0">
+										<?teng frag item?>
+											<tr>
+												<!---<td class="time">${date('%H:%M',$time)}</td>--->
+												<td  class="bars" title="Již uběhlo ${progress}% od začátku vysílání."><div class="proc-text">${date('%H:%M',$time)}</div><div class="bar"><div class="progres" style="width:${progress}%;"></div></div><div class="proc-text">${date('%H:%M',$timeTo)}</div></td>
+												<td><span class="tvlink" id="tv_${_number}_${channelId}_${date('%H-%M',$time)}_${id}">${substr($title,0,50,'','...')}</span> - ${channel}</td> <!--- ${$type =~ 'F' ? '- Film ' : ''} --->
+											</tr>
+										<?teng endfrag?>
+									</table>
+							<?teng elseif !exist(item)?>
+								<h4>Omlouváme se, náhled TV programu není v součané době dostupný. Zde však nabízíme kompletní <a href="${._serverUrlTV}">TV program</a>.</h4>
+							<?teng endif?>
+						<?teng endif?>
+						<a class="tv-all" href="${._serverUrlTV}">Celý TV program &raquo;</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?teng endformat?>
+	<!--- pomocna promena pro js --->
+	<?teng set $.__tvAvailable = 0?>
+	<?teng set $.__tvTipAvailable = 1?>
+	<?teng if exist(item) || exist(tip_item)?>
+		<?teng set $.__tvAvailable = 1?>
+	<?teng endif?>
+	<?teng if !exist(tip_item)?>
+		<?teng set $.__tvTipAvailable = 0?>
+	<?teng endif?>
+<?teng endfrag?>
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+	JAK.gadget5 = new JAK.Gadget('gadget-5','${feedId}');
+
+	<?teng if exist(.__tvAvailable) && $.__tvAvailable == 1?>
+		JAK.gadget5.extGadg = new JAK.TvProgram('gadget-5','${feedId}','${.__tvType}', ${.__tvTipAvailable});
+	<?teng endif ?>
+
+	JAK.gadgetManager.addItem(JAK.gadget5);
+
+	<?teng if $.userId > 0 && exist(.__tvAvailable) && $.__tvAvailable == 1?>
+		JAK.gadget5.extSetting = new JAK.Gadget.TvSetting('${feedId}',JAK.gadget5);
+	<?teng endif ?>
+/* ]]> */
+</script>
+
+

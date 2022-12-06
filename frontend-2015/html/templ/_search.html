@@ -1,0 +1,436 @@
+<div id="search-cnt">
+	<div class="window-container">
+		<div class="window-content">
+			<div id="search" data-dot="search">
+				<h1>
+				<?teng if exist(.logo)?>
+					<?teng frag .logo?>
+						<?teng if $_number == 0?>
+							<?teng set _title = "Seznam" ?>
+							<?teng if exist(name) && $name !~ "" ?>
+								<?teng set _title = $name ?>
+							<?teng endif ?>
+							<?teng if $picture2Url && (($.skinId == 0 && $.skinCustomOpacity == 1) || (#_tld =~ "cz" && $.skinId >= 20 && $.skinId <= 25) || (#_tld !~ "cz" && ($.skinId >= 953 && $.skinId <= 957 || $.skinId == 974))) ?>
+								<a accesskey="2" href="${$url ? $url : #SERVICE_LOGO_LINK}"><span id="seznam-logo"><img src="#{PATH_FAVICO_LOGO}/${picture2Url}" width="${width}" height="${height}" alt="${_title}" title="${_title}" /></span></a>
+							<?teng else ?>
+								<?teng if $pictureUrl && $picture2Url && $picture3Url ?>
+									<?teng if $.device =~ "desktop" ?>
+										<!--- Animovane logo na hover event --->
+										<a accesskey="2" href="${$url ? $url : #SERVICE_LOGO_LINK}"><span id="seznam-logo"><img src="#{PATH_FAVICO_LOGO}/${pictureUrl}" width="${width}" height="${height}" alt="${_title}" title="${_title}" /></span></a>
+									<?teng else ?>
+										<a accesskey="2" href="${$url ? $url : #SERVICE_LOGO_LINK}"><span id="seznam-logo"><img src="#{PATH_FAVICO_LOGO}/${picture2Url}" width="${width}" height="${height}" alt="${_title}" title="${_title}" /></span></a>
+									<?teng endif ?>
+								<?teng else ?>
+									<a accesskey="2" href="${$url ? $url : #SERVICE_LOGO_LINK}"><span id="seznam-logo"><img src="#{PATH_FAVICO_LOGO}/${$pictureUrl ? $pictureUrl : '/logo_'++$id++'.png'}" width="${width}" height="${height}" alt="${_title}" title="${_title}" /></span></a>
+								<?teng endif ?>
+							<?teng endif ?>
+						<?teng endif?>
+						<?teng if $_number == 1?>
+							<?teng set _title = "Seznam" ?>
+							<?teng if exist(name) && $name !~ "" ?>
+								<?teng set _title = $name ?>
+							<?teng endif ?>
+							<script type="text/javascript">
+							/* <![CDATA[ */
+								JAK.logoLoader = new JAK.LogoLoader("#{PATH_FAVICO_LOGO}/${$pictureUrl ? $pictureUrl : '/logo_'++$id++'.png'}", '${_title}');
+							/* ]]> */
+							</script>
+						<?teng endif?>
+					<?teng endfrag?>
+				<?teng else?>
+					<a accesskey="2" href="#{SERVICE_LOGO_LINK}"><span id="seznam-logo"><img src="#{PATH_IMG_2011}/#{SERVICE_LOGO}#{VERSION}" width="#{SERVICE_LOGO_WIDTH}" height="#{SERVICE_LOGO_HEIGHT}" alt="Seznam" title="Seznam" /></span></a>
+				<?teng endif?>
+				</h1>
+
+				<div id="search-cnt-inner">
+					<!--- hledaci zalozky --->
+					<?teng frag .searches?>
+						<ul id="tabs">
+							<?teng frag search?>
+								<?teng if $_number+1 <= #SEARCH_TAB_COUNT?>
+									<?teng if $searchId == 1?>
+										<li id="t-inet" ${$_number == 0 ? 'class="active"' :''}><span><a data-dot="internet" href="${serviceUrl}" class="no-redirect">${title}</a></span></li>
+									<!--- Firmy --->
+									<?teng elseif $searchId == 2?>
+										<li id="t-firms" ${$_number == 0 ? 'class="active"' :''}><span><a data-dot="firmy" href="${serviceUrl}" class="no-redirect">${title}</a></span></li>
+									<!--- Mapy --->
+									<?teng elseif $searchId == 3?>
+										<li id="t-maps" ${$_number == 0 ? 'class="active"' :''}><span><a data-dot="mapy" href="${serviceUrl}" class="no-redirect">${title}</a></span></li>
+									<!--- Zbozi --->
+									<?teng elseif $searchId == 4?>
+										<li id="t-goods-small" ${$_number == 0 ? 'class="active"' :''}><span><a data-dot="zbozi" href="${serviceUrl}" class="no-redirect">${title}</a></span></li>
+									<!--- Obrazky --->
+									<?teng elseif $searchId == 5?>
+										<li id="t-pics" ${$_number == 0 ? 'class="active"' :''}><span><a data-dot="obrazky" href="${serviceUrl}" class="no-redirect">${title}</a></span></li>
+									<!--- Slovnik --->
+									<?teng elseif $searchId == 6?>
+										<li id="t-dict" ${$_number == 0 ? 'class="active"' :''}><span><a data-dot="slovnik" href="${serviceUrl}" class="no-redirect">${title}</a></span></li>
+									<!--- Encyklopedie --->
+									<?teng elseif $searchId == 7?>
+										<li id="t-encyc" ${$_number == 0 ? 'class="active"' :''}><span><a data-dot="encyklopedie" href="${serviceUrl}" class="no-redirect">${title}</a></span></li>
+									<!--- Video --->
+									<?teng elseif $searchId == 1374?>
+										<li id="t-video" ${$_number == 0 ? 'class="active"' :''}><span><a data-dot="video" href="${serviceUrl}" class="no-redirect">${title}</a></span></li>
+									<!--- Ostatni --->
+									<?teng else?>
+										<li id="t-other${_number}" ${$_number == 0 ? 'class="active"' :''}><span><a data-dot="ostatni" href="${serviceUrl}" class="no-redirect">${title}</a></span></li>
+									<?teng endif?>
+								<?teng endif?>
+							<?teng endfrag?>
+							<!---<li id="t-moreSearch"><span><a href="#" class="no-redirect">další</a></span></li>--->
+						</ul>
+
+					<?teng endfrag?>
+
+					<?teng format space="joinlines"?>
+					<!--- jednotlive hledaci boxy --->
+					<div id="search-boxes">
+						<!--- specialni mereni vyhledavani - pro potreby nove homepage --->
+						<script type="text/javascript">
+							(function() {
+								var ENTER_CODE = 13;
+
+								var searchAnalytics = {
+
+									_dom: {
+										forms: []
+									},
+
+									_targets: [],
+
+									init: function() {
+										JAK.signals.addListener(this, "suggest-mouse", this._processSuggest.bind(this));
+										JAK.signals.addListener(this, "suggest-touch", this._processSuggest.bind(this));
+									},
+
+									registerForm: function(formElm, target) {
+										this._dom.forms.push(formElm);
+										this._targets.push(target);
+
+										var formInput = formElm.querySelector(".shadow");
+											JAK.Events.addListener(formInput, "keydown", this._processKey.bind(this));
+
+										var formSubmit = formElm.querySelector("button[type=submit]");
+											JAK.Events.addListener(formSubmit, "mousedown", this._processMousedown.bind(this));
+									},
+
+									_processMousedown: function(e, elm) {
+										this._hitAction("mousedown", elm);
+									},
+
+									_processKey: function(e, elm) {
+										if (e.keyCode != ENTER_CODE) { return; }
+										this._hitAction("keydown", elm);
+									},
+
+									_processSuggest: function(e) {
+										var data = e.data;
+										var elm = data.elm;
+
+										this._hitAction("suggest", elm);
+									},
+
+									_hitAction: function(type, elm) {
+										if (!window.DOT) { return; }
+
+										if (elm.tagName.toLowerCase() != "form") {
+											while(elm) {
+												elm = elm.parentNode;
+												if (elm.tagName.toLowerCase() == "form") { break; }
+											}
+										}
+
+										var index = this._dom.forms.indexOf(elm);
+										var target = this._targets[index];
+
+										if (index < 0) { return; } /* neco se posralo, tak radsi nehitneme */
+
+										window.DOT.hit("event", {
+											d: {
+												action: "search",
+												searchType: type,
+												searchTarget: target
+											}
+										});
+									}
+								};
+
+								window.searchAnalytics = searchAnalytics;
+								window.searchAnalytics.init();
+							})();
+						</script>
+						<!--- konec - specialni mereni vyhledavani - pro potreby nove homepage --->
+						<?teng frag .searches?>
+							<?teng frag search?>
+								<?teng if $_number+1 <= #SEARCH_TAB_COUNT?>
+									<!--- Internet --->
+									<?teng if $searchId == 1?>
+										<div id="inet" ${$_number == 0 ? 'class="active"' :''}>
+											<div class="sbox">
+												<form action="#{SERVER_SEARCH_URL}" id="inet-f" class="invBold">
+													<div class="containerInput">
+														<label for="inet-field" class="blind">Hledej v internetu:</label>
+														<input accesskey="4" type="text" id="inet-field" class="shadow" name="q" size="65" ${$.suggest == 1 ? 'autocomplete="off"' : ''} />
+														<div class="suggest-container"></div>
+													</div>
+													<span class="containerButton">
+														<button id="hledej" class="button" type="submit">#{seek}</button>
+													</span>
+													<input type="hidden" name="sourceid" value="szn-HP" />
+													<span class="clear"></span>
+
+													<?teng if #BLIND_FRIENDLY == 1?>
+														<span class="blind">
+															<input id="bf" type="checkbox" name="blindFriendly" value="1" />
+															<label for="bf">přístupná verze</label>
+														</span>
+													<?teng endif?>
+												</form>
+											</div>
+											<script type="text/javascript">
+												searchAnalytics.registerForm(document.querySelector("#inet-f"), "fulltext");
+												intiSearchId();
+											</script>
+										</div>
+									<!--- Firmy --->
+									<?teng elseif $searchId == 2?>
+										<div id="firms" ${$_number == 0 ? 'class="active"' :''}>
+											<div class="sbox">
+												<form action="#{SERVER_COMPANY_URL}" id="firms-f" class="invBold">
+													<div class="containerInput">
+														<label for="firms-field" class="blind">Hledej ve firmách: </label>
+														<input value="" type="text" id="firms-field" class="shadow" name="q" size="65" ${$.suggest == 1 ? 'autocomplete="off"' : ''} />
+														<div class="suggest-container"></div>
+													</div>
+													<span class="containerButton">
+														<button id="hledej" class="button" type="submit">#{seek}</button>
+													</span>
+												</form>
+											</div>
+											<script type="text/javascript">
+												searchAnalytics.registerForm(document.querySelector("#firms-f"), "firmy");
+												var firms = new JAK.Search("firms-f","firms-field");
+											</script>
+										</div>
+									<!--- Mapy --->
+									<?teng elseif $searchId == 3?>
+										<div id="maps" ${$_number == 0 ? 'class="active"' :''}>
+											<div class="sbox">
+												<form action="#{SERVER_MAPY_URL}" method="get" id="maps-f" class="invBold">
+													<div class="containerInput">
+														<label for="maps-field" class="blind">Hledej v mapách: </label>
+														<input value="" type="text" id="maps-field" class="shadow" name="query" size="50" ${$.suggest == 1 ? 'autocomplete="off"' : ''} />
+														<div class="suggest-container"></div>
+													</div>
+													<span class="containerButton">
+														<button id="hledej" class="button" type="submit">#{seek}</button>
+													</span>
+												</form>
+											</div>
+											<script type="text/javascript">
+												searchAnalytics.registerForm(document.querySelector("#maps-f"), "mapy");
+											</script>
+										</div>
+									<!--- Zbozi --->
+									<?teng elseif $searchId == 4?>
+										<div id="goods" ${$_number == 0 ? 'class="active"' :''}>
+											<div class="sbox">
+												<form action="#{SERVER_GOODS_URL}" method="get" id="goods-f" class="invBold">
+													<div class="containerInput">
+														<label for="goods-field" class="blind">Hledej ve zboží: </label>
+														<input value="" type="text" id="goods-field" class="shadow" name="q" size="55" ${$.suggest == 1 ? 'autocomplete="off"' : ''} />
+														<div class="suggest-container"></div>
+													</div>
+													<span class="containerButton">
+														<button id="hledej" class="button" type="submit">#{seek}</button>
+													</span>
+													<input type="hidden" name="thru" id="thrug" value="" />
+													<?teng if #NEW_GOOD_CATEGORIES == 1?>
+														<?teng if exist(.variant) && $.variant =~ 'A' && $.userId <=0 ?>
+															<div id="g-categories" data-dot="zbozi-kat">
+																<h4>Zadejte název zboží nebo si vyberte z kategorií</h4>
+																<ul>
+																	<li><a href="http://www.zbozi.#{_tld}/auto-moto/?categoryId=443&r=web&thru=&catOrder=relevance&sId=KsfhBe-nw8ZEjnsEZVab">Auto-moto</a></li>
+																	<li><a href="http://www.zbozi.#{_tld}/detske-zbozi/?categoryId=380&r=web&thru=&catOrder=relevance&sId=KsfhBe-nw8ZEjnsEZVab">Dětské zboží</a></li>
+																	<li><a href="http://www.zbozi.#{_tld}/domaci-spotrebice/?categoryId=161&r=web&thru=&catOrder=relevance&sId=KsfhBe-nw8ZEjnsEZVab">Domácí spotřebiče</a></li>
+																	<li><a href="http://www.zbozi.#{_tld}/dum-byt-a-zahrada/?categoryId=629&r=web&thru=&catOrder=relevance&sId=KsfhBe-nw8ZEjnsEZVab">Dům, byt a zahrada</a></li>
+																	<li><a href="http://www.zbozi.#{_tld}/elektronika/?categoryId=19&r=web&thru=&catOrder=relevance&sId=KsfhBe-nw8ZEjnsEZVab">Elektronika</a></li>
+																	<li><a href="http://www.zbozi.#{_tld}/foto/?categoryId=1&r=web&thru=&catOrder=relevance&sId=KsfhBe-nw8ZEjnsEZVab">Foto</a></li>
+																</ul>
+																<ul>
+																	<li><a href="http://www.zbozi.#{_tld}/kosmetika-a-zdravi/?categoryId=298&r=web&thru=&catOrder=relevance&sId=KsfhBe-nw8ZEjnsEZVab">Kosmetika a zdraví</a></li>
+																	<li><a href="http://www.zbozi.#{_tld}/obleceni-a-moda/?categoryId=245&r=web&thru=&catOrder=relevance&sId=KsfhBe-nw8ZEjnsEZVab">Oblečení a móda</a></li>
+																	<li><a href="http://www.zbozi.#{_tld}/pocitace/?categoryId=84&r=web&thru=&catOrder=relevance&sId=KsfhBe-nw8ZEjnsEZVab">Počítače</a></li>
+																	<li><a href="http://www.zbozi.#{_tld}/sport/?categoryId=461&r=web&thru=&catOrder=relevance&sId=KsfhBe-nw8ZEjnsEZVab">Sport</a></li>
+																	<li><a href="http://www.zbozi.#{_tld}/telefony-navigace/?categoryId=69&r=web&thru=&catOrder=relevance&sId=KsfhBe-nw8ZEjnsEZVab">Telefony, navigace</a></li>
+																	<li><a href="http://www.zbozi.#{_tld}/volny-cas/?categoryId=752&r=web&thru=&catOrder=relevance&sId=KsfhBe-nw8ZEjnsEZVab">Volný čas</a></li>
+																</ul>
+																<div class="clear"></div>
+															</div>
+														<?teng endif?>
+													<?teng endif?>
+												</form>
+											</div>
+											<script type="text/javascript">
+												searchAnalytics.registerForm(document.querySelector("#goods-f"), "zbozi");
+												var goods = new JAK.Search("goods-f","goods-field");
+											</script>
+										</div>
+									<!--- Obrazky --->
+									<?teng elseif $searchId == 5?>
+										<div id="pics" ${$_number == 0 ? 'class="active"' :''}>
+											<div class="sbox">
+												<form action="#{SERVER_PICS_URL}" method="get" id="pics-f" class="invBold">
+													<div class="containerInput">
+														<label for="pics-field" class="blind">Hledej v obrázcích: </label>
+														<input value="" type="text" id="pics-field" class="shadow" name="q" size="55" ${$.suggest == 1 ? 'autocomplete="off"' : ''} />
+														<div class="suggest-container"></div>
+													</div>
+													<span class="containerButton">
+														<button id="hledej" class="button" type="submit">#{seek}</button>
+													</span>
+												</form>
+											</div>
+											<script type="text/javascript">
+												searchAnalytics.registerForm(document.querySelector("#pics-f"), "obrazky");
+											</script>
+										</div>
+									<!--- Slovnik --->
+									<?teng elseif $searchId == 6?>
+										<div id="dict" ${$_number == 0 ? 'class="active"' :''}>
+											<div class="sbox">
+												<form action="#{SERVER_SLOVNIK_URL}" method="get" id="dict-f" class="invBold">
+													<div class="containerInput">
+														<span class="containerInput">
+															<label for="dict-field" class="blind">Hledej ve slovníku: </label>
+															<input value="" type="text" id="dict-field" class="shadow" name="q" size="55" ${$.suggest == 1 ? 'autocomplete="off"' : ''} />
+														</span>
+														<span class="containerInput">
+															<select id="lang" name="lang">
+																<option value="cz-en" selected="selected">Anglický</option>
+																<option value="cz-de">Německý</option>
+																<option value="cz-fr">Francouzský</option>
+																<option value="cz-it">Italský</option>
+																<option value="cz-es">Španělský</option>
+																<option value="cz-ru">Ruský</option>
+																<option value="cz-sk">Slovenský</option>
+															</select>
+														</span>
+														<div class="suggest-container"></div>
+													</div>
+													<span class="containerButton">
+														<button id="hledej" class="button" type="submit">Přeložit</button>
+													</span>
+												</form>
+											</div>
+											<script type="text/javascript">
+												searchAnalytics.registerForm(document.querySelector("#dict-f"), "slovnik");
+												JAK.SuperSelect.replaceAllSelects('dict');
+											</script>
+										</div>
+									<!--- Encyklopedie --->
+									<?teng elseif $searchId == 7?>
+										<div id="encyc" ${$_number == 0 ? 'class="active"' :''}>
+											<div class="sbox">
+												<form action="#{SERVER_ENCYCLOPEDY_URL}/search" method="get" id="encyc-f" class="invBold">
+													<div class="containerInput">
+														<label for="encyc-field" class="blind">Hledej v encyklopedii: </label>
+														<input value="" type="text" id="encyc-field" class="shadow" name="s" size="55" />
+														<div class="suggest-container"></div>
+													</div>
+													<span class="containerButton">
+														<button id="hledej" class="button" type="submit">#{seek}</button>
+													</span>
+												</form>
+											</div>
+											<script type="text/javascript">
+												searchAnalytics.registerForm(document.querySelector("#encyc-f"), "encyklopedie");
+											</script>
+										</div>
+									<!--- Video --->
+									<?teng elseif $searchId == 1374?>
+										<div id="video" ${$_number == 0 ? 'class="active"' :''}>
+											<div class="sbox">
+												<form action="#{SERVER_VIDEO_URL}" method="get" id="video-f" class="invBold">
+													<div class="containerInput">
+														<label for="video-field" class="blind">Hledej ve videích: </label>
+														<input value="" type="text" id="video-field" class="shadow" name="q" size="55" ${$.suggest == 1 ? 'autocomplete="off"' : ''} />
+														<div class="suggest-container"></div>
+													</div>
+													<span class="containerButton">
+														<button id="hledej" class="button" type="submit">#{seek}</button>
+													</span>
+												</form>
+											</div>
+											<script type="text/javascript">
+												searchAnalytics.registerForm(document.querySelector("#video-f"), "video");
+											</script>
+										</div>
+									<!--- Ostatni --->
+									<?teng else?>
+										<div id="other${_number}" ${$_number == 0 ? 'class="active"' :''}>
+											<div class="sbox">
+												<form action="/userSearch" method="get" id="other${_number}-f" class="invBold">
+													<div class="containerInput">
+														<label for="other${_number}-field" class="blind">Hledej v ${title}: </label>
+														<input value="" type="text" id="other${_number}-field" class="shadow" name="q" size="55" />
+														<div class="suggest-container"></div>
+													</div>
+													<span class="containerButton">
+														<button id="hledej" class="button" type="submit">#{seek}</button>
+													</span>
+													<input value="${encoding}" type="hidden" name="encoding"  />
+													<input value="${url}" type="hidden" name="url"  />
+													<input value="${.hashId}" type="hidden" name="hashId" />
+												</form>
+											</div>
+											<script type="text/javascript">
+												searchAnalytics.registerForm(document.querySelector("#other${_number}-f"), "ostatni");
+											</script>
+										</div>
+									<?teng endif?>
+								<?teng endif?>
+							<?teng endfrag?>
+						<?teng endfrag?>
+					</div>
+				</div>
+				<?teng endformat?>
+
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+
+	<hr/>
+
+	<a name="over-menu"></a>
+</div>
+<?teng set $.__dogURL = ""?>
+<?teng set $.__dogURLClick = ""?>
+<?teng set $.__dogName = ""?>
+<?teng frag dog?>
+	<?teng if $pictureUrl =~ ''?>
+		<?teng set $.__dogURL = #PATH_FAVICO_DOG++"/dog_"++$id++".gif"?>
+	<?teng else?>
+		<?teng set $.__dogURL = #PATH_FAVICO_DOG++"/"++$pictureUrl?>
+	<?teng endif?>
+	<?teng set $.__dogURLClick = exist(url) ? $url : ''?>
+	<?teng set $.__dogName = exist(name) ? $name : ''?>
+<?teng endfrag?>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+	JAK.tabs.device = '${.device}';
+	JAK.tabs.init();
+	/*initSearchWindow(false, '${__dogURL}', '${__dogURLClick}', 'dog_${date("%u",now())}');*/
+	initDailyDog('${__dogURL}', 'dog_${date("%u",now())}', '${__dogURLClick}', '${__dogName}');
+/* ]]> */
+</script>
+
+<?teng if $.suggest == 1?>
+<script type="text/javascript">
+	/* <![CDATA[ */
+	initSuggests({suggestUrl: "/suggest"});
+	/* ]]> */
+</script>
+<?teng endif?>

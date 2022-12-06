@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="cs">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<title>Nastavit Seznam jako domovskou stránku</title>
+
+		<style type="text/css">
+html										{ height:100%; font-size:106.5%; }
+body										{ height:100%; margin:0px 0 8px 0; text-align:center; color:#000; font-size:76.5%; font-family:Arial, sans-serif;
+background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top, rgb(241,241,241) 0%, rgb(196,196,196) 50%, rgb(186,186,186) 50%, rgb(255,255,255) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(241,241,241)), color-stop(50%,rgb(196,196,196)), color-stop(50%,rgb(186,186,186)), color-stop(100%,rgb(255,255,255))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top, rgb(241,241,241) 0%,rgb(196,196,196) 50%,rgb(186,186,186) 50%,rgb(255,255,255) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top, rgb(241,241,241) 0%,rgb(196,196,196) 50%,rgb(186,186,186) 50%,rgb(255,255,255) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top, rgb(241,241,241) 0%,rgb(196,196,196) 50%,rgb(186,186,186) 50%,rgb(255,255,255) 100%); /* IE10+ */
+background: linear-gradient(top, rgb(241,241,241) 0%,rgb(196,196,196) 50%,rgb(186,186,186) 50%,rgb(255,255,255) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f1', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+
+background-repeat:no-repeat;
+}
+
+td											{ font-size:100%; _font-size /**/:76.5%; }
+h1, h2, h3, h4, h5,
+ p, ul, ol, li,
+ form 										{ padding:0; margin:0; }
+ select										{ font-size:100%; }
+img											{ vertical-align:top; border:none; margin:0; padding:0; }
+li											{ list-style-type:none; }
+
+hr											{ display:none; }
+
+a:link 										{ color:#de0000; }
+a:visited									{ color:#900; }
+a:hover										{ color:#300; }
+
+#monitor,
+.blind										{ position:absolute; top:-4000px; left:-4000px; width:1px; height:1px; overflow:hidden; } /*- pro nevidome -*/
+.gray										{ color:#ccc; }
+.clear										{ clear:both; overflow:hidden; height:1px; display:block; }
+
+#page										{ margin:3% 0 0 0; }
+#helper										{ width:1000px; position:relative; margin:0 auto; text-align:right; }
+#cont										{ z-index:1; position:relative; width:814px; padding-bottom:1em;  background:#fff; text-align:left; display:inline-block;
+
+border:solid 4px #e9e9e9;
+-moz-border-radius-topleft: 10px;
+-moz-border-radius-topright:10px;
+-moz-border-radius-bottomleft:10px;
+-moz-border-radius-bottomright:10px;
+-webkit-border-top-left-radius:10px;
+-webkit-border-top-right-radius:10px;
+-webkit-border-bottom-left-radius:10px;
+-webkit-border-bottom-right-radius:10px;
+border-top-left-radius:10px;
+border-top-right-radius:10px;
+border-bottom-left-radius:10px;
+border-bottom-right-radius:10px;
+
+border-bottom-color:#c9c9c9;
+border-top-color:#c9c9c9;
+border-left-color:#c9c9c9;
+border-right-color:#c9c9c9;
+
+box-shadow:0px 0px 10px #333;
+}
+#cont #logo									{ display:block; margin:2em auto 0 auto; }
+#cont #logo.airy							{ margin-top:6em; }
+#cont .hidden								{ display:none; }
+
+
+#dog										{ width:259px; height:437px; position:absolute; bottom:0; left:-55px; }
+#dog .head									{ background:url(/st/img/2011/set-hp-dog-head.png) no-repeat 0 0; height:196px; z-index:2; position:relative; }
+#dog .body									{ background:url(/st/img/2011/set-hp-dog-body.png) no-repeat -8px 0; height:247px;z-index:0; position:relative; }
+
+
+#cont #steps								{ margin-left:31px; }
+#cont #steps .step							{ float:left; width:250px; height:196px; background:url(/st/img/2011/set-hp-step.png) no-repeat 0 0; }
+#cont #steps .step .num						{ padding:12px 17px; color:#fff; font-size:135.5%; }
+#cont #steps .step p 						{ padding:5px 30px; line-height:1.4em; }
+#cont #steps .step p.chrome-icon			{ background:url(/st/img/2011/set-hp-chrome.png) no-repeat 75% 18%; }
+#cont #steps .step p.ie-icon				{ background:url(/st/img/2011/set-hp-ie.jpg) no-repeat 75% 18%; }
+#cont #gecko								{ text-align:center; position:relative; }
+#cont #gecko #draglogo						{ line-height:37px; vertical-align:middle; }
+#cont #gecko .desc							{ padding:55px 0 90px; font-size:150%; }
+#cont #listicka								{ clear:both; padding:17px 0 12px 0; text-align:center; font-size:110%; }
+#cont #listicka a							{ color:#03c; }
+
+#cont #ie									{ text-align:center; margin:3em 0; }
+#cont #ie button							{ color:#fff;
+
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+-ms-border-radius: 10px;
+border-radius: 10px;
+
+border:none; width:25em; font-size:195.5%; cursor:pointer;
+background: url(/st/img/2011/hp-set-grad.png) repeat-x 0 0;  padding:8px 0 15px 0;
+}
+
+#cont #nojs								{ text-align:center; }
+
+		</style>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_COMMON}#{VERSION}"></script>
+		<script type="text/javascript">
+			if(typeof Homepage != "object") {
+				Homepage = {};
+			};
+			Homepage.CONF = {};
+			Homepage.CONF.SERVICE_URL = '#{SERVICE_URL}';
+			HP = {};
+			HP.HPSetter = JAK.ClassMaker.makeClass({
+				NAME: "HPSetter",
+				VERSION: "1.0"
+			})
+			HP.HPSetter.prototype.$constructor = function () {
+				this.ua = JAK.Browser.client;
+				this.boxes = {chrome: JAK.gel('chrome'), opera: JAK.gel('opera'), gecko: JAK.gel('gecko'), ie: JAK.gel('ie'), newie: JAK.gel('newie'), safari: JAK.gel('safari')};
+				this._init();
+			}
+
+			HP.HPSetter.prototype._init = function () {
+				var b = this.boxes[this.ua];
+				if (b) {
+					JAK.DOM.removeClass(b, 'hidden');
+				}
+
+				if (this.ua == 'ie') {
+					this._link = JAK.gel("set-hp-button");
+					this._link.style.behavior='url(#default#homepage)';
+					if ("setHomePage" in this._link) {
+						JAK.Events.addListener(this._link, "click", this, this.setHP);
+					} else {
+						JAK.DOM.addClass(b, 'hidden');
+						JAK.DOM.removeClass(this.boxes["newie"], 'hidden');
+					}
+				}
+
+				if (this.ua == 'gecko') {
+					JAK.DOM.addClass(JAK.gel("logo"), "airy");
+				}
+
+				if (this.ua == 'chrome' && JAK.Browser.platform == 'win') {
+					JAK.DOM.removeClass(JAK.gel('listicka'), 'hidden');
+				}
+			}
+
+			HP.HPSetter.prototype.setHP = function (e, elm) {
+				JAK.Events.cancelDef(e);
+				elm.setHomePage(Homepage.CONF.SERVICE_URL);
+			};
+
+			HP.HPSetter.prototype.isHP = function () {
+				if (JAK.Browser.client == 'ie') {
+					var link = JAK.gel('set-as-HP-link');
+					link.style.behavior = 'url(#default#homepage)';
+				}
+			};
+
+		</script>
+		<meta content="Nastavte si Seznam.cz jako domovskou stránku. Budete pak mít snadný a rychlý přístup k vyhledávání, Emailu, aktuálním zprávám, předpovědi počasí atd." name="description" />
+	</head>
+	<body class="${.scheme}">
+		<div id="page">
+			<div id="helper">
+				<div id="cont">
+					<img src="#{PATH_IMG}/2011/set-hp-logo.jpg" alt="" id="logo" />
+					<!--- chrome --->
+					<div id="chrome" class="hidden">
+						<ul id="steps">
+							<li class="step">
+								<div class="num">1</div>
+								<p class="chrome-icon">
+								Klikněte na ikonu<br />
+								v pravém horním rohu<br />
+								prohlížeče.
+								</p>
+							</li>
+
+							<li class="step">
+								<div class="num">2</div>
+								<p>
+									Zvolte <strong>Nastavení</strong>
+								</p>
+							</li>
+
+							<li class="step">
+								<div class="num">3</div>
+								<p>
+								V sekci <strong>Vzhled</strong> (ve starších<br />
+								verzích prohlížeče sekce<br />
+								<strong>Základní</strong>) zaškrtněte <strong>Zobrazit<br />
+								tlačítko Domovská stránka</strong> a<br />
+								vyberte <strong>Změnit</strong> a zadejte<br />
+								Otevřít tuto stránku:<br />
+								<a href="http://www.seznam.#{_tld}">http://www.seznam.cz</a>
+								</p>
+							</li>
+						</ul>
+						<p id="listicka" class="hidden"><a href="https://download.seznam.#{_tld}/listicka/listicka-chrome.exe">Nainstalujte si lištičku s přednastavenou domovskou stránkou Seznam.cz</a></p>
+					</div>
+
+					<!--- safari --->
+					<div id="safari" class="hidden">
+						<ul id="steps">
+							<li class="step">
+								<div class="num">1</div>
+								<p>
+								Rozbalte menu
+								</p>
+							</li>
+
+							<li class="step">
+								<div class="num">2</div>
+								<p>
+									Vyberte <strong>Předvolby</strong>
+								</p>
+							</li>
+
+							<li class="step">
+								<div class="num">3</div>
+								<p>
+									Na záložce <strong>Obecné</strong> vepište do pole pro domovskou stránku <a href="http://www.seznam.#{_tld}">www.seznam.cz</a> a je hotovo.
+								</p>
+							</li>
+						</ul>
+					</div>
+
+
+					<!--- opera --->
+					<div id="opera" class="hidden">
+						<ul id="steps">
+							<li class="step">
+								<div class="num">1</div>
+								<p>
+									Rozbalte Opera menu.
+								</p>
+							</li>
+
+							<li class="step">
+								<div class="num">2</div>
+								<p>
+									Vyberte <strong>Nástroje > Nastavení</strong>
+								</p>
+							</li>
+
+							<li class="step">
+								<div class="num">3</div>
+								<p>
+								V záložce <strong>Základní údaje</strong><br />
+								vypište do pole <strong>Domovská <br />stránka:</strong>
+								<a href="">http://www.seznam.cz</a><br />
+								a stiskněte OK.
+
+								</p>
+							</li>
+						</ul>
+					</div>
+
+					<!--- firefox --->
+					<div id="gecko" class="hidden">
+						<p class="desc">Přetáhněte tuto ikonu
+						<a id="draglogo" href="#{SERVICE_URL}"><img src="#{PATH_IMG}/2011/set-hp-ff-logo.png"/></a>
+						na ikonu domečku ve vašem prohlížeči</p>
+					</div>
+
+					<!--- explorer --->
+					<div id="ie" class="hidden">
+						<button id="set-hp-button"><span>Klikněte sem a je hotovo!</span></button>
+					</div>
+
+					<!--- internet explorer, který neumí setHomepage (asi ie10, ie11) --->
+					<div id="newie" class="hidden">
+						<ul id="steps">
+							<li class="step">
+								<div class="num">1</div>
+								<p class="ie-icon">
+								Klikněte na ikonu<br />
+								v pravém horním rohu<br />
+								prohlížeče.
+								</p>
+							</li>
+
+							<li class="step">
+								<div class="num">2</div>
+								<p>
+									Zvolte <strong>Možnosti internetu</strong>
+								</p>
+							</li>
+
+							<li class="step">
+								<div class="num">3</div>
+								<p>
+								Na kartě <strong>Obecné</strong> zadejte do části <strong>Domovská stránka</strong> adresu <a href="http://www.seznam.#{_tld}">http://www.seznam.#{_tld}</a>.<br />
+								Klikněte na tlačítko <strong>Použít</strong> a potom na tlačítko <strong>OK</strong>.
+								</p>
+							</li>
+						</ul>
+					</div>
+
+					<noscript>
+						<div id="nojs">
+							<img src="#{PATH_IMG}/2011/set-hp-nojs.png" width="729" height="218" alt="" usemap="#nojsmap" />
+							<map id=nojsmap" name="nojsmap">
+								<area shape="rect" coords="38,59,158,181" href="http://napoveda.seznam.#{_tld}/cz/nastaveni-domovske-stranky-firefox-4.html" alt="" title=""    />
+								<area shape="rect" coords="179,60,299,182" href="http://napoveda.seznam.#{_tld}/cz/nastaveni-domovske-stranky-internet-explorer-7-internet-explorer-8.html" alt="" title=""    />
+								<area shape="rect" coords="315,63,435,185" href="http://napoveda.seznam.#{_tld}/cz/nastaveni-domovske-stranky-opera-9.html" alt="" title=""    />
+								<area shape="rect" coords="455,61,575,183" href="http://napoveda.seznam.#{_tld}/cz/nastaveni-domovske-stranky-chrome.html" alt="" title=""    />
+								<area shape="rect" coords="595,57,715,179" href="http://napoveda.seznam.#{_tld}/cz/seznam/nastaveni-titulky/" alt="" title=""    />
+								<!--<area shape="rect" coords="727,204,729,206" href="http://www.image-maps.com/index.php?aff=mapped_users_8201111020631232" alt="Image Map" title="Image Map" />--->
+							</map>
+						</div>
+					</noscript>
+					<div class="clear"></div>
+				</div>
+				<script type="text/javascript">
+					new HP.HPSetter();
+				</script>
+				<div id="dog"><div class="head"></div><div class="body"></div></div>
+			</div>
+		</div>
+	</body>
+</html>

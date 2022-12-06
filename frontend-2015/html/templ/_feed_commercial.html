@@ -1,0 +1,39 @@
+<div id="gadget-${feedId}" class="s_win gadget-commercial${$.userId > 0 ? '':' disableMove'}" style="${$.columns._count != 2 ? 'display:none':''}" data-dot="gadgetCommercial">
+	<?teng format space="onespace"?>
+	<div class="gagdet-cont" id="gadget-commercial-button">
+		<div class="main-cont">
+			<h3 class="title title-blue title-noborder s_win_title">
+				<span class="text commercial-title"><a name="gadget-commercial">Reklama</a></span>
+				<span class="bck"></span>
+			</h3>
+			<div class="g-cnt s_win_area">
+				<div id="adButton"></div>
+				<?teng if $.columns._count == 2?>
+					<script type="text/javascript">
+					/*<![CDATA[ */
+						(function(win) {
+							var GadgetCommercialAdvert 	= win.GadgetCommercialAdvert;
+							var externalFlag 			= ${ $.device !~ 'desktop' ? '"PLAIN"' : '""' };
+
+							/* gadget sam doplni konfiguraci do IMSecondaryAds */
+							var advert 					= new GadgetCommercialAdvert(externalFlag, IMSecondaryAds);
+								advert.load();
+						})(window);
+					/* ]]> */
+					</script>
+				<?teng endif?>
+			</div>
+
+		</div>
+	</div>
+	<?teng endformat?>
+</div>
+
+<?teng if $.userId > 0?>
+	<script type="text/javascript">
+	/* <![CDATA[ */
+	    JAK.gadget${feedId} = new JAK.Gadget('gadget-${feedId}','${feedId}');
+	/* ]]> */
+	</script>
+<?teng endif?>
+

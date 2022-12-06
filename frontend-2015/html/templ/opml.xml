@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0" >
+    <head>
+        <text>#{opml_exported_rss}</text>
+    </head>
+    <body>
+        <?teng frag group?>
+        <outline text="${name}">
+            
+            <?teng frag feed?>
+            <outline xmlUrl="${url}" type="rss" text="${title}" title="${title}" />
+            <?teng endfrag?>
+
+        </outline>
+        <?teng endfrag?>
+    </body>
+</opml>

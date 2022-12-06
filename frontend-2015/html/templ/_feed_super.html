@@ -1,0 +1,111 @@
+<div id="gadget-9" class="s_win rss-feed" data-dot="gadgetSuper">
+<?teng format space="onespace"?>
+	<div class="gagdet-cont">
+		<div class="main-cont">
+			<h3 class="title s_win_title">
+				<span class="ico">
+					<img src="${$favicon_url !~ '' ? '/favicons/'++$favicon_url : reorder(#PATH_FAVICO,$feedId)}" width="16" height="16" alt="${title}" />
+				</span>
+				<span class="text entry-title">
+					<a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.super.'++#_tld}" title="${title} | Aktualizováno v ${date('%H:%M',$lastUpdate)}">Super.cz</a>
+				</span>
+
+				<span class="edit">
+					<?teng if $.userId > 0?>
+						<a href="/prihlaseni" class="edit-text">Upravit</a>
+					<?teng endif?>
+				</span>
+				<span class="bck"></span>
+			</h3>
+			<?teng if $.userId > 0?>
+				<div class="gadget-settings">
+					<div class="settings-cont">
+						<div class="settings-main">
+							<div class="setting-bck">
+								<div class="title-setting">
+									<?teng if $.userId > 0?>
+										<span class="close-win-img-span"><a href="#" class="close-win-img">Odebrat box</a></span>
+									<?teng endif?>
+									<span class="close-sett"><a href="" class="close-setting-link">Upravit</a></span>
+								</div>
+								<div class="setting-cont">
+									<form action="/">
+										<div class="row">
+											<label for="count${feedId}">Počet zobrazených zpráv:</label>
+											<select name="count" id="count${feedId}">
+												<option value="1" ${$rowCount == 1 ? 'selected="selected"' :''}>1</option>
+												<option value="2" ${$rowCount == 2 ? 'selected="selected"' :''}>2</option>
+												<option value="3" ${$rowCount == 3 ? 'selected="selected"' :''}>3</option>
+												<option value="4" ${$rowCount == 4 ? 'selected="selected"' :''}>4</option>
+												<option value="5" ${$rowCount == 5 ? 'selected="selected"' :''}>5</option>
+												<option value="6" ${$rowCount == 6 ? 'selected="selected"' :''}>6</option>
+												<option value="7" ${$rowCount == 7 ? 'selected="selected"' :''}>7</option>
+												<option value="8" ${$rowCount == 8 ? 'selected="selected"' :''}>8</option>
+												<option value="9" ${$rowCount == 9 ? 'selected="selected"' :''}>9</option>
+												<option value="10" ${$rowCount == 10 ? 'selected="selected"' :''}>10</option>
+											</select>
+										</div>
+										<div>
+											<input type="checkbox" name="showPreview" value="1" id="show-prew${feedId}" ${$showPreview ? 'checked="checked"' : ''} />
+											<label for="show-prew${feedId}" class="label-check">Zobrazovat náhledy článků</label>
+										</div>
+										<div class="controls">
+											<input type="submit" name="" class="submit" value="Uložit nastavení" />
+											<input type="reset" name="" class="reset" value="Storno" />
+										</div>
+
+										<div class="next-settings">
+											<a href="/nove-nastaveni">Další nastavení Seznamu</a>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?teng endif?>
+			<div class="g-cnt s_win_area">
+				<div class="push">
+				<table>
+					<?teng frag items?>
+						<?teng if $rowCount >= $_number+1?>
+						<?teng set __link = $link ?>
+						<tr data-dot="${$_number+1}">
+							<?teng if $_number == 0?>
+								<td class="top">
+									<div class="hlp">
+										<a data-dot="pic" href="${__link}" class="top-foto-img" <?teng if $.userId > 0 ?>onclick="JAK.log(this, 'rss-img', '${$_number+1}', null, '${feedId}', '${.userId}')" <?teng endif?>><img class="top-foto" src="${seznam_image}" width="#{MAIN_IMG_W_super}" height="#{MAIN_IMG_H_super}" alt="" /></a>
+										<div class="text-box">
+											<strong><a data-dot="title" href="${__link}" <?teng if $.userId > 0 ?>onclick="JAK.log(this, 'rss-title', '${$_number+1}', null, '${feedId}', '${.userId}')" <?teng endif?>>${title}</a></strong>
+											<span class="perex">${wordsubstr(unescape($description), 0, #MAIN_PEREX_LEN_super, '', '...')}</span>
+										</div>
+									</div>
+								</td>
+							<?teng else?>
+								<td>
+									<div class="hlp">
+										<a href="${__link}" <?teng if $.userId > 0 ?>onclick="JAK.log(this, 'rss-title', '${$_number+1}', null, '${feedId}', '${.userId}')" <?teng endif?>>${title}</a>
+										<span class="perex"><?teng if $showPreview?>${wordsubstr(unescape($description), 0, #NEWS_PEREX_LEN, '', '...')}<?teng endif?></span>
+									</div>
+								</td>
+							<?teng endif?>
+						</tr>
+						<?teng endif?>
+					<?teng endfrag?>
+				</table>
+				<h4 class="more-news"><a data-dot="more" href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.super.'++#_tld}">Více ze společnosti &raquo;</a></h4>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?teng endformat?>
+</div>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+	JAK.gadget9 = new JAK.Gadget('gadget-9','${feedId}','rss');
+	JAK.gadget9.extSetting = new JAK.Gadget.RssSetting('${feedId}', JAK.gadget9, 0);
+	JAK.gadgetManager.addItem(JAK.gadget9);
+/* ]]> */
+</script>
+

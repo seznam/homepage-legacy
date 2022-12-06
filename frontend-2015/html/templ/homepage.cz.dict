@@ -1,0 +1,664 @@
+# COMMON ##################################################################
+time_date_string				"|Leden|Únor|Březen|Duben|Květen|Červen|Červenec|Srpen|Září|Říjen|Listopad|Prosinec|Led|Ún|Bře|Dub|Květ|Črv|Črc|Srp|Zá|Říj|List|Pros|Neděle|Pondělí|Úterý|Středa|Čtvrtek|Pátek|Sobota|Ne|Po|Út|St|Čt|Pá|So|"
+time_date_string_big			"|leden|únor|březen|duben|květen|červen|červenec|srpen|září|říjen|listopad|prosinec|led|ún|bře|dub|květ|črv|črc|srp|zá|říj|list|pros|Neděle|Pondělí|Úterý|Středa|Čtvrtek|Pátek|Sobota|Ne|Po|Út|St|Čt|Pá|So|"
+time_date_string_in				"|ledenu|únoru|březenu|dubnu|květnu|červnu|červenci|srpnu|září|říjnu|listopadu|prosinci|led|ún|bře|dub|květ|črv|črc|srp|zá|říj|list|pros|neděli|pondělí|úterý|středu|čtvrtek|pátek|sobotu|Ne|Po|Út|St|Čt|Pá|So|"
+time_date_string_wo				"|ledna|února|března|dubna|května|června|července|srpna|září|října|listopadu|prosince|led|ún|bře|dub|květ|črv|črc|srp|zá|říj|list|pros|Neděle|Pondělí|Úterý|Středa|Čtvrtek|Pátek|Sobota|Ne|Po|Út|St|Čt|Pá|So|"
+time_date_string_uri			"|leden|unor|brezen|duben|kveten|cerven|cervenec|srpen|zari|rijen|listopad|prosinec|led|uno|bre|dub|kve|cer|cec|srp|zar|rij|lis|pro|nedele|pondeli|utery|streda|ctvrtek|patek|sobota|ne|po|ut|st|ct|pa|so|"
+time_date_string_from			"|ledna|února|března|dubna|května|června|července|srpna|září|října|listopadu|prosince|led|ún|bře|dub|květ|črv|črc|srp|zá|říj|list|pros|neděle|pondělí|úterý|středy|čtvrtka|pátku|soboty|ne|po|ut|st|ct|pa|so|"
+date_format						%e.&nbsp;%n.
+date_format_wo					%e.&nbsp;%B
+
+# HOMEPAGE ################################################################
+# common ##
+no_desc							Bez popisku ...
+show_all						Rozbalit vše
+sett_sett						Nastavení
+
+# Head ##
+logout							Odhlásit se
+login							Přihlásit se
+choose_skin						Vybrat vzhled
+log_to_szn						Přihlášení na Seznam
+sett_of_hp						Nastavení domovské stránky
+sett_index						Nastavení
+today_is						Dnes je
+nameday_has						svátek má
+change_port						Změnit portrét
+pass_cannot_be_stolen			Heslo se odesílá šifrované jako ochrana proti odposlechu.
+
+# menu ##
+my_rss							Zpráv
+sett_weather					Počasí
+sett_zodiac						Horoskopů
+sett_tv							TV programu
+sett_change_portrait			Změna portrétu
+sett_import						Import/export OPML
+sett_other						Ostatní
+sett_about_rss					Co je to RSS?
+sett_wemasters					Ikona pro webmastery
+sett_skin_change				Změna vzhledu
+
+# menu search form ##
+inet							Internet
+inet_hidden						Hledej v internetu
+seek							Vyhledat
+seek_ftxt						Vyhledat Seznamem
+in_CR							česky
+in_world						ve světě
+search_help						Hledej v internetu
+firms							Firmy
+firms_hidden					Hledej ve firmách
+firm_bussines					Činnost firmy, či její název
+firm_region						Region
+maps							Mapy
+maps_hidden						Hledej na mapách
+maps_help						Zadejte město, ulici, nebo celou adresu
+maps_help_I						Například: Vinohradská 12, Praha
+maps_router						Plánovač tras &raquo;
+maps_go							Jdi na Mapy.cz &raquo;
+dict							Slovník
+dict_hidden						Hledej ve slovníku
+dict_help						Překládané slovo pište s diakritikou
+dict_czToEn						ČJ &gt; AJ
+dict_enToCz						AJ &gt; ČJ
+dict_more_lang					Více jazyků &raquo;
+goods							Zboží
+goods_hidden					Hledej ve zboží
+goods_help						Zadejte název zboží, které hledáte
+goods_help_I					Například: Nokia 6230i
+pics							Obrázky
+pics_hidden						Hledej ve obrázcích
+pics_help						Zadejte název obrázku, který hledáte
+
+encyc							Encyklopedie
+encyc_hidden					Hledej v encyklopedii
+encyc_help						Název hesla, které hledáte
+
+#services ##
+serv_auto						Auto
+serv_auto_title					Nejnavštěvovanější automobilový server na českém Internetu
+serv_moto						Moto
+serv_moto_title					Motocyklový server na českém Internetu
+
+serv_bazar						Bazar
+serv_bazar_title				Inzertní a aukční server
+serv_press						Deníky
+serv_press_title				Přehled novin, časopisů a internetových magazínů
+serv_traffic					Dopravní info
+serv_traffic_title				Dopravní informace v Praze a celé ČR
+serv_email						Email
+serv_email_title				Emailová schránka zdarma na celý život
+serv_zodiac						Horoskopy
+serv_zodiac_title				Horoskopy každý den
+Hrej_games						Hrej
+serv_games_title				Hrej.cz - recenze, novinky, downloady, cheaty a hry zdarma
+serv_finance					Finance
+serv_finance_title				Finanční informace v kostce
+serv_online						Hry
+serv_online_title				Online hry zdarma
+serv_chat						Lidé
+serv_chat_title					Poznejte nové lidi a seznamte se
+serv_cinemas					Kina
+serv_cinemas_title				Program kin a kulturní přehled
+serv_maps						Mapy
+serv_maps_title					Vyhledávání na mapách a plánování tras
+serv_weather					Počasí
+serv_weather_title				Podrobná předpověď počasí
+serv_jobs						Volná místa
+serv_jobs_title					Volná pracovní místa, nabídka práce a zaměstnání
+serv_realty						Reality
+serv_realty_title				Největší katalog nemovitostí a bydlení v ČR
+serv_date						Seznamka
+serv_date_title					Poznejte nové lidi a seznamte se
+serv_dict						Slovník
+serv_dict_title					Nejobsáhlejší překladové slovníky v ČR
+serv_sms						SMS brána
+serv_sms_title					Pohodlné posílání SMS
+serv_classmate					Spolužáci
+serv_classmate_title			Server všech spolužáků a spolužaček
+serv_sport						Sport
+serv_sport_title				Sport.cz - sportovní zpravodajství, výsledky, statistiky
+serv_super						Super
+serv_stream_title				Stream.cz - tvoje internetová televize
+serv_stream						Video
+serv_tvprg						TV program
+serv_tvprg_title				TV program na týden dopředu
+serv_news						Zprávy
+serv_news_title					Novinky.cz - zpravodajský server
+serv_more						Vše
+serv_kinonania					Kinomania
+serv_kinonania_title			Kinomania - online videopůjčovna - legální stahování filmů
+serv_firmy						Firmy
+serv_firmy_title				Katalog firem
+serv_accomo						Ubytování
+serv_accomo_title				Ubytování v Praze, v Brně, na horách - hotely, penziony, chaty a chalupy
+serv_zeny						Pro ženy
+serv_jobs_zeny					Pro ženy - místo, kde se můžete bavit spolu a o všem
+serv_radio						Rádio
+serv_radio_title				Rádio - poslouchejte, co Vás baví
+serv_music_title				Tisíce legálních hudebních videoklipů zdarma
+serv_music						Videoklipy
+serv_vyuka_title				Výuka – jazykové kurzy zdarma
+serv_vyuka						Výuka jazyků
+serv_travel						Dovolená
+serv_travel_title				Nabídka zájezdů a dovolené do celého světa
+serv_kurzy						Kurzy měn
+serv_kurzy_tile					Kurzovní lístky bank a směnáren
+serv_ubyt						Ubytování
+serv_ubyt_title					Ubytování v Praze, v Brně, na horách - hotely, penziony, chaty a chalupy
+serv_fin 						Finance
+serv_fin_title 					Porovnáváme smlouvy za Vás, vybereme z celého trhu ty nejlepší
+serv_fantasy					Fantasy liga
+serv_fantasy_title				Sestavte vlastní tým. Získávejte body a vyhrajte.
+serv_film						Filmové středy
+serv_film_short					Film
+serv_pohadky					Pohádky
+serv_film_title					Každou středu sledujte zdarma film na Seznam.cz
+serv_film_pohadky				Sledujte nepřetržitě pohádky
+serv_zbozi						Zboží
+serv_zbozi_darky				Zboží a dárky
+serv_zbozi_title				Srovnání cen a porovnání zboží
+serv_kupi						Akce a slevy
+serv_kupi_title					Vyhledávač akcí a slev v obchodech
+
+
+# tip homepage ##
+set_hp_homepage					Nastav si Seznam jako domovskou stránku
+
+# notes ##
+write_a_note					Napiš si poznámku
+
+# email ##
+eml_title						Email
+eml_name						Jméno
+eml_pass						Heslo
+eml_dologin						Přihlásit se
+eml_prefil						přihlásit se trvale na tomto počítači
+eml_prefil_title				Po zaškrtnutí bude Vaše přihlašovací jméno při příštím zobrazením Seznam Homepage vyplněné a bude přihlášený/á
+eml_create_new_box				založit nový email
+eml_cannot_log_thru_ssl			Pokud se Vám nedaří přihlásit se přes SSL
+eml_ssl_click_here				klikněte sem
+eml_inbox						Doručené
+eml_write_mail					Napiš e-mail
+eml_write_sms					Napiš SMS
+eml_tit_inbox					Kliknutím zobrazíte složku Doručené ve Vaší emailové schránce.
+eml_tit_write_mail				Kliknutím se přepnete do Vaší emailové schránky na stránku Napiš email.
+eml_tit_write_sms				Kliknutím se přepnete do Vaší emailové schránky na stránku Napiš sms.
+eml_no_mail						Nemáte žádné nové zprávy.
+eml_err_mail					Nepodařilo se načíst obsah tohoto boxu. Pro přehled doručené pošty klikněte na odkaz <a href='http://email.seznam.cz/folderScreen?folderId=inbox'>Doručené</a>
+eml_have_mess					Máte <strong>%1</strong> %2.
+eml_disable_mail				Vaše schránka byla deaktivována z důvodu jejího dlouhodobého nevyužívání. Zadáním hesla je možné emailovou schránku aktivovat.
+eml_disable_mail_badpass		Vámi zadané heslo není platné.
+news_title						Novinky.cz
+news_updated_before				Aktualizováno před
+news_updated_at					Aktualizováno v
+eml_new_one						novou zprávu
+eml_new_two						nové zprávy
+eml_new_more					nových zpráv
+
+news_more_sport					Více sportu
+mews_more_news					Více zpráv
+
+weather_title					Počasí
+weather_set						nastavit region
+weather_set_title				Kliknutím nastavíte region, ze kterého chcete zobrazovat počasí
+weather_today					Dnes
+weather_tomorrow				Zítra
+weather_day_after_tomorrow		Pozítří
+weather_more					Další dny
+weather_actual                  Aktuálně
+weather_morning                 Ráno
+weather_afternoon               Odpoledne
+weather_evening                 Večer
+weather_night                   V noci
+
+
+exchange_title					Kurzy
+exchange_show_graph				Zobrazit graf vývoje kurzu %1
+exchange_show_graph_gas			Zobrazit graf vývoje ceny
+exchange_natural95				Benzín
+exchange_kc						Kč
+
+exchng_stay						Stagnace
+exchng_rise						Růst
+exchng_fall						Pokles
+exchng_rise_for					Růst o
+exchng_fall_for					Pokles o
+
+zodi_title						Horoskopy
+zodi_set						nastavit znamení
+zodi_set_title					Kliknutím si nastavíte vlastní horoskop
+
+tvpr_title						TV program
+tvpr_set						nastavit TV stanice
+tvpr_set_title					Kliknutím si nastavíte zobrazované TV programy
+tvpr_click_shows				Kliknutím zobrazíte detail pořadu
+
+catal_title						Katalog
+catal_add_frm					přidat firmu
+catal_add_link					odkaz do katalogu
+catal_automoto					Auto-moto
+catal_oldauto					Autobazary
+catal_bazar						Bazary
+catal_white_gds					Bílé zboží
+catal_travel					Cestování
+catal_magazines					Časopisy
+catal_dailypress				Deníky
+catal_toright					Doprava
+catal_house						Dům a zahr.
+catal_electro					Elektro
+catal_eshops					E-shopy
+catal_erot						Erotika
+catal_movie						Film
+catal_financ					Finance
+catal_fitness					Fitness
+catal_football					Fotbal
+catal_hard						Hardware
+catal_games						Hry
+catal_instit					Instituce
+catal_langschool				Jazyk. školy
+catal_timetable					Jízdní řády
+catal_office					Kancelář
+catal_airtickets				Letenky
+catal_cellphones				Mobily
+catal_furniture					Nábytek
+catal_shops						Obchody
+catal_clothes					Oděvy
+catal_comp						Počítače
+catal_rental					Půjčovny
+catal_realty					Reality
+catal_restaurants				Restaurace
+catal_handicraftsman			Řemeslníci
+catal_serv						Služby
+catal_soft						Software
+catal_sport						Sport
+catal_moving					Stěhování
+catal_schools					Školy
+catal_prints					Tiskárny
+catal_acommodation				Ubytování
+catal_authority					Úřady
+catal_bigshop					Velkoobchod
+catal_production				Výroba
+catal_fun						Zábava
+catal_health					Zdraví
+catal_news						Zpravodajství
+catal_more						Více
+
+rs_title						Moje zprávy
+rs_set							přidat si na Seznam další zprávy
+rs_set_title					Kliknutím přejdete na stránku, na které si můžete nastavit vlastní zprávy
+rs_more							Více
+rs_gusta						Nastavte si obsah podle svého gusta.
+rs_menu							upravit
+rs_menu_title					Po kliknutí se zobrazí nabídka dalších možností
+
+
+# foot ##
+up								nahoru
+about_seznam					O Seznamu
+seznam							Seznam
+free_positions					Kariéra
+tech_supp						Nápověda
+tech_supp_small					nápověda
+developers_seznam				Vývojáři
+advert							Reklama
+mobile							Mobilní verze
+
+all_rights						Všechna práva vyhrazena. All rights reserved.
+
+# about rss ##
+ab_rss							Co je RSS
+whats_rss						Jako RSS jsou označovány speciální www stránky, které jsou určeny pro snadné sdílení informací.
+								\n Tyto stránky se často označují jako "RSS kanál", nebo jenom RSS. Díky RSS kanálu si můžete aktuální
+								\n zprávy z tohoto serveru přidat na hlavní stránku Seznamu.
+how_add							Jak si tedy přidat RSS kanál svého oblíbeného serveru na hlavní stránku Seznamu? <a href="/nastaveni-zprav?movie=1" class="orange">Video návod &raquo;</a>
+rss_step_1						1. krok: Najděte adresu RSS kanálu
+rss_step_1_text					Odkazy na RSS kanál bývají mnohdy umístěny dole na stránce.
+								\n Často jsou označeny výraznou oranžovou ikonkou, i když to nemusí být pravidlem.
+								\n Drtivá většina zpravodajských serverů má nějaký RSS kanál.
+rss_step_2						2. krok: Zjistěte internetovou adresu (URL) tohoto RSS kanálu
+rss_step_2_text					Nejdříve na stránce najděte odkaz na RSS kanál. Poznáte jej podle oranžové ikonky RSS, nebo podle
+								\n nápisu "RSS". Klikněte pravým tlačítkem na tuto ikonku, či odkaz a v menu vyberte položku
+								\n "Kopírovat adresu odkazu...". Nyní je internetová adresa RSS kanálu uložená ve schránce
+								\n (clipboardu)  a můžete jí vložit kam budete potřebovat.
+rss_step_3						3. krok: Přidejte si adresu RSS kanálu do nastavení
+rss_step_3_text					Adresa RSS kanálu vypadá například takto: http://www.novinky.cz/rss.xml.
+								\n Pokud tuto adresu máte, nebo jí máte ve schránce (v clipboardu) pak jí stačí
+								\n vložit do formuláře na stránce <a href="/nastaveni-zprav">Nastavení mých zpráv</a>.
+
+# add feed ##
+add_warn						Chystáte se přidat si na Seznam vlastní zprávy ze zdroje <strong>%1</strong> jako uživatel <strong>%2@%3</strong>.
+add_like_other					Pokud chcete zprávy uložit jako jiný uživatel <a href="/prihlaseni?goto=addfeed&url=%2&title=%1">klikněte sem.</a>
+add_URl							URL zdroje
+yes_add							Ano, chci si přidat zprávy
+no_dont							Ne, nechci si přidat zprávy
+sett_more						více
+sett_hide						skrýt
+
+rss_my_rss						Moje RSS zdroje
+rss_add_RSS_URL					Přidej adresu RSS zdroje
+rss_was_its_das_RSS				(Co je RSS?)
+sett_hide_text					Skrýt text
+rss_badly_RSS					Chybně zadaný zdroj!
+rss_add_hlp						Například http://www.novinky.cz/rdf/novinky.rdf (toto berte jen jako příklad, mnoho webů má adresu na RSS v jiném tvaru)
+rss_close_videohlp				Zavřít video nápovědu
+save_butt_rss_disc				Přidej označené zdroje
+rss_specify_RSS					Krok 2: Zvolte některý z nalezených RSS zdrojů
+
+# LOGIN STRANKA ###########################################################
+username						Uživatelské jméno
+password						Heslo
+domain							doména
+butt_log						Přihlásit
+title_login						Přihlášení
+butt_remember					přihlásit se trvale na tomto počítači
+error_bad_uname_or_pass			Neplatné uživatelské jméno nebo heslo!
+login_note_title				Po zaškrtnutí políčka "Pamatovat si na tomto počítači" si bude Seznam.cz pamatovat Vaše uživatelské jméno.
+login_if_notRUS					Pokud nemáte na Seznamu uživatelské jméno
+login_reg_there					registrujete se zde.
+login_addfeed					Pro přidání RSS zdroje na Seznam se musíte přihlásit:
+
+promote_title					Nabídněte svůj obsah!
+promote_help_text				Pokud na svých stránkách poskytujete obsah formou RSS, usnadněte uživatelům Seznam.cz přístup na Vaše stránky.
+promote_ad_rss					Přidej RSS na Seznam
+promote_step1					1. Vyberte si ikonu na Vaše stránky
+promote_step2					2. Vložte údaje o RSS zdroji
+promote_url						URL RSS zdroje
+promote_name					Název zdroje
+promote_generate				Generuj HTML
+promote_step3					3. Zkopírujte si vygenerovaný kód
+promote_add_icon_to_page		Umístěte ikonu na své WWW stránky.
+promote_add_help				Zkopírovaný HTML kód vložte na vhodné místo do své stránky,
+								\n např. do hlavičky, paticky nebo navigační lišty.
+promote_add_help2				<strong>Poznámka: </strong>Pokud chcete umístit obrázek ikonky na svoje
+								\n WWW stránky klikněte pravým tlačítkem myši na vybranou ikonku a uložte obrázek ma svůj disk.
+								\n <br />
+								\n  Následně ho zkopírujte na svůj server a změnte URL obrázku ve vygenerovaném
+								\n HTML kódu.
+
+
+# FORMULARE OBECNE ##
+save_butt						Uložit nastavení
+back_to_szn						zpět na Seznam
+succ_saved						Vaše nastavení bylo uloženo
+err_occured						Při zpracování nastala chyba
+err_rss_bad						Bohužel zadaný RSS zdroj nelze přidat, protože obsahuje syntaktickou chybu nebo chybné URL.
+err_rss_bad_I					Ručně si můžete upravit seznam zdrojů <a href="/nastaveni-zprav?badSource=1&addrss=%1">zde</a>.
+err_rss_name					Název zdroje
+err_rss_url						Url zdroje
+
+# SKIN ##
+skin_title_settings				Nastavení vzhledu
+skin_click_select				Kliknutím zvolíte tento vzhled
+skin_red						Červený
+skin_blue						Modrý
+skin_retro						Retro
+skin_external					Externí CSS
+skin_ext_hlp					Sem zadejte odkaz na své CSS soubory ve formátu http://xxx.xx/.../xx/.,<br /> Zadané URL musí ukazovat do adresáře, kde budou umístěny <br />následující soubory: homepage.css, homepage-handheld.css a homepage-print.css<br />Pozor: tato funkce je určena pouze pro webmastery a designery,<br /> kteří chtějí otestovat vlastní skin pro Seznam Homepage.
+
+# OTHER SETT ##
+oth_title_settings				Ostatní nastavení
+oth_show_sugg					Zobrazovat našeptávač
+oth_show_friends				Zobrazovat přátele on-line z chatu Lidé.cz
+oth_noshow_catal				Zobrazovat Katalog
+oth_show_email				    Zobrazovat okno s emaily
+
+# ZNAMENI ##
+sign_title						Zadejte jaké jste znamení
+beran							Beran (21.3. až 20.4.)
+byk								Býk (21.4. až 21.5.)
+blizenci						Blíženci (22.5. až 21.6.)
+rak								Rak (22.6. až 22.7.)
+lev								Lev (23.7. až 22.8.)
+panna							Panna (23.8. až 22.9.)
+vahy							Váhy (23.9. až 23.10.)
+stir							Štír (24.10. až 22.11.)
+strelec							Střelec (23.11. až 21.12.)
+kozoroh							Kozoroh (22.12. až 20.1.)
+vodnar							Vodnář (21.1. až 20.2.)
+ryby    						Ryby (21.2. až 20.3.)
+nahodne    						Náhodné znamení
+
+# TV STANICE ##
+tv_title_settings				Zadejte TV stanice, které sledujete
+ct1								ČT1
+ct2								ČT2
+nova							Nova
+prima							Prima
+eurosport						Eurosport
+hallmark						Hallmark
+hbo								HBO
+hbo2							HBO2
+spectrum						Spectrum
+galaxiesport					GalaxieSport
+markiza							Markíza
+stv1							STV1
+
+# KURZY
+euro							Euro
+usd								USD
+natural_95						Benzín
+nafta							Nafta
+
+# REGIONY PRO POCASI ##
+cze							Česká republika
+jmoravsky					Jihomoravský
+smoravsky 					Severomoravský
+jcesky						Jihočeský
+vysocina					Kraj Vysočina
+kvarsky						Karlovarský
+khradecky					Královéhradecký
+liberecky					Liberecký
+olomoucky					Olomoucký
+mslezky						Moravskoslezský
+pardubicky					Pardubický
+plzensky					Plzeňský
+stredocesky					Středočeský
+ustecky						Ústecký
+zlinsky						Zlínský
+
+praha						Praha
+brno						Brno
+
+# OPML ##
+opml_exported_rss			Exportované RSS zdroje ze Seznam.cz
+opml_export_rss				Export Vašich RSS zdrojů
+opml_import_rss				Import Vašich RSS zdrojů
+opml_export					Exportuj
+opml_import					Importuj
+opml_error_nofile			Prázdný vstup
+opml_error_import			Import souboru selhal, pravděpodobně nemá správný formát.
+opml_error_empty			Nemáte nastaveny žádné uživatelské RSS zdroje.
+opml_text0					Kliknutím na tlačítko Exportuj, získáte seznam svých používaných RSS zdrojů ve formátu OPML.
+opml_text1					Zadejte cestu k souboru s Vašimi RSS zdroji ve formátu OPML a klikněte na tlačítko Importuj.
+
+weather_help				Maximální teplota
+weather_act_help			Aktuální teplota
+
+# Z APLIKACE
+others          			Ostatní
+
+# POCASI
+weather_title_settings		Nastavte si region
+CZ0000						Česká republika
+CZ011X						Praha
+CZ0211						Benešov
+CZ0212						Beroun
+CZ0213						Kladno
+CZ0214						Kolín
+CZ0215						Kutná Hora
+CZ0216						Mělník
+CZ0217						Mladá Boleslav
+CZ0218						Nymburk
+CZ0219						Prahe
+CZ021A						Praha
+CZ021B						Příbram
+CZ021C						Rakovník
+CZ0311						České Budějovice
+CZ0312						Český Krumlov
+CZ0313						Jindřichův Hradec
+CZ0613						Pelhřimov
+CZ0314						Písek
+CZ0315						Prachatice
+CZ0316						Strakonice
+CZ0317						Tábor
+CZ0321						Domažlice
+CZ0411						Cheb
+CZ0412						Karlovy Vary
+CZ0322						Klatovy
+CZ0323						Plzeň
+CZ0324						Plzeň
+CZ0325						Plzeň
+CZ0326						Rokycany
+CZ0413						Sokolov
+CZ0327						Tachov
+CZ0511						Česká Líp
+CZ0421						Děčín
+CZ0422						Chomutov
+CZ0512						Jablonec nad Nisou
+CZ0513						Liberec
+CZ0423						Litoměřice
+CZ0424						Louny
+CZ0425						Most
+CZ0426						Teplice
+CZ0427						Ústí nad Labem
+CZ0611						Havlíckův Brod
+CZ0521						Hradec Králové
+CZ0531						Chrudim
+CZ0522						Jíčín
+CZ0523						Náchod
+CZ0532						Pardubice
+CZ0524						Rychnov n. K.
+CZ0514						Semily
+CZ0533						Svitavy
+CZ0525						Trutnov
+CZ0534						Ústí nad Orlicí
+CZ0621						Blansko
+CZ0622						Brno
+CZ0623						Brno
+CZ0624						Břeclav
+CZ0724						Zlín
+CZ0625						Hodonín
+CZ0612						Jihlava
+CZ0721						Kroměríž
+CZ0713						Prostějov
+CZ0614						Třebíč
+CZ0722						Uherské Hradiště
+CZ0626						Vyškov
+CZ0627						Znojmo
+CZ0615						Ždár nad Sázavou
+CZ0811						Bruntál
+CZ0812						Frýdek-Místek
+CZ0813						Karviná
+CZ0814						Nový Jičín
+CZ0712						Olomouc
+CZ0815						Opava
+CZ0816						Ostrava
+CZ0714						Přerov
+CZ0715						Šumperk
+CZ0723						Vsetín
+CZ0711						Jeseník
+
+# weather ##
+w_J							Jasno
+w_M							Mlha
+w_O							Oblačno
+w_OB						Oblačno, bouřky
+w_OBD						Oblačno, bouřky
+w_OD						Oblačno, déšť
+w_ODB						Oblačno, bouřky
+w_ODP						Oblačno, dešťové přeháňky
+w_ODS						Oblačno, déšť se sněhem
+w_ODSP						Oblačno, smíšené přeháňky
+w_OM						Oblačno, mrholení
+w_OP						Oblačno, přeháňky
+w_OS						Oblačno, sníh
+w_OSD						Oblačno, déšť se sněhem
+w_OSDP						Oblačno, smíšené přeháňky
+w_OSP						Oblačno, sněhové přeháňky
+w_P							Polojasno
+w_PB						Polojasno, bouřky
+w_PBD						Polojasno, bouřky
+w_PD						Polojasno, déšť
+w_PDB						Polojasno, bouřky
+w_PDP						Polojasno, dešťové přeháňky
+w_PDS						Polojasno, déšť se sněhem
+w_PDSP						Polojasno, smíšené přeháňky
+w_PM						Polojasno, mrholení
+w_PP						Polojasno, přeháňky
+w_PS						Polojasno, sníh
+w_PSD						Polojasno, sníh
+w_PSDP						Polojasno, smíšené přeháňky
+w_PSP						Polojasno, sněhové přeháňky
+w_SJ						Skoro jasno
+w_SZ						Skoro zataženo
+w_SZB						Skoro zataženo, bouřky
+w_SZBD						Skoro zataženo, bouřky
+w_SZD						Skoro zataženo, déšť
+w_SZDB						Skoro zataženo, bouřky
+w_SZDP						Skoro zataženo, dešťové přeháňky
+w_SZDS						Skoro zataženo, déšť se sněhem
+w_SZDS						Skoro zataženo, smíšené přeháňky
+w_SZM						Skoro zataženo, mrholení
+w_SZP						Skoro zataženo, dešťové přeháňky
+w_SZS						Skoro zataženo, sníh
+w_SZSD						Skoro zataženo, déšť se sněhem
+w_SZSP						Skoro zataženo, sněhové přeháňky
+w_Z							Zataženo
+w_ZB						Zataženo, bouřky
+w_ZBD						Zataženo, bouřky
+w_ZD						Zataženo, déšť
+w_ZDB						Zataženo, bouřky
+w_ZDP						Zataženo, dešťové přeháňky
+w_ZDS						Zataženo, déšť se sněhem
+w_ZDSP						Zataženo, smíšené přeháňky
+w_ZM						Zataženo, mrholení
+w_ZP						Zataženo, přeháňky
+w_ZS 						Zataženo, sníh
+w_ZSD						Zataženo, déšť se sněhem
+w_ZSDP						Zataženo, smíšené přeháňky
+w_ZSP						Zataženo, sněhové přeháňky
+
+# RSS ERRORS ####
+
+ERR_SEZNAM_ERROR			Chyba při zpracování dat
+ERR_SOURCE_FORMAT_ERROR		Nepodporovaný formát
+ERR_HTTP_BADSCHEME			Chybně zadané URL
+ERR_HTTP_NOTSUPPORTED		Nepodporovaná operace na straně serveru
+ERR_HTTP_CONNECTIONCLOSE	Předčasně uzavřené spojení ze strany serveru
+ERR_HTTP_403				Server zakázal přístup
+ERR_HTTP_404				Stránka nenalezena
+ERR_HTTP_500	 			Interní chyba vzdáleného serveru
+ERR_HTTP_502				Interní chyba vzdáleného serveru
+ERR_HTTP_503				Server je nedostupný
+
+
+# skiny #########
+
+skin_0_title				Červený
+skin_1_title				Modrý
+skin_2_title				Moderní červený
+skin_3_title				Moderní modrý
+skin_4_title				Nebe nad hlavou
+skin_5_title				Voříšek
+skin_6_title				Widgetize 1
+skin_7_title				Widgetize 2
+skin_14_title				Graffiti Theme
+skin_8_title				Army
+skin_9_title				Pod mořem
+skin_10_title				Loffik
+skin_11_title				V oblacích
+
+set_profile					Vaše Homepage bude nastavena přeně podle tohoto profilu. Původní nastavení bude ztraceno. Chcete opravdu pokračovat?
+
+verejnopravni				Veřejnoprávní
+ostatni						Ostatní
+soukrome					Soukromé
+sportovni					Sportovní
+filmove						Filmové
+dokumentarni				Dokumentární
+detske						Dětské
+hudebni						Hudební
+
+
+

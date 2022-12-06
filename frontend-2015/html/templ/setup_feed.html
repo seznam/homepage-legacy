@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="cs">
+	<head>
+		<title>#{SERVICE_NAME_TITLE}</title>
+		<?teng include file="_common_files.html"?>
+	</head>
+
+	<body id="www-seznam-cz" class="${.scheme}">
+		<div id="page">
+			<?teng include file="_head.html"?>
+
+			<div id="cont" class="rss">
+				<?teng include file="_menu.html"?>
+
+				<div id="main">
+					<form action="/setupFeedProcess" method="post">
+						<?teng include file="_status.html"?>
+
+						<input type="hidden" name="hashId" value="${.hashId}" />
+						<?teng frag group?>
+							<div class="box" id="feedIdBox_${_number}">
+								<h3><a href="?groupId=${groupId}">${name}</a></h3>
+								<?teng if $selected == 0?>
+									<?teng frag feed?>
+										<?teng if $selected == 1 ?>
+											<input type="hidden" name="feedId" id="feedId_${feedId}" value="${feedId}" />
+										<?teng endif?>
+									<?teng endfrag?>
+								<?teng else?>
+									<input type="hidden" name="groupId" value="${groupId}" />
+									<?teng set showMoreLink = 0?>
+									<?teng if exist(feed)?>
+										<ul>
+											<?teng frag feed?>
+												<li>
+													<input type="checkbox" name="feedId" id="feedId_${feedId}" value="${feedId}" ${$selected == 1 ? 'checked="checked"' : ''} />
+													<label for="feedId_${feedId}">${title} ${$groupId =~ 'user' ? '-' ++ $url : ''}</label>
+												</li>
+											<?teng endfrag?>
+										</ul>
+									<?teng endif?>
+									<?teng if $showMoreLink == 1?>
+										<span class="more-link"><a href="#" id="feedIdButt_${_number}">#{sett_more}</a></span>
+									<?teng endif?>
+								<?teng endif?>
+							</div>
+						<?teng endfrag?>
+
+						<div class="box" id="add-rss">
+							<h3>#{rss_add_RSS_URL}: <a href="/co-je-rss" class="small" id="link-about-rss">#{rss_was_its_das_RSS}</a></h3>
+
+							<div class="inputs">
+								<?teng frag addrss?>
+									<div>
+										<input type="text" name="addrss" value="${url}" class="red w300" /> <strong class="error">#{rss_badly_RSS}</strong>
+									</div>
+								<?teng endfrag?>
+
+								<div>
+								<?teng if !exist(addrss)?>
+									<input type="text" name="addrss" value="http://" class="w300" /> <!---<a href="#" id="add-rss-link">Přidej další RSS zdroj</a>--->
+								<?teng endif?>
+									<div id="new-urls" class="inputs"></div>
+
+									<small>#{rss_add_hlp}</small>
+								</div>
+
+							</div>
+						</div>
+						<p class="button">
+							<input type="submit" value="#{save_butt}" />
+						</p>
+						<?teng include file="_status.html"?>
+					</form>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<?teng include file="_foot.html"?>
+			<?teng include file="_settings_netmonitor.html"?>
+		</div>
+	</body>
+</html>

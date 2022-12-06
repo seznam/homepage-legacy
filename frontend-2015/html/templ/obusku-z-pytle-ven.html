@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="cs">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<link href="#{PATH_IMG}/favicon.ico" rel="shortcut icon" />
+		<link rel="stylesheet" href="#{PATH_CSS}/film.css#{VERSION}" type="text/css" media="all" />
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_COMMON}#{VERSION}"></script>
+		<script type="text/javascript" src="${.scheme}://1.im.cz/ad/im.js#{VERSION}"></script>
+		<script type="text/javascript">
+			function createVideo(pictureUrl, videoWidth, videoHeight, lqUrl, hqUrl) {
+					if (JAK.Browser.agent.indexOf("iPad") != -1 || JAK.Browser.agent.indexOf("iPhone") != -1) {
+						var video = JAK.cel("video");
+						video.poster = pictureUrl;
+						video.src = lqUrl;
+						video.controls = true;
+						video.width = videoWidth;
+						video.height = videoHeight;
+
+						var lqLink = JAK.cel("a");
+						lqLink.href = lqUrl;
+						lqLink.innerHTML = "Nízká kvalita";
+						JAK.DOM.addClass(lqLink, "active");
+
+						var hqLink = JAK.cel("a");
+						hqLink.href = hqUrl;
+						hqLink.innerHTML = "Vysoká kvalita";
+
+						var qLinks = JAK.cel("div");
+						qLinks.id = "qLinks";
+						qLinks.appendChild(lqLink);
+						qLinks.appendChild(hqLink);
+
+						var player = JAK.gel("player");
+						JAK.DOM.clear(player);
+						player.appendChild(video);
+						player.appendChild(qLinks);
+
+						JAK.Events.addListener(lqLink, "click", qualityClick);
+						JAK.Events.addListener(hqLink, "click", qualityClick);
+					}
+
+					function qualityClick(e) {
+						JAK.Events.cancelDef(e);
+						var elm = JAK.Events.getTarget(e);
+
+						video.src = elm.href;
+
+						JAK.DOM.removeClass(lqLink, "active");
+						JAK.DOM.removeClass(hqLink, "active");
+						JAK.DOM.addClass(elm, "active");
+					}
+				}
+		</script>
+		<title>Seznam.cz - Obušku, z pytle ven!</title>
+	</head>
+	<body class="${.scheme}">
+		<div id="page">
+			<div id="bubble-header"></div>
+			<div id="bubble-middle">
+				<div id="bubble-content">
+					<div id="header">
+						<h1 id="logo">
+							<a href="http://www.seznam.#{_tld}" class="seznam">Seznam.cz</a>
+
+						</h1>
+						<a href="http://www.seznam.#{_tld}" id="closer"><span class="blind">Zavřít</span></a>
+						<div class="clear"></div>
+					</div>
+					<script type="text/javascript" src="${.scheme}://pro.hit.gemius.pl/gstream.js"></script>
+					<div id="player">
+						<object width="670" height="394" align="middle" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=10,0,0,0" classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" class="video-object" id="idobject">
+							<param value="sameDomain" name="allowScriptAccess">
+							<param value="true" name="allowFullScreen">
+							<param value="/st/img/2011/videoplayer.swf" name="movie">
+							<param value="high" name="quality">
+							<param value="#000000" name="bgcolor">
+							<param value="pd_only=1&amp;showAd=0&amp;&amp;image_src=#{PATH_IMG}/2011/pohadka2big.jpgamp;cdnHD=1642282&amp;cdnHQ=1642231&amp;cdnLQ=1642243&amp;skin_src=/st/img/2011/skin_v3.swf&amp;autoplay=1&amp;gemius_webid=B3.qv2d1f6OZ50koj_OEQIawrfGRAE81WljlDTfy74j.W7&amp;gemius_name=P2&amp;gemius_id=123" name="FlashVars">
+							<embed width="670" height="394" align="middle" flashvars="pd_only=1&amp;showAd=0&amp;&amp;image_src=#{PATH_IMG}/2011/pohadka2big.jpg&amp;cdnHD=1642282&amp;cdnHQ=1642231&amp;cdnLQ=1642243&amp;skin_src=/st/img/2011/skin_v3.swf&amp;autoplay=1&amp;gemius_webid=B3.qv2d1f6OZ50koj_OEQIawrfGRAE81WljlDTfy74j.W7&amp;gemius_name=P2&amp;gemius_id=123" pluginspage="http://www.adobe.com/go/getflashplayer_cz" type="application/x-shockwave-flash" allowfullscreen="true" allowscriptaccess="sameDomain" bgcolor="#000000" quality="high" src="/st/img/2011/videoplayer.swf">
+						</object>
+						<!---
+						<object id="idobject" width="626" height="473">
+							<param name="allowScriptAccess" value="sameDomain" />
+							<param name="allowFullScreen" value="true" />
+							<param name="movie" value="#{PATH_IMG}/player_video_xmas.swf#{VERSION}" />
+							<param name="quality" value="high" />
+							<param name="bgcolor" value="#000000" />
+							<param name="FlashVars" value="gemius_id=3&amp;gemius_name=Silene+smutna+princezna&amp;gemius_category=01&amp;gemius_webid=B3.qv2d1f6OZ50koj_OEQIawrfGRAE81WljlDTfy74j.W7&amp;video_id_url=http://master.nacevi.cz/seznam/1226-SS.asp?id=&amp;video_id=1&amp;image_src=#{PATH_IMG}/film_silene-smutna-princezna.jpg&amp;skin_src=#{PATH_IMG}/player_skin_xmas.swf&amp;autoplay=0&amp;showAd=1&amp;zoneId=seznam.hp.videospot&amp;live=0&amp;id=idobject" />
+							<embed src="#{PATH_IMG}/player_video_xmas.swf#{VERSION}" quality="high" bgcolor="#000000" width="626" height="473" align="middle" allowScriptAccess="sameDomain" allowFullScreen="true" type="application/x-shockwave-flash" pluginspage="http://www.adobe.com/go/getflashplayer_cz" FlashVars="gemius_id=3&amp;gemius_name=Silene+smutna+princezna&amp;gemius_category=01&amp;gemius_webid=B3.qv2d1f6OZ50koj_OEQIawrfGRAE81WljlDTfy74j.W7&amp;video_id_url=http://master.nacevi.cz/seznam/1226-SS.asp?id=&amp;video_id=1&amp;image_src=#{PATH_IMG}/film_silene-smutna-princezna.jpg&amp;skin_src=#{PATH_IMG}/player_skin_xmas.swf&amp;autoplay=0&amp;showAd=1&amp;zoneId=seznam.hp.videospot&amp;live=0&amp;id=idobject" />
+					    </object>
+					    --->
+					</div>
+
+					<script type="text/javascript">
+createVideo("/st/img/2011/pohadka2big.jpg", 670, 394, "http://cdn-dispatcher.stream.cz/?id=1642193&type=ios", "http://cdn-dispatcher.stream.cz/?id=1642206&type=ios");
+					</script>
+
+					<div class="textCont">
+						<h2><span>Film dne:</span> Obušku, z pytle ven!</h2>
+						<p class="about">Československo, 1955, 70 min</p>
+						<p class="description">
+							Film zpracovaný podle lidové pohádky zaznamenané K.J. Erbenem, vypráví o chudém muzikantovi, kterému chtěl zázračný stařeček pomoci. Daroval mu kouzelný ubrousek, který se sám prostíral a kouzelného oslíka, z něhož se při otřásáni sypaly samé dukáty. Muzikant však byl o tyto stařečkovy vzácné dary okraden zlým a lakotným hostinským&hellip;
+						</p>
+						<p class="next"><a href="/vanocni-program">Na co se můžete těšit příště?</a></p>
+					</div>
+				</div>
+			</div>
+		<div id="bubble-footer"></div>
+	</div>
+	<!-- (C)2000-2012 Gemius SA - gemiusAudience / homepage_Seznam.cz / Filmy_a_pohadky-->
+	<script type="text/javascript">
+
+	var pp_gemius_identifier = new String('B9BL0GMpEH8tXKrOBKSuGpR8DftiT_bOLbpMTU6OzXn.o7');
+	var pp_gemius_extraparameters = new Array('gA=seznam.cz/homepage_Seznam.cz/Filmy_a_pohadky');
+
+	function gemius_pending(i) { window[i] = window[i] || function() {var x = window[i+'_pdata'] = window[i+'_pdata'] || []; x[x.length]=arguments;};};
+	gemius_pending('gemius_hit'); gemius_pending('gemius_event'); gemius_pending('pp_gemius_hit'); gemius_pending('pp_gemius_event');
+	(function(d,t) {try {var gt=d.createElement(t),s=d.getElementsByTagName(t)[0]; gt.setAttribute('async','async'); gt.setAttribute('defer','defer'); gt.src='https://gacz.hit.gemius.pl/xgemius.js'; s.parentNode.insertBefore(gt,s);} catch (e) {}})(document,'script');
+
+
+	</script>
+
+	</body>
+</html>

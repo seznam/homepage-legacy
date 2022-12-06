@@ -1,0 +1,386 @@
+########################################################################
+#	hp-teng.conf 			- config file for Seznam Homepape
+########################################################################
+SERVICE_NAME            	Seznam.cz
+SERVICE_NAME_TITLE			Seznam – Najdu tam, co hledám
+SERVICE_URL					http://__HOST__:__PORT__
+#SERVICE_URL				http://www.seznam.cz
+SERIVCE_URL_SSL				https://www.seznam.cz
+#SERIVCE_URL_SSL			https://www.seznam.cz
+SERVICE_SECURE_LOGIN		https://login.szn.dev/loginProcess
+SERVICE_SLOGIN				https://login.szn.dev/?loggedURL=%1%2&serviceId=homepage&template=html
+SERVICE_LOGGEDURL			http://__HOST__:__PORT__/ticket?returnUrl=
+RUS_MYACCOUNT				http://ucet.seznam.dev
+
+SERVICE_LOGO				logo.png
+SERVICE_LOGO_1117			logo-1117.png
+SERVICE_LOGO_WIDTH			250
+SERVICE_LOGO_HEIGHT			75
+SERVICE_LOGO_LINK			/
+SERVICE_LOGO_LINK_17		http://cs.wikipedia.org/wiki/Sametov%C3%A1_revoluce#17._listopadu
+
+
+########################################################################
+#	SYSTEM PART
+#
+#	TEST_ENV				- switch develope elements 0/1
+#	CLICKTRACKER 			- allow clicktracker enabled/disabled
+#	ENABLEJSERRORCATCH		- for enableJSErrorCatch (true/false)
+#	UPDATE_INTERVAL			- cas aktualizace v sekundach (email + rss + pop3)
+#	STREAM_NAMEDAY_START	- datum spusteni (timestamp) videii
+#	QUERYTRACKER			- povoli mereni chovani uzivatelu
+#   QUERYTRACKER_PATH		- cesta k mericimu skriptu
+########################################################################
+%enable debug
+%enable logtooutput
+%enable errorfragment
+
+TEST_ENV					0
+CLICKTRACKER				0
+CONSOLE						0
+TEST_ADVERT					1
+
+DISCUSSION					0
+
+BLIND_FRIENDLY				1
+
+UPDATE_INTERVAL				100
+UPDATE_INTERVAL_ANONYM		3600
+MAIL_SYNC_INTERVAL			1500
+
+MGEMIUS						1
+QUERYTRACKER				1
+QUERYTRACKER_PATH			http://d.seznam.cz/js/dot.js
+
+OWN_SKIN_ENABLE				1
+
+########################################################################
+# CSS + JS + PATHS AND FILES
+########################################################################
+ENABLE_SETTINS_RELOAD	true
+VERSION					?51
+JS_COMPRESSED		    0
+JS_ERROR_CATCH			0
+PATH_CSS				/st/css
+PATH_JS					/st/js
+PATH_JS_LIB				/st/js/lib
+#PATH_CSS				/templ/css
+#ATH_JS					/templ/js
+
+PATH_SKINS				/favicons/skins
+PATH_SKINS_USER			user
+PATH_SKINS_TMP			temp
+
+# JSLIBS ----------------------------------------
+FILE_JS_COMMON		jak.js
+FILE_JS_SUGGEST		suggest2.js
+FILE_JS_SUGGEST5	suggest5.js
+FILE_JS_SUGGEST5_WORDS	suggest5.words.js
+FILE_JS_SUGGEST5_USAGE	suggest5.usage.js
+FILE_JS_TIME		timekeeper.js
+FILE_JS_REORDER		reorder.js
+FILE_JS_PARSER		parser.js
+FILE_JS_INTERPOLATOR	interpolator.js
+FILE_JS_WINDOW		window.js
+FILE_JS_BETTERSELECT	superselect.js
+FILE_JS_COOKIE		cookie.js
+FILE_JS_FLASH		flash.js
+FILE_JS_JQUERY		jquery.js
+FILE_JS_CALENDAR	calendar.js
+FILE_JS_CALENDARSETUP	calendarsetup.js
+FILE_JS_TOP_ARTICELS_CALENDAR	calendar_top_articles.js
+
+# PLAYER ----------------------------------------
+FILE_JS_JWPLAYER		jwplayer.js
+FILE_JWPLAYER_SWF		player.swf
+
+#APP --------------------------------------------
+FILE_JS_FB						facebook.js
+FILE_JS_CLOGGER					clogger.js
+
+FILE_JS_SUGGEST_SLOVNIK			suggest-slovnik.js
+FILE_JS_HPWINDOW				hpwindow.js
+FILE_JS_LOGOLOADER				logoloader.js
+FILE_JS_LOADER					loader.js
+FILE_JS_RESIZE					resize.js
+FILE_JS_ZOOM_ANIMATION				zoom-animation.js
+FILE_JS_FLAG					flag.js
+FILE_JS_TABS					tabs.js
+FILE_JS_WMANAGER				wmanager.js
+FILE_JS_WMANAGER_WIN			wmanager-win.js
+FILE_JS_WMANAGER_WIN_POINTER	wmanager-win-pointer.js
+FILE_JS_GADGET					gadget.js
+FILE_JS_GADGET_SETTINGS			gadget-settings.js
+FILE_JS_SETTINGS				settings.js
+FILE_JS_SETTINGSWIN				settingswin.js
+FILE_JS_GADGET_RSSSETTING		gadget-rsssetting.js
+FILE_JS_GADGET_WEATHERSETTING	gadget-weathersetting.js
+FILE_JS_GADGET_ZODIAKSETTING	gadget-zodiaksetting.js
+FILE_JS_GADGET_EMAILSETTING		gadget-emailsetting.js
+FILE_JS_GADGET_TVSETTING		gadget-tvsetting.js
+FILE_JS_TVPROGRAM				tvprogram.js
+FILE_JS_TVPROGRAM_SLOT			tvprogram-slot.js
+FILE_JS_SERVICES				services.js
+FILE_JS_CATALOGUE				catalogue.js
+FILE_JS_LIDE					lide.js
+FILE_JS_NOTES					notes.js
+FILE_JS_NOTE					note.js
+FILE_JS_EMAIL					email.js
+FILE_JS_PROMOTE					promote.js
+FILE_JS_GADGET_GOODS			gadget-goods.js
+FILE_JS_GADGETMANAGER			gadgetmanager.js
+FILE_JS_ADVERT					advert.js
+FILE_JS_GADGET_FBSETTING		gadget-fbsetting.js
+FILE_JS_STREAMBOX				streambox.js
+FILE_JS_HINT					hint.js
+FILE_JS_JUMPLIST				jumplist.js
+FILE_JS							homepage.js
+FILE_JS_RPC						rpc.js
+FILE_JS_FRPC					frpc.js
+FILE_JS_BASE64					base64.js
+FILE_JS_LAMPEFFECT				lampeffect.js
+FILE_JS_XML						xml.js
+
+FILE_JS_SETTINGS_SETUP				homepage-settings.js
+FILE_JS_SETTINGS_SETTINGS			settings-settings.js
+FILE_JS_SETTINGS_INTERFACESETTINGS	settings-interfacesettings.js
+FILE_JS_SETTINGS_ABSTRACTSETTINGS	settings-abstractsettings.js
+FILE_JS_SETTINGS_LOOKNFEEL			settings-looknfeel.js
+FILE_JS_SETTINGS_RSS				settings-rss.js
+FILE_JS_SETTINGS_RSS_RSSLIST		settings-rss-rsslist.js
+FILE_JS_SETTINGS_RSS_GROUP			settings-rss-group.js
+FILE_JS_SETTINGS_RSS_FEED				settings-rss-feed.js
+FILE_JS_SETTINGS_RSS_RSSEXPORTIMPORT	settings-rss-rssexportimport.js
+FILE_JS_SETTINGS_RSS_RSSMY				settings-rss-rssmy.js
+FILE_JS_SETTINGS_RSS_ADDFOREIGNFEED		settings-rss-addforeignfeed.js
+FILE_JS_SETTINGS_ADVANCED				settings-advanced.js
+FILE_JS_SETTINGS_ADVANCED_SEEK			settings-advanced-seek.js
+FILE_JS_SETTINGS_ADVANCED_SUGGEST		settings-advanced-suggest.js
+FILE_JS_SETTINGS_ADVANCED_PROMOETE		settings-advanced-promote.js
+FILE_JS_SETTINGS_ADVANCED_SEEK_SEARCH    settings-advanced-seek-search.js
+FILE_JS_SETTINGS_ADVANCED_SEEK_MYSEARCH  settings-advanced-seek-mysearch.js
+FILE_JS_REZSIZER						ownskinresizer.js
+FILE_JS_BIGDAYOFF						bigdayoff.js
+FILE_JS_MUSIC						music.js
+FILE_JS_COOKIE_SELECT					cookie-select.js
+
+FILE_JS_ABSTRACTSKIN				abstractskin.js
+FILE_JS_OWNSKIN						ownskin.js
+FILE_JS_THEMESKIN					themeskin.js
+FILE_JS_DEFAULTSKIN					defaultskin.js
+FILE_JS_SKIN_MANAGER				skin-manager.js
+
+FILE_JS_SERVICES_WEB					services_web.js
+FILE_JS_SERVICES_WEB_ANIMATION			services_web-animation.js
+FILE_JS_SERVICES_WEB_ANIMATION_CANVAS	services_web-animation-canvas.js
+FILE_JS_SERVICES_WEB_ANIMATION_SIMPLE	services_web-animation-simple.js
+FILE_JS_FLEVEO                          services_web-animation-canvas-old.js
+
+DIR_JS_TOP_ARTICLES                     top-articles
+FILE_JS_TOP_ARTICLES                    top-articles.js
+
+FILE_JS_ALL					homepage-all.js
+FILE_CSS					homepage.css
+FILE_CSS_OTHER				homepage-other.css
+FILE_CSS_PRESET				homepage-preset.css
+FILE_CSS_SETTINGS			homepage-settings.css
+FILE_JS_SETTINGS			homepage-settings.js
+FILE_CSS_SERVICES           services_web.css
+FILE_JS_SERVICES_ALL        services_web_all.js
+FILE_CSS_LAMPEFFECT			lampeffect.css
+
+FILE_JS_ANDROID_APP_PROMOTION			androidAppPromotion.js
+
+########################################################################
+# IMG PATH
+########################################################################
+#PATH_IMG					http://1.im.cz/homepage/2007/img
+PATH_IMG					/st/img
+PATH_IMG_2011				/st/img/2011/
+#PATH_IMG					/hp2007-new/img
+PATH_FAVICO					/favicons/%1.png
+PATH_FAVICO_OTHER			/favicons
+PATH_FAVICO_LOGO			/favicons/logo
+PATH_FAVICO_DOG				/favicons/dog
+PATH_FAVICO_TV				/favicons/tv
+PATH_WEATHER				/st/img/weather
+PATH_IMG_WEB_ICO			http://www.seznam.cz
+PATH_BIGDAY_IMG				/favicons/title/
+PATH_IMG_STREAM				""
+########################################################################
+# URL FOR POP3 EMAILS GMAIL, CENTRUM, ATLAS
+########################################################################
+mail_url_191				""
+mail_url_190				"https://mail.google.com/mail/#inbox/%1"
+mail_url_192				"http://mail.atlas.cz/INBOX/%1/mail.aspx?s=1"
+domain_191					"centrum.cz"
+domain_190					"gmail.com"
+domain_192					"atlas.cz"
+
+UID_ewa_farna				20074717
+UID_gabina_partysova		20074704
+UID_pavel_grohman			20074753
+UID_pejsek_krasty			20260206
+UID_samer_issa				20098895
+UID_lucie_hadasova				20074686
+
+VIP_IM_CODE_ISSA			713345
+VIP_IM_CODE_PARTYSOVA		713346
+VIP_IM_CODE_GROHMAN			713348
+VIP_IM_CODE_KRASTY			713349
+VIP_IM_CODE_FARNA			713347
+VIP_IM_CODE_HADASOVA  	716906
+
+########################################################################
+# SEARCH
+########################################################################
+SEARCH_TAB_COUNT			7
+
+
+########################################################################
+# SUGGEST
+########################################################################
+SUGGEST							1
+SUGGEST_LIMIT					6
+
+########################################################################
+# HLEDACI FORMULAR
+########################################################################
+SERVER_SEARCH_URL				http://search.seznam.cz/
+SERVER_SEARCH_URL_WORLD			http://search.seznam.cz/svet/
+SERVER_PICS_URL					http://obrazky.cz/
+SERVER_MAPY_URL					http://www.mapy.cz/
+SERVER_COMPANY_URL				http://www.firmy.cz
+SERVER_SLOVNIK_URL				http://slovnik.seznam.cz/
+SERVER_GOODS_URL				http://www.zbozi.cz
+SERVER_VIDEO_URL				http://videa.seznam.cz/
+
+PATH_IMG_HOROSCOPE				http://1.im.cz/homepage/img/horoscope
+
+#########################################################################
+#	DATA SERVERS AND URLS:
+#		Suggest config:		SUGGEST - on/off suggest (0/1)
+#							SUGGEST_LIMIT - max. count of displayed items
+#							FILE_SUGGEST_JS - suggest js file
+#		Suggest servers:	SERVER_SUGGEST_URL - main URL
+#							SERVER_SUGGEST_FULLTEXT - fulltext
+#							SERVER_SUGGEST_DICT - dictionary
+#
+#		Search:				SERVER_SEARCH_URL - URL to search server
+#							SERVER_COMPANY_URL - URL to company server
+#							SERVER_SLOVNIK_URL - URL to dict. server
+#							SERVER_GOODS_URL - URL to goods server
+#
+#		Email server:		SERVER_EMAIL_LOGIN_URL - URL to email service
+#							SERVER_EMAIL_URL - URL to dynamic data
+#
+#		Flashes server:		SERVER_FLASHES_UPDATE_INTERVAL - interval of reque.
+#							SERVER_FLASHES_URL - URL to data for flashes
+#
+#		Notes server:		SERVER_NOTES_DOMAIN - notes domain
+#							SERVER_NOTES_URL - URL to notes server
+#
+#		Settings server:	SERVER_SETTINGS_PORTRAIT_URL - URL to settings
+#
+#		Registration server:SERVER_REGISTR_URL - URL to reg. server
+#							SERVER_REGISTR_URL_HOMEPAGE - -- "" --
+#
+#		Friends server:		SERVER_FRIENDS_URL - URL to friends
+#
+#		Katalog server		SERVER_CATALOGUE_URL - URL for links
+#
+#########################################################################
+SERVER_EMAIL					http://email-seznam
+SERVER_EMAIL_SSL				https://email-seznam
+
+#SERVER_EMAIL_LOGIN_URL			https://email.seznam.cz/loginProcess
+#SERVER_EMAIL_LOGIN_URL_NO_SSL	http://email.seznam.cz/?disablessl=1
+
+SERVER_LOGIN_URL				http://login-szn
+SERVER_EMAIL_LOGGED_URL			http://email-seznam
+SERVER_EMAIL_LOGGED_URL_SSL		https://email-seznam
+
+SERVER_FLASHES_UPDATE_INTERVAL	60000
+SERVER_FLASHES_URL				/jsFlashes
+
+#SERVER_NOTES_DOMAIN			seznam.cz
+SERVER_NOTES_DOMAIN				seznam.cz
+SERVER_NOTES_URL				http://notes.seznam.cz
+
+SERVER_SETTINGS_PORTRAIT_URL	http://settings.seznam.cz/icon.py/portraitHpScreen
+
+SERVER_REGISTR_URL				http://registrace.seznam.cz/register.py/stageZeroScreen?service=email
+SERVER_REGISTR_URL_HOMEPAGE		http://registrace.seznam.cz/register.py/stageZeroScreen?service=email
+
+SERVER_FRIENDS_URL				http://www.lide.cz/misc.fcgi?akce=hp_seznam_js&hash=
+
+SERVER_CATALOGUE_URL			http://katalog.seznam.cz
+
+SERVER_ENCYCLOPEDY_URL			http://encyklopedie.seznam.cz
+SERVER_SUGGEST_ENCYCLOPEDY		http://suggest.encyklopedie.seznam.cz
+
+########################################################################
+# FACEBOOK
+########################################################################
+FBURLS							__HOST__:__PORT__
+
+########################################################################
+# HUDEBNI TV
+########################################################################
+MUSIC_URL				http://music-web:8750
+MUSIC_ICON_URL			http://music-web:8755
+
+########################################################################
+# ZPRAVODAJSKE FEEDY - NOVINKY, SPORT, SUPER A SPOL
+# koncovka malymi pismeny odpovida hodnote "typeId" feedu
+########################################################################
+MAIN_PEREX_LEN_novinky		120
+MAIN_IMG_W_novinky			161
+MAIN_IMG_H_novinky			91
+
+MAIN_PEREX_LEN_sport		70
+MAIN_IMG_W_sport		    100
+MAIN_IMG_H_sport			56
+
+MAIN_PEREX_LEN_super		120
+MAIN_IMG_W_super			100
+MAIN_IMG_H_super			55
+
+MAIN_PEREX_LEN_prozeny		70
+MAIN_IMG_W_prozeny			100
+MAIN_IMG_H_prozeny			56
+
+#delka bezneho zpravodajskeho perexu:
+NEWS_PEREX_LEN				150
+
+
+
+NEW_GOOD_CATEGORIES				0
+
+######################################################################
+#
+# URL PRO NAHRAVANI OBRAZKU
+#
+######################################################################
+AJAX_UPLOADURL				http://__HOST__:__PORT__/jsSkinSaveImage
+IFRAME_UPLOADURL			http://__HOST__:__PORT__/skinSaveImage
+DOWNLOADURL					http://__HOST__:__PORT__
+DOMAIN						__HOST__
+STREAM_OFFLINE				0
+OFFLINE_HANDLER				/vypadek
+
+######################################################################
+#
+# PRIMY PRENOS - NASTAVENI PRESMEROVANI
+#
+######################################################################
+REDIRECT_ADDRESS			/krystof
+REDIRECT_HOURS				19
+REDIRECT_MINUTES			0
+REDIRECT_SECONDS			0
+REDIRECT_MILLISECONDS		0
+REDIRECT_YEAR				2012
+REDIRECT_MONTH				11
+REDIRECT_DAY				24
+REDIRECT_RANDOM_RANGE		10
+

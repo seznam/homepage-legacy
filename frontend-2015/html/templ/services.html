@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link rel="stylesheet" href="#{PATH_CSS}/#{FILE_CSS_SERVICES}#{VERSION}" media="all" type="text/css" />
+	<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_JQUERY}#{VERSION}"></script>
+	<?teng if #JS_COMPRESSED == 0?>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_COMMON}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SERVICES_WEB}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SERVICES_WEB_ANIMATION}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SERVICES_WEB_ANIMATION_CANVAS}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SERVICES_WEB_ANIMATION_SIMPLE}#{VERSION}"></script>
+	<?teng else?>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SERVICES_ALL}#{VERSION}"></script>
+	<?teng endif?>
+
+	<script type="text/javascript">
+		if(typeof Homepage != "object") {
+			Homepage = {};
+		};
+		Homepage.CONF = {};
+		Homepage.CONF.FLEVEO = '#{PATH_JS}/#{FILE_JS_FLEVEO}#{VERSION}';
+		JAK.Events.onDomReady(document, function() {
+				services = new ServicesWeb();
+		})
+	</script>
+	<title>#{SERVICE_NAME_TITLE}</title>
+</head>
+<body class="${.scheme}">
+	<div id="page">
+		<div id="canvas_container">
+			<div class="container_content">
+				<h1>
+					<a accesskey="2" href="//www.seznam.#{_tld}">
+						<span id="seznam-logo">
+							<img src="//www.seznam.#{_tld}/st/img/logo-2.gif" width="174" height="66" alt="Seznam" title="Seznam">
+						</span>
+					</a>
+				</h1>
+				<div id="canvas_bg"></div>
+					<canvas id="c" width="990" height="500"></canvas>
+					<img id="alternative_image" height="406"/>
+					<div id="preloader"></div>
+					<div id="arrLeft" class="hide_when_moving"></div>
+					<div id="arrRight" class="hide_when_moving"></div>
+					<span id="caption" class="hide_when_moving"></span>
+					<div id="arrow"></div>
+					<a id="visitPage" class="hide_when_moving"></a>
+				</div>
+		</div>
+		<div id="columns_container">
+			<div class="container_content">
+				<div class="columns">
+
+					<!--- 
+					od 1.1.2013 se nezobrazuji letenky, je tedy potreba zobrazit prvni odkaz z 3. sloupce na konci 2. sloupce 
+					1356998400 = 1.1.2013 00:00:00	
+					--->
+
+					<div class="column c1">
+						<ul>
+							<li><a href="http://www.seznam.#{_tld}" id="goback">&laquo; Zpět na Seznam.cz</a></li>
+							<li><span class="itm kupi"><a href="http://www.kupi.cz">Akce a slevy</a></span><span class='txt'> - vyhledávač akcí a slev v obchodech</span><div class='corner'></div></li>
+							<li><span class="itm auto"><a href="http://www.sauto.#{_tld}">Auto</a></span><span class='txt'> - nabídka nových i ojetých aut</span><div class='corner'></div></li>
+							<li><span class="itm bazar"><a href="http://www.sbazar.#{_tld}">Bazar</a></span><span class='txt'> - inzertní a aukční server</span><div class='corner'></div></li>
+							<li><span class="itm super"><a href="http://www.super.#{_tld}">Bulvár</a></span><span class='txt'> - informace a novinky ze světa celebrit</span><div class='corner'></div></li>
+							<li><span class="itm deniky"><a href="http://odkazy.seznam.#{_tld}/Zpravodajstvi/Deniky/" title="Deníky">Deníky</a></span><span class='txt'> - přehled denního zpravodajství online</span><div class='corner'></div></li>
+							<li><span class="itm doprava"><a href="http://www.mapy.#{_tld}/dopravni">Dopravní informace</a></span><span class='txt'> - aktuální dopravní zpravodajství</span><div class='corner'></div></li>
+							<li><span class="itm dovolena tipItem"><a href="http://www.sdovolena.#{_tld}">Dovolená</a></span><span class='txt'> - nabídka zájezdů a dovolené do celého světa</span><div class='corner'></div></li>
+						</ul>
+					</div>
+					<div class="column c2">
+						<ul>
+							<li><span class="itm email"><a href="http://email.seznam.#{_tld}">Email</a></span><span class='txt'> - Vaše e-mailová schránka zdarma</span><div class='corner'></div></li>
+							<li><span class="itm encyklopedy"><a href="http://encyklopedie.seznam.#{_tld}">Encyklopedie</a></span><span class='txt'> - vyhledávání v databázi encyklopedií</span><div class='corner'></div></li>
+							<li><span class="itm finance"><a href="http://www.sfinance.#{_tld}">Finance</a></span><span class='txt'> - porovnáváme smlouvy za Vás, vybereme z celého trhu ty nejlepší</span><div class='corner'></div></li>
+							<li><span class="itm firmy"><a href="http://www.firmy.#{_tld}">Firmy</a></span><span class='txt'> - seznam firem v České republice, hledání ve firmách</span><div class='corner'></div></li>
+							<li><span class="itm horoskopy"><a href="http://www.horoskopy.#{_tld}">Horoskopy</a></span><span class='txt'> - aktuální horoskop na každý den</span><div class='corner'></div></li>
+							<li><span class="itm hry"><a href="http://www.hry.cz">Hry</a></span><span class='txt'> - tisíce nejnovějších online her zdarma</span><div class='corner'></div></li>
+							<li><span class="itm hledani"><a href="http://search.seznam.#{_tld}">Internetové hledání</a></span><span class="txt"> - prohledává 320 milionů česky psaných stránek z celého internetu</span><div class="corner"></div></li>
+							<li><span class="itm bazar"><a href="http://www.sbazar.#{_tld}">Inzerce, aukce</a></span><span class='txt'> - místo, kde koupíte nebo prodáte cokoliv</span><div class='corner'></div></li>
+						</ul>
+					</div>
+					<div class="column c3">
+						<ul>
+							<li><span class="itm jarmara"><a href="http://www.jarmara.at">Jarmara</a></span><span class='txt'> - webová almara s dílem Járy Cimrmana</span><div class='corner'></div></li>
+							<li><span class="itm itmNoScreen klientskaZona"><a href="https://klient.seznam.#{_tld}" rel="#{PATH_IMG}/sluzby-na-seznamu/klientskaZona.gif">Klientská zóna</a></span><span class='txt'> - usnadnění přístupu klienta k informacím o kampaních a k Peněžence</span><div class='corner'></div></li>
+							<li><span class="itm kurzy"><a href="http://www.sfinance.#{_tld}/kurzy">Kurzy měn</a></span><span class='txt'> - aktuální kurzovní lístek</span><div class='corner'></div></li>
+							<?teng if int(now()) < 1356994800 ?>
+								<li><span class="itm letenky"><a href="http://www.sletenky.cz">Letenky</a></span><span class='txt'> - letenky do celého světa</span><div class='corner'></div></li>
+							<?teng endif ?>
+							<li><span class="itm chat"><a href="http://www.lide.#{_tld}">Lidé</a></span><span class='txt'> - poznejte nové lidi v největší komunitní síti</span><div class='corner'></div></li>
+							<li><span class="itm listicka"><a href="http://www.listicka.cz">Lištička</a></span><span class='txt'> - usnadní Vám práci s internetem</span><div class='corner'></div></li>
+							<li><span class="itm mapy"><a href="http://www.mapy.#{_tld}">Mapy</a></span><span class='txt'> - podrobná mapa ČR a českých měst</span><div class='corner'></div></li>
+							<li><span class="itm smobil"><a href="http://www.smobil.#{_tld}">Mobilní služby</a></span><span class='txt'> - služby Seznamu můžete využívat i ve svých mobilních telefonech</span><div class='corner'></div></li>
+							<li><span class="itm moto"><a href="http://www.smoto.#{_tld}">Moto</a></span><span class='txt'> - motocyklový server na českém Internetu</span><div class='corner'></div></li>
+						</ul>
+					</div>
+					<div class="column c4">
+						<ul>
+							<li><span class="itm goods"><a href="http://zbozi.seznam.#{_tld}">Nakupování</a></span><span class='txt'> - vyhledávání v databázi několika tisíc obchodů</span><div class='corner'></div></li>
+							<li><span class="itm obrazky"><a href="http://obrazky.#{_tld}">Obrázky</a></span><span class='txt'> - hledání v obrázcích</span><div class='corner'></div></li>
+							<li><span class="itm penezenka"><a href="https://penezenka.seznam.#{_tld}">Peněženka</a></span><span class='txt'> - platební nástroj pro vybrané služby Seznam.cz</span><div class='corner'></div></li>
+							<li><span class="itm pocasi"><a href="http://pocasi.seznam.#{_tld}">Počasí</a></span><span class='txt'> - dlouhodobá předpověď počasí v ČR i ve světě</span><div class='corner'></div></li>
+							<li><span class="itm women"><a href="http://www.prozeny.cz">Pro ženy</a></span><span class='txt'> - místo, kde se můžete bavit spolu a o všem</span><div class='corner'></div></li>
+							<li><span class="itm reality"><a href="http://www.sreality.#{_tld}">Reality</a></span><span class='txt'> - největší nabídka nemovitostí v ČR</span><div class='corner'></div></li>
+							<li><span class="itm sklik"><a href="http://www.sklik.#{_tld}" rel="http://napoveda.sklik.#{_tld}/cz/">Reklamní systém Sklik</a></span><span class='txt'> - reklamní program umožňující zobrazování inzerátů ve vyhledávání na Seznamu</span><div class='corner'></div></li>
+							<li><span class="itm bezpecne"><a href="http://www.seznamsebezpecne.cz/">Seznam se bezpečně</a></span><span class='txt'> - projekt určený dětem, jejich rodičům a pedagogům o nástrahách internetu</span><div class='corner'></div></li>
+						</ul>
+					</div>
+					<div class="column c5">
+						<ul>
+							<li><span class="itm slovník"><a href="http://slovnik.seznam.#{_tld}">Slovník</a></span><span class='txt'> - nejobsáhlejší překladové slovníky v ČR</span><div class='corner'></div></li>
+							<li><span class="itm sms"><a href="http://www.smobil.#{_tld}/sms">SMS brána</a></span><span class='txt'> - pohodlné posílání SMS</span><div class='corner'></div></li>
+							<li><span class="itm spoluzaci"><a href="http://software.seznam.#{_tld}">Software</a></span><span class='txt'> - aplikace, které usnadňují práci s internetem</span><div class='corner'></div></li>
+							<li><span class="itm sport"><a href="http://www.sport.#{_tld}">Sport</a></span><span class='txt'> - aktuální zpravodajství ze sportu</span><div class='corner'></div></li>
+							<li><span class="itm spoluzaci"><a href="http://www.spoluzaci.#{_tld}">Spolužáci</a></span><span class='txt'> - databáze spolužáků ze základních, středních i&nbsp;vysokých škol</span><div class='corner'></div></li>
+							<li><span class="itm sweb"><a href="http://www.sweb.#{_tld}">Sweb</a></span><span class='txt'> - prostor pro Vaše www stránky</span><div class='corner'></div></li>
+							<li><span class="itm tv-program"><a href="http://tv.seznam.#{_tld}">TV program</a></span><span class='txt'> - program českých televizních stanic</span><div class='corner'></div></li>
+							<li><span class="itm tiv"><a href="http://tip.seznam.#{_tld}">Tip</a></span><span class='txt'> - netradiční služby, zajímavé výrobky či kulturní akce</span><div class='corner'></div></li>
+						</ul>
+					</div>
+					<div class="column c6">
+						<ul>
+							<li><span class="itm stream"><a href="http://www.stream.#{_tld}">Videa</a></span><span class='txt'> - Vaše internetová televize</span><div class='corner'></div></li>
+							<li><span class="itm videoklipy"><a href="http://music.stream.#{_tld}">Videoklipy</a></span><span class='txt'> - tisíce legálních hudebních videoklipů zdarma</span></span><div class='corner'></div></li>
+							<li><span class="itm prace"><a href="http://www.volnamista.#{_tld}">Volná místa</a></span><span class='txt'> - volná pracovní místa, nabídka práce a zaměstnání</span><div class='corner'></div></li>
+							<li><span class="itm vyzkumnik"><a href="http://vyzkumnik.seznam.cz">Výzkumník</a></span><span class='txt'> - vychytejme internet společně, pomozte nám vylepšit naše služby</span><div class='corner'></div></li>
+							<li><span class="itm novinky"><a href="http://www.novinky.#{_tld}">Zprávy</a></span><span class='txt'> - aktuální zpravodajství z domova a ze světa</span><div class='corner'></div></li>
+						</ul>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<div id="foot" data-dot="foot">
+			<p>Copyright &copy; 1996-${date('%Y', now())}, Seznam.cz, a.s.</p>
+		</div>
+		
+		<!-- (C)2000-2012 Gemius SA - gemiusAudience / homepage_Seznam.cz / HP_seznam_sluzeb --> 
+		<script type="text/javascript"> 
+
+		var pp_gemius_identifier = new String('cis7MM8AsNLXvWy9tiZLSJbfTH6gxuyp0Y75CYrjPGL.Q7'); 
+		var pp_gemius_extraparameters = new Array('gA=seznam.cz/homepage_Seznam.cz/HP_seznam_sluzeb'); 
+
+		function gemius_pending(i) { window[i] = window[i] || function() {var x = window[i+'_pdata'] = window[i+'_pdata'] || []; x[x.length]=arguments;};};
+		gemius_pending('gemius_hit'); gemius_pending('gemius_event'); gemius_pending('pp_gemius_hit'); gemius_pending('pp_gemius_event');
+		(function(d,t) {try {var gt=d.createElement(t),s=d.getElementsByTagName(t)[0]; gt.setAttribute('async','async'); gt.setAttribute('defer','defer'); gt.src='https://gacz.hit.gemius.pl/xgemius.js'; s.parentNode.insertBefore(gt,s);} catch (e) {}})(document,'script');
+
+		</script> 		
+	</div>
+</body>
+</html>

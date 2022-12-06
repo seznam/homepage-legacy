@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="cs">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+		<meta name="robots" content="noindex" />
+		<title>404 - Seznam.cz</title>
+		<link rel="shortcut icon" href="#{PATH_IMG}/favicon.ico" />
+		
+		<link rel="stylesheet" href="#{PATH_CSS}/error-pages.css#{VERSION}" media="all" type="text/css" />
+		
+		<script type="text/javascript" src="#{PATH_JS_LIB}/jak.js#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/speech-bubble.js#{VERSION}"></script>
+		
+		<script type="text/javascript" src="${.scheme}://h.imedia.cz/js/dot-small.js"></script>
+		<script type="text/javascript" src="${.scheme}://h.imedia.cz/js/dot-big.js"></script>
+		<!--- Web Analytics --->
+		<script type="text/javascript">
+			DOT.cfg({service: 'homepage'});
+		</script>
+	</head>
+	
+	<body class="errorpage e404">
+		<div id="page">
+			<div id="head" class="clear">
+				<a href="${.scheme}://www.seznam.#{_tld}" class="logoSeznam"><img alt="Seznam.cz" src="#{PATH_IMG}/error_pages/seznam-cz.png" /></a>
+				<a href="${.scheme}://www.seznam.#{_tld}" class="linkSeznam">Seznam</a>
+			</div>
+			<div id="container">
+				<div id="pes404"></div>
+				<div id="bubble">
+					<div class="problem">Ouha!</div>
+					<div class="description">Stránka tu není...</div>
+					<div class="text">Zkontrolujte prosím adresu nebo pokračujte v hledání.</div>
+					<div class="search">
+						<form method="get" action="/search/fulltext" class="searchForm">
+							<input type="text" value="" autocomplete="off" id="q" name="q" accesskey="4" />
+							<input type="submit" value="Vyhledat Seznamem" />
+						</form>
+					</div>
+				</div>
+			</div>
+			<div id="foot">
+				<p>&copy; 1996&ndash;${date("%Y", now())} Seznam.cz, a.s.</p>
+				<p>
+					<a href="http://napoveda.seznam.#{_tld}/cz/seznam/vse-o-hlavni-strance/">Nápověda</a>
+					&ndash; <a href="http://napoveda.seznam.#{_tld}/cz/services/">Technická podpora</a>
+				</p>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var speechbubble = new JAK.SpeechBubble([JAK.gel("bubble")], {imagePath: "#{PATH_IMG}/error_pages/"});
+			JAK.gel("q").focus();
+		</script>
+		
+		<!-- (C)2000-2013 Gemius SA - gemiusAudience / seznam.cz / stranka 404 -->
+		<script type="text/javascript">
+		var pp_gemius_identifier = new String('zPqa1mtIGwIIUTArWbRO8aP8DiFitudiA60.ErFTDhz.87');
+		var pp_gemius_extraparameters = new Array('gA=seznam.cz/homepage_Seznam.cz/stranka404');
+
+		function gemius_pending(i) { window[i] = window[i] || function() {var x = window[i+'_pdata'] = window[i+'_pdata'] || []; x[x.length]=arguments;};};
+		gemius_pending('gemius_hit'); gemius_pending('gemius_event'); gemius_pending('pp_gemius_hit'); gemius_pending('pp_gemius_event');
+		(function(d,t) {try {var gt=d.createElement(t),s=d.getElementsByTagName(t)[0]; gt.setAttribute('async','async'); gt.setAttribute('defer','defer'); gt.src='https://gacz.hit.gemius.pl/xgemius.js'; s.parentNode.insertBefore(gt,s);} catch (e) {}})(document,'script');
+
+		</script>
+	</body>
+</html>

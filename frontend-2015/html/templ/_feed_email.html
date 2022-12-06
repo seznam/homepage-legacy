@@ -1,0 +1,223 @@
+<div id="gadget-3" class="s_win email-feed${$.userId > 0 ? '':' disableMove'}" data-dot="gadgetEmail">
+<?teng format space="onespace"?>
+	<div class="gagdet-cont">
+		<div class="main-cont">
+			<h3 class="title s_win_title">
+
+			<span class="text"><a href="#{SERVER_EMAIL_SSL}">Email.cz<span class="eml-title-count"></span></a></span>
+
+				<span class="edit">
+					<?teng if $.userId > 0?>
+						<a href="/prihlaseni" class="edit-text">Upravit</a>
+					<?teng else?>
+						<a href="#{SERVER_REGISTR_URL_HOMEPAGE}" class="log">Založit nový email</a>
+					<?teng endif?>
+				</span>
+				<span class="bck"></span>
+			</h3>
+
+			<?teng if $.userId > 0?>
+				<div class="gadget-settings">
+					<div class="settings-cont">
+						<div class="settings-main">
+							<div class="setting-bck">
+								<div class="title-setting">
+									<?teng if $.userId > 0?>
+										<span class="close-win-img-span"><a href="#" class="close-win-img">Odebrat box</a></span>
+									<?teng endif?>
+									<span class="close-sett"><a href="" class="close-setting-link">Upravit</a></span>
+								</div>
+								<div class="setting-cont">
+									<form action="/">
+										<div class="row">
+											<label for="emailCount">Počet zobrazených emailů:</label>
+											<select name="emailCount" class="emailCount" id="emailCount">
+												<option value="0" ${$.emailCount == 0 ? 'selected="selected"' : ''}>nezobrazovat</option>
+												<option value="1" ${$.emailCount == 1 ? 'selected="selected"' : ''}>1</option>
+												<option value="2" ${$.emailCount == 2 ? 'selected="selected"' : ''}>2</option>
+												<option value="3" ${$.emailCount == 3 ? 'selected="selected"' : ''}>3</option>
+												<option value="4" ${$.emailCount == 4 ? 'selected="selected"' : ''}>4</option>
+												<option value="5" ${$.emailCount == 5 ? 'selected="selected"' : ''}>5</option>
+												<option value="6" ${$.emailCount == 6 ? 'selected="selected"' : ''}>6</option>
+												<option value="7" ${$.emailCount == 7 ? 'selected="selected"' : ''}>7</option>
+												<option value="8" ${$.emailCount == 8 ? 'selected="selected"' : ''}>8</option>
+												<option value="9" ${$.emailCount == 9 ? 'selected="selected"' : ''}>9</option>
+												<option value="10" ${$.emailCount == 10 ? 'selected="selected"' : ''}>10</option>
+											</select>
+										</div>
+										<!--
+										<div>
+											<input type="checkbox" name="hide" value="1" id="hide-emails" />
+											<label for="hide-emails" class="label-check">Nezobrazovat emaily</label>
+										</div>
+										--->
+										<div class="controls">
+											<input type="submit" name="" class="submit" value="Uložit nastavení" />
+											<input type="reset" name="" class="reset" value="Storno" />
+										</div>
+
+										<div class="next-settings">
+											<a href="/nove-nastaveni">Další nastavení Seznamu</a>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?teng endif?>
+
+			<div class="g-cnt s_win_area">
+				<?teng if $.userId > 0?>
+					<div class="links">
+						<ul>
+							<li><strong><a href="#{SERVER_EMAIL_SSL}/#inbox">Doručené</a></strong></li>
+							<li><a href="#{SERVER_EMAIL_SSL}/newMessageScreen?">Napiš e-mail</a></li>
+						</ul>
+					</div>
+					<div class="eml-cnt" id="eml-cnt-box"></div>
+					<script type="text/javascript">
+						/* <![CDATA[ */
+							JAK.gadget3ec = new JAK.EmailCreator({
+								"rpc_url": "/email",
+								"rpc_method": "recentMessages",
+								"emailCount": ${.emailCount},
+								"msg_no_mail": "#{eml_no_mail}",
+								"msg_err_mail": "#{eml_err_mail}",
+								"msg_disable_mail": "#{eml_disable_mail}",
+								"msg_disable_mail_badpass": "#{eml_disable_mail_badpass}",
+								"count_box": "eml-title-count",
+								"message_link": "#{SERVER_EMAIL_SSL}/readMessageScreen?folderId=%folderId%&messageId=%messageId%",
+								"container": "eml-cnt-box",
+								"username": "${.username}",
+								"domain": "${.domain}",
+								"emailUrl": "#{SERVER_EMAIL_LOGGED_URL_SSL}",
+								"secureLogin": "#{SERVICE_SECURE_LOGIN}",
+								"gadgetId": "gadget-3"
+							});
+						/* ]]> */
+					</script>
+
+				<?teng else?>
+					<?teng format space="onespace"?>
+					<!--- WARN :: zde nesmi byt nikde pouzity apostrofy ', jelikoz to leze i do js --->
+						<form id="login-form" action="#{SERVICE_SECURE_LOGIN}" method="post">
+							<input type="hidden" name="loggedURL" value="#{SERVER_EMAIL_LOGGED_URL_SSL}" />
+							<input type="hidden" name="serviceId" value="email" />
+							<input type="hidden" name="forceSSL" value="1" />
+							<p>
+								<label for="login" class="label">#{eml_name}</label>
+								<input tabindex="1" class="login sh" size="8" id="login" name="username" type="text" value="${.username}" />
+
+								<select tabindex="3" name="domain" id="domain">
+									<?teng frag .domainList?>
+										<option value="${domain}" ${$domain =~ $.domain ?'selected="selected"':''}>@${domain}</option>
+									<?teng endfrag?>
+									<option value="">vlastní adresa</option>
+								</select>
+							</p>
+
+							<div class="clear"></div>
+							<p>
+								<label for="password" class="label">#{eml_pass}</label>
+								<input tabindex="2" class="login sh" size="8" id="password" name="password" type="password" /><input type="submit" value="#{eml_dologin}" class="sub button" tabindex="4" />
+								<!--- detection of js for webmail --->
+								<input type="hidden" name="js" id="js" value="0" />
+							</p>
+
+							<p id="remember-line" class="regist">
+								<input type="checkbox" id="remember" name="remember" value="1" ${$.prefill == 1  ? 'checked="checked"' : ''} /> <label for="remember" title="#{eml_prefil_title}">#{eml_prefil}</label>
+							</p>
+
+							<!--- js detection for webmail  --->
+							<script type="text/javascript">
+							/* <![CDATA[ */
+
+								/*primo ve strance*/
+								(function() {
+									var js = JAK.gel('js');
+									var jsVersionGo = document.attachEvent || document.addEventListener;
+									if (jsVersionGo) {
+										if (js)
+											js.value = 1;
+									};
+
+									var opt = {
+										selectId: 'domain',
+										cookieName : 'sznmaildomain',
+										formId: 'login-form',
+										timeHours: (24*7*30)
+									};
+
+									var usernameInput = document.querySelector("#login-form #login");
+
+									var processSelectValue = function(value) {
+										if (value) {
+											usernameInput.title = "";
+											usernameInput.removeAttribute("placeholder");
+										} else {
+											var ownDomain = "jmeno@domena.cz";
+
+											usernameInput.title = ownDomain;
+											usernameInput.setAttribute("placeholder", ownDomain);
+										}
+									};
+
+									var cS = new JAK.CookieSelect(opt);
+
+									cS.onChange(function(newValue) {
+										processSelectValue(newValue);
+									});
+
+									setTimeout(function() {
+										<!--- timeout kvuli autofill  --->
+										processSelectValue(cS.getValue());
+									}, 250);
+								})();
+
+							/*	]]> */
+							</script>
+						</form>
+						<!--- specialni mereni analytiky - merime vsechny email loginy - pro potreby nove homepage --->
+						<script type="text/javascript">
+							(function() {
+								var loginForm = document.querySelector("#login-form");
+								JAK.Events.addListener(loginForm, "submit", function() {
+									if (!window.DOT) { return; }
+
+									window.DOT.hit("event", {
+										d: {
+											action: "login-to-email"
+										}
+									});
+								});
+							})();
+						</script>
+						<!--- konec - specialni mereni analytiky - merime vsechny email loginy - pro potreby nove homepage --->
+					<?teng endformat?>
+				<?teng endif?>
+
+			</div>
+		</div>
+	</div>
+	<?teng endformat?>
+</div>
+
+<script type="text/javascript">
+	/*<![CDATA[ */
+	JAK.gadget3 = new JAK.Gadget('gadget-3','${feedId}','email');
+	JAK.gadgetManager.addItem(JAK.gadget3);
+
+	<?teng if $.userId > 0?>
+		/*<![CDATA[ */
+			JAK.gadget3.extSetting = new JAK.Gadget.EmailSetting('${feedId}',JAK.gadget3);
+			JAK.gadget3.extGadg = new JAK.Email('gadget-3','${feedId}');
+	<?teng else?>
+			var er = new JAK.SEmailResizer('${feedId}');
+	<?teng endif ?>
+	/* ]]> */
+</script>
+<?teng if $.userId == 0?>
+	<!--- reklama jen pro neprihlaseneho --->
+	<?teng include file="_feed_commercial.html"?>
+<?teng endif?>

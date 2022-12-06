@@ -1,0 +1,70 @@
+/*
+szn-lessc -x suggest.less > suggest.css
+*/
+@bg_color: #fff;
+@input-height: 36px;
+
+.suggest-container {
+	position: relative;
+}
+
+.suggest {
+	width: 100%;
+	z-index: 150;
+	top: 1px;
+	position: relative;
+	@media (min-width: 730px) {
+		position: absolute;
+	}
+	.content {
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		background: @bg_color;
+		overflow: hidden;
+	}
+	p { 
+		position: relative;
+		z-index: 149;
+		margin: 0;
+		padding: 0.1em 0.2em;
+		padding-right: 60px;
+		text-align: left;
+		min-height: @input-height;
+		line-height: @input-height;
+		&.item {
+			font-size: 123.5%;
+			cursor: pointer;
+			padding: 0 10px;	
+			font-weight: bold;
+			strong { font-weight: normal; }
+		}
+		&.item + &.miniapps { border-top: 1px solid #ddd; }
+		&.remote { }
+		&.active {
+			background: #00c;
+			color: @bg_color;
+			* { font-weight: bold !important; }
+		}
+		.relevance { display: none; }
+		&.dictionary { font-weight: normal; }
+		&.dictionary {
+			cursor: pointer;
+			strong { font-weight: bold; }
+			a {
+				text-decoration: none;
+				color: #000;
+			}
+			&.active a {
+				background: #00c;
+				color: @bg_color !important;
+			}
+			a img {
+				margin-right: 5px;
+				vertical-align: middle;
+			}
+			span { vertical-align: middle; }
+		}
+		&.help.active { cursor: help; }
+		&.help { font-weight: bold; }
+	}
+}

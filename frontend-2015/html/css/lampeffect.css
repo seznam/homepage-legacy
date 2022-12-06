@@ -1,0 +1,6 @@
+.lampMain 					{ display:none; width:350px; height:350px; position:fixed; top:0; left:0; background: transparent url(/st/img/radiusimage.png) left top no-repeat; z-index:100; box-shadow: 0 0 0 0px #000, 0 0 0 2000px rgba(0, 0, 0, 1); -webkit-box-shadow:0 0 0 0px #000,0 0 0 2000px rgba(0,0,0,1); -moz-box-shadow:0 0 0 0px #000,0 0 0 2000px rgba(0,0,0,1); pointer-events:none; }
+#lampControls 				{ width:106px; height:90px; position:absolute; top:10px; left:10px; color:#fff; z-index:101; background:url(/st/img/lamp-control.png) no-repeat 0 -110px; cursor:pointer; }
+#lampControls.on 			{ background-position:0 0; }
+.lampCorrectBox				{ display:none; width:10000px; height:10000px; background:#000; position:fixed; top:0; left:0; z-index:100; }
+.lampOpacity 				{ opacity:0.93; }
+#lampControls.darkTheme.on 	{ background-position: -108px 0; }

@@ -1,0 +1,166 @@
+/*- SKIN "POD MOŘEM" -*/
+
+body#www-seznam-cz			{ margin:0; color:#8dcff3; background:#011144 url(/st/img/skins/skin-9/2011/bgr-image.jpg) no-repeat center top ; }
+
+a:link			{ color:#fff; }
+a:visited		{ color:#b3b3b3; }
+a:hover			{ color:#8dcff3; }
+
+
+/*- gadgety -*/
+.gagdet-cont .title					{ border-color:#3b9bff !important; color:#fff !important; }
+.gagdet-cont .title a				{ color:#fff !important; }
+.gagdet-cont .title a:hover			{ color:#8dcff3 !important; }
+.gagdet-cont .title .edit .edit-text{ background-image:url(/st/img/skins/skin-9/2011/settings-hover-arrow.png); }
+.gagdet-cont .title .text			{ color:#8dcff3 !important; }
+.moved .gagdet-cont .title			{ background-color:#0f2159 !important; }
+
+/*- gadgety - "upravit" box -*/
+.gadget-settings .settings-main,
+ .gadget-settings .setting-bck				{ background:#2d4072; }
+.gadget-settings .title-setting a			{ color:#fff !important; }
+.gadget-settings .title-setting a:hover		{ color:#8dcff3 !important; }
+.gadget-settings .title-setting .close-sett	{ background-image:url(/st/img/skins/skin-9/2011/settings-hover-arrow.png); }
+.gadget-settings .next-settings a			{ color:#fff; }
+.gadget-settings .next-settings a:hover		{ color:#8dcff3; }
+.gadget-settings .settings-cont div			{ border-color:#3b9bff !important; }
+.gadget-settings .label-check				{ color:#8dcff3; }
+
+/*- gadgety - pohyb -*/
+#gd .s_win_pointer_background	{ background:#0f2159 !important; }			/*- plocha, kam se dropne gadget -*/
+.dragged .main-cont				{ background-color:#2d4072 !important; }	/*- pozadi pohybujiciho se gadgetu -*/
+
+/*- gadgety - potvrzeni o zavreni boxu -*/
+.close-confirm-win				{ background:#0f2159; border:1px solid #3b9bff; }
+
+.gadget-app-promo               { background: #0f2159; color: #8dcff3; }
+
+/*- gadgety se zpravami odjinud -*/
+.rss-feed .g-cnt td span.perex	{ color:#8dcff3; }
+
+/*- email -*/
+.email-feed .links,
+ .email-feed .eml-cnt						{ background:#0f2159; }
+.email-feed .links a						{ color:#fff; }
+.email-feed .links a:hover					{ color:#8dcff3; }
+.email-feed .gagdet-cont .g-cnt .table .tr	{ border-color:#3b9bff; }
+.email-feed table tr.over td,
+.email-feed .table .tr.over .td				{ background:#163080; }
+.email-feed .g-cnt form						{ background:#0f2159; }
+.email-feed .table .td a					{ color:#fff; }
+.email-feed .table .td a:hover				{ color:#8dcff3; }
+.email-feed .table .td.etime span			{ color:#8dcff3; }
+.email-feed .table .tr span					{ color:#8dcff3; }
+.email-feed .g-cnt label,
+#gadget-3 form.altForm label				{ color:#8dcff3 !important; }
+.email-feed .warn							{ color:#f33; }
+#gadget-3 .g-cnt form.forbbiden	label		{ color: #8DCFF3; }
+
+/*- gmail -*/
+#gadget-190 .eml-cnt td strong a			{ *color:#8DCFF3; }
+
+/*- muze se hodit - pocasi -*/
+#gadget-6 .g-cnt p strong.district			{ color:#8dcff3; }
+#gadget-6 .g-cnt .day p strong.day-name		{ color:#8dcff3; }
+#gadget-6 .g-cnt .weather .unit				{ color:#8dcff3; }
+
+/*- firmy - promo -*/
+#col_2 #gadget-8 .g-cnt .promo-man 	{ display: none; }
+#gadget-8 .firmy-trend-box .links 	{ color: #fff; }
+
+/*- TV program -*/
+#gadget-5 .g-cnt #times a		{ color:#fff; }
+#gadget-5 .g-cnt #times a:hover	{ color:#8dcff3; }
+#gadget-5 .g-cnt #times a.act	{ color:#8dcff3; }
+#gadget-5 .g-cnt a.close		{ color:#fff; }
+#gadget-5 .g-cnt a.close:hover	{ color:#8dcff3; }
+#gadget-5 .g-cnt .date			{ color:#aaa; }
+#gadget-5 h4					{ color:#8dcff3; }
+#gadget-5 .gadget-settings .tv-menu li		{ color:#fff; }
+#gadget-5 .gadget-settings .tv-menu li:hover{ color:#8dcff3; }
+#gadget-5 .gadget-settings .tv-menu li.sel	{ color:#8dcff3; }
+
+/*- gadget music  -*/
+#gadget-24 #musicChannel			{ color: #ccc; }
+
+/*- stream -*/
+#gadget-14 #more-news.beside	{ background-image:url(/st/img/skins/skin-9/2011/arrow-stream.png); }
+
+/*- tip -*/
+#gadget-22 .tip .txt			{ color:#8dcff3; }
+
+/*- poznamky -*/
+#gadget-11 .item				{ border:1px solid #3b9bff; background:#0f2159; color:#8dcff3 !important; }
+#gadget-11 .item.open .corner	{ display:none !important; }
+#gadget-11 .item .show img,
+ #gadget-11 .item .hide img		{ display:none; }
+#gadget-11 .item .show,
+ #gadget-11 .item .hide			{ display:block; height:15px; padding-left:18px; background:transparent url(/st/img/skins/skin-9/2011/note-plusminus.gif) no-repeat 0 0; }
+#gadget-11 .item .hide			{ background-position:0 -37px; }
+#gadget-11 .item .tit .show		{ float:left; }
+#gadget-11 .item .tit,
+ #gadget-11 .item.open .content	{ padding:4px; }
+#gadget-11 .item .txt-box		{ border:1px solid #3b9bff; background:#fff;  }
+#gadget-11 .item .txt-box .edit	{ background:#fff; }
+#gadget-11 .new-note			{ background:transparent url(/st/img/skins/skin-9/2011/note-plusminus.gif) no-repeat 0 2px; }
+
+#gadget-11 .item .edit-box a,
+ #gadget-11 .item a.hide-note,
+ #gadget-11 .new-note a				{ color:#fff; }
+#gadget-11 .item .edit-box a:hover,
+ #gadget-11 .item a.hide-note:hover,
+ #gadget-11 .new-note a:hover		{ color:#8dcff3; }
+
+/*- vyznamny den -*/
+#gadget-23 #nowbox li,
+#gadget-23 #nowbox .title2              { color:#8dcff3; }
+#gadget-23 .gagdet-cont.mapy .edit-text { color:#fff; }
+
+/*- zbozi */
+#gadget-99 .category.active			{ background:#eaeaea; }
+#gadget-99 .category.active a		{ color:#0f2159; }
+#gadget-99 .product-desc			{ color:#8dcff3; }
+
+/*- text u prazdneho sloupce layoutu -*/
+.empty-col						{ color:#8dcff3; }
+
+/*- hint -*/
+#hint-cont #hint,
+#oldBrowserHint							{ background:#0f2159; border-color:#3b9bff; }
+#hint-cont #hint a:link				{ color:#fff; }
+#hint-cont #hint a:visited			{ color:#b3b3b3; }
+#hint-cont #hint a:hover			{ color:#8dcff3; }
+#hint-cont #hint a#hint-close		{ color:#fff; background-image:url(/st/img/skins/skin-9/2011/hint-close.png); }
+#hint-cont #hint a#hint-close:hover	{ color:#8dcff3; }
+
+/*- pata -*/
+#controls						{ border-color:#192854; }
+#controls #s-links a			{ font-weight:normal; color:#fff; }
+#controls #s-links a:hover		{ color:#8dcff3; }
+
+#foot			{ color:#8dcff3; }
+#foot a			{ color:#fff; }
+#foot a:hover	{ color:#8dcff3; }
+
+/*- hlavicka a pozadi -*/
+#head #inCont		{ display:none; }
+#head #info			{ padding-top:12px; }
+#head #info a		{ color:#fff; }
+#head #info a:hover	{ color:#8dcff3; }
+
+#search #tabs li a				{ color:#fff; }
+#search #tabs li a:hover		{ color:#8dcff3; }
+#search #tabs li.active a		{ color:#8dcff3; }
+
+#page				{ background:transparent url(/st/img/skins/skin-9/2011/bckopa.png); }
+
+
+#search-cnt .window-container	{ background-image:url(/st/img/skins/skin-9/2011/bubble.png) !important; }
+
+#search #seznam-logo			{ background:transparent url(/st/img/skins/skin-9/2011/logo.png) no-repeat 0 0; display:block; }
+#search #seznam-logo img		{ visibility:hidden; }
+
+@media (max-width: 950px) {
+	#search-cnt .window-container 				{ background: rgba(15,33,89,0.7) !important; }
+	#search #seznam-logo						{ background:transparent url(/st/img/skins/skin-14/2011/logo-small.png) no-repeat 0 0;
+}

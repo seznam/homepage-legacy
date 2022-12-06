@@ -1,0 +1,128 @@
+<div id="gadget-${feedId}" class="s_win rss-feed" data-dot="gadgetAdvert">
+	<?teng format space="onespace"?>
+	<div class="gagdet-cont">
+		<div class="main-cont">
+			<h3 class="title s_win_title">
+				<span class="ico">
+					<img src="#{PATH_IMG}/aukro.gif" width="16" height="16" alt="${title}" />
+				</span>
+				<span class="text"><a href="http://ad.seznam.cz/clickthru?spotId=1279668&destination=http%3A%2F%2Fgdecz.hit.gemius.pl%2Fhitredir%2Fid%3DofiQBD9l.9nj84uHbybhVsbg.Kg8lZfnr56aYqLgTj7.k7%2Ffastid%3D2377900603271627093%2Fstparam%3Dkpkpjprrxs%2Furl%3Dhttp%253A%252F%252Faukro.cz%252F%253Futm_source%253Ddbox_seznam%2526utm_medium%253Ddbox%2526utm_content%253Daukce_gadget_aukro%2526utm_campaign%253Dseznam_dbox
+" title="${title}">Aukro.cz</a></span>
+					<span class="edit">
+						<?teng if $.userId > 0?>
+							<a href="/prihlaseni" class="edit-text">Upravit</a>
+						<?teng endif?>
+					</span>
+				<span class="bck"></span>
+			</h3>
+			<?teng if $.userId > 0?>
+				<div class="gadget-settings">
+					<div class="settings-cont">
+						<div class="settings-main">
+							<div class="setting-bck">
+								<div class="title-setting">
+									<?teng if $.userId > 0?>
+										<span class="close-win-img-span"><a href="#" class="close-win-img">Odebrat box</a></span>
+									<?teng endif?>
+									<span class="close-sett"><a href="" class="close-setting-link">Upravit</a></span>
+								</div>
+								<div class="setting-cont">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?teng endif?>
+
+			<div class="g-cnt s_win_area">
+				<div class="push">
+
+				<div id="aukro-ad"></div>
+				<!---?dyntag advert zoneId="seznam.hp.okenko" section="" charset="utf-8"?--->
+
+				<script type="text/javascript">
+				<?teng format space="noformat"?>
+				/* <![CDATA[ */
+				JAK.Aukro = JAK.ClassMaker.makeClass({
+					NAME:"Aukro",
+					VERSION:"1.0"
+				});
+
+				JAK.Aukro.prototype.$constructor = function (mainCNT) {
+					JAK.Events.addListener(window, 'load', this, this._setup);
+
+					this.cnt = JAK.gel('aukro-ad');
+					this.eventsCache = new Object();
+					this.mainCNT = mainCNT;
+				};
+
+				JAK.Aukro.prototype._setup = function (e, elm) {
+					im.getAds([{zoneId: "seznam.hp.okenko", callback: this._writeAd.bind(this)}], true);
+				}
+
+				JAK.Aukro.prototype._click = function (e, elm) {
+					JAK.Events.cancelDef(e);
+
+					elm.className = 'click active';
+					if(elm === this.menuItems[1]) {
+						this.menuItems[0].className = 'click';
+						this.page2.style.display = 'block';
+						this.page1.style.display = 'none';
+					} else {
+						this.menuItems[1].className = 'click';
+						this.page1.style.display = 'block';
+						this.page2.style.display = 'none';
+					}
+				};
+
+				JAK.Aukro.prototype._init = function (data) {
+					this.AukroHP = JAK.gel(this.mainCNT);
+					if (!this.AukroHP) {
+						return 1;
+					};
+
+					this.page1 =  JAK.DOM.getElementsByClass('page1',this.AukroHP,'DIV')[0];
+					this.page2 =  JAK.DOM.getElementsByClass('page2',this.AukroHP,'DIV')[0];
+					this.menuItems = JAK.DOM.getElementsByClass('click', JAK.gel('navigace'), 'A');
+					for (var i = 0; i < this.menuItems.length; i++) {
+						this.eventsCache['menuClick'+i] = JAK.Events.addListener(this.menuItems[i], 'click', this, '_click', false, true);
+					};
+					this.menuItems[0].className = 'click active';
+				};
+				JAK.Aukro.prototype._writeAd = function (data) {
+					var spot1 = "";
+
+					if (typeof data == "string") {
+						spot1 = data;
+					} else {
+						spot1 = data.spots[0].content;
+					}
+
+					var html = JAK.DOM.separateCode(spot1)[0];
+					var js = JAK.DOM.separateCode(spot1)[1];
+					this.cnt.innerHTML = html;
+					eval(js);
+
+					this._init();
+				};
+
+				JAK.aukro = new JAK.Aukro('AukroHP');
+
+				/* ]]> */
+				<?teng endformat?>
+				</script>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?teng endformat?>
+</div>
+
+<?teng if $.userId > 0?>
+	<script type="text/javascript">
+	/* <![CDATA[ */
+		JAK.gadget${feedId} = new JAK.Gadget('gadget-${feedId}','${feedId}');
+	/* ]]> */
+	</script>
+<?teng endif ?>
+

@@ -1,0 +1,96 @@
+<div id="gadget-${columns._number}_${_number}" class="s_win rss-feed" data-dot="gadget${feedId}">
+<?teng format space="onespace"?>
+	<div class="gagdet-cont">
+		<div class="main-cont">
+			<h3 class="title s_win_title">
+				<span class="ico">
+					<img src="${$favicon_url !~ '' ? '/favicons/'++$favicon_url : reorder(#PATH_FAVICO,$feedId)}" width="16" height="16" alt="${title}" /><!--- ${} --->
+				</span>
+				<span class="text"><a href="${serverUrl}" title="${title} | Aktualizováno v ${date('%H:%M',$lastUpdate)}">${title}</a></span>
+
+				<span class="edit">
+					<?teng if $.userId > 0?>
+						<a href="/prihlaseni" class="edit-text">Upravit</a>
+					<?teng endif?>
+				</span>
+				<span class="bck"></span>
+			</h3>
+			<?teng if $.userId > 0?>
+				<div class="gadget-settings">
+					<div class="settings-cont">
+						<div class="settings-main">
+							<div class="setting-bck">
+								<div class="title-setting">
+
+									<?teng if $.userId > 0?>
+										<span class="close-win-img-span"><a href="#" class="close-win-img">Odebrat box</a></span>
+									<?teng endif?>
+									<span class="close-sett"><a href="" class="close-setting-link">Upravit</a></span>
+								</div>
+								<div class="setting-cont">
+									<form action="/">
+										<div class="row">
+											<label for="count${feedId}">Počet zobrazených zpráv:</label>
+											<select name="count" id="count${feedId}">
+												<option value="1" ${$rowCount == 1 ? 'selected="selected"' :''}>1</option>
+												<option value="2" ${$rowCount == 2 ? 'selected="selected"' :''}>2</option>
+												<option value="3" ${$rowCount == 3 ? 'selected="selected"' :''}>3</option>
+												<option value="4" ${$rowCount == 4 ? 'selected="selected"' :''}>4</option>
+												<option value="5" ${$rowCount == 5 ? 'selected="selected"' :''}>5</option>
+												<option value="6" ${$rowCount == 6 ? 'selected="selected"' :''}>6</option>
+												<option value="7" ${$rowCount == 7 ? 'selected="selected"' :''}>7</option>
+												<option value="8" ${$rowCount == 8 ? 'selected="selected"' :''}>8</option>
+												<option value="9" ${$rowCount == 9 ? 'selected="selected"' :''}>9</option>
+												<option value="10" ${$rowCount == 10 ? 'selected="selected"' :''}>10</option>
+											</select>
+										</div>
+										<div>
+											<input type="checkbox" name="showPreview" value="1" id="show-prew${feedId}" ${$showPreview ? 'checked="checked"' : ''} />
+											<label for="show-prew${feedId}" class="label-check">Zobrazovat náhledy článků</label>
+										</div>
+										<div class="controls">
+											<input type="submit" name="" class="submit" value="Uložit nastavení" />
+											<input type="reset" name="" class="reset" value="Storno" />
+										</div>
+
+										<div class="next-settings">
+											<a href="/nove-nastaveni">Další nastavení Seznamu</a>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?teng endif?>
+			<div class="g-cnt s_win_area">
+				<div class="push own-rss">
+				<table>
+					<?teng frag items?>
+						<?teng if $rowCount >= $_number+1 ?>
+							<tr data-dot="${$_number+1}">
+								<td>
+									<div class="hlp">
+										<a href="${link}" <?teng if $.userId > 0 ?>onclick="JAK.log(this, 'rss-title', '${$_number+1}', null, '${feedId}', '${.userId}')" <?teng endif?>>${title}</a>
+										<span class="perex"><?teng if $showPreview?>${wordsubstr($description, 0, #NEWS_PEREX_LEN, '', '...')}<?teng endif?></span>
+									</div>
+								</td>
+							</tr>
+						<?teng endif?>
+					<?teng endfrag?>
+				</table>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?teng endformat?>
+</div>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+	JAK.gadget${columns._number}_${_number} = new JAK.Gadget('gadget-${columns._number}_${_number}','${feedId}','rss');
+	JAK.gadget${columns._number}_${_number}.extSetting = new JAK.Gadget.RssSetting('${feedId}',JAK.gadget${columns._number}_${_number},0);
+	JAK.gadgetManager.addItem(JAK.gadget${columns._number}_${_number});
+/* ]]> */
+</script>
+

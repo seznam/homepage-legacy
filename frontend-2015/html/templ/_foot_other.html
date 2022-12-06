@@ -1,0 +1,19 @@
+<hr />
+<div id="foot">
+	<p><a href="http://www.seznam.#{_tld}" target="_top">#{seznam}</a> - <a href="http://napoveda.seznam.#{_tld}/">#{tech_supp_small}</a></p>
+	<p>Copyright &copy; 1996 - ${date("%Y",now())} Seznam.cz, a.s. #{all_rights}</p>
+</div>
+
+<?teng endformat?>
+<?teng if isenabled("errorfragment")?>
+<pre style=" text-align:left; border:2px solid #a0a0a0; padding:8px; background:#efefef; color:#ff0000; font-family:sans; font-size:12px;">
+<?teng frag ._error?>
+${filename}: Line [${line}] : Coll [${column}] : ${message}
+<?teng endfrag?>
+</pre>
+<?teng endif?>
+<?teng if isenabled("debug")?>
+<pre style=" text-align:left; border:2px solid #a0a0a0; padding:8px; background:#efefef; color:#33cc00; font-family:sans; font-size:12px;">
+<?teng debug?>
+</pre>
+<?teng endif?>

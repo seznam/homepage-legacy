@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="cs">
+	<head>
+		<title>Seznam - RSS čtečka</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="#{PATH_CSS}/#{FILE_CSS_READER}#{VERSION}" media="all" type="text/css" />
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_READER}#{VERSION}"></script>
+	</head>
+
+	<body class="${.scheme}">
+		<div class="page" id="reader">
+			<?teng frag feed_rss?>
+				<div class="feed">
+					<div class="head">
+						<h2><a href="${serverUrl}">${title}</a></h2>
+					</div>
+					
+					<?teng frag items?>
+						<div class="item${$_number %2 ? ' right':' left'}">
+							<h3><a href="${link}">${title}</a></h3>
+							<div class="cnt">
+								<table>
+									<tr><td>
+									${$description ? unescape($description) : '<span class="gray">'++#no_desc++'</span>'}
+									</td></tr>
+								</table>
+							</div>
+						</div>
+					<?teng endfrag?>
+					<div class="clear"></div>
+				</div>
+			<?teng endfrag?>
+		</div>
+	</body>
+</html>
+
+

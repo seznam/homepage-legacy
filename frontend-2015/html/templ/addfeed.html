@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="cs">
+	<head>
+		<title>#{SERVICE_NAME_TITLE}</title>
+		<?teng include file="_common_files.html"?>
+	</head>
+	
+	<body id="www-seznam-cz" class="${.scheme}">
+		<div id="page">
+			<?teng include file="_head.html"?>
+
+			<div id="cont" class="import">
+				<?teng include file="_menu.html"?>
+				
+				<div id="main">
+					<?teng frag badArguments?>
+					<p>
+						#{err_rss_bad} 
+						<br />
+						${reorder(#err_rss_bad_I,$url)}
+					</p>
+					<p>
+						<strong>#{err_rss_name}:</strong> ${title}<br/>
+						<strong>#{err_rss_url}:</strong> ${url}
+					</p>
+					<?teng endfrag?>
+
+					<?teng frag newFeed?>
+					<form action="/addFeedProcess" method="post">
+						<input type="hidden" name="url" value="${url}" />
+						<input type="hidden" name="title" value="${title}" />
+						<input type="hidden" name="hashId" value="${.hashId}" />
+						<p>
+							${reorder(#add_warn,$title,$.username,$.domain)}
+							<br />
+							${reorder(#add_like_other,urlescape($title),urlescape($url))}
+						</p>
+						<p>
+							<strong>#{add_URl}: </strong>${url}
+						</p>
+						
+						<p class="button">
+							<input type="submit" name="add" value="#{yes_add}" class="w250" />
+					    </p>
+						<p>
+							<input type="submit" name="cancel" value="#{no_dont}" class="w250" />
+					    </p>
+					</form>
+					<?teng endfrag?>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<?teng include file="_foot_other.html"?>
+			<?teng include file="_settings_netmonitor.html"?>
+		</div>
+	</body>
+</html>

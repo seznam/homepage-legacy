@@ -1,0 +1,229 @@
+<?teng if exist(var_HP) || exist(var_Settings)?>
+	<a accesskey="1" class="blind" href="http://www.ippi.cz/klavesove-zkratky/neni-mapa-stranek.html">Klávesové zkratky na tomto webu - rozšířené</a>
+	<a accesskey="0" class="blind" href="#over-menu">Přeskočit hlavičku a menu</a>
+	<a name="headLink"></a>
+	<div id="head">		
+		<?teng if $.device =~ 'desktop'?>
+			<div id="adCorner"></div>
+			<script type="text/javascript">
+			/*<![CDATA[ */
+				IMPrimaryAds.push({id:"adCorner", zoneId:"seznam.hp.corner"});
+			/* ]]> */
+			</script>
+		<?teng endif?>
+			<div id="info" data-dot="headLinks">
+				<!--- logged in user --->
+				<?teng if $userId > 0?>
+					<?teng if $usingEmail == 1?>
+						<a href="#{SERVER_EMAIL}/folderScreen?folderId=inbox"><h2>${username}@${domain}</h2></a>
+					<?teng else?>
+						<h2>${username}@${domain}</h2>
+					<?teng endif?>
+
+					<?teng if #DISCUSSION == 1?>
+						<strong><a href="http://forum.lide.#{_tld}/forum.fcgi?akce=forum_data&amp;forum_ID=62460&amp;auth=">Diskuze</a></strong>
+					<?teng endif?>
+
+					<a href="/nove-nastaveni#vyber-vzhledu" id="choose-skin">#{choose_skin}</a>
+
+					<?teng if !exist(var_Settings)?>
+						<span class="settings-link-span"><a href="/nastaveni" id="settings-link">Nastavení</a></span>
+					<?teng endif?>
+
+					<a href="/logoutProcess?hashId=${.hashId}" class="last">#{logout}</a>
+				<?teng else?>
+					<?teng if #DISCUSSION == 1?>
+						<strong><a href="http://forum.lide.#{_tld}/forum.fcgi?akce=forum_data&amp;forum_ID=62460&amp;auth=">Diskuze</a></strong>
+					<?teng endif?>
+					<a href="/nove-nastaveni#vyber-vzhledu" id="choose-skin">#{choose_skin}</a>
+					<a href="/prihlaseni" class="last">#{login}</a>
+				<?teng endif?>
+			<div id="inCont"></div>
+		</div>
+	</div>
+	<hr />
+
+	<div id="skinsCont"></div>
+	<?teng set $.__selectedSkinId = '100000'?>
+	<?teng set $.__imageThumb = ''?>
+	<?teng set $.__image = ''?>
+	<?teng set $.__synched = 0?>
+
+	<?teng frag .skinSelected?>
+		<?teng set $.__selectedSkinId = exist(id) ? $id : '-1'?>
+		<?teng set $.__synched = $synched?>
+	<?teng endfrag?>
+
+	<?teng frag .skinCustom?>
+		<?teng set $.__imageThumb = #DOWNLOADURL++$imageThumb?>
+		<?teng set $.__image = #DOWNLOADURL++$image?>
+	<?teng endfrag?>
+
+	<script type="text/javascript">
+	/* <![CDATA[ */
+		var sM = new Homepage.SkinManager(${__synched});
+		<?teng if (#OWN_SKIN_ENABLE && exist(ownSkinEnable) && $ownSkinEnable == 1)?>
+			Homepage.ownSkin = new Homepage.OwnSkin(
+				0,
+				sM,
+				'Vlastní vzhled',
+				0,
+				999,
+				${$.__selectedSkinId == -1 ? '1' : '0'},
+				'<?teng if $.__imageThumb?>${$.__image}<?teng endif?>',
+				'<?teng if $.__image?>${$.__image}<?teng endif?>',
+				'#{PATH_IMG}/2011/vlastni-obrazek.png',
+				0,
+				${.skinCustomOpacity}
+			);
+			sM.addSkinControler(Homepage.ownSkin);
+		<?teng endif?>
+		<?teng frag skins?>
+		sM.addSkinControler(new Homepage.DefaultSkin(
+			0,
+			sM,
+			'${name}',
+			${thematic},
+			${id},
+			${$.__selectedSkinId == $id ? '1' : '0'},
+			<?teng if $staticCssId =~ '-1'?>
+				<?teng if $thematic != 1?>
+					'#{PATH_SKINS}/photo/${imageThumb}',
+				<?teng else?>
+					'#{PATH_IMG}/2011/tematicky-img.png',
+				<?teng endif?>
+				'#{PATH_SKINS}/${'photo/'++$image}',
+			<?teng else?>
+				'#{PATH_IMG}/skins/2011/skin-${staticCssId}.png',
+				'#{PATH_CSS}/${staticCssId}-homepage.css',
+			<?teng endif?>
+			'${$staticCssId =~ '-1'? 'img': 'css'}',
+			${$id == 1? 1 : 0},
+			'<?teng ctype "quoted-string"?>${textCss}<?teng endctype?>',
+			${staticCssId}
+		));
+		<?teng endfrag?>
+
+		<!--- user ma vybrany archivovany skin --->
+		<?teng frag skinMissing?>
+		sM.addSkinControler(new Homepage.DefaultSkin(
+			0,
+			sM,
+			'${name}',
+			${thematic},
+			${id},
+			${$.__selectedSkinId == $id ? '1' : '0'},
+			<?teng if $staticCssId =~ '-1'?>
+				'#{PATH_SKINS}/photo/${imageThumb}',
+				'#{PATH_SKINS}/${'photo/'++$image}',
+			<?teng else?>
+				'#{PATH_IMG}/skins/skin-${staticCssId}.gif',
+				'#{PATH_CSS}/${staticCssId}-homepage.css',
+			<?teng endif?>
+			'${$staticCssId =~ '-1'? 'img': 'css'}',
+			0,
+			'<?teng ctype "quoted-string"?>${textCss}<?teng endctype?>'
+		));
+		<?teng endfrag?>
+
+		<?teng frag .logo?>
+		<?teng if $pictureUrl && $picture2Url ?>
+			var skinLogoManagerOpt = {};
+			skinLogoManagerOpt = {
+				logo_elm_id			: 'seznam-logo',
+				logo_1_src			: '#{PATH_FAVICO_LOGO}/${pictureUrl}',
+				logo_2_src			: '#{PATH_FAVICO_LOGO}/${picture2Url}',
+				<?teng if $picture3Url ?>
+					logo_3_src		: '#{PATH_FAVICO_LOGO}/${picture3Url}',
+				<?teng else ?>
+					logo_3_src		: '',
+				<?teng endif ?>
+				logo_3_length		: ${pict3AnimLen},
+				banned_skins_css_id	: [ 4, 6, 8, 9, 10, 14, -666 ],
+				<?teng frag .skinSelected ?>
+					<?teng if exists(staticCssId) ?>
+						skin_css_id : ${staticCssId},
+					<?teng else ?>
+						skin_css_id : ${$.skinCustomOpacity == 0 ? -1 : -666},
+					<?teng endif ?>
+				<?teng endfrag ?>
+				device				: '${.device}'
+			};
+			var sLM = new Homepage.SkinLogoManager(skinLogoManagerOpt);
+		<?teng endif ?>
+		<?teng endfrag?>
+	/* ]]> */
+	</script>
+
+
+<!--- nastaveni a dalsi stranky --->
+<?teng else?>
+	<div id="head" data-dot="headLinks">
+	<div id="adCorner"></div>
+	<script type="text/javascript">
+	/*<![CDATA[ */
+		IMPrimaryAds.push({id:"adCorner", zoneId:"seznam.hp.corner"});
+	/* ]]> */
+	</script>
+		<a href="#{SERVICE_LOGO_LINK}"><span id="seznam-logo"><img id="logo" src="#{PATH_IMG}/#{SERVICE_LOGO}" width="#{SERVICE_LOGO_WIDTH}" height="#{SERVICE_LOGO_HEIGHT}" alt="Logo Seznam.cz" title="Seznam" /></span></a>
+
+		<div id="user">
+			<div class="text">
+				<!--- logged in user --->
+				<?teng if $userId > 0?>
+					<h2>${username}@${domain}</h2> <span class="gray">|</span>
+					<a href="/">Seznam</a> <span class="gray">|</span>
+					<a href="/logoutProcess?hashId=${.hashId}" class="last">#{logout}</a>
+				<?teng else?>
+					<a href="/loginScreen" class="last">#{login}</a>
+				<?teng endif?>
+			</div>
+		</div>
+	</div>
+
+	<div id="line">
+		<?teng if exist(pageId) && $pageId =~ 'loginscreen'?>
+			<h1>#{log_to_szn}</h1>
+		<?teng else?>
+			<?teng if $pageId =~ 'nastaveni-zprav'?>
+				<h1>#{sett_of_hp}</h1>
+			<?teng endif?>
+
+			<?teng if $pageId =~ 'zmena-vzhledu'?>
+				<h1>#{sett_of_hp}</h1>
+			<?teng endif?>
+
+			<?teng if $pageId =~ 'nastaveni-pocasi'?>
+				<h1>#{sett_of_hp}</h1>
+			<?teng endif?>
+
+			<?teng if $pageId =~ 'nastaveni-horoskopu'?>
+				<h1>#{sett_of_hp}</h1>
+			<?teng endif?>
+
+			<?teng if $pageId =~ 'setuptvscreen'?>
+				<h1>#{sett_of_hp}</h1>
+			<?teng endif?>
+
+			<?teng if $pageId =~ 'nastaveni-tv-programu'?>
+				<h1>#{sett_of_hp}</h1>
+			<?teng endif?>
+
+			<?teng if $pageId =~ 'export-zprav-opml'?>
+				<h1>#{sett_of_hp}</h1>
+			<?teng endif?>
+
+			<?teng if $pageId =~ 'co-je-rss'?>
+				<h1>#{sett_of_hp}</h1>
+			<?teng endif?>
+
+			<?teng if $pageId =~ 'nastaveni-ostatni'?>
+				<h1>#{sett_of_hp}</h1>
+			<?teng endif?>
+
+			<?teng if $pageId =~ 'ikona-pro-webmastery'?>
+				<h1>#{sett_of_hp}</h1>
+			<?teng endif?>
+		<?teng endif?>
+	</div>
+<?teng endif?>

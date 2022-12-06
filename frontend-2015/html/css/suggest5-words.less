@@ -1,0 +1,36 @@
+/*
+szn-lessc -x suggest5-words.less > suggest5-words.css
+*/
+@img-dir: "/st/img/";
+@className: .suggestWords;
+
+@{className}_wrapper {
+	position: relative;
+	z-index: 0;
+}
+@{className}_sugword {
+	position: absolute !important;
+	top: 0 !important;
+	left: 0 !important;
+	z-index: -1;
+	&.hidden {
+		color: transparent !important;
+	}
+}
+@{className}_input {
+	background-image: url("@{img-dir}nic.png") !important; // IE9: zIndex, background transparent bug: http://icreatestuff.co.uk/blog/article/ie9-z-index-stacking-problem-or-something-stranger
+	background-color: transparent !important;
+	position: relative !important;
+	opacity: .99;
+
+}
+.opera10to14 @{className}_input {
+	background-color: rgba(255,255,255,0.3) !important; // Opera 10-14: bug s neviditelnym kurzorom v INPUT BOXE pri pisani.
+}
+@{className}_fake {
+	white-space: pre;
+	visibility: hidden;
+	position: absolute;
+	left: -5000px;
+	top: -5000px;
+}

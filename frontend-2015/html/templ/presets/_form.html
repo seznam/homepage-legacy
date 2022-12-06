@@ -1,0 +1,28 @@
+<h3 class="button"><a id="want-set" href="#">Chci nastavit &raquo;</a></h3>
+
+<noscript>
+	<input type="submit" value="Chci nastavit" />
+</noscript>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+	function submitForm (e, elm) {
+		if (typeof e != 'undefined') {
+			JAK.Events.cancelDef(e);
+		}
+		if( window.confirm('#{set_profile}')) {
+			JAK.gel('form-want-set').submit();
+		}
+
+		var im_IMG = new Image(1,1);
+		im_IMG.src = 'http://ad.seznam.#{_tld}/action?spotId='+VIP_IM_CODE;
+	};
+	var link = JAK.gel('want-set');
+	JAK.Events.addListener(link, 'click', submitForm, null, false, false);
+
+	<?teng if exist(alert) && $alert == 1 ?>
+		JAK.Events.addListener(window, 'load', submitForm, null, false, false);
+	<?teng endif?>
+/* ]]> */
+</script>
+

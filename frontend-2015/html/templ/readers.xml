@@ -1,0 +1,17 @@
+<?teng ctype "text/html"?><?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE readers SYSTEM "http://www.seznam.cz/readers.dtd">
+<readers>
+	<?teng frag feed?>
+	<feed name="${title}" url="${url}" group="${groupId}" permanent="${isPermanent}">
+		<?teng frag actually?>
+		<actually date="${date("%Y-%m-%d", now())}">${readers}</actually>
+		<?teng endfrag?>
+		<?teng frag weekly?>
+		<weekly date="${date("%Y-%m-%d", $week)}">${readers}</weekly>
+		<?teng endfrag?>
+		<?teng frag monthly?>
+		<monthly date="${date("%Y-%m", $month)}">${readers}</monthly>
+		<?teng endfrag?>
+	</feed>
+	<?teng endfrag?>
+</readers><?teng endctype?>

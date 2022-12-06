@@ -1,0 +1,122 @@
+/*- SKIN "LOFFIK" -*/
+
+body#www-seznam-cz			{ margin:0; color:#666; background:#f0f6fb url(/st/img/skins/skin-10/2011/page-back.gif) repeat-x 0 0 ; }
+
+a:link			{ color:#d3391f; }
+a:visited		{ color:#992a17; }
+a:hover			{ color:#0082c0; }
+
+/*- gadgety -*/
+.gagdet-cont .title					{ border-color:#8dd1fc !important; color:#000 !important; }
+.gagdet-cont .title a				{ color:#3c3c3c; }
+.gagdet-cont .title a:hover			{ color:#0082c0; }
+.gagdet-cont .title .edit a			{ color:#d3391f; }
+.gagdet-cont .title .edit a:hover	{ color:#0082c0; }
+.gagdet-cont .title .edit .edit-text{ background-image:url(/st/img/skins/skin-10/2011/settings-hover-arrow.png); }
+.gagdet-cont .title .text			{ color:#666 !important; }
+.moved .gagdet-cont .title			{ background-color:#e3f3ff !important; }
+
+/*- gadgety - "upravit" box -*/
+.gadget-settings .settings-main,
+ .gadget-settings .setting-bck				{ background:#e3f3ff; }
+.gadget-settings .title-setting a			{ color:#d3391f !important; }
+.gadget-settings .title-setting a:hover		{ color:#0082c0 !important; }
+.gadget-settings .title-setting .close-sett	{ background-image:url(/st/img/skins/skin-10/2011/settings-hover-arrow.png); }
+.gadget-settings .next-settings a			{ color:#d3391f; }
+.gadget-settings .next-settings a:hover		{ color:#0082c0; }
+.gadget-settings .settings-cont div			{ border-color:#8dd1fc !important; }
+
+/*- gadgety - pohyb -*/
+#gd .s_win_pointer_background	{ background:#ededed !important; }			/*- plocha, kam se dropne gadget -*/
+
+.gadget-app-promo               { background: #e0f2ff; }
+
+/* email */
+.email-feed .links,
+ .email-feed .eml-cnt						{ background:#e0f2ff; }
+.email-feed .links a						{ color:#d3391f; }
+.email-feed .links a:hover					{ color:#0082c0; }
+.email-feed .gagdet-cont .g-cnt .table .tr	{ border-color:#8dd1fc; }
+.email-feed table tr.over td,
+.email-feed .table .tr.over .td				{ background:#c4e6ff; }
+.email-feed .g-cnt form						{ background:#e0f2ff; }
+.email-feed .table .td a					{ color:#000; }
+.email-feed .table .td.etime span			{ color:#000; }
+.email-feed .table .tr span					{ color:#666; }
+.email-feed .g-cnt label,
+#gadget-3 form.altForm label				{ color:#666 !important; }
+
+/* pocasi */
+#gadget-6 .g-cnt .day						{ color:#000; }
+#gadget-6 .g-cnt .day p strong.day-name		{ color:#666; }
+
+/*- firmy - promo -*/
+#col_2 #gadget-8 .g-cnt .promo-man 			{ display: none; }
+#gadget-8 .firmy-trend-box .links 			{ color: #d3391f; }
+
+/*- TV program -*/
+#gadget-5 .g-cnt #times a		{ color:#d3391f; }
+#gadget-5 .g-cnt #times a:hover	{ color:#0082c0; }
+#gadget-5 .g-cnt #times a.act	{ color:#000; }
+#gadget-5 .g-cnt a.close		{ color:#d3391f; }
+#gadget-5 .g-cnt a.close:hover	{ color:#0082c0; }
+#gadget-5 .g-cnt .date			{ color:#999; }
+#gadget-5 h4					{ color:#3C3C3C; }
+#gadget-5 .gadget-settings .tv-menu li		{ color:#d3391f; }
+#gadget-5 .gadget-settings .tv-menu li:hover{ color:#0082c0; }
+#gadget-5 .gadget-settings .tv-menu li.sel	{ color:#666; }
+
+/*- tip -*/
+#gadget-22 .tip .txt			{ color:#666; }
+
+/*- poznamky -*/
+#gadget-11 .item .edit-box a,
+ #gadget-11 .item a.hide-note,
+ #gadget-11 .new-note a				{ color:#d3391f; }
+#gadget-11 .item .edit-box a:hover,
+ #gadget-11 .item a.hide-note:hover,
+ #gadget-11 .new-note a:hover		{ color:#0082c0; }
+#gadget-11 .item .txt-box			{ border:1px solid #aaa; background:#fff; padding:2px;  }
+#gadget-11 .item .txt-box .edit		{ background:#fff; }
+
+/*- vyznamny den -*/
+#gadget-23 #nowbox li			{ color:#666; }
+#gadget-23 #nowbox .title2		{ color:#666; }
+
+
+/*- hint -*/
+#hint-cont #hint,
+#oldBrowserHint							{ background:#e0f2ff; border-color:#8dd1fc; }
+#hint-cont #hint a:link				{ color:#d3391f; }
+#hint-cont #hint a:visited			{ color:#992a17; }
+#hint-cont #hint a:hover			{ color:#0082c0; }
+#hint-cont #hint a#hint-close		{ color:#d3391f; background-image:url(/st/img/skins/skin-10/2011/hint-close.png); }
+#hint-cont #hint a#hint-close:hover	{ color:#0082c0; }
+
+/*- pata -*/
+#controls						{ border-color:#fff; }
+#controls #s-links a			{ font-weight:normal; color:#d3391f; }
+#controls #s-links a:hover		{ color:#0082c0; }
+
+#foot			{ color:#999; }
+#foot a			{ color:#d3391f; }
+#foot a:hover	{ color:#0082c0; }
+
+/*- hlavicka a pozadi -*/
+#head-cont			{ background:transparent url(/st/img/skins/skin-10/2011/header.gif) no-repeat center top; }
+#head #info			{ padding-top:12px; }
+#head #inCont		{ display:none; }
+#head #info h2		{ color:#000; }
+#head #info a		{ color:#d3391f; }
+#head #info a:hover	{ color:#0082c0; }
+
+#search #tabs li a				{ color:#d3391f; }
+#search #tabs li a:hover		{ color:#0082c0; }
+#search #tabs li.active a		{ color:#000; }
+
+#search-cnt .window-container	{ background-image:url(/st/img/skins/skin-10/2011/bubble.png) !important; }
+
+@media (max-width: 950px) {
+	#search-cnt .window-container 				{ background: rgba(255,255,255,0.9) !important; }
+}
+

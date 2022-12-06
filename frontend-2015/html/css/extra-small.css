@@ -1,0 +1,57 @@
+/*
+* Extra small - Media Query
+* (min-width: 319px) and (max-width: 450px)
+*/
+	body { background: #ccc; }
+	/*
+	.rss-feed .g-cnt td.top .text-box strong 	{ font-size: 100% !important; }
+	.rss-feed .g-cnt td.top .text-box			{ padding-bottom: 0.6em; }
+	.rss-feed .g-cnt td .hlp 					{ padding-bottom: 3px; }
+	*/
+
+	/* odkazy na seznam sluzby */
+	/*
+	#gadget-6 .g-cnt .widecol 					{ width: 25%; }
+	#gadget-6 .g-cnt .widecol:first-child		{ width: 40%; }
+	*/
+
+
+	/* pocasi */
+	/*
+	#gadget-6 .g-cnt .weather 								{ clear: both; padding-top: 15px; float: none; }
+	#gadget-6 .g-cnt .weather p#weather-district-block		{ top: 0; padding: 2px 0; }
+	#gadget-6 .g-cnt .weather p#weather-district-block a 	{ top: 0 !important; }
+	#gadget-6 .g-cnt .day 									{ margin-top: 6px; }
+	#gadget-6 .g-cnt .day.last 								{ display: block !important; }
+	#gadget-6 .g-cnt p#weather-district-block a 			{ position: static !important; display: inline !important; }
+	#gadget-6 .g-cnt p strong.district 						{ padding-right: 20px; }
+	#gadget-6 .g-cnt .day 									{ margin: 6px 40px 0 0 !important; width: auto !important; min-width: 20px !important;}
+	*/
+
+	/* novinky gadget */
+	/*
+	#gadget-1.rss-feed .g-cnt td .top-foto 		{ height: 62px; width: 109px; }
+	#gadget-1.rss-feed .g-cnt .text-box 		{ margin-left: 118px !important; }
+	*/
+
+	/* email gadget */
+	/*
+	#gadget-3 .g-cnt .login 			{ width: 120px; }
+	#gadget-3 .g-cnt form 				{ padding: 20px 10px 5px 5px; }
+	.email-feed .g-cnt label 			{ float: none; display: block; }
+	#gadget-3 .gagdet-cont .title .text { width: 40%; }
+	.email-feed .g-cnt #remember-line 	{ margin-left: 0; }
+	*/
+
+	/* mixer gadget */
+	/*
+	#gadget-24 #musicPreview 			{ display: none; }
+	#gadget-24 .cf_wrap1 				{ width: 215px; margin: 0 auto; }
+	#gadget-24 #music 					{ height: auto; }
+	#gadget-24 #music li 				{ margin-bottom: 2px; }
+	*/
+
+	/* tv program */
+	/*	
+	#gadget-5 .g-cnt .bars 					{ padding: 3px 0; }
+	*/

@@ -1,0 +1,39 @@
+body									{ margin:0; padding:0; background: #7F7F7F url(/st/img/pozadi-b50.jpg) center 0 no-repeat; color:#000; font-family: Lucida Sans Unicode,Verdana,sans-serif; text-align:center; /*font-size-adjust: 0.52;*/ }
+
+p, img, table, tr, th, td, form, fieldset,
+dl, dt, dd,
+h1, h2, h3, h4, h5 						{ border:  0px none; margin:  0px; padding: 0px; }
+h1,h2,h3,h4,h5							{ font-size:150%; font-weight:normal; }
+ul, li									{ padding: 0px; margin: 0px; list-style-type: none; }
+
+.blind									{ position:absolute; left:-1000px; top:-1000px; width:1px; height:1px; overflow:hidden; }
+
+.clear									{ display:block; clear:both; font-size:0.0001em; visibility:hidden; overflow:hidden; height:0px; }
+.clear hr								{ display: none; }
+
+a										{ color:#C00; text-decoration: underline; }
+/*a:hover									{ text-decoration: none; }*/
+
+#body table .stats 						{ cursor: help; }
+
+#page									{ width: 601px; margin: 0 auto; position:relative; text-align:left; min-height:1488px; height:auto; _height:1488px; }
+#page a									{ _position:relative;}
+
+/*------ Hlavicka ------*/
+#header									{ height:70px; position:relative; top:15px; z-index:300; }
+#logo a									{ bottom:10px; _bottom:8px; cursor:pointer; display:block; height:54px; left:7px; overflow:hidden; position:absolute; width:177px; z-index:1000; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='scale', src='/st/img/logo-super.png'); }
+#logo img								{ _position: absolute; _left: -1000px; }
+#header #closer a						{ position:absolute; right:10px; top:17px; letter-spacing:-0.7px; padding:10px 41px 10px 0; background:url(/st/img/super-closer.png) no-repeat right; text-decoration:none; color:#FFF; }
+/*------ Hlavni cast ------*/
+#top-border								{ height:16px; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='scale', src='/st/img/super-top-bg.png'); }
+#top-border[id]							{ background:url(/st/img/super-top-bg.png) no-repeat center bottom; }
+#main									{ width:513px; padding:28px 44px 21px; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='scale', src='/st/img/super-main-bg.png'); }
+#main[id]								{ background:url(/st/img/super-main-bg.png) repeat-y center bottom; }
+#bottom-border							{ height:19px; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='scale', src='/st/img/super-bottom-bg.png'); }
+#bottom-border[id]						{ background:url(/st/img/super-bottom-bg.png) no-repeat center bottom; }
+
+#main .textCont							{ padding:0 15px; font-size:87.5%; line-height:1.6em;}
+#main .textCont h1						{ font-size:257%; font-weight:bold; line-height:1.225em; letter-spacing:-0.0475em; font-family:Arial Black,Verdana,sans-serif; padding:8px 0 17px; }
+#main .textCont .next					{ padding-top:14px; }
+
+/*------ Paticka ------*/

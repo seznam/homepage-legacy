@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="content-language" content="cs" />
+    <meta http-equiv="content-style-type" content="text/css" />
+    <meta http-equiv="content-script-type" content="text/javascript" />
+
+    <title>Seznam.cz - 15 let pro Vás</title>
+
+    <link type="text/css" href="layout/style.css" rel="stylesheet" />
+		<script type="text/javascript" src="js/jquery-1.6.1.min.js"></script>
+		<script type="text/javascript">
+    $(document).ready(function() {
+      var footer = $('#footer');
+
+      if ($(window).height() > $(footer).offset().top + $(footer).height()) {
+        $(footer).offset({
+          'left' : 0,
+          'top' : $(window).height() - $(footer).height()
+        });
+      }
+    });
+    </script>
+
+  </head>
+  <body>
+    <div id="header" class="page-section">
+      <a href="http://www.seznam.cz">Seznam</a>
+    </div>
+    <div id="body" class="page-section">
+      <div id="video">
+        <div id="player">
+        	<!--[if !IE]> -->
+        		<object type="application/x-shockwave-flash" data="http://flash.stream.cz/swf/streamPlayer_562.swf" width="570px" height="320px" id="VideoSpot" name="VideoSpot">
+        	<!-- <![endif]-->
+        	<!--[if IE]>
+        		<object name="VideoSpot" width="570px" height="320px" id="VideoSpot" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000">
+        			<param name="movie" value="http://flash.stream.cz/swf/streamPlayer_562.swf" />
+        	<!--><!-- -->
+        			<param name="allowscriptaccess" value="always" />
+        			<param name="allowfullscreen" value="true" />
+        			<param name="wmode" value="window" />
+        			<param name="flashvars" value="ratio=1.780000000&amp;id=589922&amp;cdnLQ=1458597&amp;cdnHQ=1458600&amp;cdnHD=1458601&amp;autoPlay=0&amp;showRelated=0&amp;detail=1&amp;bgColor=ffffff&amp;fgColor=b10000&amp;embed_id=VideoSpot&amp;gemius=0&amp;DUAL_DISPATCHER=1&amp;PROTO=rtmp,rtmpe&amp;resizeEnabled=1&amp;domain=www.seznam.cz" />
+        			<p>Pokud vidíte tuto zprávu, pravděpodobně nemáte nainstalovaný Flash přehrávač. Bez něj není možné sledovat videa na Stream.cz - stáhněte si jej a nainstalujte přímo ze <a href="http://get.adobe.com/flashplayer/" rel="external">stránek výrobce</a>.</p>
+        		</object>
+        	<!-- <![endif]-->
+        </div>
+      </div>
+      <h1>
+        Nebýt Járy Cimrmana, nevznikl by Seznam.cz. Víte proč? Podívejte se na video.
+      </h1>
+      <div class="cont">
+        <ul>
+          <li>
+            <a href="details.xhtml"><img src="layout/img/t1.png" alt="Náhled starého seznamu 1" /></a>
+          </li>
+          <li>
+            <a href="details.xhtml"><img src="layout/img/t2.png" alt="Náhled starého seznamu 2" /></a>
+          </li>
+          <li>
+            <a href="details.xhtml"><img src="layout/img/t3.png" alt="Náhled starého seznamu 3" /></a>
+          </li>
+        </ul>
+        <a href="details.xhtml">
+          <img src="layout/img/hist.btn.png" id="hist-btn" alt="Zobrazit historii Seznam.cz" />
+        </a>
+      </div>
+
+      <p id="copyright">
+        <div>
+          Copyright &copy; 1996 &ndash; 2011, Seznam.cz, a.s.
+        </div>
+
+        <div>
+          <a href="http://onas.seznam.cz">O Seznamu</a> -
+          <a href="http://seznam.sprace.cz">Volná místa</a> -
+          <a href="http://vyvojari.seznam.cz/">Vývojáři</a>
+        </div>
+      </p>
+    </div>
+    <div id="footer" class="page-section"></div>
+  </body>
+</html>
+

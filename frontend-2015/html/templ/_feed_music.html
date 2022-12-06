@@ -1,0 +1,110 @@
+<div id="gadget-24" class="s_win" data-dot="gadgetMixer">
+<?teng format space="onespace"?>
+
+	<div class="gagdet-cont">
+		<div class="main-cont">
+			<h3 class="title s_win_title">
+				<span class="text entry-title">
+					<a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.mixer.'++#_tld}">${title}</a>
+				</span>
+				<span class="edit">
+					<?teng if $.userId > 0?>
+						<a href="#" class="edit-text">Upravit</a>
+					<?teng endif?>
+				</span>
+				<span class="bck"></span>
+			</h3>
+			<?teng if $.userId > 0?>
+				<div class="gadget-settings">     
+					<div class="settings-cont">
+						<div class="settings-main">
+							<div class="setting-bck">
+								<div class="title-setting">
+
+									<?teng if $.userId > 0?>
+										<span class="close-win-img-span"><a href="#" class="close-win-img">Odebrat box</a></span>
+									<?teng endif?>
+									<span class="close-sett"><a href="" class="close-setting-link">Upravit</a></span>
+								</div>
+								<div class="setting-cont">
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?teng endif?>
+			<div class="music-cont">
+				<div class="g-cnt s_win_area">
+					<?teng set ._selected_Number = 0?>
+					<?teng set ._channelsCount = 0?>
+					<?teng frag items?>
+						<?teng set ._channelsCount = $_count?>
+						<?teng if defined(chosen)?>
+							<?teng set ._selected_Number = $_number?>
+						<?teng endif?>
+					<?teng endfrag?>
+
+					<?teng frag items?>
+						<?teng if $_number == $._selected_Number?>
+							<a href="${url}" id="musicPreview">
+								<span id="musicImage" /><img src="${defined(thumb) ? $thumb : '/st/img/default_preview.png'}" id="previewImage" alt="ikona"/><span class="play-button"></span></span>
+								<span id="musicChannel">${name}</span>
+								<span class="clear"></span>
+							</a>
+						<?teng endif?>
+					<?teng endfrag?>
+
+					<div class="cf_wrap1">
+						<ul id="music" class="noLogged specialList cf_wrap2 channels_${._channelsCount}">
+							<?teng set ._music_Number = 0 ?>
+							<?teng frag items?>
+								<?teng if $special != 1?>
+									<?teng set ._music_Number = $._music_Number + 1 ?>
+									<li class="cf_elm"><a href="${url}" class="bubble ${defined(chosen) ? 'selected' : ''}">${._music_Number}<span class="blind"> ${name}</span></a></li>
+								<?teng endif?>
+							<?teng endfrag?>
+							<?teng frag items?>
+								<?teng if $special == 1?>
+									<li class="cf_elm"><a href="${url}" class="special_bubble ${defined(chosen) ? 'selected' : ''}" id="specialBubble"><img src="${defined(icon_path) ? $icon_path : '/st/img/default_channel.png'}" alt="special"/><span class="border"></span><span class="blind"> ${name}</span></a></li>
+								<?teng endif?>
+							<?teng endfrag?>
+						</ul>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?teng endformat?>
+</div>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+	JAK.gadget24 = new JAK.Gadget('gadget-24','${feedId}');
+
+	var playlists = [];
+	<?teng ctype 'jshtml' ?>
+		<?teng frag items?>
+			<?teng if $special != 1?>
+				playlists.push({ name: "${name}", thumb: "${defined(thumb) ? $thumb : '/st/img/default_preview.png'}", url: "${url}", chosen: ${chosen} });
+			<?teng endif?>
+		<?teng endfrag?>
+		<?teng frag items?>
+			<?teng if $special == 1?>
+				playlists.push({ name: "${name}", thumb: "${defined(thumb) ? $thumb : '/st/img/default_preview.png'}", url: "${url}", chosen: ${chosen} });
+			<?teng endif?>
+		<?teng endfrag?>
+	<?teng endctype?>
+
+	var showMusicChannel = new JAK.ShowMusicChannel({
+		previewLink:	JAK.gel("musicPreview"),
+		previewImg:		JAK.gel("previewImage"),
+		previewTextBox:	JAK.gel("musicChannel"),
+		channelsBox:	JAK.gel("music"),
+		channelTag:		"a",
+		selectedClass:	"selected",
+		playlists:		playlists
+	});
+/* ]]> */
+</script>

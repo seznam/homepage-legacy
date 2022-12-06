@@ -1,0 +1,122 @@
+/*- 
+* Small - Media Query
+* (min-width: 420px) and (max-width: 759px) 
+*/
+
+/* odkazy na seznam sluzby */
+#gadget-6 .g-cnt p strong.district 		{ padding-right: 20px; }
+
+#gadget-6 .g-cnt .day					{ margin: 6px 10px 0 0; }
+
+/*#gadget-6 #services #se1				{ padding-right: 5px; width: 23%; min-width: 103px;}
+#gadget-6 #services #se2				{ padding-right: 5px; width: 15%; min-width: 70px;}
+#gadget-6 #services #se3				{ padding-right: 4px; width: 15%; min-width: 87px;}*/
+
+/*#gadget-6 #services #se1						{ padding-right: 5px; width: 20%; min-width: 91px;}
+#gadget-6 #services #se2						{ padding-right: 4px; width: 13%; min-width: 66px;}
+#gadget-6 #services #se3						{ padding-right: 5px; width: 18%; min-width: 73px;}*/
+
+#gadget-6 .g-cnt .weather					{ padding-top: 0; float:left; text-align:left; line-height:1.4em; clear: none; }
+#gadget-6 .g-cnt .day.preLast				{ margin-right:5px; }
+#gadget-6 #services #se3 					{ padding-right: 10px; }
+
+/* hlavicka s vyhledavanim */
+#search-cnt-inner 							{ display: block; }
+#search-cnt-inner .containerInput > *		{ -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+#search-cnt-inner .containerInput,
+#search-cnt-inner .containerButton			{ display: table-cell; vertical-align: top; }
+#search h1	 								{ display: block; }
+
+/* email gadget */
+
+#gadget-3									{ display: none; }
+
+/* stream */
+#gadget-14 .movie.old 						{ height: 9.24em; }
+
+/*- volby -*/
+.election .source	 						{ float: right; } 
+.election .more-news 						{ float: left;}
+
+/*pouziva se jen neco ve vysich verzich - nechavam jako pojistku, kdyby ten box chtel nekdo na mobil vratit*/
+.email-feed .g-cnt label					{ float:left; }
+#gadget-3 .g-cnt .login 					{ width: 47%; }
+#gadget-3 .g-cnt .mobile .login				{ width: 55%; }
+#gadget-3 .g-cnt form 						{ padding:20px 5% 5px 5%; }
+.email-feed .g-cnt .superSelect 			{ font-size: 13px;  width: 31%; }
+.email-feed .g-cnt .button 					{ width: 31%; margin-left: -2px; }
+.email-feed .g-cnt .mobile .superSelect 	{ width: 37%; }
+.email-feed .g-cnt .mobile .button			{ min-width: 0; width: 37%; }
+.email-feed .g-cnt #remember-line 			{ margin-left: 3.40em; }
+.email-feed .g-cnt .mobile #remember-line 	{ margin-left: 0em; }
+
+/* email google */
+#gadget-190 .g-cnt .button 					{ width: 5.8em }
+
+/* mixer widget */
+#gadget-24 .cf_wrap1 				{ width: auto; }
+#gadget-24 #music li 				{ padding:0 1px 0 8px; }
+
+/* firmy gadget */
+#gadget-8 .g-cnt .lists 			{ padding: 5px 0px 0px; }
+#gadget-8 .g-cnt li 				{ padding-right: 2px; /*width: 24%;*/ }
+
+/* Aukro */
+#AukroHP .page1 li					{ margin-right:1.6%; }
+
+/* paticka odkazy */
+#controls #s-links li 				{ white-space: nowrap; }
+
+/* reklama */
+.gadget-commercial 					{ display: block; }
+
+
+
+
+
+
+
+
+
+#search .shadow								{
+	-webkit-appearance: none;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+
+	display: table-cell;
+	width: 100%;/*66%;*/
+	height: 36px;
+	margin: 0;
+	padding: 7px 7px 3px 7px;
+
+	border:1px solid #ccc;
+	border-radius:3px;
+	border-right-width:0;
+	border-top-right-radius:0;
+	border-bottom-right-radius:0;
+
+	vertical-align: middle;
+	background: #fff;
+	color: #000;
+	font: 149.5% Arial, sans-serif;
+}
+#search .button								{
+	width: 36px;
+	height: 36px;
+	margin: 0;
+	padding: 0 12px;
+	color: #000;
+	font: 115.5% Arial, sans-serif;
+	background: #ececec url('/st/img/search-submit-small.png') no-repeat right top;
+	border: 1px solid #848484;
+	-webkit-border-top-right-radius: 100px;
+	-webkit-border-bottom-right-radius: 100px;
+	-moz-border-radius-topright: 100px;
+	-moz-border-radius-bottomright: 100px;
+	border-top-right-radius: 100px;
+	border-bottom-right-radius: 100px;
+	text-indent: -99999px;
+}
+#search .button:hover	{ cursor:pointer; }
+#search .button:active	{ background:#e5e5e5; }

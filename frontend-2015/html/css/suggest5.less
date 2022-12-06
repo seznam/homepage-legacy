@@ -1,0 +1,52 @@
+/*
+szn-lessc -x suggest5.less > suggest5.css
+*/
+@bg_color: #fff;
+@input-height: 36px;
+
+.suggest-container {
+	position: relative;
+}
+
+.suggest5 {
+	width: 100%;
+	z-index: 2;
+	top: 1px;
+	position: relative;
+	@media (min-width: 730px) {
+		position: absolute;
+	}
+	ul {
+		background: none repeat scroll 0 0 @bg_color;
+		border: 1px solid #ccc;
+		border-radius: 3px;
+		padding: 0;
+		margin: 0;
+		text-align: left;
+
+		* {
+			text-shadow: none;
+		}
+		
+		li {
+			color: #000;
+			font-weight: bold;
+			font-size: 123.5%;
+			list-style: none;
+			padding: 0 10px;
+			line-height: @input-height;
+		
+			.highlight {
+				color: #333;
+				font-weight: normal;
+			}
+		
+			&.active {
+				background: none repeat scroll 0 0 #00c;
+				&, * { color: #fff !important; }
+				cursor: pointer;
+				font-weight: bold;
+			}
+		}
+	}
+}

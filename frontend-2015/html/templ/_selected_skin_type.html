@@ -1,0 +1,15 @@
+<?teng format space="nowhite"?>
+	<?teng frag .skinSelected?>
+		<?teng if $staticCssId == 4 /* Nebe nad hlavou */ ||
+				$staticCssId == 9 /* Pod mořem */ ||
+				$staticCssId == 6 /* Černý */ ||
+				$staticCssId == 14 /* Grafiti */ ||
+				$staticCssId == 8 /* Army */ ?>
+			dark
+			<?teng set $._selectedSkin = 'dark'?>
+		<?teng else?>
+			light
+			<?teng set $._selectedSkin = 'light'?>
+		<?teng endif?>
+	<?teng endfrag?>
+<?teng endformat?>

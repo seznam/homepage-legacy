@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+<head>
+
+	<?teng set var_Settings = 1 ?>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=8" />
+	<title>#{SERVICE_NAME_TITLE}</title>
+	<?teng include file="_common_files.html"?>
+	<link rel="stylesheet" media="all" type="text/css" href="#{PATH_CSS}/#{FILE_CSS_SETTINGS}#{VERSION}" />
+	<meta content="Přihlaste se svým účtem na Seznam.cz a využívejte naplno služeb jako Email, Lidé.cz, Spolužáci.cz, Zboží.cz, Stream.cz či hudební televize Mixér.cz." name="description" />
+</head>
+
+<body id="www-seznam-cz" class="settings ${.scheme}">
+	<?teng if #CONSOLE == 1 ?>
+		<div id="cnc" class="prd" style="position:absolute;top:50px;right:0px;text-align:left;z-index:999;"></div>
+		<script type="text/javascript">
+			udelej();
+		</script>
+	<?teng endif?>
+
+	<div id="settings">
+		<div id="head-cont">
+			<a name="headLink"></a>
+			<div id="head">
+					<a accesskey="2" href="#{SERVICE_LOGO_LINK}" id="logo"><img src="#{PATH_IMG}/2011/logo-small.png" width="164" height="33" alt="Seznam" /></a>
+
+					<div id="info" data-dot="headLinks">
+						<!--- logged in user --->
+						<?teng if $userId > 0?>
+							<h2>${username}@${domain}</h2>
+
+							<span class="settings-myaccount-span"><a href="#{RUS_MYACCOUNT}" id="myaccount-link">Můj účet</a></span>
+							<!--- na tento odkaz se navesi js v _settings.html --->
+
+							<a href="/logoutProcess?hashId=${.hashId}" class="last">#{logout}</a>
+						<?teng endif?>
+					<div id="inCont"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<hr />
+		</div>
+
+
+		<div id="content">
+
+			<noscript>
+				<div class="section" style="text-align:center;">
+					<strong>Pro správnou funkčnost aplikace je vyžadován zapnutý javascript ve vašem prohlížeči.</strong>
+				</div>
+			</noscript>
+
+			<div class="section" id="rss"></div>
+			<script type="text/javascript">
+			/* <![CDATA[ */
+			<?teng if exist(rss_url)?>
+				<?teng set __url = escape($rss_url)?>
+			<?teng else ?>
+				<?teng set __url = ""?>
+			<?teng endif ?>
+			<?teng if exist(rss_title)?>
+				<?teng set __title = escape($rss_title)?>
+			<?teng else ?>
+				<?teng set __title = ""?>
+			<?teng endif ?>
+			var rss = new JAK.Homepage.RSS('rss'<?teng if exist(rss_url)?>, {url:'<?teng ctype "quoted-string"?>${__url}<?teng endctype?>', title:'<?teng ctype "quoted-string"?>${__title}<?teng endctype?>'}<?teng endif?>);
+			/*]]> */
+			</script>
+
+			<div class="section" id="skins">
+				<div class="section-title">
+					<a name="vyber-vzhledu"></a>
+					<h2>Vyberte si vzhled</h2>
+					<p>Výběr skinu jsme přesunuli přímo na hlavní stranu, kde v pravém horním rohu naleznete odkaz "<a href="/#vybrat-vzhled">Vybrat vzhled</a>".</p>
+				</div>
+				<div class="section-cnt">
+					<a href="/#vybrat-vzhled"><img src="#{PATH_IMG_2011}nastaveni_vybrat_vzhled.png" alt="vybrat vzhled"/></a>
+				</div>
+			</div>
+			
+			<div class="section" id="looknfeel"></div>
+			<script type="text/javascript">
+			/* <![CDATA[ */
+				var lookNFeel = new JAK.Homepage.LookNFeel('looknfeel', '${.columns._count}', '${skin}');
+			/*]]> */
+			</script>
+
+			<div class="section" id="advanced"></div>
+			<script type="text/javascript">
+			/* <![CDATA[ */
+				var advanced = new JAK.Homepage.Advanced('advanced', ${.suggest});
+			/*]]> */
+			</script>
+
+			<div class="submit-line" id="bottom">
+				<div class="cnt">
+					<input type="button" value="Uložit nastavení" class="button" />
+				</div>
+			</div>
+			<script type="text/javascript">
+				/* <![CDATA[ */
+
+				<?teng set .feeds = ''?>
+
+				<?teng frag columns?>
+					<?teng frag feed?>
+					<?teng set .feeds = $.feeds ++ (0 != $_number ? ',' :'') ++ (case($feedId, 7: '185', *: $feedId)) ?>
+					<?teng endfrag?>
+					<?teng set .feeds = $.feeds ++ ($_count-1 != $_number ? ':' :'') ?>
+				<?teng endfrag?>
+
+				/* feeds IDs */
+				JAK.Homepage.Settings.addFeeds('${.feeds}');
+
+					var settings = new JAK.Homepage.Settings();
+					settings.registerComponent(rss);
+					settings.registerComponent(lookNFeel);
+					settings.registerComponent(advanced);
+				/*]]> */
+			</script>
+			<?teng include file="_foot.html"?>
+		</div>
+		<?teng include file="_settings_netmonitor.html"?>
+	</div>
+	<!-- generated-date - ${date("%H:%M",now())} ${date("%d.%m.%Y",now())} -->
+</body>
+</html>

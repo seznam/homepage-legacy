@@ -1,0 +1,88 @@
+<?teng if !(exist(.variant) && $.variant =~ 'A' && $.userId <= 0)?>
+<div id="gadget-99" class="s_win" data-dot="gadgetVanoceZbozi">
+	<?teng format space="onespace"?>
+		<div class="gagdet-cont">
+			<div class="main-cont">
+				<h3 class="title">
+					<span class="text">
+						<a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.zbozi.'++#_tld}">Co teď frčí na Zboží.cz</a>
+					</span>
+
+					<span class="edit">
+						<?teng if $.userId > 0?>
+							<a href="#" class="edit-text">Upravit</a>
+						<?teng endif?>
+					</span>
+					<span class="bck"></span>
+				</h3>
+				
+				<?teng if $.userId > 0?>
+				<div class="gadget-settings">
+					<div class="settings-cont">
+						<div class="settings-main">
+							<div class="setting-bck">
+								<div class="title-setting">
+
+									<?teng if $.userId > 0?>
+										<span class="close-win-img-span"><a href="#" class="close-win-img">Odebrat box</a></span>
+									<?teng endif?>
+									<span class="close-sett"><a href="" class="close-setting-link">Upravit</a></span>
+								</div>
+								<div class="setting-cont">
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<?teng endif?>
+				
+				<div class="g-cnt s_win_area">
+					<?teng set ._itemsCnt = 0 ?>
+					
+					<ul class="tabs">
+						<?teng frag items ?>
+							<li class="category js-item-${_number} ${$_first? 'active' : ''}">
+								<a href="#">${category}</a>
+							</li>
+							<?teng set ._itemsCnt = $_count ?>
+						<?teng endfrag ?>
+					</ul>
+					
+					<?teng frag items ?>
+						<div class="product js-item-${_number} ${$_first? 'active' : ''}">
+							<?teng if exist(seznam_image) && $seznam_image ?>
+								<a href="${link}#utm_medium=hp-box&utm_source=seznam.cz"><img src="${seznam_image}" alt="" class="product-image" /></a>
+							<?teng endif ?>
+							<div class="product-info">
+								<strong class="product-title"><a href="${link}#utm_medium=hp-box&utm_source=seznam.cz">${title}</a></strong>
+								<p class="product-desc">${description}</p>
+								<?teng if exist(seznam_zbozi_price) && $seznam_zbozi_price ?>
+									<span class="product-price">${seznam_zbozi_price}</span>
+								<?teng endif ?>
+							</div>
+							<div class="clear"></div>
+							<?teng if exist(category_next_url) && $category_next_url ?>
+								<p class="product-more">
+									<a href="${category_next_url}#utm_medium=hp-box&utm_source=seznam.cz">${category_next_title} &raquo;</a>
+								</p>
+							<?teng endif ?>
+						</div>
+					<?teng endfrag ?>
+				</div>
+			</div>
+		</div>
+	<?teng endformat?>
+</div>
+
+
+<script type="text/javascript">
+	/* <![CDATA[ */
+		JAK.gadget99 = new JAK.Gadget('gadget-99','${feedId}');
+		JAK.gadget99.extGadg = new JAK.GadgetGoods('gadget-99', JAK.gadget99, '${._itemsCnt}');
+	/* ]]> */
+</script>
+
+<?teng endif?>
+
+

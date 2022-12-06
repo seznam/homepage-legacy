@@ -1,0 +1,26 @@
+<?teng frag .saved?>
+	<?teng if !exist(.badSource)?>
+		<div class="status">
+			<a href="/"><img src="#{PATH_IMG}/succ_saved.gif" width="301" height="72" alt="" /></a>
+			<!---<h3>#{succ_saved}</h3>
+			<h4><a href="/">#{back_to_szn}</a></h4>
+			--->
+		</div>
+	<?teng else?>
+		<div class="status">
+			<a href="/"><img src="#{PATH_IMG}/err_occured.gif" width="301" height="72" alt="" /></a>
+			<!---<h3 class="error">#{err_occured}</h3>
+			<h4><a href="/">#{back_to_szn}</a></h4>
+			--->
+		</div>
+	<?teng endif?>
+<?teng endfrag?>
+
+<?teng frag .backendError?>
+	<div class="status">
+		<a href="/"><img src="#{PATH_IMG}/err_occured.gif" width="301" height="72" alt="" /></a>
+		<!---<h3 class="error">#{err_occured}</h3>
+		<h4><a href="/">#{back_to_szn}</a></h4>
+		--->
+	</div>
+<?teng endfrag?>

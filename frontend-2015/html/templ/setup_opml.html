@@ -1,0 +1,151 @@
+<!--- u noveho nastaveni se pouziva popup --->
+<?teng if exist(.mode) && $.mode =~ 'popup' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="cs">
+	<head>
+		<title>#{SERVICE_NAME_TITLE}</title>
+		<style type="text/css">
+		body				{background:#ffffe3;color:#000; font-family:Arial, sans-serif; font-size:85%; padding:0; margin:0; }
+		.cont				{ padding:1em 2em; }
+		p,h1,form			{ margin:0; padding:0; }
+		h1					{ font-size:15px; margin:1em 0 0 0;}
+		p					{ font-size:13px; margin:0 0 0 0;}
+		p.button			{ margin:0.5em 0 1.5em 0;}
+		p.button input		{ font-weight:bold; }
+		.file				{ =padding:3px; }
+
+		.status				{ color:#fff; font-weight:bold; background:#ec0000; padding:14px; }
+		.ok					{ color:#fff; font-weight:bold; background:#00a300; padding:14px; }
+
+		#endForm				{ text-align:center; margin-top:3em; }
+		#endForm #opmlButton	{ width:12em; font-size:120%; padding:0.5em 0; zoom:1; line-height:1.4em; }
+		#endForm .back			{ font-size:85%; padding-top:0.5em; }
+		</style>
+	</head>
+	<body id="www-seznam-cz" class="${.scheme}">
+	<?teng frag error?>
+		<div class="status">
+			<?teng if $error =~ "empty"?>
+			#{opml_error_empty}
+			<?teng elseif $error =~ "import"?>
+			#{opml_error_import}
+			<?teng elseif $error =~ "nofile"?>
+			#{opml_error_nofile}
+			<?teng endif?>
+		</div>
+	<?teng endfrag?>
+
+	<?teng frag .saved?>
+	<?teng if !exist(.badSource)?>
+		<div class="ok">
+			Vaše zdroje byly úspěšně naimportovány
+		</div>
+	<?teng else?>
+		<div class="status">
+			#{err_occured}
+		</div>
+	<?teng endif?>
+<?teng endfrag?>
+
+<?teng frag .backendError?>
+	<div class="status">
+		#{err_occured}
+	</div>
+<?teng endfrag?>
+	<div class="cont">
+		<?teng if !exist(saved)?>
+			<h1>Export Vašich RSS zdrojů</h1>
+			<p>Kliknutím na tlačítko Exportuj, získáte seznam svých používaných RSS zdrojů ve formátu OPML.</p>
+			<form method="get" action="/opmlExportProcess">
+				<input type="hidden" name="hashId" value="${.hashId}"/>
+				<p class="button">
+					<input type="submit" value="Exportuj"/>
+				</p>
+			</form>
+			<h1>Import Vašich RSS zdrojů</h1>
+			<p>Zadejte cestu k souboru s Vašimi RSS zdroji ve formátu OPML a klikněte na tlačítko Importuj.</p>
+			<form method="post" action="/opmlImportProcess" enctype="multipart/form-data">
+				<input type="hidden" name="hashId" value="${.hashId}"/>
+				<input type="hidden" name="mode" value="popup" />
+				<p class="button">
+					<input type="file" name="file" class="file" /> <input type="submit" value="Importuj"/>
+				</p>
+			</form>
+		<?teng else?>
+			<form action="/" method="get" id="endForm">
+				<p>
+					<button onclick="window.opener.rss.RSSComponents[2].closePopup()" name="opmlButton" id="opmlButton">Aktualizovat obsah<br/> a zavřít</button>
+				</p>
+				<p class="back">
+					<a href="/export-zprav-opml?mode=popup">&lt; zpět na Import a export vlastního obsahu</a>
+				</p>
+			</form>
+		<?teng endif?>
+		</div>
+	</body>
+</html>
+<?teng else?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="cs">
+	<head>
+		<title>#{SERVICE_NAME_TITLE}</title>
+		<?teng include file="_common_files.html"?>
+	</head>
+	<body id="www-seznam-cz" class="${.scheme}">
+		<div id="page">
+			<?teng include file="_head.html"?>
+
+			<div id="cont" class="import">
+				<?teng include file="_menu.html"?>
+
+				<div id="main">
+					<?teng frag error?>
+						<div class="status">
+							<?teng if $error =~ "empty"?>
+							#{opml_error_empty}
+							<?teng elseif $error =~ "import"?>
+							#{opml_error_import}
+							<?teng elseif $error =~ "nofile"?>
+							#{opml_error_nofile}
+							<?teng endif?>
+						</div>
+					<?teng endfrag?>
+
+					<?teng include file="_status.html"?>
+
+					<h2>#{opml_export_rss}</h2>
+					<form action="/opmlExportProcess" method="get">
+						<input type="hidden" name="hashId" value="${.hashId}" />
+						<p>
+							#{opml_text0}
+						</p>
+
+						<p class="button">
+							<input type="submit" value="#{opml_export}" />
+						</p>
+					</form>
+
+					<h2>#{opml_import_rss}</h2>
+					<form action="/opmlImportProcess" method="POST" enctype="multipart/form-data">
+						<input type="hidden" name="hashId" value="${.hashId}" />
+						<p>
+							<input type="hidden" name="x" value="" />
+							#{opml_text1}
+						</p>
+						<input type="file" name="file" />
+
+						<p class="button">
+							<input type="submit" value="#{opml_import}" />
+						</p>
+					</form>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<?teng include file="_foot.html"?>
+			<?teng include file="_settings_netmonitor.html"?>
+		</div>
+	</body>
+</html>
+<?teng endif?>

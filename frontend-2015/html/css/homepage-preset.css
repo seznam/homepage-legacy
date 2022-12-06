@@ -1,0 +1,71 @@
+html										{ font-size:106.5%; }
+body										{ margin:8px 0 8px 0; background-color:#fff; color:#000; font-size:76.5%; font-family:Arial, sans-serif; }
+td											{ font-size:100%; _font-size /**/:76.5%; }
+h1, h2, h3, h4, h5,
+ p, ul, ol, li,
+ form 										{ padding:0; margin:0; }
+ select										{ font-size:100%; }
+img											{ vertical-align:top; border:none; margin:0; padding:0; }
+li											{ list-style-type:none; }
+
+hr											{ display:none; }
+
+a:link 										{ color:#de0000; }
+a:visited									{ color:#990000; }
+a:hover										{ color:#0000CC; }
+
+#monitor,
+.blind										{ position:absolute; top:-4000px; left:-4000px; width:1px; height:1px; overflow:hidden; } /*- pro nevidome -*/
+.gray										{ color:#ccc; }
+.clear										{ clear:both; overflow:hidden; height:1px; display:block; }
+
+.bold	{ font-weight:bold; }
+
+
+#head										{ height:7em; width:100%; text-align:left; }
+#head #seznam-logo							{ position:absolute; }
+#head #user									{ float:right; margin:11px 10px 0 0; text-align:right; }
+#head #user h2								{ display:inline; font-size:100%; _margin-right:0.3em; }
+#head #user p								{ line-height:1.8em; }
+#line										{ background:url(http://1.im.cz/homepage/2007/img/top-gradient.gif) repeat-x 0 0; height:26px; }
+.https #line									{ background-image:url(https://1.im.cz/homepage/2007/img/top-gradient.gif); }
+#bline										{ background:url(http://1.im.cz/homepage/2007/img/bottom-gradient.gif) repeat-x 0 0; height:22px; }
+.https #bline								{ background-image:url(https://1.im.cz/homepage/2007/img/bottom-gradient.gif); }
+
+#content									{ background:#000; color:#fff; }
+#content h2									{ font-size:185.5%; padding:1.2em 0 0 0; }
+#content a:link,
+ #content a:visited							{ color:#fff; }
+#content a:hover							{ color:#ff0000; }
+#inn										{ width:700px; margin:0 auto; }
+
+#content .celeb								{ float:left; width:255px; padding:2.5em 147px 3.4em 0; }
+#content .celeb.right						{ padding-right:0; }
+#content .celeb	a:link img,
+ #content .celeb a:visited img				{ border:1px solid #333; }
+#content .celeb a:hover img					{ border:1px solid #ff0000; } 
+#content .celeb	h3							{ font-size:108.5%; text-align:right; padding:5px 4px 0 0; }
+
+
+/* detail */
+.detail #content #inn						{ padding-bottom:2em; }
+.detail #content h2 .star					{ color:#ff0000; }
+
+.detail #content h3.back					{ padding:1em 0 2em 0; font-size:115.5%; text-align:left; }
+.detail #content h3.back a:link,
+ .detail #content h3.back a:visited			{ color:#ff0000; }
+.detail #content h3.back a:hover			{ color:#fff; }
+
+.detail #content .celeb						{ float:none; width:680px; padding:0; }
+.detail #content .vip						{ float:left; }
+.detail #content .hp						{ float:right; }
+.detail #content .vip img,
+ .detail #content .hp img					{ border:1px solid #333; }
+
+.detail #content h3.button					{ margin-top:2em; float:right; padding:0; text-align:center; background:url(http://1.im.cz/homepage/2007/img/preset/button.gif) no-repeat 0 0; width:209px; height:59px; }
+.https .detail #content h3.button				{ background-image:url(https://1.im.cz/homepage/2007/img/preset/button.gif); }
+.detail #content h3.button a				{ display:block; padding:20px 0 20px 0; /*background:red;*/ }
+
+#foot										{ text-align:center; color:#666; }
+
+

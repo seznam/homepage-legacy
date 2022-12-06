@@ -1,0 +1,218 @@
+html										{ font-size:106.5%; }
+body										{  margin:8px 0 8px 0; text-align:center; color:#000; font-size:76.5%; font-family:Arial, sans-serif; }
+body#www-seznam-cz							{ }/*/st/img/top-grad.gif*/ /*toto je pro webslice IE*/
+html:first-child body#www-seznam-cz[id="www-seznam-cz"]	{ background-position:50% 11.1em; }
+
+td											{ font-size:100%; _font-size /**/:76.5%; }
+h1, h2, h3, h4, h5,
+ p, ul, ol, li,
+ form 										{ padding:0; margin:0; }
+ select										{ font-size:100%; }
+img											{ vertical-align:top; border:none; margin:0; padding:0; }
+li											{ list-style-type:none; }
+
+hr											{ display:none; }
+
+a:link 										{ color:#de0000; }
+a:visited									{ color:#de0000; }         /*990000*/
+a:hover										{ color:#0000CC; }
+
+#monitor,
+.blind										{ position:absolute; top:-4000px; left:-4000px; width:1px; height:1px; overflow:hidden; } /*- pro nevidome -*/
+.gray										{ color:#ccc; }
+.clear										{ clear:both; overflow:hidden; height:1px; display:block; }
+
+.bold	{ font-weight:bold; }
+
+.min-width									{ margin-left:auto !important; margin-right:auto !important; width:770px !important; }
+.max-width									{ margin-left:auto !important; margin-right:auto !important; width:1024px !important; }
+
+/*reklama BUtton*/
+#adButton									{ text-align:center; display: none;	}
+#adButton.adFull							{ background:url(/st/img/advert.gif) no-repeat 0 0; padding-top:12px; margin-top:12px; display: block; }
+
+#page										{ margin:0 auto; padding:0 18px; _padding:expression(ms_setPadding(730,1024)); min-width:730px; max-width:1024px; _width:expression(ms_setWidth(730,1024)); text-align:left; }
+#page.widepage								{ _padding:expression(ms_setPadding(1100,1600)); _width:expression(ms_setWidth(1100,1600)); min-width:1100px !important; max-width:1600px !important; }
+.emptypage									{ padding-top:200px !important; }
+#head-cont									{ text-align: center; }
+
+#head #logo									{  }
+#head #info									{ padding: 15px 10px 0 10px; z-index:99; position:relative; margin:4px 0 0 0; }
+#head #info h2								{ display:inline; font-size:100%; _margin-right:0.3em; }
+#head #info a								{ padding-left:0.4em; }
+
+.button										{
+												margin:0;
+												vertical-align:middle;
+												font-size:115.5%;
+												color:#666;
+												font-family:Arial, sans-serif;
+												padding:3px 0 3px 0;
+												height:36px;
+
+												background:#ececec;
+												background-image:-webkit-gradient(linear, left top, left bottom, from(#fff), to(#ececec));
+												background-image:-moz-linear-gradient(top, #fff, #ececec);
+												filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#ececec");
+												border-width:1px;
+												border-style:solid;
+												border-color:#c5c5c5 #7d7d7d #7b7b7b #a1a1a1;
+												cursor:hand;
+}
+
+.button:active									{
+												background:#d0d0d0;
+												background-image:-webkit-gradient(linear, left top, left bottom, from(#d0d0d0), to(#ececec));
+												background-image:-moz-linear-gradient(top, #d0d0d0, #ececec);
+												filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d0d0d0", endColorstr="#ececec");
+}
+
+/*body#www-seznam-cz.settings									{ background:url(/st/img/settings-bck.gif) repeat-x 50% 12.1em; =background-position:50% 9.3em; }*/
+/*body#www-seznam-cz.error									{ background:url(/st/img/settings-bck-error.gif) repeat-x 50% 12.1em; =background-position:50% 9.3em; }*/
+
+#settings #content											{ position:relative; text-align:left;  }
+
+body#www-seznam-cz.error #settings .submit-line				{ background:#bf0f0f; color:#fff; }
+body#www-seznam-cz.error #settings .submit-line input		{  }
+body#www-seznam-cz.error #settings .submit-line a			{ color:#fff; }
+body#www-seznam-cz.error #settings .submit-line span		{ font-size:123.5%; font-weight:bold; }
+
+/*body#www-seznam-cz.error .submit-button						{ width:12em; }*/
+#settings .submit-line .cnt									{ margin-left: 20px; margin-bottom: 30px }
+#settings #top.submit-line									{ margin-bottom:0.5em; }
+#settings #bottom.submit-line								{ margin-top:0.5em; padding-top:0.5em;  padding-bottom:0.3em; }
+#settings .submit-line input								{ font-weight:bold; font-size:108.5%; padding:0.2em 0.1em; vertical-align:baseline; _vertical-align:middle; }
+#settings .cancel-link										{ z-index:10; position:relative; _position:static; }
+
+
+#settings													{ }
+#settings .section											{ margin: 29px 0 29px 0px; }
+#settings .section-title									{ line-height:1.3; padding: 0 20px; }
+#settings .section-title h2									{ font-size:185.5%; }
+#settings .section-title p									{ color:#333; line-height:1.5; }
+#settings .section-cnt										{ margin-top:1em; padding: 0 20px; }
+#settings .section	h3										{ font-size:118	.5%; color:#333; margin-bottom:0.3em; /*margin-top:1em;*/ }
+
+/*- vzhled -*/
+#settings #skins 											{ display: none; }
+#settings #skins .section-cnt								{ margin-top:2em; }
+
+/*- nastaveni layoutu */
+#settings #looknfeel										{  }
+#settings #looknfeel .l-item								{ float:left; width:152px; padding:5px 4px; margin-right:74px; _margin-right:64px; cursor:pointer; margin-bottom:1em; position:relative; }
+#settings #looknfeel .l-item img							{ border:1px solid #cdcdcd; }
+#settings #looknfeel .hide									{ display:none; }
+#settings #looknfeel h4										{ padding-top:3px; font-size:100%; text-align:center; color:#de0000; }
+#settings #looknfeel .active h4								{ color:#000; }
+#settings #looknfeel #showLink								{ margin-bottom:2em; font-size:108.5%; font-weight:bold; display:block; margin-left:363px; }
+#settings #looknfeel h3										{ display:none; }
+
+#settings #looknfeel .l-item p								{ float:left; width:100px; overflow:hidden; }
+#settings #looknfeel .l-item .skin-img						{ float:left; margin-right:10px; }
+#settings #looknfeel .l-item .skin-name						{}
+#settings #looknfeel .l-item .author						{ color:#8e8ee3; font-size:95%; display:block; }
+
+#settings #looknfeel .selected { background:url(/st/img/2011/active-skin.png) no-repeat 0 0; display:none; height:20px; left:9px; position:absolute; top:9px; width:20px; }
+#settings #looknfeel .active .selected { display: block; }
+
+#externalCSS												{ margin-bottom:2em; }
+#externalCSS h3												{ }
+#externalCSS p												{ margin-top:0.5em; margin-bottom:1em; }
+#looknfeel #externalSkin									{ width:400px; }
+
+/* ostatni nasteveni */
+#sugg, #seek, #icon											{ margin-bottom:2em; }
+
+#sugg input													{ vertical-align:middle; }
+#settings #icon h4											{ margin:1em 20px; }
+#settings #icon #icons										{ width:420px; margin-left:20px; }
+#settings #icon #icons div									{ float:left; width:140px; margin:0 0 1em 0; }
+#settings #icon #icons label								{ float:none; display:inline; width:auto; margin:0 !important; }
+#settings #icon #icons img									{ margin:2px 0 0 0; }
+#settings #icon #icon-page									{ margin-left:20px; }
+#settings #icon #icon-page textarea							{ width:95%; }
+#settings #icon #icon-page label							{ float:left; width:7.8em; text-align:right; margin:2px 3px 0 0 !important; margin:2px 0 0 0; }
+#settings #icon #icon-page .row								{ clear:both; padding-bottom: 0.2em !important; margin-bottom: 0.2em;  }
+#settings #icon #icon-page  .button							{ margin-left:8em; }
+#settings #icon #third-step 								{ margin-left:20px; display:none; }
+#settings #icon #third-step h4								{ margin-left:0; }
+#settings #icon #third-step.display							{ display:block; }
+#settings #icon #third-step textarea						{ width:70%; background-color:#FFFFCC; }
+#settings #icon  p											{ margin:0.3em 0 0.5em 0;  }
+#settings #icon #showLinkPromote							{ background:url(/st/img/settings-open.gif) no-repeat 0 60%; padding-left:18px; }
+#settings #icon #showLinkPromote.show						{ background-image:url(/st/img/settings-close.gif);}
+#settings #icon #promoteHider								{ display:none; }
+#settings #icon #promoteHider.show							{ display:block; }
+#settings #seek-list										{ border-top:2px dotted #e1e1ff; }
+
+#settings #default  p											{ margin:0.3em 0 0.5em 0;  }
+
+#settings #seek-list .reorder-active						{ background:#cacaeb; }
+#settings #seek-list .seek-item								{ width:auto; }
+.seek-item													{ padding:3px 4px 0px 4px; background:#efefef; border-bottom:2px dotted #e1e1e1; width:430px; text-align:left; }
+.seek-left													{ float:left; width:50%; }
+.seek-item .seek-drag										{ float:left; background:url(/st/img/settings-seek-drag.gif) no-repeat 0 0; width:22px; height:19px; text-align:center; padding-top:0.15em; color:#de0000; cursor:move; }
+.seek-item .help-text										{ display:none; float:right; width:170px; margin-right:3px; color:#666; }
+.seek-item .delete-text										{ float:right; width:170px; margin-right:3px; text-align:right; }
+.seek-item label.bold										{ font-weight:bold; }
+.seek-item label .new										{ color:#4ba800; font-weight:normal; }
+
+/* pridani meho hledani */
+#myformseek													{ clear:both; margin-top:0.5em; }
+#myformseek #seek-message									{ color:#fff; background:#bf0f0f; font-weight:bold; font-size:118.5%; padding:6px 8px; margin-top:0.3em; width:420px; }
+#myformseek #seek-message.OK								{ background:#4ba800; }
+#showMySearch												{ background:url(/st/img/settings-open.gif) no-repeat 8px 60%; padding-left:26px; }
+#showMySearch.show											{ background-image:url(/st/img/settings-close.gif);}
+#myformseek #add-form										{ display:none; margin-top:0.6em; }
+#myformseek #add-form.show									{ display:block; }
+
+#settings #advanced											{ border:none; }
+
+/*- vypis feedu */
+#settings #rss												{  }
+#settings #rss #rss-title									{ background:url(/st/img/rss_title_ico.gif) no-repeat 0 40%; padding-left:20px; }
+#settings #rss #rss-title span								{ color:#999; }
+#settings #rss #feed-seek									{ float:left; width:100%; }
+#settings #rss #rss-search									{ width: 80%; }
+#settings #rss #my-rss-list									{ margin:0.5em 0 0.7em 0; }
+#settings #rss .group h3									{ clear:both; margin-top:1.5em; }
+#settings #rss .group .f-list								{ clear: both; margin-bottom:0.5em; }
+#settings #rss .feed										{ width: 100%; border-bottom:2px dotted #e1e1e1; padding:2px 0; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+#settings #rss .act											{ background:#efefef; }
+#settings #rss #hidelink-rss								{ margin-top:0.5em; font-size:108.5%; font-weight:bold; display:block; }
+/* vysledky hledani */
+#settings #rss #my-search-list								{ border:1px solid #e1e1ff; width:540px; margin:0.5em 0; }
+#settings #rss #my-search-list #my-search-cnt				{}
+#settings #rss #my-search-list h4							{ font-size:100%; padding:6px 12px; background:#f7f7ff; font-weight:normal; }
+#settings #rss #my-search-list h4 #close					{ float:right; }
+#settings #rss #my-search-list .item						{ border-bottom:1px solid #f1f1f1; padding:4px 0 4px 50px; background:url(/st/img/settings-add.gif) no-repeat 12px center; cursor:pointer; }
+#settings #rss #my-search-list .item:hover					{ background-color:#f7f7ff; }
+#settings #rss #my-search-list .item.added					{ background-image:url(/st/img/settings-added.gif); cursor:default; }
+#settings #rss #my-search-list .item h5						{ font-size:100%; width:460px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; }
+#settings #rss #my-search-list h5.no-result					{ color:#ec0000; font-size:108.5%; text-align:center; margin-top:1em; }
+#settings #rss #my-search-list.noborder						{ border:none; display:none; }
+#settings #rss #my-search-list #my-search-cnt.no-result		{ height:70px; padding-bottom:10px; }
+#settings #rss #my-search-list .item p.url					{ color:#009900; width:460px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden; }
+
+#settings #rss #add-foreign-feed							{  }
+#settings #rss #add-feed-foreign-cont						{ position:relative; top:-3.8em; =top:-4.1em; margin-bottom:-3.8em; background:#ffffe3; padding:10px; width:520px; line-height:1.4em; }
+#settings #rss #add-feed-foreign-cont .url					{ color:#009900; }
+#settings #rss #add-feed-foreign-cont .buttons				{ padding-top:1em; }
+#settings #rss #add-feed-foreign-cont input					{ font-size:115.5%; padding:4px; }
+#settings #rss #add-feed-foreign-cont .submit				{ font-weight:bold; width:auto; =width:11.5em; padding:4px; =padding:3px; }
+
+
+#foot														{ margin-top:0.3em; text-align:center; color:#989898; line-height: 1.5; }
+
+/*- loader */
+.loader														{ position:absolute; z-index:999; width:150px; padding:45px 0 5px 0; text-align:center; color:#CDCDCD; background:#fff url(/st/img/load.gif) no-repeat 48% 5px; border:1px solid #CDCDCD; }
+
+
+.window-content												{ padding:10px; background:#fff; }
+.window-content .video-cont									{ clear:both; }
+.window-content .close-window								{ margin-bottom:5px; background:url(/st/img/close.gif) no-repeat 100% 0; padding-right:17px; float:right;}
+.video-link													{ padding-left:15px; background:url(/st/img/sipka.gif) no-repeat 0 50%; display:none; }
+
+.hiddenElement 												{display:none;}
+
+#teng-debug													{ display: none; }

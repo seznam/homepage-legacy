@@ -1,0 +1,210 @@
+#
+# $Id$
+#
+
+Timeout 300
+KeepAlive On
+MaxKeepAliveRequests 10
+KeepAliveTimeout 2
+
+# run under nobody and nogroup
+User nobody
+Group nogroup
+
+# server admin
+ServerAdmin helpdesk@seznam.cz
+ServerName beta.seznam.cz
+
+# use client-supplied SERVER_NAME
+UseCanonicalName Off
+
+
+LimitRequestFieldSize  32000
+LimitRequestLine       32000
+
+
+# global restrictive setup
+<Directory />
+    Options FollowSymLinks
+    AllowOverride None
+</Directory>
+
+# where MIME types are defined
+TypesConfig /etc/mime.types
+
+# default content-type
+DefaultType application/octet-stream
+
+# do not lookup hostnames
+HostnameLookups Off
+
+# error log level
+LogLevel warn
+
+# define custom log for later use
+LogFormat "%h %l %u %t \"%r\" %>s %b" common
+
+# server info provided to the client
+ServerTokens OS
+
+# no server signature on error pages
+ServerSignature Off
+
+# default charset is UTF-8
+AddDefaultCharset UTF-8
+
+# fix known browser problems
+BrowserMatch "Mozilla/2" nokeepalive
+BrowserMatch "MSIE 4\.0b2;" nokeepalive downgrade-1.0 force-response-1.0
+BrowserMatch "RealPlayer 4\.0" force-response-1.0
+BrowserMatch "Java/1\.0" force-response-1.0
+BrowserMatch "JDK/1\.0" force-response-1.0
+
+
+<IfModule prefork.c>
+    StartServers          3
+    MinSpareServers       3
+    MaxSpareServers       3
+    ServerLimit           3
+    MaxClients            3
+    MaxRequestsPerChild  20
+</IfModule>
+
+
+# server and document root
+ServerRoot "__TARGET__"
+DocumentRoot "__TARGET__/www"
+
+# port to listen on
+Listen *:__PORT__
+
+# where to log
+ErrorLog log/homepage-httpd_error_log
+CustomLog log/homepage-httpd_access_log "%h %l %u %t \"%r\" %>s %b \"%{Referer}i\" \"%{User-Agent}i\""
+PidFile __PID__
+
+# modules
+LoadModule python_module        /usr/lib/apache2/modules/mod_python.so
+LoadModule headers_module       /usr/lib/apache2/modules/mod_headers.so
+LoadModule expires_module       /usr/lib/apache2/modules/mod_expires.so
+LoadModule mime_module          /usr/lib/apache2/modules/mod_mime.so
+LoadModule setenvif_module      /usr/lib/apache2/modules/mod_setenvif.so
+LoadModule alias_module         /usr/lib/apache2/modules/mod_alias.so
+LoadModule authz_host_module    /usr/lib/apache2/modules/mod_authz_host.so
+LoadModule proxy_module         /usr/lib/apache2/modules/mod_proxy.so
+LoadModule proxy_http_module    /usr/lib/apache2/modules/mod_proxy_http.so
+#LoadModule geoip_module         /usr/lib/apache2/modules/mod_geoip.so
+#LoadModule dir_module           /usr/lib/apache2/modules/mod_dir.so
+#LoadModule authn_file_module    /usr/lib/apache2/modules/mod_authn_file.so
+#LoadModule auth_basic_module    /usr/lib/apache2/modules/mod_auth_basic.so
+#LoadModule authz_user_module    /usr/lib/apache2/modules/mod_authz_user.so
+
+Redirect /volna-mista http://www.sprace.cz/index.fcgi?a=list&firm_ID=17651
+
+# document root directory
+<Directory __TARGET__/www>
+    SetHandler python-program
+    PythonHandler web_publisher.publisher
+    PythonDebug Off
+    PythonAutoReload Off
+    PythonOption ServerPath __TARGET__/server
+    PythonOption ConfigFile __TARGET__/conf/homepage.conf.dev
+    PythonOption ConfigPasswdFile __TARGET__/conf/homepage.passwd.conf.dev
+    Order allow,deny
+    Allow from all
+
+	Header set Cache-Control "max-age=0"
+	Header append Cache-Control "no-cache"
+	Header append Cache-Control "no-store"
+	Header append Cache-Control "must-revalidate"
+	Header set Pragma "no-cache"
+
+	ExpiresActive On
+	ExpiresDefault Now
+</Directory>
+
+# Static pages on the site
+<Location /st/>
+    SetHandler default
+
+    Header unset Pragma
+    Header unset Cache-Control
+
+    #<IfModule mod_expires.c>
+        ExpiresActive On
+        # 3 dny
+        ExpiresDefault A259200
+    #</IfModule>
+</Location>
+
+
+# Povolime GeoIP
+#GeoIPEnable On
+#GeoIPDBFile /usr/share/GeoIP/GeoIPCityeuw.dat
+#GeoIPOutput Env
+#GeoIPHeaderName X-Forwarded-For
+
+
+ProxyRemote http://api.facebook.com http://proxy:3128
+#ProxyRemote http://www.lide.cz http://proxy:3128
+#ProxyRemote  http://suggest.fulltext.seznam.cz/ http://proxy:3128
+#ProxyRemote  http://suggest.zbozi.cz/ http://proxy:3128
+#ProxyRemote  http://suggest.slovnik.seznam.cz/ http://proxy:3128
+
+<Location /fbproxy>
+    ProxyPass http://api.facebook.com/restserver.php
+    ProxyPassReverse http://api.facebook.com/restserver.php
+</Location>
+
+# <Location /jsGetFriends>
+#     ProxyPass http://www.lide.cz/
+#     ProxyPassReverse http://www.lide.cz/
+# </Location>
+#
+
+
+#
+# HTTP proxy pro jednotlivý suggesty...
+#
+
+# Fulltext
+<Location /suggest/fulltext>
+    ProxyPass http://suggest.fulltext.seznam.cz/suggest/fulltext
+    ProxyPassReverse http://suggest.fulltext.seznam.cz/suggest/fulltext
+</Location>
+
+# Firmy
+<Location /suggest/firms>
+    ProxyPass http://www.firmy.cz/suggest/firmy
+    ProxyPassReverse http://www.firmy.cz/suggest/firmy
+</Location>
+
+# Mapy
+<Location /suggest/region>
+    ProxyPass http://www.mapy.cz/suggest/region
+    ProxyPassReverse http://www.mapy.cz/suggest/region
+</Location>
+
+# Zboží
+<Location /suggest/zbozi>
+    ProxyPass http://www.zbozi.cz/suggest/zbozi
+    ProxyPassReverse http://www.zbozi.cz/suggest/zbozi
+</Location>
+
+# Slovník
+<Location /suggest/hp_mix_cz_en>
+    ProxyPass http://slovnik.seznam.cz/suggest/mix_cz_en
+    ProxyPassReverse http://slovnik.seznam.cz/suggest/mix_cz_en
+</Location>
+
+# Obrázky
+<Location /suggest/pics>
+    ProxyPass http://obrazky.cz/suggest
+    ProxyPassReverse http://obrazky.cz/suggest
+</Location>
+
+# Videa
+<Location /suggest/video>
+    ProxyPass http://videa/suggest
+    ProxyPassReverse http://videa/suggest
+</Location>

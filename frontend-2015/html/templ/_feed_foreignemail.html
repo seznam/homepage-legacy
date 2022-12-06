@@ -1,0 +1,192 @@
+<div id="gadget-${feedId}" class="s_win email-feed" data-dot="gadget${$feedId ==190 ? 'EmailGmail' : 'EmailCentrum'}">
+	<?teng set $._fe_isLogout = $username =~ '' || $statusCode == 4 || $statusCode == 1 ?>
+	<?teng set $._fe_isGmail = $feedId == 190 ?>
+<?teng format space="onespace"?>
+	<div class="gagdet-cont">
+		<div class="main-cont">
+			<h3 class="title s_win_title">
+
+			<span class="text"><a href="${url}">${title}</a></span>
+
+				<span class="edit">
+					<?teng if $.userId > 0?>
+						<a href="/prihlaseni" class="edit-text">Upravit</a>
+					<?teng endif?>
+				</span>
+				<span class="bck"></span>
+			</h3>
+
+			<?teng if $.userId > 0?>
+				<div class="gadget-settings">
+					<div class="settings-cont">
+						<div class="settings-main">
+							<div class="setting-bck">
+								<div class="title-setting">
+									<?teng if $.userId > 0?>
+										<span class="close-win-img-span"><a href="#" class="close-win-img">Odebrat box</a></span>
+									<?teng endif?>
+									<span class="close-sett"><a href="" class="close-setting-link">Upravit</a></span>
+								</div>
+								<div class="setting-cont">
+									<form action="/">
+										<?teng if $._fe_isLogout ?>
+											<div class="row">
+												<label for="log-${feedId}" class="flt">#{eml_name}:</label>
+												<input class="login wide-log" type="text" id="log-${feedId}" name="login" value="${username}" />
+												<strong>@${@('domain_'++$feedId)}</strong>
+											</div>
+
+											<div class="row">
+												<label for="pass-${feedId}" class="flt">#{eml_pass}:</label>
+												<input class="passwd wide" type="password" id="pass-${feedId}" name="password" value="" />
+											</div>
+										<?teng else ?>
+											<div class="row">
+												<p>Přihlášený účet: <strong>${username}</strong></p>
+												<input class="login" type="hidden" id="log-${feedId}" name="login" value="${username}" />
+												<input class="passwd" type="hidden" id="pass-${feedId}" name="password" value="" />
+												<div class="logoutButton"><input type="submit" value="Odhlásit účet" class="button" id="foreignemail${feedId}-logout" /></div>
+											</div>
+										<?teng endif ?>
+
+										<div class="row next-settings">
+											<label id="label-emailCount-${feedId}" for="emailCount-${feedId}">Počet zobrazených emailů:</label>
+											<select name="emailCount" class="emailCount alignTo" id="emailCount-${feedId}">
+												<!---<option value="0" ${$rowCount == 0 ? 'selected="selected"' : ''}>nezobrazovat</option>--->
+												<option value="1" ${$rowCount == 1 ? 'selected="selected"' : ''}>1</option>
+												<option value="2" ${$rowCount == 2 ? 'selected="selected"' : ''}>2</option>
+												<option value="3" ${$rowCount == 3 ? 'selected="selected"' : ''}>3</option>
+												<option value="4" ${$rowCount == 4 ? 'selected="selected"' : ''}>4</option>
+												<option value="5" ${$rowCount == 5 ? 'selected="selected"' : ''}>5</option>
+												<option value="6" ${$rowCount == 6 ? 'selected="selected"' : ''}>6</option>
+												<option value="7" ${$rowCount == 7 ? 'selected="selected"' : ''}>7</option>
+												<option value="8" ${$rowCount == 8 ? 'selected="selected"' : ''}>8</option>
+												<option value="9" ${$rowCount == 9 ? 'selected="selected"' : ''}>9</option>
+												<option value="10" ${$rowCount == 10 ? 'selected="selected"' : ''}>10</option>
+											</select>
+										</div>
+
+										<div class="controls">
+											<input type="submit" name="" class="submit" value="Uložit nastavení" />
+											<input type="reset" name="" class="reset" value="Storno" />
+										</div>
+
+										<div class="next-settings">
+											<a href="/nove-nastaveni">Další nastavení Seznamu</a>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?teng endif?>
+
+			<div class="g-cnt s_win_area">
+				<?teng if $._fe_isLogout ?>
+					<?teng format space="onespace"?>
+						<?teng if $statusCode == 1?>
+							<h4 class="note error">Vaše heslo není platné, akutalizace emailů neprobíhá!</h4>
+						<?teng endif?>
+						<form id="login-form-${feedId}" class="login-form" action="/" method="get">
+							<p>
+								<label for="login-${feedId}" class="label">#{eml_name}:</label>
+								<input class="<?teng if $._fe_isGmail ?>sh<?teng endif?> login" size="8" id="login-${feedId}" name="username" type="text" value="${username}" />
+								<strong>@${@('domain_'++$feedId)}</strong>
+							</p>
+
+							<p>
+								<label for="password-${feedId}" class="label">#{eml_pass}:</label>
+								<input class="<?teng if $._fe_isGmail ?>sh<?teng endif?> passwd" size="8" id="password-${feedId}" name="password" type="password" />
+								<input type="submit" value="#{eml_dologin}" class="sub <?teng if $._fe_isGmail ?>button<?teng endif?>" />
+							</p>
+						</form>
+						<div class="eml-cnt"></div>
+					<?teng endformat?>
+				<?teng else?>
+					<div class="eml-cnt">
+						<?teng if $._fe_isGmail && $statusCode == -1 ?>
+							<h4 class="note">Probíhá synchronizace s Gmailem</h4>
+						<?teng elseif $._fe_isGmail && $statusCode == 2 ?>
+							<div class="g-text-cont">
+								<p class="indent">Pro zobrazení zpráv je zapotřebí mít aktivní protokol IMAP ve Vaší schránce: <strong>${username}@gmail.com</strong></p>
+								<p><strong><a href="http://support.google.com/mail/bin/answer.py?hl=en&answer=77695">Nápověda, jak aktivovat IMAP protokol</a></strong></p>
+							</div>
+						<?teng elseif $._fe_isGmail && $statusCode == 3 ?>
+							<div class="g-text-cont">
+								<p class="indent">Pro zobrazení zpráv je zapotřebí provést dodatečné ověření ve Vaší schránce: <strong>${username}@gmail.com</strong></p>
+								<p><strong><a id="gmail-unlock" href="https://www.google.com/accounts/DisplayUnlockCaptcha">Provést dodatečné ověření</a></strong></p>
+							</div>
+						<?teng elseif exist(items)?>
+							<table>
+								<?teng frag items?>
+								<?teng if $rowCount >= $_number+1 ?>
+									<tr>
+										<td>
+											<div>
+												<?teng if $feedId != 191?>
+													<strong><a href="${reorder(@('mail_url_'++$feedId),$itemId)}">${sender}</a></strong> <span>- ${subject} <span class="perex"></span></span>
+												<?teng else?>
+													<strong>${sender}</strong> <span>- ${subject} <span class="perex"></span></span>
+												<?teng endif?>
+											</div> <!--- ${substr($from,0,20,'','...')} - ${substr($subject,0,20,'','...')} --->
+										</td>
+										<td class="etime">
+											<?teng set nowH = date("%H",now())?>
+											<?teng set nowM = date("%M",now())?>
+											<?teng set nowS = date("%S",now())?>
+											<?teng set nowT = $nowS+$nowM*60+$nowH*3600?>
+											<?teng set firstMidnight = now() - $nowT?>
+											<?teng set secondMidnight = $firstMidnight - 86400?>
+											<?teng if $sentDate > $firstMidnight ?>
+												${date("%H:%M",$sentDate)}
+											<?teng elseif $sentDate > $secondMidnight?>
+												Včera
+											<?teng else?>
+												${date("%e.&nbsp;%n.",$sentDate)}
+											<?teng endif?>
+
+										</td>
+									</tr>
+								<?teng endif?>
+								<?teng endfrag?>
+							</table>
+						<?teng else?>
+							<?teng if $newMessages == 0?>
+								<h5 class="mail-count-msg">#{eml_no_mail}</h5>
+							<?teng else?>
+								<h5 class="mail-count-msg">${reorder(#eml_have_mess,$newMessages,case($newMessages, 1:#eml_new_one, 2,3,4:#eml_new_two, *:#eml_new_more))}</h5>
+							<?teng endif?>
+						<?teng endif?>
+					</div>
+				<?teng endif?>
+			</div>
+		</div>
+	</div>
+	<?teng endformat?>
+</div>
+
+<?teng if $.userId > 0?>
+	<script type="text/javascript">/*
+	<![CDATA[ */
+		JAK.gadget${feedId} = new JAK.Gadget('gadget-${feedId}','${feedId}','email');
+		JAK.gadget${feedId}.extSetting = new JAK.Gadget.EmailSetting('${feedId}',JAK.gadget${feedId}, '${emailId}');
+		JAK.gadget${feedId}.extSetting.syncFrequency = #{MAIL_SYNC_INTERVAL};
+		<?teng if $feedId != 191?>
+			JAK.gadget${feedId}.extGadg = new JAK.Email('gadget-${feedId}','${feedId}','${emailId}');
+		<?teng endif?>
+		<?teng if $._fe_isGmail && $statusCode == -1 ?>
+			JAK.gadget${feedId}.extSetting.showLoader();
+		<?teng endif?>
+		JAK.gadgetManager.addItem(JAK.gadget${feedId});
+
+		new JAK.EmailResizer(${feedId});
+
+		/*
+		odstraneno volani metody refresh - nebyl znam jeji prinos a pro nynejsim reseni je na zavadu
+		(pokud jsem v jednom cizim emailu prihlaseny a v druhem je specifikovano uziv. jmeno - jakekoliv - vyhodnoti se i tento email jako prihlaseny)
+		*/
+	/* ]]> */
+	</script>
+<?teng endif ?>
+

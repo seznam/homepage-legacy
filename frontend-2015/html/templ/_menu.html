@@ -1,0 +1,101 @@
+<div id="menu">
+	<?teng if exist(pageId) && $pageId =~ 'prihlaseni'?>
+		&nbsp;
+	<?teng else?>
+		<h4 class="title">
+			Nastavení:
+		</h4>
+		<noscript>
+		<ul>
+			<li ${$pageId =~ 'nastaveni-zprav' || $pageId =~ 'vyber-zprav' ? 'class="selected"':''}>
+				<?teng if $pageId =~ 'nastaveni-zprav' || $pageId =~ 'vyber-zprav'?>
+					<strong>#{my_rss}</strong>
+				<?teng else?>
+					<a href="/nastaveni-zprav">#{my_rss}</a>
+				<?teng endif?>
+			</li>
+			<li ${$pageId =~ 'zmena-vzhledu' ? 'class="selected"':''}>
+				<?teng if $pageId =~ 'zmena-vzhledu'?>
+					 <strong>#{sett_skin_change}</strong>
+				<?teng else?>
+					<a href="/zmena-vzhledu">#{sett_skin_change}</a>
+				<?teng endif?>
+			</li>
+			<li ${$pageId =~ 'nastaveni-pocasi' ? 'class="selected"':''}>
+				<?teng if $pageId =~ 'nastaveni-pocasi'?>
+					<strong>#{sett_weather}</strong>
+				<?teng else?>
+					<a href="/nastaveni-pocasi">#{sett_weather}</a>
+				<?teng endif?>
+			</li>
+			<li ${$pageId =~ 'nastaveni-horoskopu' ? 'class="selected"':''}>
+				<?teng if $pageId =~ 'nastaveni-horoskopu'?>
+					<strong>#{sett_zodiac}</strong>
+				<?teng else?>
+					<a href="/nastaveni-horoskopu">#{sett_zodiac}</a>
+				<?teng endif?>
+			</li>
+			<li ${$pageId =~ 'nastaveni-tv-programu' ? 'class="selected"':''}>
+				<?teng if $pageId =~ 'nastaveni-tv-programu'?>
+					<strong>#{sett_tv}</strong>
+				<?teng else?>
+					<a href="/nastaveni-tv-programu">#{sett_tv}</a>
+				<?teng endif?>
+
+			</li>
+			<!---
+			<li>
+				<a href="#{SERVER_SETTINGS_PORTRAIT_URL}">#{sett_change_portrait}</a>
+			</li>
+			--->
+			<li ${$pageId =~ 'nastaveni-ostatni' ? 'class="selected"':''}>
+				<?teng if $pageId =~ 'nastaveni-ostatni'?>
+					<strong>#{sett_other}</strong>
+				<?teng else?>
+					<a href="/nastaveni-ostatni">#{sett_other}</a>
+				<?teng endif?>
+
+			</li>
+
+			<!---
+			<li id="about-rss">
+				<div ${$pageId =~ 'co-je-rss' ? 'class="selected "':''}>
+					<?teng if $pageId =~ 'co-je-rss'?>
+						<strong>#{sett_about_rss}</strong>
+					<?teng else?>
+						<a href="/co-je-rss">#{sett_about_rss}</a>
+					<?teng endif?>
+				</div>
+			</li>
+			--->
+			</ul>
+
+
+			<ul>
+			<li>
+				<div class="line"></div>
+				<div ${$pageId =~ 'export-zprav-opml' ? 'class="selected"':''}>
+					<?teng if $pageId =~ 'export-zprav-opml'?>
+						<strong>#{sett_import}</strong>
+					<?teng else?>
+						<a href="/export-zprav-opml">#{sett_import}</a>
+					<?teng endif?>
+				</div>
+			</li>
+			<li ${$pageId =~ 'ikona-pro-webmastery' ? 'class="selected"':''}>
+				<?teng if $pageId =~ 'ikona-pro-webmastery'?>
+					<strong>#{sett_wemasters}</strong>
+				<?teng else?>
+					<a href="/ikona-pro-webmastery">#{sett_wemasters}</a>
+				<?teng endif?>
+
+			</li>
+			</noscript>
+
+			<li style="border-top:1px solid #efefef; margin-top:0.5em; padding-top:0.5em;">
+				<a href="/nastavit-vychozi?hashId=${.hashId}">Vrátit Seznam.cz do výchozího nastavení</a>
+			</li>
+
+		</ul>
+	<?teng endif?>
+</div>

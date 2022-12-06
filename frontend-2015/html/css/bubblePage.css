@@ -1,0 +1,49 @@
+html									{ font-size:106.5%; }
+body									{ margin:0; padding:0; background: #FFF url(http://www.seznam.cz/st/img/pozadi.jpg) center 0 no-repeat; color:#000; font:76.5% Arial, Verdana, sans-serif; text-align:center; /*font-size-adjust: 0.52;*/ }
+
+p, img, table, tr, th, td, form, fieldset,
+dl, dt, dd,
+h1, h2, h3, h4, h5 						{ border:  0px none; margin:  0px; padding: 0px; }
+h1,h2,h3,h4,h5							{ font-size:150%; font-weight:normal; }
+ul, li									{ padding: 0px; margin: 0px; list-style-type: none; }
+
+.blind									{ position:absolute; left:-1000px; top:-1000px; width:1px; height:1px; overflow:hidden; }
+
+.clear									{ display:block; clear:both; font-size:0.0001em; visibility:hidden; overflow:hidden; height:0px; }
+.clear hr								{ display: none; }
+
+a										{ color:#C00; text-decoration: underline; }
+
+#page									{ width: 880px; margin: 0 auto; position:relative; text-align:left; min-height:1488px; height:auto; _height:1488px; }
+#page a									{ _position:relative;}
+
+/*------ Bublina ------*/
+#bubble-header							{ height:50px; width:880px; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='scale', src='http://www.seznam.cz/st/img/bubble-top.png'); }
+#bubble-header[id]						{ background:url(http://www.seznam.cz/st/img/bubble-top.png) no-repeat center bottom; }
+#bubble-middle							{ width:880px; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='scale', src='http://www.seznam.cz/st/img/bubble-middle.png'); }
+#bubble-middle[id]						{ background:url(http://www.seznam.cz/st/img/bubble-middle.png) repeat-y center; }
+#bubble-footer							{ height:275px; width:880px; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='scale', src='http://www.seznam.cz/st/img/bubble-bottom.png'); }
+#bubble-footer[id]						{ background:url(http://www.seznam.cz/st/img/bubble-bottom.png) no-repeat center top; }
+#bubble-content							{ margin:0 27px; position:relative; zoom:1; z-index:15; }
+
+/*------ Hlavicka ------*/
+#header									{ padding-bottom:10px; margin:0 40px; height:50px; position:relative; top:-10px; }
+#logo									{  }
+#logo a									{ float:left; height:36px; }
+#logo a img								{ vertical-align:top; }
+#header #closer							{ position:absolute; top:0; right:0; padding-right:40px; height:34px; line-height:34px; font-size:120%; 
+										  color:#666; text-decoration:none; background:transparent url(http://www.seznam.cz/st/img/icon-closer.png) no-repeat 100% 0; }
+
+.textCont								{ margin:25px 78px 0 78px; padding-bottom:20px; }
+.textCont h2							{ font-size:200%; font-weight:bold; margin:0.75em 0 0.5em 0; }
+.textCont h2.title-error				{ color:#c00; }
+.textCont h2 span						{ color:#c00; }
+.textCont p								{ font-size:120%; margin:0 75px 0.75em 0; line-height:1.4; }
+.textCont p.last						{ margin-bottom:0; }
+
+
+/*------ stranka "vypadek" ------*/
+.vypadek .textCont						{ margin-top:0; }
+.vypadek .textCont h2					{ text-align:center; margin-top:0; }
+.vypadek #bubble-middle					{ min-height:300px; }
+.vypadek .decorImg						{ margin-top:30px; text-align:center; }

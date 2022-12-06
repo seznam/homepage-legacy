@@ -1,0 +1,67 @@
+<div id="gadget-10" class="s_win" data-dot="gadgetSlovnik">
+<?teng format space="onespace"?>
+	<div class="gagdet-cont">
+		<div class="main-cont">
+			<h3 class="title s_win_title">
+				<span class="text"><a href="http://slovnik.seznam.#{_tld}">Slovník</a></span>
+				<span class="edit">
+				<a href="#" class="edit-text">Upravit</a>
+				</span>
+				<span class="bck"></span>
+			</h3>
+			<?teng if $.userId > 0?>
+				<div class="gadget-settings">
+					<div class="settings-cont">
+						<div class="settings-main">
+							<div class="setting-bck">
+								<div class="title-setting">
+
+									<?teng if $.userId > 0?>
+										<span class="close-win-img-span"><a href="#" class="close-win-img">Odebrat box</a></span>
+									<?teng endif?>
+									<span class="close-sett"><a href="" class="close-setting-link">Upravit</a></span>
+								</div>
+								<div class="setting-cont">
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?teng endif?>
+
+			<div class="g-cnt s_win_area">
+				<div class="push">
+				<form action="/slovnik" method="get" name="trnsltr" id="trnsltr">
+					<input class="text" name="wd" value="" type="text" />
+					<input class="submit" value="Přelož" type="submit" />
+					<div class="left-col">
+						<div>
+							<input id="en_cz" name="lg" value="en-cz" checked="checked" onclick="this.form.wd.focus();sg.init('w','en_cz',null,null);" type="radio" /><label for="en_cz" class="inline">anglicko-český</label>
+						</div>
+						<div>
+							<input id="de_cz" name="lg" value="de-cz" onclick="this.form.wd.focus();sg.init('w','de_cz',null,null);" type="radio" /><label for="de_cz" class="inline">německo-český</label>
+						</div>
+
+					</div>
+					<div class="right-col">
+						<div>
+							<input id="cz_en" name="lg" value="cz-en" onclick="this.form.wd.focus();sg.init('w','cz_en',null,null);" type="radio" /><label for="cz_en" class="inline">česko-anglický</label>
+						</div>
+						<div>
+							<input id="cz_de" name="lg" value="cz-de" onclick="this.form.wd.focus();sg.init('w','cz_de',null,null);" type="radio" /><label for="cz_de" class="inline">česko-německý</label>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</form>
+				</div>
+			</div>
+		</div>
+	</div>
+<?teng endformat?>
+</div>
+
+<?teng if $.userId > 0?>
+	<script type="text/javascript">/* <![CDATA[ */ JAK.gadget10 = new JAK.Gadget('gadget-10','${feedId}'); /* ]]> */ </script>
+<?teng endif ?>
+

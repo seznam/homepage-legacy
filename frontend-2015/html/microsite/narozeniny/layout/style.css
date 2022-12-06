@@ -1,0 +1,171 @@
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+a {
+  border: 0;
+  color: #df020b;
+  text-decoration: underline;
+}
+
+a:hover {
+  border: 0;
+  text-decoration: underline;
+}
+
+a:active {
+  border: 0;
+  color: #6a3328;
+}
+
+h1 {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 42px;
+  color: #c00;
+}
+
+h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #b10000;
+}
+
+img {
+  border: 0;
+}
+
+div.page-section {
+  overflow: hidden;
+  text-align: center;
+}
+
+#header {
+  height: 40px;
+  background: url(img/header.bg.png) repeat-x;
+  text-align: right;
+}
+
+#header a {
+  display: inline-block;
+  width: 288px;
+  height: 16px;
+  padding: 12px 20px;
+  background: url(img/shadow.bg.png) repeat-y;
+  zoom: 1;
+	*display: inline;
+}
+
+#body {
+}
+
+#body h1, #body p, .cont {
+  margin: 20px auto;
+  width: 596px;
+  text-align: left;
+}
+
+#body div.cont, p {
+  position: relative;
+  font-size: 18px;
+  color: #666;
+}
+
+#body div.year {
+  position: relative;
+  font-size: 18px;
+  color: #666;
+  background: url(img/year.bg.png) no-repeat;
+  width: 606px;
+  margin: 0 auto;
+  padding: 6px 10px 6px 0;
+  font-size: 16px;
+  text-align: left;
+}
+
+#body div.year img {
+  float: left;
+  margin: 5px 20px 5px 10px;
+  padding: 0px;
+  width: 250px;
+  height: 320px;
+}
+
+#body div.year h2 {
+  margin: 100px 0 0;
+}
+
+#body #copyright {
+  margin: 60px auto 26px;
+  font-size: 13px;
+  text-align: center;
+}
+
+#body #copyright div {
+  margin: 0 auto 5px;
+}
+
+#body div ul {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  zoom: 1;
+	*display: inline;
+}
+
+#body div li {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  padding: 0;
+  zoom: 1;
+	*display: inline;
+}
+
+#body #hist-btn {
+  position: absolute;
+  right: -5px;
+  top: 15px;
+}
+
+#body #video {
+  margin: 10px auto;
+  padding: 30px;
+  width: 570px;
+  height: 320px;
+  background: url(img/video.bg.png) no-repeat;
+}
+
+#body #player {
+  margin: 0;
+  padding: 0;
+  width: 570px;
+  height: 320px;
+}
+
+#footer {
+  margin: 0;
+  width: 100%;
+  height: 40px;
+  background: url(img/footer.bg.png) repeat-x;
+}
+
+#footer a {
+  text-decoration: underline;
+}
+
+div.cleaner {
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}

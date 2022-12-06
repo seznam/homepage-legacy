@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="cs">
+	<head>
+		<title>#{SERVICE_NAME_TITLE}</title>
+		<?teng include file="_common_files.html"?>
+	</head>
+	
+	<body id="www-seznam-cz" class="${.scheme}">
+		<div id="page">
+			<?teng include file="_head.html"?>
+			
+			<div id="cont" class="login">
+				<?teng include file="_menu.html"?>
+				
+				<div id="main">
+					<h2>
+						<?teng if $goto =~ "addfeed"?>
+							#{login_addfeed}
+						<?teng else?>
+							#{title_login}
+						<?teng endif?>
+					</h2>
+					<div id="login-cont">
+						<?teng if exist(.disablessl) && $.disablessl == 1?>
+							<form action="#{SERVICE_UNSECURE_LOGIN}" method="post" id="login">
+						<?teng else?>
+							<form action="#{SERVICE_SECURE_LOGIN}" method="post" id="login">
+						<?teng endif?>
+							<?teng frag extraHidden?>
+								<input type="hidden" name="${name}" value="${value}" />
+							<?teng endfrag?>
+							<input type="hidden" name="goto" value="${goto}" />
+							<p>
+								<label for="username">#{username}: </label>
+								<input type="text" class="text" name="username" value="${username}" id="username" tabindex="1" />
+								
+								<select name="domain" tabindex="4">
+									<?teng frag domainList?>
+										<option value="${domain}" ${$domain =~ $.domain ?'selected="selected"':''}>@${domain}</option>
+									<?teng endfrag?>
+							   </select>
+								<?teng frag badLogin?>
+									<strong class="error">#{error_bad_uname_or_pass}</strong>
+								<?teng endfrag?>
+							</p>
+							
+							<p>
+								<label for="password">#{password}:</label> 
+								<input type="password" class="text" name="password" value="" id="password" tabindex="2" />
+								<input type="submit" value="#{butt_log}" tabindex="3" />
+							</p>
+							<p id="remeber">
+								<input type="checkbox" id="remember" name="remember" value="1" tabindex="5" ${$remember ? 'checked="checked"' : ''} /> 
+								<label for="remember" class="inline">#{butt_remember}</label>
+						   </p>
+						   <?teng if exist(.disablessl) && $.disablessl == 1?>
+								<div id="nossl-login">Pro šifrované přihlášení přes SSL <a href="/prihlaseni">klikněte sem</a></div> 						   		
+						   <?teng else?>
+						   		<div id="nossl-login">Pokud se Vám nedaří přihlásit se přes SSL <a href="?disablessl=1">klikněte sem</a></div>
+						   <?teng endif?>
+						</form>
+						<script type="text/javascript">
+						/* <![CDATA[ */
+							gE('username').value == '' ? gE('username').focus() : gE('password').focus();
+						/* ]]> */
+						</script>
+						<p class="note">#{login_note_title}</p>
+						
+						<p>#{login_if_notRUS} <a href="#{SERVER_REGISTR_URL_HOMEPAGE}">#{login_reg_there}</a></p>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<?teng include file="_foot_other.html"?>
+			<?teng include file="_settings_netmonitor.html"?>
+		</div>
+		<!---
+		<?teng if exist(.disablessl) && $.disablessl != 1?>
+			<script type="text/javascript" src="#{SERIVCE_URL_SSL}/jsTestSSL?ip=${$.clientIP}&amp;formId=login&amp;type=0"></script>
+		<?teng endif?>
+		---->
+	</body>
+</html>

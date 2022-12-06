@@ -1,0 +1,78 @@
+html										{ font-size:106.5%; }
+body										{ margin:0; padding:0; background: #FFF url(http://www.seznam.cz/st/img/pozadi.jpg) center 0 no-repeat; color:#000; font:76.5% Arial, Verdana, sans-serif; text-align:center; /*font-size-adjust: 0.52;*/ }
+
+p, img, table, tr, th, td, form, fieldset,
+dl, dt, dd,
+h1, h2, h3, h4, h5 						{ border:  0px none; margin:  0px; padding: 0px; }
+h1,h2,h3,h4,h5							{ font-size:150%; font-weight:normal; }
+ul, li									{ padding: 0px; margin: 0px; list-style-type: none; }
+
+.blind									{ position:absolute; left:-1000px; top:-1000px; width:1px; height:1px; overflow:hidden; }
+
+.clear									{ display:block; clear:both; font-size:0.0001em; visibility:hidden; overflow:hidden; height:0px; }
+.clear hr								{ display: none; }
+
+a										{ color:#C00; text-decoration: underline; }
+/*a:hover									{ text-decoration: none; }*/
+
+#body table .stats 						{ cursor: help; }
+
+#page									{ width: 880px; margin: 0 auto; position:relative; text-align:left; min-height:1488px; height:auto; _height:1488px; }
+#page a									{ _position:relative;}
+
+/*------ Bublina ------*/
+#bubble-header							{ height:50px; width:880px; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='scale', src='http://www.seznam.cz/st/img/bubble-top.png'); }
+#bubble-header[id]						{ background:url(http://www.seznam.cz/st/img/bubble-top.png) no-repeat center bottom; }
+#bubble-middle							{ width:880px; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='scale', src='http://www.seznam.cz/st/img/bubble-middle.png'); }
+#bubble-middle[id]						{ background:url(http://www.seznam.cz/st/img/bubble-middle.png) repeat-y center; }
+#bubble-footer							{ height:275px; width:880px; _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='scale', src='http://www.seznam.cz/st/img/bubble-bottom-flip.png'); }
+#bubble-footer[id]						{ clear:both; float:left; background:url(http://www.seznam.cz/st/img/bubble-bottom-flip.png) no-repeat center top; }
+#bubble-content							{ margin:0 27px; position:relative; zoom:1; z-index:15; }
+
+/*------ Hlavicka ------*/
+#header									{ padding-bottom:10px; margin:0 40px; height:50px; position:relative; top:-10px; }
+#logo									{ position: relative; left: -49px; top: -12px; z-index: 999; }
+#logo a									{ float:left; height:36px; }
+#logo a img								{ vertical-align:top; }
+#logo .pipe								{ float:left; width:32px; height:36px; background:url(http://www.seznam.cz/st/img/film_logo-pipe.gif) no-repeat 0 50%; }
+#logo .seznam							{  }
+#logo .stream							{ padding-top:7px; /*http://www.seznam.cz/st/img/logo-stream.gif*/ }
+#logo .novinky							{ padding-top:7px; /*http://www.seznam.cz/st/img/logo-novinky.gif*/ }
+#header #closer							{ position:absolute; top:0; right:0; padding-right:40px; height:34px; line-height:34px; font-size:120%; 
+										  color:#666; text-decoration:none; background:transparent url(http://www.seznam.cz/st/img/icon-closer.png) no-repeat 100% 0; }
+
+#strip 									{ position: relative; left: -36px; top: -65px; z-index: 998; }
+#footer .bow							{ float:right; position: relative; right: 2px; bottom: 394px; }
+
+#player									{ margin:0 80px; width:666px; height:390px; }
+#qLinks									{ text-align:right; margin:15px 80px 0; }
+#qLinks a								{ margin-left:15px; font-size:100%; }
+#qLinks .active							{ font-weight:bold; color:#000; text-decoration:none; cursor:default; }
+.textCont								{ margin:25px 78px 0 78px; padding-bottom:20px; }
+.no-film								{ margin-top:0; }
+.textCont h2							{ font-size:200%; font-weight:bold; margin:0; line-height:1.1; }
+.textCont h2.title-error				{ color:#c00; margin-top:1em; }
+.textCont h2 span						{ color:#c00; }
+.textCont p								{ font-size:120%; margin:0 75px 0.75em 0; line-height:1.4; }
+.textCont p.last						{ margin-bottom:0; }
+.textCont p.about						{ color:#B0B0B0; margin-bottom:1.25em; }
+.textCont .next							{ margin:20px 0 0; }
+.textCont.no-film h2					{ margin-bottom:0.3em; margin-top:1em; }
+.textCont.no-film p						{ margin-right:0; }
+.curtainCont							{ text-align:center; padding-bottom:100px; }
+
+
+.trailer								{ margin:0 40px; padding:40px 0 0 0; }
+.st										{ padding:0; }
+.trailer img							{ float:left; }
+.trailer .textCont						{ margin:0 0 0 218px; padding-top:3px; }
+.trailer .textCont .description			{ margin:0; }
+.trailer .back							{ font-size:115.5%; margin:30px 0 -25px; clear:both; }
+.trailer #service						{ float: right; padding-top: 1px; font-size: 85%; color: #828282; }
+
+/*------ Paticka ------*/
+#footer									{ padding:56px 7px 12px 7px; }
+#footer ul								{ display:inline; }
+#footer li								{ display:inline; color:#999; padding:0 0 0 4px; }
+#footer li a								{ display:inline; padding-left:4px; }
+

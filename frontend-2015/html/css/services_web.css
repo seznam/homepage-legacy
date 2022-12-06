@@ -1,0 +1,267 @@
+/*- CSS Prolog -*/
+html, body			{ margin: 0; padding: 0; font-family: "Arial CE", Arial, "Helvetica CE", Helvetica, sans-serif; color:#000000; background:#FFFFFF; }
+
+/*- Definice zakladniho font-size, tak aby to spocitala i Opera -*/
+html				{ font-size:106.5%; }
+body				{ font-size:76.5%; }
+table				{ font-size:100%; }
+
+/*- Zakladni vlastnosti -*/
+a				{ color:#0000CC; }
+a:hover				{ color:#CC0000; }
+a:visited			{ color:#000099; }
+img				{ border:0; }
+
+/*- Obecne classy -*/
+.cleaner, .clear		{ clear:both; height:1px; font-size:1px; visibility:hidden; overflow:hidden; }
+.hide, .blind			{ position:absolute; left:-1000px; top:-1000px; width:1px; height:1px; overflow:hidden; }
+.nodisplay			{ display:none; }
+
+
+html {
+  font-size:106.5%;
+}
+
+body {
+	background: white;
+	font-family: Arial,sans-serif;
+  font-size:76.5%;
+}
+
+h1 {
+  position:absolute;
+  top:0px;
+  left:60px;
+  margin:0;
+  z-index:100;
+}
+
+h1 a {
+ text-decoration:none;
+}
+
+#page {
+  overflow-y:hidden;
+}
+div.container_content {
+  width:990px;
+  margin: 0 auto;
+}
+
+a#goback
+{
+    font-weight:bold;
+    color:#0000cc;
+    text-decoration: underline;
+}
+
+a#goback:hover {
+    text-decoration: none;
+}
+
+#canvas_bg {
+  position:absolute;
+  bottom:0px;
+  width:100%;
+  background:white;
+  height:70px
+}
+
+#canvas_container {
+ 	background:transparent url('/st/img/canvas_bg.png') repeat-x bottom;
+ 	width:100%;
+  min-width:1000px;
+}
+
+#canvas_container .container_content {
+  position:relative;
+}
+
+#columns_container {
+	background:transparent url('/st/img/cols_bg.png') repeat-x top;
+ 	width:100%;
+  min-width:1000px
+}
+
+
+#c {
+  padding: 48px 0 0 0;
+  margin:0 auto;
+  display:block;
+  position:relative;
+}
+
+#alternative_image {
+  padding:60px 0 40px 0;
+  margin:0 auto;
+  display:block;
+  position:relative
+}
+
+#arrow {
+  background:transparent url('/st/img/canvas_transparent_bg.png') no-repeat bottom;
+  background-position:center bottom;
+  width:100%;
+  height:70px;
+  position:absolute;
+  bottom:0px;
+}
+
+#arrLeft,#arrRight
+{
+	background:transparent url('/st/img/hover_buttons.png') no-repeat;
+	position:absolute;
+}
+#visitPage
+{
+  position: absolute;
+	background: transparent url('/st/img/px.png') no-repeat center center;
+}
+#preloader
+{
+	position:absolute;
+	background: transparent url('/st/img/preloader.gif') no-repeat center center;
+	width:100%;
+	height:100%;
+	top:0px;
+	left:0px;
+}
+#visitPage:hover 
+{
+	background:transparent url('/st/img/hover_go.png') no-repeat center;	
+}
+#arrLeft,#arrRight
+{
+  top:0px;
+	width:71px;
+	height:100%;
+	cursor:pointer;
+}
+#arrLeft
+{
+	left:60px;
+	background-position:left center;
+}
+#arrRight
+{
+	right:60px;
+	background-position:right center;
+}
+#caption
+{
+  z-index:50;
+	width:100%;
+	text-align:center;
+	bottom:15px;
+	left:0px;
+	position:absolute;
+	color:#666666;
+	font-size:1.3em;
+}
+#caption a
+{
+	color:#666666;
+	text-decoration: none;
+}
+
+
+.columns
+{
+	padding-top:20px;
+}
+.column
+{
+	width:160px;
+	float:left;
+	padding-bottom:10px;
+}
+.column.c3,.column.c6
+{
+	width:140px;
+}
+.column.c4,.column.c5
+{
+	width:170px;
+}
+.column ul
+{
+	text-align: left;
+	list-style-type: none;
+	padding:0px;
+}
+.column a
+{
+	display:block;
+	padding:3px 21px;
+	padding-right:0px;
+	width:136px;
+	float:left;
+	clear:both;
+	color:#de0000;
+	text-decoration:none;
+}
+.column a:hover
+{
+	text-decoration:none;
+}
+.column.c6 a,.column.c3 a
+{
+	width:116px;
+}
+.column.c5 a,.column.c4 a
+{
+	width:146px;
+}
+.column span
+{
+	float:left;
+}
+.column li
+{
+	float:left;
+	clear:both;
+	position:relative;
+	z-index:1;
+}
+.column li.active
+{
+	background:transparent url('/st/img/button.png') no-repeat left top;
+	padding-top:5px;
+	margin-top:-5px;
+	padding-bottom:7px;
+	margin-bottom:-7px;
+	z-index: 2;
+}
+.column li.off,.column li.off .corner
+{
+	background-image:none !important;
+}
+.column li.active .corner
+{
+	width:6px;
+	height:32px;
+	position:absolute;
+	top:0px;
+	right:-4px;
+	background:transparent url('/st/img/button_corner.png') no-repeat right top;
+	
+}
+.column .txt,.hidden
+{
+	visibility:hidden;
+	position: absolute;
+}
+
+.clear {clear:both;}
+
+#foot
+{
+	color: #989898;
+  text-align:center;
+  border-top:1px solid #e5e5e5;
+	width:990px;
+	margin:5px auto;
+  padding-top:10px;
+}
+
+#foot p {margin:0px};

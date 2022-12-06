@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<?teng set $.variant = $.variation?>
+<html lang="cs">
+<head>
+	<?teng set var_HP = 1 ?>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="application-name" content="#{SERVICE_NAME}" />
+	<title>#{SERVICE_NAME_TITLE}</title>
+
+	<?teng include file="_common_files.html"?>
+	<meta content="Nejnavštěvovanější český internetový portál nabízející vyhledávač, Email, aktuální zprávy, předpověď počasí a odkazy, které se mohou hodit." name="description" />
+
+	<script type="text/javascript">
+		/*<!--- MIGRACE UZIVATELU NA NOVOU HP --->*/
+		(function(win) {
+
+			function getBrowser() {
+				var ua = navigator.userAgent.toLowerCase();
+				var vendor = (navigator.vendor || "").toLowerCase();
+				var browser = "unknown";
+				if (ua.indexOf("edge") > -1) {
+					browser = "edge";
+				} else if (ua.indexOf("msie") > -1 || ua.indexOf("trident") > -1) {
+					browser = "ie";
+				} else if (ua.indexOf("opera") > -1 && ua.indexOf("presto") > -1) {
+					browser = "opera12";
+				} else if (ua.indexOf("opr") > -1) {
+					browser = "opera";
+				} else if (ua.indexOf("seznam.cz") > -1) {
+					browser = "sbrowser";
+				} else if (ua.indexOf("chrome") > -1 && vendor.indexOf("google inc") > -1) {
+					browser = "chrome";
+				} else if (ua.indexOf("safari") > -1 && vendor.indexOf("apple computer") > -1) {
+					browser = "safari";
+				} else if (ua.indexOf("firefox") > -1) {
+					browser = "firefox";
+				}
+				return browser;
+			};
+
+			function getIEVersion() {
+				var ua = navigator.userAgent.toLowerCase();
+				var match = ua.match(/msie\s([0-9\.]*)/);
+				var version = parseInt(match ? match[1] : -1, 10);
+				if (version == -1) {
+					var match = ua.match(/trident\/([0-9]+)/);
+					if (match && match[1] == 7) {
+						version = 11;
+					}
+				}
+				return version;
+			};
+
+			function getAndroidVersion() {
+				var ua = navigator.userAgent.toLowerCase();
+				var match = ua.match(/android\s([0-9\.]*)/);
+				return parseInt(match ? match[1] : -1, 10);
+			};
+
+			function getSafariVersion() {
+				var ua = navigator.userAgent.toLowerCase();
+				var match = ua.match(/version\/([0-9.]+)/);
+				return parseInt(match? match[1] : -1, 10);
+			};
+
+			function isAndroid() {
+				return navigator.userAgent.toLowerCase().indexOf("android") > -1;
+			};
+
+			function isScreenshotator() {
+				return navigator.userAgent.toLowerCase().indexOf("bannerphotos") > -1;
+			};
+
+			function canHaveNewHP() {
+				var canHave = false;
+				var browser = getBrowser();
+
+				if (
+					(["edge", "opera", "opera12", "sbrowser", "chrome", "firefox"].indexOf(browser) !== -1) ||
+					(browser == "ie" && getIEVersion() >= 9) ||
+					(browser == "safari" && getSafariVersion() >= 7)
+				) {
+					canHave = true;
+				}
+				if (isAndroid()) {
+					var version = getAndroidVersion();
+					<!---
+						firefox na androidu v sobe nema verzi androidu (version == -1),
+						budeme optimisti a budeme predpokladat, ze to zvladne.
+					--->
+					if (version < 0 || version > 3) {
+						canHave = true;
+					} else {
+						canHave = false;
+					}
+				}
+				if (canHave && isScreenshotator()) {
+					canHave = false;
+				}
+
+				return canHave;
+			};
+
+			win.sznCanHaveNewHP = canHaveNewHP();
+		})(window);
+
+		(function() {
+
+			function cookiesEnabled() {
+				JAK.Cookie.getInstance().set("TEST_IF_COOKIE_ENABLED", "1");
+				var enabled = !!JAK.Cookie.getInstance().get("TEST_IF_COOKIE_ENABLED");
+				JAK.Cookie.getInstance().set("TEST_IF_COOKIE_ENABLED", null);
+				return enabled;
+			}
+
+			var isNewVisitor = !JAK.Cookie.getInstance().get("sid") && !JAK.Cookie.getInstance().get("WeatherLocality");
+			var chance = Number("${.beta_auto_switch}") || 0;
+			var isLucky = (chance && chance > 0) ? (Math.floor(Math.random() * chance) == 0) : false;
+
+			var goToNewHP = (
+				window.sznCanHaveNewHP &&
+				cookiesEnabled() &&
+				(!location.search && !location.hash) &&
+				(isNewVisitor || isLucky)
+			);
+
+			if (goToNewHP) {
+				location.href = "/zkusit-betu";
+			}
+		})();
+		/*<!--- MIGRACE UZIVATELU NA NOVOU HP --->*/
+	</script>
+
+	<script type="text/javascript">
+		/*<!--- Pridane kvoli oprave BUGu na Opere 10-14, ktora je pouzivana v Linux systemoch.
+		   Nie je viditelný kurzor v INPUT boxe pri pisani textu. --->*/
+		var checkBrowser = function() {
+			if ((JAK.Browser.client == 'opera') &&
+					(parseInt(JAK.Browser.version) > 9) && (parseInt(JAK.Browser.version) < 15) &&
+					((JAK.Browser.platform =='nix') || (JAK.Browser.platform =='win'))) {
+				JAK.DOM.addClass(JAK.gel('www-seznam-cz'), 'opera10to14');
+			}
+		}
+	</script>
+	<?teng include file="_ios_app_promotion.html"?>
+</head>
+
+<?teng if exist(variation) && $.variation !~ ''?>
+	<?teng set .dataDot = $.variation?>
+<?teng else?>
+	<?teng set .dataDot = 'hp'?>
+<?teng endif?>
+
+<body id="www-seznam-cz" onload="checkBrowser();" data-dot="<?teng if $.device =~ 'tablet'?>${.dataDot}_tablet<?teng elseif $.device =~ 'phone'?>${.dataDot}_mobile<?teng else?>${.dataDot}<?teng if !exist(.variation) || $.userId > 0 ?>_<?teng endif?><?teng endif?><?teng if $.sbrowser == 1 ?>_sbrowser<?teng endif?>" class="${.scheme} ${$.columns._count!=3 ? 'normalpage' : ''}" data-skin="<?teng include file="_selected_skin_type.html"?>">
+<?teng include file="_android_app_promotion.html"?>
+
+	<?teng if $.device =~ 'desktop'?>
+		<div id="adTopVision"></div>
+		<script type="text/javascript">
+		/*<![CDATA[ */
+			IMPrimaryAds.push({id:"adTopVision", zoneId:"seznam.hp.top.vision"});
+		/* ]]> */
+		</script>
+	<?teng endif?>
+
+<!--- test prepinani skinu
+<form>
+		<input type="text" name="skinNum" id="skinNum" />
+		<input type="button" name="button" id="button" value="Zmen skin" />
+	</form>
+	<script>
+		new JAK.SkinSwitcher();
+	</script>
+--->
+	<div id="head-cont">
+		<?teng include file="_head.html"?>
+		<?teng include file="_search.html"?>
+	</div>
+
+	<?teng set .empty = 0 ?>
+	<?teng frag .columns ?>
+		<?teng frag feed ?>
+			<?teng set .empty = $.empty + 1 ?>
+		<?teng endfrag?>
+	<?teng endfrag?>
+	<div id="outer-page" class="${$.columns._count==3 ? 'widepage' : ''}${$.empty == 0 ? ' emptypage' : ''}">
+		<?teng frag .columns ?>
+		<?teng if $.columns._first?>
+				<div id="page">
+			<?teng endif?>
+		<?teng endfrag ?>
+
+		<?teng if exist(staticPage) ?>
+			<!--- teng include for hint in static page --->
+			<?teng frag staticPage?>
+				${hint_execute}
+			<?teng endfrag?>
+		<?teng else ?>
+			<?teng include file="_hint_execute.html"?>
+		<?teng endif?>
+
+			<div id="hint-new-hp" style="display:none;">
+				<img src="#{PATH_IMG}/promo-nova-hp-packa.png" alt="" />
+				<span class="text">
+					Seznam.cz prokoukl a umí nové kousky. Teď si ho například přizpůsobíte i bez přihlášení.
+					<a class="link" href="/zkusit-betu">Vyzkoušet nový Seznam.cz</a>
+				</span>
+			</div>
+			<script type="text/javascript">
+				(function(){
+					if (window.sznCanHaveNewHP) {
+						document.getElementById("hint-new-hp").style.display = "";
+					}
+				})();
+			</script>
+
+			<div id="content">
+				<?teng format space="joinlines"?>
+					<div class="clear"></div>
+					<div id="adExclusive"></div>
+					<script type="text/javascript">
+					/*<![CDATA[ */
+						IMPrimaryAds.push({id:"adExclusive", zoneId:"seznam.hp.exclusive"});
+					/* ]]> */
+					</script>
+
+					<div id="gd" class="s_win col_${.columns._count}">
+
+						<?teng frag .columns?>
+							<?teng frag feed?>
+								<?teng if $typeId =~ 'email'?>
+									<?teng set .isEmail = 1 ?>
+								<?teng endif?>
+							<?teng endfrag?>
+						<?teng endfrag?>
+
+						<?teng frag .columns?>
+							<div id="col_${$_number+1}" data-dot="col_${$_number+1}">
+								&nbsp;
+								<!--- vyznamny den --->
+								<?teng if exist(.title) && $_number == 0?>
+									<?teng include file="_feed_bigday.html"?>
+								<?teng endif?>
+
+								<!--- odkaz na email v mobilnich zarizenich --->
+								<?teng if $_number == 0 && defined(.isEmail) ?>
+									<div id="gadget-X" class="s_win email-feed">
+										<?teng format space="onespace"?>
+											<div class="gagdet-cont">
+												<div class="main-cont">
+													<h3 class="title s_win_title">
+
+													<span class="text"><a href="#{SERVER_EMAIL_SSL}">Email.cz</a></span>
+
+														<span class="edit">
+															<?teng if $.userId > 0?>
+																<a href="/prihlaseni" class="edit-text">Upravit</a>
+															<?teng else?>
+																<a href="#{SERVER_REGISTR_URL_HOMEPAGE}" class="log">Založit nový email</a>
+															<?teng endif?>
+														</span>
+														<span class="bck"></span>
+													</h3>
+													<div class="g-cnt s_win_area">
+														<?teng if $.userId > 0?>
+															<div class="links">
+																<ul>
+																	<li><strong><a href="#{SERVER_EMAIL_SSL}/#inbox">Doručené <span class="eml-title-count"></span></a></strong></li>
+																	<li><a href="#{SERVER_EMAIL_SSL}/newMessageScreen?">Napiš e-mail</a></li>
+																</ul>
+															</div>
+														<?teng else?>
+															<a href="#{SERVER_EMAIL_SSL}" class="emailLink">Přihlásit se do e-mailu</a>
+														<?teng endif?>
+													</div>
+												</div>
+											</div>
+										<?teng endformat?>
+									</div>
+								<?teng endif?>
+							<?teng frag feed?>
+								<?teng include file="_feeds.html"?>
+							<?teng endfrag?>
+
+							</div>
+						<?teng endfrag?>
+
+						<?teng if $.columns._count < 2 ?>
+							<div id="col_2" data-dot="col_2">&nbsp;</div>
+						<?teng endif ?>
+
+						<div class="clear"></div>
+					</div>
+
+					<script type="text/javascript">
+					/* <![CDATA[ */
+						<?teng if $.device =~ 'desktop'?>
+							JAK.wmanager.init('gd');
+						<?teng endif?>
+						JAK.gadgetManager.init();
+					/* ]]> */
+					</script>
+
+				<?teng endformat?>
+
+				<?teng if exist(staticPage) ?>
+					<!--- hinty init for static page --->
+					<?teng frag staticPage?>
+						${hint_init}
+					<?teng endfrag?>
+				<?teng else ?>
+					<?teng include file="_hint_init.html"?>
+				<?teng endif?>
+
+				<?teng if $.device =~ 'desktop'?>
+					<?teng frag .skinSelected ?>
+							<!--- timto zpusobem zjistime, jestli user nema nastaven vlastni skin --->
+							<?teng set .isSetOwnSkin = !exists(staticCssId) ?>
+					<?teng endfrag ?>
+					<?teng if $.skinId == 1 || ($.skinId == 0 && !$.isSetOwnSkin) ?>
+						<div id="adBottom"></div>
+						<script type="text/javascript">
+							/*<![CDATA[ */
+								IMAdBottom = {id:"adBottom", zoneId:"seznam.hp.bottom"};
+
+								JAK.signals.addListener(null, "actualSkin", function() {
+									var adBottom = document.querySelector("#adBottom");
+
+									if (adBottom) {
+										adBottom.style.display = "none";
+									}
+								});
+							/* ]]> */
+						</script>
+					<?teng endif?>
+				<?teng endif?>
+
+				<!--- nastaveni --->
+				<?teng include file="_settings.html"?>
+			</div>
+			<script type="text/javascript">
+			/* <![CDATA[ */
+				  JAK.resize.init();
+			/* ]]> */
+			</script>
+
+			<?teng include file="_foot.html"?>
+		</div>
+	</div>
+
+	<!--- sem se vypise staticky kod homepage --->
+	<?teng frag staticPage?>
+		${content}
+	<?teng endfrag?>
+
+	<div id="monitor">
+		<?teng if $userId == 0?>
+			<!-- (C)2000-2012 Gemius SA - gemiusAudience / homepage_Seznam.cz / Neprihlasena_HP -->
+			<script type="text/javascript">
+
+			var pp_gemius_identifier = new String('16BKhuMRa_xyb6CC9zBaO5bfDfygxubkcP9sQZMtpYL.U7');
+			var pp_gemius_extraparameters = new Array('gA=seznam.cz/homepage_Seznam.cz/Neprihlasena_HP');
+
+			function gemius_pending(i) { window[i] = window[i] || function() {var x = window[i+'_pdata'] = window[i+'_pdata'] || []; x[x.length]=arguments;};};
+			gemius_pending('gemius_hit'); gemius_pending('gemius_event'); gemius_pending('pp_gemius_hit'); gemius_pending('pp_gemius_event');
+			(function(d,t) {try {var gt=d.createElement(t),s=d.getElementsByTagName(t)[0]; gt.setAttribute('async','async'); gt.setAttribute('defer','defer'); gt.src='https://gacz.hit.gemius.pl/xgemius.js'; s.parentNode.insertBefore(gt,s);} catch (e) {}})(document,'script');
+
+			</script>
+
+		<?teng else ?>
+			<!-- (C)2000-2012 Gemius SA - gemiusAudience / homepage_Seznam.cz / Prihlasena_HP -->
+			<script type="text/javascript">
+
+			var pp_gemius_identifier = new String('cirgu88AfxsCnxkwUuEKWacVHQKgPyNmeGcvEFTmlXb.B7');
+			var pp_gemius_extraparameters = new Array('gA=seznam.cz/homepage_Seznam.cz/Prihlasena_HP');
+
+			function gemius_pending(i) { window[i] = window[i] || function() {var x = window[i+'_pdata'] = window[i+'_pdata'] || []; x[x.length]=arguments;};};
+			gemius_pending('gemius_hit'); gemius_pending('gemius_event'); gemius_pending('pp_gemius_hit'); gemius_pending('pp_gemius_event');
+			(function(d,t) {try {var gt=d.createElement(t),s=d.getElementsByTagName(t)[0]; gt.setAttribute('async','async'); gt.setAttribute('defer','defer'); gt.src='https://gacz.hit.gemius.pl/xgemius.js'; s.parentNode.insertBefore(gt,s);} catch (e) {}})(document,'script');
+
+			</script>
+
+		<?teng endif ?>
+	</div>
+
+	<!--- mereni z roku 2010
+	<?teng if #MGEMIUS == 1?>
+		<?teng if now() < 1264978799?>
+			<div id="m-monitor">
+				<script type="text/javascript">
+				/* <![CDATA[ */
+					var gemius_identifier = 'nSdAgfOiD2SWv38qkOIfldT4HSc1T8bBaU8qNIWJj0n.J7';
+				/*]]> */
+				</script>
+				<script type="text/javascript" src="${.scheme}://1.im.cz/ad/m-gemius.js"></script>
+				<noscript><img src="${.scheme}://spir.hit.gemius.pl/redot.gif?l=41/id=.cbgwuO0._NmKo8q8KIvTPU2fdoFEocead9aM6Wvp_T..7" width="1" height="1" alt="" border="0"></noscript>
+				<img src="${.scheme}://spir.hit.gemius.pl/redot.gif?l=41/id=.W1AguLmD2QAe37oZ2kfdqei3wgIBK9luimMNQoy..D.h7" width="1" height="1" alt="" border="0">
+			</div>
+		<?teng elseif (now() > 1264978801) && (now() < 1265583599)?>
+			<div id="m-monitor">
+				<img src="${.scheme}://spir.hit.gemius.pl/redot.gif?l=41/id=.W1AguLmD2QAe37oZ2kfdqei3wgIBK9luimMNQoy..D.h7" width="1" height="1" alt="" border="0">
+				<script type="text/javascript">
+				/* <![CDATA[ */
+					var gemius_identifier = 'nSdAgfOiD2SWv38qkOIfldT4HSc1T8bBaU8qNIWJj0n.J7';
+				/*]]> */
+				</script>
+				<script type="text/javascript" src="${.scheme}://1.im.cz/ad/m-gemius.js"></script>
+				<noscript><img src="${.scheme}://spir.hit.gemius.pl/redot.gif?l=41/id=.cbgwuO0._NmKo8q8KIvTPU2fdoFEocead9aM6Wvp_T..7" width="1" height="1" alt="" border="0"></noscript>
+			</div>
+		<?teng endif?>
+	<?teng endif?>
+	--->
+
+	<?teng if #QUERYTRACKER == 1?>
+
+		<script type="text/javascript" src="${.scheme}://h.imedia.cz/js/dot-small.js"></script>
+
+		<script type="text/javascript">
+			DOT.cfg({service: 'hp', rus: '<?teng if defined(.username) && defined(.domain)?>${.username}@${.domain}<?teng endif?>'});
+		</script>
+
+	<?teng endif?>
+
+	<?teng if $.scheme =~ 'https'?>
+		<!--- zachovani refferu pri https spojeni --->
+		<script type="text/javascript">
+			var patterns = [
+				'#{HTTPS_PATTERN1}',
+				'#{HTTPS_PATTERN2}',
+				'#{HTTPS_PATTERN3}'
+			];
+			new JAK.HttpsLinks(patterns,'#{_tld}');
+		</script>
+	<?teng endif?>
+
+	<!--- vymena SID medzi sluzbami--->
+	<script src="${.scheme}://h.imedia.#{_tld}/js/sid.js"></script>
+
+	<!--- nacitani mereni AdBlocku --->
+	<script type="text/javascript" src="//www.seznam.#{_tld}#{PATH_JS}/checker/checker.js" id="checkerScript"></script>
+
+	<!--- nacitani reklamy --->
+	<script type="text/javascript" src="${.scheme}://i.imedia.#{_tld}/js/im3.js"></script>
+
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		im.conf.charset = 'utf-8';
+		im.conf.server = "i.imedia.#{_tld}";
+
+		<?teng if exist(._bcClanek) && $._bcClanek == 1 ?>
+			im.getAds([{id:"adBcClanek", zoneId:"seznam.hp.bc.clanek", callback:bcClanek.process}], true);
+		<?teng endif ?>
+
+			(function() {
+				/* counter primarne zpracovavanych reklam ... jakmile jsou vsechny zpracovany, posleme request na secondary reklamy */
+				var IMPrimaryProcessed 		= 0;
+
+				/* priznak ze se nacetl nestandard - momentalne, pokud je nestandard nacteny, tak to znamena - nenacitej bottom reklamu */
+				var IMPrimarySpecialLoaded 	= false;
+
+				var isSpecialAdvert = function(zoneId) {
+					return 	zoneId.indexOf("hp.corner") > -1 ||
+							zoneId.indexOf(".hp.exclusive") > -1 ||
+							zoneId.indexOf(".hp.top.vision") > -1;
+				};
+
+				var loadSecondaryAds = function() {
+					/* pokud je definovan IMAdBottom a neni nacten zadny ze specialnich specialnich formatu, potom pridame do request i pozadavek pro pozici adBottom */
+					if (IMAdBottom && !IMPrimarySpecialLoaded) {
+						IMSecondaryAds.push(IMAdBottom);
+					}
+
+					im.getAds(IMSecondaryAds);
+				};
+
+				var getNewCallback = function(cbk, zoneId) {
+					return function(ad, d) {
+						/* reklama zpracovana */
+						IMPrimaryProcessed++;
+
+						/* pokud nam neprisel miss a zaroven se jedna o specialni format, poznacime si, ze jsme jeden ze specialnich formatu nacetli */
+						if (ad.impress && isSpecialAdvert(zoneId)) {
+							IMPrimarySpecialLoaded = true;
+						}
+
+						if (cbk) {
+						/* zavolame puvodni callback, ktery byl u reklamy nastaven */
+							cbk(ad, d);
+						} else {
+						/* nebo nechame im script at sam vyhodnoti */
+							im.writeAd(ad, d);
+						}
+
+						/* pokud jsou vsechny reklamy jiz zpracovany, zavolame fci pro nacteni secondary reklam */
+						if (IMPrimaryProcessed == IMPrimaryAds.length) {
+							loadSecondaryAds();
+						}
+					}
+				};
+
+				for (var i = 0, len = IMPrimaryAds.length; i<len; i++) {
+					var IMPrimaryAd = IMPrimaryAds[i];
+					var oldCallback = IMPrimaryAd.callback;
+					var zoneId 		= IMPrimaryAd.zoneId;
+
+					/* vymenime puvodni callback za novy, ale puvodni nezahodime, nybrz zavolame pozdeji */
+					var newCallback = getNewCallback(oldCallback, zoneId);
+
+					IMPrimaryAd.callback = newCallback;
+				}
+
+				im.getAds(IMPrimaryAds);
+			})();
+
+		/* ]]> */
+	</script>
+
+	<!---?dyntag advert zoneId="seznam.hp.special.users"?--->
+	<!-- generated-date - ${date("%H:%M",now())} ${date("%d.%m.%Y",now())} -->
+</body>
+</html>

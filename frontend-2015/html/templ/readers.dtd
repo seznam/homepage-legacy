@@ -1,0 +1,23 @@
+<!--    Entity content feed readers statistics      -->
+<!ELEMENT readers (feed*)>
+
+<!--    Entity describe RSS feed      -->
+<!ELEMENT feed (actually, weekly*, monthly*)>
+<!ATTLIST feed name CDATA #REQUIRED>
+<!ATTLIST feed url CDATA #REQUIRED>
+<!ATTLIST feed group CDATA #REQUIRED>
+<!ATTLIST feed permanent CDATA #REQUIRED>
+
+<!--    Entity content actual count of readers for feed      -->
+<!ELEMENT actually ()>
+<!ATTLIST actually date CDATA #REQUIRED>
+
+<!--    Entity content week count of readers for feed       -->
+<!ELEMENT weekly ()>
+<!ATTLIST weekly date CDATA #REQUIRED>
+
+<!--    Entity content month count of readers for feed      -->
+<!ELEMENT monthly ()>
+<!ATTLIST monthly date CDATA #REQUIRED>
+
+

@@ -1,0 +1,165 @@
+<div id="gadget-22" class="s_win" data-dot="gadgetTip" style="display: none;">
+<?teng format space="onespace"?>
+	<div class="gagdet-cont">
+		<div class="main-cont">
+			<h3 class="title s_win_title">
+				<span class="text"><a href="http://tip.seznam.#{_tld}">Tip</a></span>
+				<span class="adv-title">Reklama</span>
+				<span class="edit">
+					<?teng if $.userId > 0?>
+						<!---
+						<a href="#" class="edit-text">Upravit</a>
+						--->
+					<?teng endif?>
+				</span>
+				<span class="bck"></span>
+			</h3>
+			<?teng if $.userId > 0?>
+				<!---
+				<div class="gadget-settings">
+					<div class="settings-cont">
+						<div class="settings-main">
+							<div class="setting-bck">
+								<div class="title-setting">
+
+									<?teng if $.userId > 0?>
+										<span class="close-win-img-span"><a href="#" class="close-win-img">Odebrat box</a></span>
+									<?teng endif?>
+									<span class="close-sett"><a href="" class="close-setting-link">Upravit</a></span>
+								</div>
+								<div class="setting-cont">
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				--->
+			<?teng endif?>
+
+			<div class="g-cnt s_win_area">
+
+				<div id="cnt">
+					<div class="tip">
+						<div class="tip-content"></div>
+						<div class="clear"></div>
+					</div>
+					<script type="text/javascript">
+						IMPrimaryAds.push({
+							zoneId: "seznam.hp.seznam.tip",
+							callback: function(data) {
+								if (!data.impress) {
+									var missHit = new Image();
+										missHit.src = data.miss;
+
+									return;
+								}
+
+								var spot = data.spots[0];
+								var gadgetElm = document.querySelector("#gadget-22");
+
+								var buildDOM = function(elm, html, data) {
+									var temp = document.createElement("div");
+										temp.innerHTML = html;
+
+									while(temp.firstChild) {
+										var node  = temp.firstChild;
+											node.parentNode.removeChild(node);
+
+										var isTag = !!node.tagName;
+
+										if (!isTag) { continue; }
+
+										var isImg = node.tagName.toLowerCase() == "img";
+
+										if (!isImg) { continue; }
+
+										var isImpressImg = node.src.indexOf("impress?spotId") > -1;
+
+										if (!isImpressImg) { continue; }
+
+										elm.appendChild(node);
+									}
+
+									var link = document.createElement("a");
+										link.href = data.clickthru;
+
+									var imgInLink = document.createElement("img");
+										imgInLink.width = 100;
+										imgInLink.height = 60;
+										imgInLink.src = data.image;
+
+									link.appendChild(imgInLink);
+									elm.appendChild(link);
+
+									var textContainer = document.createElement("div");
+										textContainer.className = "txt";
+
+									var titleLink = document.createElement("a");
+										titleLink.href = data.clickthru;
+
+									var titleText = document.createTextNode(data.title);
+
+									titleLink.appendChild(titleText);
+
+									textContainer.appendChild(titleLink);
+
+									var perex = document.createElement("p");
+
+									var perexTxt = document.createTextNode(data.perex);
+									perex.appendChild(perexTxt);
+
+									textContainer.appendChild(perex);
+
+									elm.appendChild(textContainer);
+
+									var externalImpress = data.external_impress;
+
+									if (externalImpress) {
+										var externalHit = new Image();
+											externalHit.src = externalImpress;
+									}
+								};
+
+								var content 	= spot.content;
+
+								var separated 	= JAK.DOM.separateCode(content);
+								var html 		= separated[0];
+								var js 			= separated[1];
+
+								var target 		= gadgetElm.querySelector(".tip-content");
+
+								try {
+									if (js) {
+										var jsDataFunc 	= eval(js);
+										var jsData 		= jsDataFunc();
+
+										buildDOM(target, html, jsData);
+									} else {
+										window.im.writeAd(data, { id: target });
+
+										var tipInHeader = gadgetElm.querySelector(".s_win_title .text");
+										if (tipInHeader) { tipInHeader.style.display = "none"; }
+
+									}
+
+									gadgetElm.style.display = "";
+								} catch(e) {
+								}
+							}
+						});
+					</script>
+				</div>
+				<div class="clear"></div>
+
+			</div>
+		</div>
+	</div>
+	<?teng endformat?>
+</div>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+	JAK.gadget22 = new JAK.Gadget('gadget-22','${feedId}');
+/* ]]> */
+</script>

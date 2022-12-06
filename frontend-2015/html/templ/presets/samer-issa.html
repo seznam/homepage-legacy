@@ -1,0 +1,53 @@
+<?teng set var_Presets = 1 ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="cs">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>#{SERVICE_NAME_TITLE}</title>
+		<?teng include file="_common_files.html"?>
+	</head>
+	
+	<body id="www-seznam-cz" class="${.scheme}">
+		<div id="page" class="detail">	
+			<?teng include file="_head.html"?>
+			
+			<div id="content">
+				<div id="inn">
+					<div class="celeb">	
+						<h2>Nastav si hlavní stránku Seznam.cz jako <span class="star">Sámer Issa</span></h2>
+						
+						<h3 class="back"><a href="/nastavit-jako">&laquo; zpět na výpis celebrit</a></h3>
+						
+						<div class="vip">
+							<img alt="" src="#{PATH_IMG}/preset/samer-issa.jpg" width="253" height="318" />
+						</div>
+						
+						<div class="hp">
+							<img alt="" src="#{PATH_IMG}/preset/samer-issa-hp.jpg" width="384" height="318" />
+						</div>
+						
+						<div class="clear"></div>
+						<?teng if $userId > 0 ?>
+							<form action="/setByOther" method="post" id="form-want-set">
+								<input type="hidden" name="hashId" value="${hashId}" />
+								<input type="hidden" name="newUserId" value="#{UID_samer_issa}" />
+								<script type="text/javascript">
+									var VIP_IM_CODE = #{VIP_IM_CODE_ISSA}
+								</script>
+								<?teng include file="presets/_form.html"?>
+							</form>
+						<?teng else?>
+							<?teng include file="presets/_log_link.html"?>
+						<?teng endif?>
+						<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+			
+			<?dyntag advert zoneId="seznam.hp.nastavit" section="/issa" charset="utf-8"?>
+			<div id="bline"></div>
+			<?teng include file="_foot.html"?>
+		</div>
+	</body>
+
+</html>

@@ -1,0 +1,50 @@
+<div id="gadget-12" class="s_win" data-dot="gadgetLide">
+<?teng format space="onespace"?>
+	<div class="gagdet-cont">
+		<div class="main-cont">
+			<h3 class="title s_win_title">
+				<span class="text">Přátelé on-line: <a href="http://www.lide.#{_tld}/">Lide.cz</a></span>
+				<span class="edit">
+					<?teng if $.userId > 0?>
+						<a href="#" class="edit-text">Upravit</a>
+					<?teng endif?>
+				</span>
+				<span class="bck"></span>
+			</h3>
+			<?teng if $.userId > 0?>
+				<div class="gadget-settings">
+					<div class="settings-cont">
+						<div class="settings-main">
+							<div class="setting-bck">
+								<div class="title-setting">
+
+									<?teng if $.userId > 0?>
+										<span class="close-win-img-span"><a href="#" class="close-win-img">Odebrat box</a></span>
+									<?teng endif?>
+									<span class="close-sett"><a href="" class="close-setting-link">Upravit</a></span>
+								</div>
+								<div class="setting-cont">
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?teng endif?>
+
+			<div class="g-cnt s_win_area">
+				<div class="push">
+					<div id="friends"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?teng endformat?>
+</div>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+	JAK.gadget12 = new JAK.Gadget('gadget-12','${feedId}');
+	JAK.gadget12.extGadg = new JAK.Lide('gadget-12','${feedId}');
+/* ]]> */
+</script>

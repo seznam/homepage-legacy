@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="cs">
+	<head>
+		<title>#{SERVICE_NAME_TITLE}</title>
+		<?teng include file="_common_files.html"?>
+	</head>
+	
+	<body id="www-seznam-cz" class="${.scheme}">
+		<div id="page">
+			<?teng include file="_head.html"?>
+
+			<div id="cont" class="tv">
+				<?teng include file="_menu.html"?>
+				
+				<div id="main">
+					<form action="/setupTvProcess" method="post">
+						<input type="hidden" value="${.hashId}" name="hashid" />
+						<?teng include file="_status.html"?>
+					
+						<h2>#{tv_title_settings}</h2>
+						<input type="hidden" name="hashId" value="${.hashId}" />
+						<ul>
+							<?teng frag tv?>
+								<li><input type="checkbox" name="userTv" id="userTv_${_number}" value="${id}" ${$selected ? 'checked="checked"' : ''} /> <label for="userTv_${_number}">${name}</label></li>
+							<?teng endfrag?>
+						</ul>
+						
+						<p class="button">
+							<input type="submit" value="#{save_butt}" />
+						</p>
+						<?teng include file="_status.html"?>
+					</form>
+					
+					<div class="picture">
+						<img src="#{PATH_IMG}/homepage_screen_tv_set.png" width="234" height="339" alt="" />
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<?teng include file="_foot.html"?>
+			<?teng include file="_settings_netmonitor.html"?>
+		</div>
+	</body>
+</html>

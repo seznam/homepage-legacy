@@ -1,0 +1,139 @@
+body 						{ background:#fff; font-family:Verdana, Helvetica, Tahoma; font-size:80%; margin:5px 10px; padding:0; }
+
+img							{ vertical-align:top; border:0; }
+
+h1, h2, h3, p, form, li ,ul	{ margin:0; padding:0; }
+
+input, select				{ vertical-align:middle; }
+
+.clear						{ clear:both; overflow:hidden; height:1px; }
+
+a:link,
+a:visited					{ color:#000099; }
+a:hover						{ color:#FF8000; }
+
+.head						{ border-bottom:0.3em solid #6699CC; }
+.head .user					{ position:absolute; top:10px; right:10px; }
+
+.foot						{ padding:0.2em 0; margin-top:1em; border-top:0.3em solid #6699CC; }
+.menu						{ padding:0.7em 0; background-color:#ECF5FF; }
+.menu a:link,
+.menu a:visited				{ padding:0.2em 0.4em; background-color:#C3E2FF; color:#000; font-weight:bold; }
+.menu a:hover				{ background-color:#6699CC; color:#fff; }
+
+.cont						{ margin-top:1em; padding:0.5em; background-color:#ECF5FF; position:relative; }
+.cont h1					{ font-size:200%; color:#6699CC; }
+.cont h2					{ font-size:130%; color:#6699CC; }
+.cont h3					{ font-size:110%; color:#6699CC; }
+.cont .toright				{ position:absolute; top:4px; right:4px; font-weight:bold; border:1px solid #6699CC; border-width:0 0 1px 1px; padding:4px 8px; }
+
+.cont ul					{ margin:1em 10px; }
+.cont ul li 				{ line-height:1.4em; clear:both; list-style-type:none; }
+.cont ul li strong			{ width:220px; float:left; position:relative;  }
+.cont ul li span			{ font-family:monospace; font-size:13px; }
+.cont pre					{ font-size:13px; border:5px groove #6699CC; background-color:#C3E2FF; padding:4px; }
+
+.paging						{ margin:1em 0; font-size:120%; }
+
+form						{ margin:1em 0; }
+form label					{ font-weight:bold; margin-left:0.2em; }
+form p						{ display:inline; }
+form input.submit			{ font-weight:bold; }
+form p.submit				{ font-weight:bold; margin-left:200px; }
+form.edit p					{ display:block; clear:both; padding:0.2em 0; }
+form.edit label				{ float:left; width:200px; position:relative; }
+form.edit label.nofloat		{ float:none; display:inline; width:auto; font-weight:normal; }
+
+#titles form label			{ float:left; width:10em; margin-right:0.2em; text-align:right; }
+#titles form label.nofl		{ float:none; display:inline; width:auto; }
+#titles form .item			{ float:left; margin-left:0.2em; }
+#titles form .row			{ clear:both; margin-bottom:0.4em; }
+#titles form label.to		{ width:8.3em; }
+#titles form div.submit		{ margin:0.5em 10.6em; }
+
+
+fieldset					{ margin-bottom:2em; padding:1em; }
+fieldset legend				{ font-size:120%; font-weight:bold; border-bottom:2px solid #000; }
+#formBuilderOutput fieldset			{ margin-bottom: 5px; }
+#formBuilderOutput fieldset legend	{ border: 0px; font-weight: normal; }
+
+table						{ border-collapse:collapse; border:1px solid #6699CC; margin-top:1em; }
+td							{ border:1px dotted #6699CC; padding:4px; }
+tr.second td				{ background-color:#d2e8e6; }
+th							{ border:1px solid #6699CC; border-bottom-style:double; border-bottom-width:3px; padding:2px 4px; text-align:left; font-weight:bold; background-color:#C3E2FF; }
+
+/* login */
+.logForm					{ width:300px; margin:1em auto; }
+.logForm legend				{ font-weight:bold;}
+.logForm .row				{ margin-bottom:7px; }
+.logForm .nolabel			{ margin-left:110px; }
+.logForm label				{ float:left; text-align:right; width:100px; font-weight:normal; padding:3px 6px 0 0; }
+
+/*- table */
+#titles table				{ width:80%; max-width:1280px; }
+
+
+/*- grafy */
+.coordinates				{ float:left; margin:12px 0 0 0 ; text-align:right; width:80px; position:relative; font-weight:bold; }
+.graph						{ float:left; margin:8px 0 0 4px; position:relative; width:300px; }
+.graph .num					{ position:absolute; top:4px; left:20px; }
+.graph .bar					{ border:1px solid #6699CC; width:100%; height:25px; overflow:hidden; }
+.graph .bar .prog			{ background-color:#C3E2FF; overflow:hidden; height:100%; }
+
+/* widget - calendar */
+.cal-content										{ position: relative; z-index:999; border: 1px solid; border-color: #fff #000 #000 #fff; font-size: 11px; cursor: default; background: Window; color: WindowText; font-family: tahoma,verdana,sans-serif;}
+.cal-content table									{ width:auto !important; margin-top:0; border: 1px solid; border-color: #fff #000 #000 #fff; font-size: 11px; cursor: default; background: Window; color: WindowText; font-family: tahoma,verdana,sans-serif;}
+.cal-button											{ text-align: center; padding: 1px; border: 1px solid; border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight; background: ButtonFace;  cursor: pointer;}
+.cal-nav											{ background: ButtonFace url(/img/widgets/calendar/menuarrow.gif) no-repeat 100% 100%;}
+.cal-title											{ font-weight: bold; cursor: move; padding: 1px; border: 1px solid #000; background: ActiveCaption; color: CaptionText; text-align: center;}
+body:first-of-type .cal-title 						{ color: white; }
+.cal-dayname										{ border-bottom: 1px solid ButtonShadow; padding: 2px; text-align: center; background: ButtonFace; color: ButtonText;}
+.cal-weekend										{ color: #f00;}
+.cal-content thead td.mouseover						{ border: 2px solid; padding: 0px; border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight;}
+.cal-content thead td.mousedown						{ border-width: 1px; padding: 2px 0px 0px 2px; border-color: ButtonShadow ButtonHighlight ButtonHighlight ButtonShadow;}
+body:first-of-type .cal-content tr.mouseover td 	{ background-color: blue; }
+.cal-day											{ width: 2em; text-align: right; padding: 2px 4px 2px 2px; cursor: pointer;}
+.cal-wn												{ padding: 2px 3px 2px 2px; border-right: 1px solid ButtonShadow; background: ButtonFace; color: ButtonText;}
+.cal-content tr.mouseover td						{ background: Highlight; color: HighlightText;}
+.cal-content .cal-day.mouseover									{ padding: 1px 3px 1px 1px; border-top: 1px solid #fff; border-right: 1px solid #000; border-bottom: 1px solid #000; border-left: 1px solid #fff;}
+.cal-content .cal-day.mousedown									{ padding: 2px 2px 0px 2px; border: 1px solid; border-color: ButtonShadow ButtonHighlight ButtonHighlight ButtonShadow;}
+.cal-selected										{ font-weight: bold; border: 1px solid; border-color: ButtonShadow ButtonHighlight ButtonHighlight ButtonShadow; padding: 2px 2px 0px 2px; background: ButtonFace; color: ButtonText;}
+.cal-obsolete										{ color: #aaa; }
+.cal-today											{ font-weight: bold; color: #00f;}
+.cal-status											{ background: ButtonFace; padding: 1px; border: 1px solid; border-color: ButtonShadow ButtonHighlight ButtonHighlight ButtonShadow; color: ButtonText; text-align: center; cursor: move;}
+.cal-roller											{ position: absolute; width: 4em; top: 0px; left: 0px; border: 1px solid; border-color: ButtonHighlight ButtonShadow ButtonShadow ButtonHighlight; background: Menu; color: MenuText; font-size: 90%; padding: 1px;}
+body:first-of-type .cal-roller 						{ background-color: gray; cursor: pointer; }
+.cal-roller .label									{ text-align: center; padding: 1px;}
+.cal-roller .selected								{ padding: 0px; border: 1px solid #000;}
+.cal-roller .mouseover								{ border: none; background: Highlight; color: HighlightText;}
+body:first-of-type .cal-roller .mouseover 			{ background-color: blue; }
+.cal-launcher										{ margin-left: 3px; vertical-align:middle; }
+.cal-time input										{width: 18px; font-size: 11px; border:1px solid black;}
+
+
+/*SUGGEST*/
+.suggest 											{ left:202px;position:absolute;top:2.1em;z-index:99;}
+.suggest .content 									{ background-color: white; border: 1px solid #888;}
+.suggest p 											{ margin: 0px; font: menu; padding:1px 2px !important;}
+.suggest p.item 									{ cursor: pointer; overflow: hidden;}
+.suggest p.remote 									{ font-weight: bold; border-top: 1px solid #888;}
+.suggest p.active 									{ background-color: #88f;}
+.suggest .relevance 								{ float: right; font-size: 75%; color: gray;}
+
+#tag_block											{ position:relative;}
+
+/*- HINTY -*/
+#hintKindBox							{ padding:0.5em 0 0.5em 200px }
+#hintKindBox p							{ margin:0; padding:0.2em 0; line-height:130%; font-size:85%; }
+#hintKindBox #kindStandard				{ display:none; }
+#hintKindBox #kindGadget				{ display:none; }
+
+
+/* SKINY */
+#skin #skin-list								{ margin:2em 0; width:80%; }
+#skin h2 span									{ font-size:75%; color:#000; }
+#skin .skin-item								{ font-size:75%; width:120px; height:150px; background:#C3E2FF; margin:10px; padding:10px 5px; float:left; text-align:center; }
+#skin .skin-item form							{ margin:0; display:inline; }
+#skin .skin-item form input[type="submit"]		{ font-size:95%; padding:0; }
+#skin #order									{ margin-top:10px; }
+#skin #order form									{ margin:0; }

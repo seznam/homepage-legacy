@@ -1,0 +1,237 @@
+body										{ padding:0; margin:0; font-size:80%; font-family:Arial, sans-serif; background-color:#fff; color:#000; }
+
+p, ul, ol, li, form, label,
+ h1, h2, h3, h4, h5, table					{ margin:0; padding:0; }
+img											{ border:none; vertical-align:top; }
+li											{ list-style-type:none; }
+hr											{ display:none; }
+
+/*- links -*/
+a											{ color:#0000CC; text-decoration:underline; }
+a:hover										{ color:#ec0000 !important; }
+.clear										{ clear:both; }
+
+.blind										{ position:absolute; top:-1000px; left:-1000px; height:1px; overflow:hidden; }
+
+/*- main page -*/
+#page										{ text-align:left; margin:10px 10px 0.5em 10px; padding:0; }
+
+#head										{ border-bottom:1px solid #6699CC; position:relative; height:auto !important; height:96px; min-height:96px; }
+#head #logo									{ float:left; margin-top:2px; }
+#head #user									{ float:right; width:50%; }
+#head #user .text							{ float:right; text-align:right; margin-right:5px; }
+#head #user .text a,
+ #head #user .text h2						{ display:inline; height:auto !important; height:1px; padding-right:10px; margin-left:5px !important; margin-left:9px; font-size:100%; background: url(/st/img/pipe.gif) no-repeat 100% 3px; }
+#head #user .text .last						{ padding-right:0; background:none; margin-left:5px; }
+#head #user .img							{ float:right; width:50px; height:60px; margin-top:2px; padding:4px; }
+#head #user p								{ margin-top:6px; font-size:95%; }
+
+#line										{ background-color:#C3E2FF; padding:1px 0 0px 10px; }
+#line h1									{ color:#003399; font-size:130%; }
+
+#menu										{ float:left; width:213px; padding-top:1.25em; }
+#menu .title								{ margin:0 8px 4px 8px; color:#999999; font-size:130%; }
+#menu li									{ padding:2px 0 2px 8px; }
+#menu li#about-rss							{ padding:0; margin-top:22px; }
+#menu li#about-rss div						{ padding:2px 0 2px 8px; }
+#menu li#about-rss .line					{ padding-bottom:15px; margin:0 20px 0 10px; border-top:1px solid #DBDBDB; height:1px; overflow:hidden; }
+#menu li#about-rss .selected				{ background-color:#C3E2FF; padding:1px 0 2px 8px; }
+#menu li.selected							{ background-color:#C3E2FF; padding:1px 0 2px 8px; position:relative; top:1px; }
+#cont										{ _height:1px; padding-bottom:1.7em; }
+
+/*- main part */
+#main										{ float:left; padding:0 0 0 25px; margin:1.25em 0 0 0; border-left:1px solid #C3E2FF; width:67%; }
+#main h2									{ font-size:140%; font-weight:normal; margin-bottom:1em; color:#003399; }
+#main h2#discovery							{ background:url(/st/img/rss_title_ico.gif) 0 4px no-repeat; padding-left:20px; }
+#main #login-cont							{ width:364px; }
+#main #login								{ border:1px solid #6699CC; padding:1em 0; background-color:#C3E2FF; }
+#main #login label							{ width:130px; float:left; font-weight:bold; text-align:right; padding-top:2px; margin-right:3px !important; margin-right:0; }
+#main #login input.text						{ width:85px; }
+#main #login .error							{ display:block; font-size:85%; color:#ec0000; margin:0 10px 5px 135px; }
+#main #login-cont #login p					{ margin-top:5px !important; margin-top:2px; }
+#main #login #remeber						{ margin-left:130px; }
+#main #login #remeber label					{ float:none; display:inline; width:auto; font-weight:normal; }
+#main #login-cont p.note					{ font-size:85%; color:#848484; margin-top:0.2em; }
+#main #login-cont p							{ margin-top:0.5em; }
+#nossl-login								{ font-size:85%; color:#666666; text-align:center; margin-top:0.5em; }
+
+/*- submit button */
+.button										{ margin:1em 0; }
+.button input								{ font-size:110%; font-weight:bold; }
+
+.picture									{ float:left; }
+#main .status img 							{ margin:0.3em 0 1em 0; }
+
+.zodiak #main li,
+ .tv #main li,
+ .rss #main li								{ padding:0 0 0.3em 0; font-size:105%; }
+
+/*- horoskopy */
+.zodiak #main form							{ width:50%; float:left; }
+.zodiak #main h2							{ margin-bottom:0.5em; }
+
+/*- setting weather */
+.weather #main form							{ width:50%; float:left; }
+.weather h3									{ font-weight:normal; font-size:100%; color:#0000cc; text-decoration:underline; margin-bottom:0.5em; cursor:pointer; cursor:hand; }
+.weather .country							{ margin:0 0 1em 10px; }
+
+/*- setting rss*/
+.rss #main form								{ width:50%; float:left; }
+.rss #main form .ptext						{ margin-top:0.5em; }
+.rss #main .box								{ margin-bottom:1.4em; }
+.rss #main .box h3							{ font-size:140%; font-weight:normal; margin:0 0 0.4em 0; color:#003399; }
+.rss #main  #add-rss h3						{ margin:0; background:url(/st/img/add_rss_white.gif) no-repeat 0 4px; padding-left:19px; }
+.rss #main  #add-rss h3 a					{ font-weight:normal; font-size:75%; }
+.rss #main #add-rss-link,
+.rss #main .inputs .error					{ white-space:nowrap; position:absolute; margin:2px 4px; }
+.rss #main  ul								{ margin-bottom:0.3em; }
+#add-rss small								{ display:block; font-size:85%; color:#666666; margin-bottom:1px; }
+#add-rss .inputs div						{ margin:0.5em 0 0.2em 0; }
+
+#help-movie									{ position:relative; background:red; }
+#starter									{ cursor:pointer; cursor:hand; }
+#player										{ position:absolute; top:0; right:0; background:red; background:#E5E5E5; }
+#player .inner								{ position:relative; width:650px; height:557px; top:-7px; left:-7px; padding-left:3px; background:#000; }
+#ousko										{ background:#fff; position:absolute; left:0; top:0; width:650px; }
+#ousko h4									{ float:right; padding:5px 0 1px 16px; font-size:100%; text-align:right; background:#000 url(/st/img/corner_black.gif) top left no-repeat; cursor:pointer; cursor:hand; }
+#ousko h4 a									{ color:#fff; background:#000 url(/st/img/close_black.gif) 99% 0 no-repeat; padding-right:25px; padding-bottom:2px; }
+#player embed								{ position:absolute; top:24px; }
+
+/*- import rss*/
+.import #main h2							{ margin:0 0 0.6em 0; }
+.import #main p								{ margin-bottom:1.6em; }
+.import #main form							{ margin-bottom:2em; }
+
+.import .status								{ color:#ec0000; font-size:115.5%; font-weight:bold; margin:0 0 1em 0; }
+
+/*- Skins */
+.skin #main h5								{ font-size:105%; margin:1em 0 0.5em 0; color:#003399; }
+.skin #main small							{ display:block; color:#666666; font-size:85%; margin-left:7.4em; }
+.skin #main label							{ }
+.skin #main .coll							{ width:150px; float:left; margin-right:20px; _height:250px; min-height:250px; }
+.skin #main .coll div						{ margin:1em 0; font-weight:bold; }
+.skin #main .coll div small					{ display:block; margin-left:0; color:#000; font-weight:normal; }
+
+.skin #main form img						{ border:1px solid #EEE; }
+
+/*- add icon to your page*/
+.promote #main								{ width:50%; }
+.promote #main h2							{ font-size:140%; margin-bottom:0.5em; }
+.promote p									{ margin:0.5em 0 1.6em 0; }
+.promote h4									{ margin:1em 0 0.5em 0; font-size:100%; }
+.promote #icons								{ width:320px; }
+.promote #icons div							{ float:left; width:160px; margin:0 0 1.5em 0; }
+.promote #icons label						{ float:none; display:inline; width:auto; margin:0 !important; }
+.promote #icons img							{ margin:2px 0 0 0; }
+.promote textarea							{ width:95%; }
+.promote label								{ float:left; width:7.8em; text-align:right; margin:2px 3px 0 0 !important; margin:2px 0 0 0; }
+.promote form .row							{ clear:both; margin-bottom: 0.4em !important; margin-bottom: 0.2em;  }
+.promote form .button						{ margin-left:8em; }
+.promote li div								{ font-weight:normal; }
+.promote form textarea						{ background-color:#FFFFCC; }
+
+/*- tv */
+.tv #main form								{ width:50%; float:left; }
+
+/*- about rss*/
+.about-rss #main h2							{ margin:0; }
+.about-rss #main p							{ margin:0.5em 0 2em 0; }
+.about-rss #main p img						{ display:block; margin:1em 0 0 50px; }
+.about-rss #main p strong					{ display:block; margin:0.5em 0 0 0; }
+
+.other .row									{ margin-bottom:0.3em; clear:both; }
+
+/*- common */
+.more-link									{ margin:0 0 0 5px; background:url(/st/img/list_close.gif) no-repeat 0 4px; }
+.more-link-act								{ margin:0 0 0 5px; background:url(/st/img/list_open.gif) no-repeat 0 4px; }
+.more-link a,
+ .more-link-act a							{ padding-left:18px; height:auto !important; height /**/:1px; }
+.red										{ color:#ec0000; }
+.error										{ color:#ec0000; font-size:95%; }
+.small										{ font-size:85%; }
+.display									{ display:block; }
+.nodisplay									{ display:none; }
+.orange										{ color:#FF690F; }
+
+.w300										{ width:300px; }
+.w250										{ width:250px; }
+.gray										{ color:#666; }
+.big										{ font-size:110%; }
+#foot										{ clear:both; padding:2px 0; margin-top:2em; border-top:1px solid #6699CC; }
+
+
+/*- for portrait*/
+fieldset								{ border:1px solid #fff; padding:0; margin:0; }
+fieldset legend							{ color:#003399; font-size:140%; font-weight:normal; margin:1em 0 0.2em 0; padding:0; }
+/*- ikonky  */
+
+#icon-div								{ margin-bottom:5px; }
+#icon-div img							{ border:1px solid #000; vertical-align:baseline; }
+#icon-div label							{ margin-top:30px; }
+
+#ico-step1 .submit						{ font-weight:bold; }
+#ico-step1 .control						{ margin:1.5em 0; text-align:center; }
+#m-cont									{ margin:0.5em 0; }
+#m-cont #ico-p							{ float:left; width:45px; margin-right:10px; }
+#m-cont #ico-p img						{ border:1px solid #000;}
+#m-cont #text							{ margin-left:45px; }
+#m-cont #text-portrait					{ float:left; width:70%; }
+#m-cont ul#text-portrait li				{ list-style-type:circle; margin:0 0 0.3em 25px; }
+
+#ico-step2								{ margin:1em 0; }
+#ico-step2 #sample-img img				{ float:left; margin:0 1em 0 0; }
+#ico-step2 .control						{ margin:0.5em 0; text-align:left; }
+#ico-step2 .submit						{ font-weight:bold; }
+#ico-step2 p.text						{ margin-top:-0.3em; }
+
+#ico-step1 fieldset,
+ #ico-step2 fieldset					{ margin-top:2em; clear:both; }
+
+.boxik 									{ position:absolute; left:10px; top:10px;cursor:move; z-index:5; background-color:white; filter:alpha(opacity=30); -moz-opacity:0.50; border:1px solid red; }
+#boxik 									{ border-color:red; width:60px; height:80px; }
+#obrazek 								{ z-index:2; border:1px solid black; position:relative; }
+.ruzek 									{ position:absolute; bottom:0; right:0; width:13px; height:13px; cursor:se-resize; }
+
+/*- services page */
+#body.services-page						{ text-align:center; }
+.services-page #page					{ text-align:left; width:750px; margin:0 auto; }
+.services-page #head					{ height:82px !important; min-height:82px; border:none; }
+.services-page #head #logo				{ float:none; display:inline; }
+.services-page #main					{ float:none; padding:0; border:none; width:auto; margin:0.5em 0 0 0; }
+.services-page #main h2					{ background-color:#C3E2FF; border-top:1px solid #6699CC; padding:2px 4px;}
+.services-page .column					{ width:45%; }
+.services-page .left					{ float:left; }
+.services-page .right					{ float:right; }
+.services-page #list					{ height:auto !important; height:1px; background:url(/st/img/pejsek_nastaveni.jpg) no-repeat 80% 100%; padding-bottom:1em; }
+.services-page #list li					{ line-height:18px; margin:0.1em 0; list-style-type:disc; margin-left:20px; }
+.services-page #list li a				{ font-weight:bold; }
+.column ul li .chat,
+.column ul li .seznamka					{ background:url(/st/img/ico_lide.gif) 100% 60% no-repeat; }
+.column ul li .chat a,
+.column ul li .seznamka a				{ padding:0 37px 0 0; _height:1px; }
+.column ul li .reality					{ background:url(/st/img/logo_sreality.gif) 100% 60% no-repeat; }
+.column ul li .reality a				{ padding:0 53px 0 0; _height:1px; }
+.column ul li .sport					{ background:url(/st/img/logo_sport.gif) 100% 80% no-repeat; }
+.column ul li .sport a					{ padding:0 44px 0 0; _height:1px; }
+.column ul li .novinky					{ background:url(/st/img/logo_novinky.gif) 100% 80% no-repeat; }
+.column ul li .novinky a				{ padding:0 55px 0 0; _height:1px; }
+
+.column ul li .women					{ background:url(/st/img/logo_pro_zeny.gif) 100% 80% no-repeat; }
+.column ul li .women a					{ padding:0 45px 0 0; _height:1px; }
+
+
+.open									{ background:url(/st/img/list_open.gif) no-repeat center left; padding-left:15px; }
+.close									{ background:url(/st/img/list_close.gif) no-repeat center left; padding-left:15px; }
+
+/*- info */
+.info #main								{ border:none; margin:0 auto; width:590px; float:none; }
+.info #line								{ padding:0px; }
+.info #main p							{ margin:0 0 1em 0; line-height:1.7; }
+.info #main p img						{ margin:1.5em 0; display:block; border:1px solid #a0a0a0; padding:10px; }
+.info #main ul							{ margin:0em 15px; }
+.info #main li							{ margin:0.5em 0; list-style-type:disc; }
+.info #main h3							{ margin:2.5em 0 0 0; color:#003399;font-size:150.5%; font-weight:normal; }
+.info #main h2							{ margin:2.5em 0 0 0; font-size:150%; }
+
+.info #foot								{ text-align:center; }
+

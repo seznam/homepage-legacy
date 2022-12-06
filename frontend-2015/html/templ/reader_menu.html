@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="cs">
+	<head>
+		<title>Seznam - RSS čtečka</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<link rel="stylesheet" href="#{PATH_CSS}/#{FILE_CSS_READER}#{VERSION}" media="all" type="text/css" />
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_READER}#{VERSION}"></script>
+	</head>
+	
+	<body class="${.scheme}">
+	<div id="head">
+		<a href="/" title="#{SERVICE_NAME_TITLE}" target="_top"><img id="logo" src="#{PATH_IMG}/logo_reader.gif" width="149" height="49" alt="Seznam" title="#{SERVICE_NAME_TITLE}" /></a>
+		<div class="back"><a href="#" onclick="return menu.setAll(this);">#{show_all}</a> <span class="gray">|</span> <a href="/nastaveni-zprav" target="_top">#{sett_sett}</a></div>
+	</div>
+	<ul id="listFeeds">
+		<script type="text/javascript">menu.init('#{PATH_IMG}');</script>
+		<?teng frag feed_rss?>
+			<li class="close" id="feed-${feedId}">
+				<h2 id="h-feed-${feedId}"><a href="${.feedListBaseUrl}/rss-ctecka-feed?feedId=${feedId}" target="scontent">${title}</a></h2>
+				<script type="text/javascript">menu.setState(gE('feed-${feedId}'))</script> 
+				<ul>
+					<?teng frag items?>
+						<?teng if $feed_rss.maxItems > $_number?>
+							<li>
+								<a href="${link}" target="scontent" onclick="activeLink(this);">${title}</a>
+							</li>
+						<?teng endif?>
+					<?teng endfrag?>
+				</ul>
+			</li>
+		<?teng endfrag?>
+	</ul>
+	<?teng include file="_foot_other.html"?>
+	</body>
+</html>

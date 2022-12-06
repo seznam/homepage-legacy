@@ -1,0 +1,8 @@
+/* 
+* Extra Large - Media Query
+* (min-width: 1129px)
+*/
+#search #tabs 							{ display: block; }
+.rss-feed .gagdet-cont .perex 			{ display: block !important; }
+
+#gadget-3 .g-cnt form 					{ padding: 20px 10px 40px 5px; }

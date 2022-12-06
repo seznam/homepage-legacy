@@ -1,0 +1,63 @@
+/*- SKIN "MODRÝ" -*/
+
+a:link 			{ color:#00c; }
+a:visited		{ color:#000087; }
+a:hover			{ color:#ec0000; }
+
+/*- hlavicka -*/
+#head #info a		{ color:#00c; }
+#head #info a:hover	{ color:#ec0000; }
+
+/*#search-cnt .window-container	{ background-image:url(/st/img/2011/bubble-dashed.png); }*/
+
+#search #tabs li a				{ color:#00c; }
+#search #tabs li a:hover		{ color:#ec0000; }
+#search #tabs li.active a		{ color:#000; }
+
+
+/*- gadgety - "upravit" box -*/
+.gadget-settings .next-settings a			{ color:#00c; }
+.gadget-settings .next-settings a:hover		{ color:#ec0000; }
+
+/*- email -*/
+.email-feed .links a						{ color:#00c; }
+.email-feed .links a:hover					{ color:#ec0000; }
+
+/*- muze se hodit - pocasi -*/
+#gadget-6 .g-cnt .day p strong.day-name		{ color:#666; }
+
+/*- TV program -*/
+#gadget-5 .g-cnt #times a		{ color:#00c; }
+#gadget-5 .g-cnt #times a:hover	{ color:#ec0000; }
+#gadget-5 .g-cnt #times a.act	{ color:#000; }
+#gadget-5 .g-cnt a.close		{ color:#00c; }
+#gadget-5 .g-cnt a.close:hover	{ color:#ec0000; }
+#gadget-5 .gadget-settings .tv-menu li		{ color:#00c; }
+#gadget-5 .gadget-settings .tv-menu li:hover{ color:#ec0000; }
+#gadget-5 .gadget-settings .tv-menu li.sel	{ color:#000; }
+
+/*- firmy - promo -*/
+#col_2 #gadget-8 .g-cnt .promo-man 	{ display: none; }
+#gadget-8 .firmy-trend-box .links 	{ color: #00c; }
+
+/*- stream -*/
+#gadget-14 #more-news.beside	{ background-image:url(/st/img/skins/skin-1/arrow-stream.png); }
+
+/*- poznamky -*/
+#gadget-11 .item .edit-box a,
+ #gadget-11 .item a.hide-note,
+ #gadget-11 .new-note a				{ color:#00c; }
+#gadget-11 .item .edit-box a:hover,
+ #gadget-11 .item a.hide-note:hover,
+ #gadget-11 .new-note a:hover		{ color:#ec0000; }
+ 
+#gadget-24 .music-cont						{ color: #000066; }
+#gadget-24 .music-cont a 					{ color: #0000cc; }
+
+#search-cnt .window-container	{ background-image:url(/st/img/2011/bubble-dashed.png) !important; }
+
+@media (max-width: 950px) {
+	#search-cnt .window-container 				{ background: rgba(255,255,255,0.9) !important; }
+}
+
+.audioNewsContainer button .anTxt { color: #0000cc; }

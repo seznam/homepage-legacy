@@ -1,0 +1,51 @@
+<?teng format space="onespace"?>
+	<?teng frag emailWindow?>
+		<div class="smenu">
+			<?teng if $newMessages > 0 && exist(message)?>
+				<a href="#{SERVER_EMAIL}/folderScreen?folderId=inbox" title="#{eml_tit_inbox}"><strong>#{eml_inbox} (${newMessages})</strong></a>
+			<?teng else?>
+				<a href="#{SERVER_EMAIL}/folderScreen?folderId=inbox" title="#{eml_tit_inbox}">#{eml_inbox}</a>
+			<?teng endif?>
+			<a href="#{SERVER_EMAIL}/newMessageScreen?" title="#{eml_tit_write_mail}">#{eml_write_mail}</a>
+			<a href="#{SERVER_EMAIL}/newSmsScreen?" title="#{eml_tit_write_sms}">#{eml_write_sms}</a>
+		</div>
+		<?teng if exist(message)?>
+			<table cellpadding="0" cellspacing="0" id="messages">
+				<?teng frag message?>
+					<tr ${$unread ?'class="newMes"':''}>
+						<td title="${abstract}">
+								<div class="hlp"><a href="#{SERVER_EMAIL}/readMessageScreen?folderId=${folderId}&amp;messageId=${messageId}">${$unread ? '<strong>'++$from++'</strong>':$from} - ${subject}</a></div> <!--- ${substr($from,0,20,'','...')} - ${substr($subject,0,20,'','...')} --->
+							</td>
+						<td class="etime">
+							<?teng set nowH = date("%H",now())?>
+							<?teng set nowM = date("%M",now())?>
+							<?teng set nowS = date("%S",now())?>
+							<?teng set nowT = $nowS+$nowM*60+$nowH*3600?>
+							<?teng set firstMidnight = now() - $nowT?>
+							<?teng set secondMidnight = $firstMidnight - 86400?>
+							<?teng if $timestamp > $firstMidnight ?>
+								${date("%H:%M",$timestamp)}
+							<?teng elseif $timestamp > $secondMidnight?>
+								Včera
+							<?teng else?>
+								${date("%e.%n.",$timestamp)}
+							<?teng endif?>
+							
+						</td>
+					</tr>
+				<?teng endfrag?>
+			</table>
+			<span id="hover" class="sel"></span>
+			<?teng if exist(.javascriptTable)?>
+				<!--- primo ve strance --->
+				<script type="text/javascript">/* <![CDATA[ */ email.tableInit(gE("messages"),gE("hover"));/*	]]> */</script>
+			<?teng endif?>
+		<?teng else?>
+			<?teng if $newMessages == 0?>
+				<h5>#{eml_no_mail}</h5>
+			<?teng else?>
+				<h5>${reorder(#eml_have_mess,$newMessages,case($newMessages, 1:#eml_new_one, 2,3,4:#eml_new_two, *:#eml_new_more))}</h5>
+			<?teng endif?>		
+		<?teng endif?>
+	<?teng endfrag?>
+<?teng endformat?>

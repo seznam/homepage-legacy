@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="cs">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<link href="#{SERVICE_URL}#{PATH_IMG}/favicon.ico" rel="shortcut icon" />
+		<link rel="stylesheet" href="#{SERVICE_URL}#{PATH_CSS}/film.css#{VERSION}" type="text/css" media="all" />
+		<title>Seznam.cz - Na co se můžete příště těšit</title>
+	</head>
+	<body class="${.scheme}">
+		<div id="page">
+			<div id="bubble-header"></div>
+			<div id="bubble-middle">
+				<div id="bubble-content">
+					<div id="header">
+						<h1 id="logo">
+							<a href="http://www.seznam.#{_tld}" class="seznam">Seznam.cz</a>
+							<span class="pipe"></span>
+							<a href="http://www.stream.#{_tld}" class="stream">Stream.cz</a>
+						</h1>
+						<a href="http://www.seznam.#{_tld}" id="closer"><span class="blind">Zavřít</span></a>
+						<div class="clear"></div>
+					</div>
+					<div class="trailer">
+						<img src="#{SERVICE_URL}#{PATH_IMG}/film_tri-veterani_s.jpg" alt="Tři veteráni" />
+						<div class="textCont">
+							<h2><span>24. 12.</span> Tři veteráni</h2>
+							<p class="about">Pohádka, Československo, 1983, 93 min</p>
+							<p class="description">
+								Tři vysloužilí vojáci jsou po propuštění z armády bez peněz a toulají se světem. Od dobrosrdečných skřítků dostanou kouzelné dary: harfičku, která "vyrábí" vojáky, sluhy apod., cylindr, který vykouzlí, na co si člověk vzpomene a bezedný měšec. Vydají na cestu, až dojdou do království, kde jim je vezme zlá princezna. Při svých pokusech získat je zpět pochopí, co je v životě opravdu důležité.
+							</p>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<div class="trailer">
+						<img src="#{SERVICE_URL}#{PATH_IMG}/film_s-certy-nejsou-zerty_s.jpg" alt="S čerty nejsou žerty" />
+						<div class="textCont">
+							<h2><span>25. 12.</span> S čerty nejsou žerty</h2>
+							<p class="about">Pohádka, Československo, 1984, 91 min</p>
+							<p class="description">
+								Chamtivá macecha připraví svého nevlastního syna Petra o všechno, včetně dědictví po jeho otci. Macecha se neštítí ničeho, a aby se ho zbavila, spikne se s místním správcem společně proti Petrovi a pošlou ho do vězení a poté i na vojnu. Petr však uteče a protlouká se světem. Když už neví kudy kam, potká věrného a spravedlivého přítele - samotného čerta.  
+							</p>
+						</div>
+					</div>
+					<div class="clear"></div>
+					<div class="trailer">
+						<img src="#{SERVICE_URL}#{PATH_IMG}/film_silene-smutna-princezna_s.jpg" alt="Šíleně smutná princezna" />
+						<div class="textCont">
+							<h2><span>26. 12.</span> Šíleně smutná princezna</h2>
+							<p class="about">Pohádka, Československo, 1968, 89 min</p>
+							<p class="description">
+								Hudební pohádka Šíleně smutná princezna je určena především malým - ovšem ne těm nejmenším divákům. Vypráví příběh prince a princezny ze sousedních spřátelených zemí, kteří mají uzavřít sňatek, o čemž rozhodli jejich moudří otcové se svými rádci. Královské děti však o svém osudu chtějí rozhodnout samy a samy si také touží vybrat životního partnera.
+							</p>
+						</div>
+						<p class="back">
+							<a href="http://video.novinky.#{_tld}/av-sluzby" id="service">Audiovizuální mediální služby</a>
+							<?teng if now() > 1293318000?>
+								<a href="#{SERVICE_URL}/silene-smutna-princezna-vanoce">&lt; zpět na pohádku</a>
+							<?teng elseif now() > 1293231600?>
+								<a href="#{SERVICE_URL}/s-certy-nejsou-zerty-pohadka">&lt; zpět na pohádku</a>
+							<?teng else?>
+								<a href="#{SERVICE_URL}/tri-veterani">&lt; zpět na pohádku</a>
+							<?teng endif?>
+						</p>
+					</div>
+				</div>
+			</div>
+		<div id="bubble-footer"></div>
+	</div>
+	<!-- (C)2000-2010 Gemius SA - gemiusAudience / seznam.cz / Film -->
+	<script type="text/javascript">
+			gemius_identifier = new String('d7OaAYOMYw9ybs1vVPcZb7RJP1hKnvt9ge0F8kuTIib.X7');
+		
+			function gemius_pending(i) { window[i] = window[i] || function() {var x = window[i+'_pdata'] = window[i+'_pdata'] || []; x[x.length]=arguments;};};
+			gemius_pending('gemius_hit'); gemius_pending('gemius_event'); gemius_pending('pp_gemius_hit'); gemius_pending('pp_gemius_event');
+			(function(d,t) {try {var gt=d.createElement(t),s=d.getElementsByTagName(t)[0]; gt.setAttribute('async','async'); gt.setAttribute('defer','defer'); gt.src='https://gacz.hit.gemius.pl/xgemius.js'; s.parentNode.insertBefore(gt,s);} catch (e) {}})(document,'script');
+
+	</script>
+	</body>
+</html>

@@ -1,0 +1,240 @@
+<div id="gadget-6" class="s_win" data-dot="gadgetSluzby">
+<!--- pro odkazy na pocasi --->
+<?teng set $.__weatherCrPlaces = $weatherCrPlaces ?>
+<?teng set $._weatherUrl = defined(isOutage)? #OFFLINE_HANDLER : $weatherServerUrl ?>
+<?teng set $._isDefaultLocality = $weatherFeedId == 99 ?>
+	<?teng format space="onespace"?>
+		<div class="gagdet-cont">
+
+				<div class="main-cont">
+
+				<h3 class="title s_win_title">
+					<?teng frag .calendar?>
+					<?teng set is_bold = 'true'?>
+					<?teng set is_bold = case(date("%e.%n.",now()), "1.1." : 'false', "14.2." : 'false', "5.5." : 'false', "8.5." : 'false', "5.7." : 'false', "6.7." : 'false',"28.9." : 'false', "28.10." : 'false', "17.11." : 'false', *: 'true')?>
+					<span class="text entry-title">
+						${ $.columns._count==2 ? date('<span class="d">%A,</span> <strong>'++#date_format_wo++'</strong>', now(), #time_date_string_wo) : date('<span class="d">%A</span> <strong>'++#date_format++'</strong>', now(), #time_date_string_big) }, <span class="noWrap">${$holiday ? $holiday ++ ($name ? ', '++unescape($name)++' ' : '') : #nameday_has++' '++unescape($name)++''}</span>
+					</span>
+					<?teng endfrag?>
+					<span class="bck"></span>
+				</h3>
+
+				<div class="gadget-settings">
+					<div class="settings-cont">
+						<div class="settings-main">
+							<div class="setting-bck">
+								<div class="title-setting">
+									<?teng if $.userId > 0?>
+										<!---
+										<span class="close-win-img-span"><a href="#" class="close-win-img">Odebrat box</a></span>
+										--->
+									<?teng endif?>
+									<span class="close-sett"><a href="" class="close-setting-link">Nastavit počasí</a></span>
+								</div>
+								<div class="setting-cont">
+									<form action="/">
+										<div class="general-settings">
+											<label>
+												<input type="checkbox" name="auto_detect" id="auto_detect" value="1" <?teng if $weatherByGeoIP == 1 ?>checked="checked"<?teng endif ?> />
+												Automatická detekce lokality
+											</label>
+										</div>
+
+										<div class="row">
+											<label for="county">Vyberte region:</label>
+											<select name="county" id="county">
+												<?teng frag .county?>
+													<option value="${id}" ${$selected ? 'selected="selected"' : ''}>${name}</option>
+												<?teng endfrag?>
+											</select>
+										</div>
+										<div class="row">
+											<?teng set $.__sel = 0?>
+											<?teng frag .county?>
+													<?teng frag district?>
+														<?teng if $selected?>
+															<?teng set $.__sel = 1?>
+														<?teng endif?>
+													<?teng  endfrag?>
+												<?teng endfrag?>
+											<label for="district">Vyberte město:</label>
+											<select name="district" id="district">
+												<?teng if $.__sel == 0?>
+														<option value="-1">Není vybráno</option>
+													<?teng endif?>
+												<?teng frag .county?>
+													<?teng frag district?>
+														<option value="${id}" ${$selected ? 'selected="selected"' : ''}>${name}</option>
+													<?teng endfrag?>
+												<?teng endfrag?>
+											</select>
+										</div>
+										<div class="controls">
+											<input type="submit" name="" class="submit" value="Uložit nastavení" />
+											<input type="reset" name="" class="reset" value="Storno" />
+										</div>
+
+										<div class="next-settings">
+											<a href="/nove-nastaveni">Další nastavení Seznamu</a>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="g-cnt s_win_area">
+					<div id="services">
+						<div class="${$.columns._count!=3 ? 'servicesWrapper' : ''}">
+							<!--- pro ikonku "nové" staci dat na odkaz class="newItemHead" --->
+							<div id="se1" class="services">
+								<ul>
+									<li><a href="http://www.kupi.cz/slevy" class="noTip" title="Vyhledávač akcí a slev v obchodech">Akce</a> <span class="text">/</span> <a href="http://www.kupi.cz/letaky" title="Akční letáky">Letáky</a></li>
+									<li><a href="http://www.sauto.#{_tld}/" title="#{serv_auto_title}">#{serv_auto}</a> <span class="text">/</span> <a href="http://www.smoto.#{_tld}/" title="#{serv_moto_title}">#{serv_moto}</a></li>
+									<li><a href="http://www.sbazar.#{_tld}/" title="#{serv_bazar_title}">#{serv_bazar}</a></li>
+									<li><a href="http://www.novinky.#{_tld}/deniky/" title="#{serv_press_title}">#{serv_press}</a></li>
+									<li><a href="http://www.sdovolena.#{_tld}" title="#{serv_travel_title}">#{serv_travel}</a></li>
+									<!---<li><a href="http://fantasy.sport.#{_tld}" title="Sestavte vlastní tým. Získávejte body a vyhrajte">Fantasy liga</a></li>--->
+								</ul>
+							</div>
+
+							<div id="se2" class="services">
+								<ul>
+									<li><a href="http://www.hry.cz/" title="#{serv_online_title}">#{serv_online}</a></li>
+									<li><a href="http://www.lide.#{_tld}/" title="#{serv_chat_title}">#{serv_chat}</a></li>
+									<li><a href="http://www.mapy.#{_tld}/" title="#{serv_maps_title}">#{serv_maps}</a></li>
+									<li><a href="http://www.stream.#{_tld}/pohadky" title="#{serv_film_pohadky}">#{serv_pohadky}</a></li>
+									<li><a href="http://www.sreality.#{_tld}/" title="#{serv_realty_title}">#{serv_realty}</a></li>
+								</ul>
+							</div>
+
+							<div id="se3" class="services">
+								<ul>
+									<li><a href="http://www.smobil.#{_tld}/sms" title="#{serv_sms_title}">#{serv_sms}</a></li>
+									<li><a href="http://www.spoluzaci.#{_tld}/" title="#{serv_classmate_title}">#{serv_classmate}</a></li>
+									<li><a href="http://www.volnamista.#{_tld}/" title="#{serv_jobs_title}">#{serv_jobs}</a></li>
+									<li><a href="http://www.zbozi.#{_tld}/" title="#{serv_zbozi_title}">#{serv_zbozi}</a></li>
+									<li class="more"><a href="/sluzby-na-seznamu"><strong>#{serv_more} &raquo;</strong></a></li>
+								</ul>
+							</div>
+						</div>
+						<div id="g-weather" class="weather ${$.columns._count==3 ? 'small' : ''}">
+						<?teng frag .county?>
+							<?teng set $.__locWeather = ''?>
+							<?teng set $.__locWeatherId = ''?>
+							<?teng if $selected?>
+								<?teng set $.__locWeather = $name?>
+								<?teng set $.__locWeatherId = $id?>
+								<?teng frag district?>
+									<?teng if $selected?>
+										<?teng set $.__locWeather = $name?>
+										<?teng set $.__locWeatherId = $id?>
+									<?teng endif?>
+								<?teng endfrag?>
+								<p id="weather-district-block"><strong id="weather-district-title" class="district<?teng if $.__locWeather =~ "Rychnov nad Kněžnou" || $.__locWeather =~ "Jablonec nad Nisou" ?> longTitle<?teng endif ?>">${.__locWeather}</strong>
+								</p>
+								<script type="text/javascript">
+									var weatherLocality = new JAK.WeatherCookie('${.__locWeatherId}');
+								</script>
+							<?teng endif?>
+						<?teng endfrag?>
+						<?teng frag items?>
+							<?teng if $_number <= 2 ?>
+								<div class="day<?teng if $_last ?> last<?teng endif ?>">
+									<p>
+										<?teng if exist(seznam_weatherItemType) && $seznam_weatherItemType !~ ''?>
+											<strong class="day-name">${@('weather_'++$seznam_weatherItemType)}</strong>
+										<?teng else?>
+											<strong class="day-name">${case($_number, 0:#weather_today, 1:#weather_tomorrow, 2:#weather_day_after_tomorrow, 3: date('%A',now()+(259200),#time_date_string), *: '')}</strong>
+										<?teng endif?>
+
+										<?teng if exist(seznam_weatherTypeId) && $seznam_weatherTypeId !~ ''?>
+
+												<?teng set $._icoPath = #PATH_WEATHER ?>
+												<?teng if exist(seznam_weatherIsNight) && $seznam_weatherIsNight =~ '1'?>
+													<?teng set $._icoPath = $._icoPath++"/noc" ?>
+												<?teng endif?>
+												<!---<a href="${._weatherUrl}<?teng if !$._isDefaultLocality ?>#${case($_number, 0:'dnes', 1:'zitra', 2:'pozitri')}<?teng endif?>"><span class="weather-${seznam_weatherTypeId}-img-span"><img src="${._icoPath}/w${seznam_weatherTypeId}.png" width="32" height="32" alt="${seznam_weatherTypeIdDesc}" title="${seznam_weatherTypeIdDesc}" /></span></a>--->
+												<a href="${._weatherUrl}<?teng if !$._isDefaultLocality ?>#${$seznam_weatherItemType =~ 'tomorrow' ? 'zitra' : 'dnes'}<?teng endif?>"><span class="weather-${seznam_weatherTypeId}-img-span"><img src="${._icoPath}/w${seznam_weatherTypeId}.png" width="32" height="32" alt="${seznam_weatherTypeIdDesc}" title="${seznam_weatherTypeIdDesc}" /></span></a>
+											</p>
+
+											<p class="temp" title="${(exist(seznam_temperature) && $seznam_temperature !~ '') ? #weather_act_help : #weather_help}">
+												<?teng if exist(seznam_temperature) && $seznam_temperature !~ ''?>
+													<strong>${seznam_temperature}</strong> <span class="unit">°C</span>
+												<?teng else?>
+													<strong>${seznam_maxTemperature}</strong> <span class="unit">°C</span>
+												<?teng endif?>
+											</p>
+										<?teng else?>
+												<span class="weather-J-img-span"><img src="#{PATH_WEATHER}/w1.png" width="32" height="32" alt="Jasno" title="Jasno" /></span>
+											</p> <!--- --->
+											<p class="temp" title="#{weather_help}">
+												<strong>20/25</strong> <span class="unit">°C</span>
+											</p>
+										<?teng endif?>
+								</div>
+							<?teng endif?>
+						<?teng endfrag?>
+						<?teng if !$._isDefaultLocality ?>
+							<?teng if $.columns._count!=3?>
+								<p class="more"><a href="${._weatherUrl}">#{weather_more} &raquo;</a></p>
+							<?teng else?>
+								<p class="more"><a href="${._weatherUrl}">Další dny &raquo;</a></p>
+							<?teng endif?>
+						<?teng endif ?>
+					</div>
+					<div class="clear"></div>
+					</div>
+				</div>
+			</div>
+		<?teng endformat?>
+	</div>
+</div>
+
+<script type="text/javascript">
+	/* <![CDATA[ */
+		var autoDetect = ${weatherByGeoIP};
+		var autoDetectFailed = ${weatherFailedGeoIP};
+		var isDefaultLocality = ${._isDefaultLocality};
+
+		JAK.gadget6 = new JAK.Gadget('gadget-6','${feedId}');
+		JAK.gadget6.extSetting = new JAK.Gadget.WeatherSetting('${feedId}',JAK.gadget6);
+
+		var gnSettings = {
+			maxWidthCorrection:	isDefaultLocality ? 20 : 0,
+			text:	isDefaultLocality ? 'Upřesnit' : 'Jste jinde?',
+			callbackObj:	JAK.gadget6.settings,
+			callbackMethod:	'openSettings',
+			permanentShow:	autoDetect && autoDetectFailed
+		};
+		var gadgetNotice = new JAK.GadgetNotice('weather-district-block', 'weather-district-title', 'g-weather', gnSettings);
+
+		<?teng if exist(.dog)?>
+			<?teng frag .dog?>
+				<?teng if $_number == 0?>
+					<?teng if $.isServiceDogEnable?>
+					JAK.gadget6.extGadg = new JAK.Services('gadget-6','${feedId}', '${.columns._count}', gadgetNotice);
+					<?teng else?>
+						JAK.gadget6.extGadg = new JAK.Services('gadget-6','${feedId}', '${.columns._count}', gadgetNotice);
+					<?teng endif?>
+				<?teng endif?>
+			<?teng endfrag?>
+		<?teng else?>
+			JAK.gadget6.extGadg = new JAK.Services('gadget-6','${feedId}', '${.columns._count}', gadgetNotice);
+		<?teng endif?>
+
+		/* Android 2.3.x BUG: Riesenie problemu s neklikatelnostou absolutne pozicionvanych select elementov*/
+		if ((JAK.Browser.platform == 'and') && (JAK.Browser.client == 'oth')) {
+			var ua = JAK.Browser.agent;
+			var androidversion = parseFloat(ua.slice(ua.indexOf("Android")+8));
+			if(androidversion == 2.3) {
+				var gadgetEl = JAK.gel('gadget-6');
+				JAK.DOM.addClass(gadgetEl, 'android2_3');
+			}
+		}
+
+	/* ]]> */
+</script>
+
+

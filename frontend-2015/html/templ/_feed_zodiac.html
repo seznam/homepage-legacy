@@ -1,0 +1,76 @@
+<div id="gadget-7" class="s_win" data-dot="gadgetHoroskopy">
+<?teng format space="onespace"?>
+	<div class="gagdet-cont">
+		<div class="main-cont">
+			<h3 class="title s_win_title">
+				<span class="text"><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.horoskopy.'++#_tld}">Horoskopy</a></span>
+				<span class="edit">
+					<a href="/nastaveni-horoskopu" class="edit-text">Upravit</a>
+				</span>
+				<span class="bck"></span>
+			</h3>
+
+				<div class="gadget-settings">
+					<div class="settings-cont">
+						<div class="settings-main">
+							<div class="setting-bck">
+								<div class="title-setting">
+									<?teng if $.userId > 0?>
+										<span class="close-win-img-span"><a href="#" class="close-win-img">Odebrat box</a></span>
+									<?teng endif?>
+									<span class="close-sett"><a href="" class="close-setting-link">Upravit</a></span>
+								</div>
+								<div class="setting-cont">
+									<form action="/">
+										<div class="row">
+											<label for="zodiac">Vyberte znamení:</label>
+											<select name="zodiac" id="zodiac">
+												<?teng frag .zodiac?>
+													<option value="${id}" ${$selected == 1 ? 'selected="selected"' : ''}>${@$name}</option>
+												<?teng endfrag?>
+											</select>
+										</div>
+										<div class="controls">
+											<input type="submit" name="" class="submit" value="Uložit nastavení" />
+											<input type="reset" name="" class="reset" value="Storno" />
+										</div>
+
+										<div class="next-settings">
+											<a href="/nove-nastaveni">Další nastavení Seznamu</a>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<div class="g-cnt s_win_area">
+				<?teng frag items?>
+					<div class="cnt">
+						<span class="zodiac-${feedId}-img-span">
+							<a href="${link}"><img src="#{PATH_IMG_2011}horoskopy/${feedId}.png" width="65" height="60" alt="${title}" /></a>
+						</span>
+						<p>
+							<strong>${title}:</strong> ${wordsubstr($description,0,110,'','...')}
+							<br />
+							<a href="${link}">Celý horoskop &raquo;</a>
+						</p>
+					</div>
+				<?teng endfrag?>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+<?teng endformat?>
+</div>
+
+
+	<script type="text/javascript">
+	/* <![CDATA[ */
+		JAK.gadget7 = new JAK.Gadget('gadget-7','${feedId}');
+		JAK.gadget7.extSetting = new JAK.Gadget.ZodiacSetting('${feedId}',JAK.gadget7);
+	/* ]]> */
+	</script>
+
+

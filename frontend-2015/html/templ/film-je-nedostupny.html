@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="cs">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<link href="#{PATH_IMG}/favicon.ico" rel="shortcut icon" />
+		<link rel="stylesheet" href="#{PATH_CSS}/film.css#{VERSION}" type="text/css" media="all" />
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_COMMON}#{VERSION}"></script>
+		<script type="text/javascript" src="${.scheme}://1.im.cz/ad/im.js#{VERSION}"></script>
+
+		<title>Seznam.cz - film je nedostupný</title>
+	</head>
+	<body class="${.scheme}">
+		<div id="page">
+			<div id="bubble-header"></div>
+			<div id="bubble-middle">
+				<div id="bubble-content">
+					<div id="header">
+						<h1 id="logo">
+							<a href="http://www.seznam.#{_tld}" class="seznam">Seznam.cz</a>
+
+						</h1>
+						<a href="http://www.seznam.#{_tld}" id="closer"><span class="blind">Zavřít</span></a>
+						<div class="clear"></div>
+					</div>
+					<script type="text/javascript" src="${.scheme}://pro.hit.gemius.pl/gstream.js"></script>
+
+					<div class="textCont no-film">
+						<img src="#{PATH_IMG}/2011/no-pohadka.jpg" alt="" />
+						<h2 class="title-error">
+							Pohádku právě sleduje maximální počet diváků, zkuste to prosím za chvíli.
+						</h2>
+						<p>
+							Těší nás váš velký zájem o vánoční pohádky. Abychom všem umožnili kvalitní a nerušený filmový zážitek, je počet diváků sledujících pohádku v jeden okamžik omezen.
+						</p>
+						<p class="description bottom">
+							<strong>Zkuste pohádku spustit za pár minut.</strong>
+						</p>
+
+					</div>
+				</div>
+			</div>
+		<div id="bubble-footer"></div>
+	</div>
+	<!-- (C)2000-2012 Gemius SA - gemiusAudience / homepage_Seznam.cz / Filmy_a_pohadky-->
+	<script type="text/javascript">
+
+	var pp_gemius_identifier = new String('B9BL0GMpEH8tXKrOBKSuGpR8DftiT_bOLbpMTU6OzXn.o7');
+	var pp_gemius_extraparameters = new Array('gA=seznam.cz/homepage_Seznam.cz/Filmy_a_pohadky');
+
+	function gemius_pending(i) { window[i] = window[i] || function() {var x = window[i+'_pdata'] = window[i+'_pdata'] || []; x[x.length]=arguments;};};
+	gemius_pending('gemius_hit'); gemius_pending('gemius_event'); gemius_pending('pp_gemius_hit'); gemius_pending('pp_gemius_event');
+	(function(d,t) {try {var gt=d.createElement(t),s=d.getElementsByTagName(t)[0]; gt.setAttribute('async','async'); gt.setAttribute('defer','defer'); gt.src='https://gacz.hit.gemius.pl/xgemius.js'; s.parentNode.insertBefore(gt,s);} catch (e) {}})(document,'script');
+
+	</script>
+	</body>
+</html>

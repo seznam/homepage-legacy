@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="cs">
+	<head>
+		<title>#{SERVICE_NAME_TITLE}</title>
+		<?teng include file="_common_files.html"?>
+	</head>
+	
+	<body id="www-seznam-cz" class="${.scheme}">
+		<div id="page">
+			<?teng include file="_head.html"?>
+			
+			<div id="cont" class="weather">
+				<?teng include file="_menu.html"?>
+				
+				<div id="main">
+					<form action="/setupWeatherProcess" method="post" id="form-weather">
+						<input type="hidden" value="${.hashId}" name="hashid" />	
+						<?teng include file="_status.html"?>
+
+						<h2>#{weather_title_settings}</h2>
+
+						<input type="hidden" name="hashId" value="${.hashId}" />
+						<?teng frag county?>
+							<h3 id="country_${_number}" ${!exist(selected)? 'class="close"' :'class="open"'}><a href="?countyId=${id}">${name}</a></h3>
+							<div class="country" id="box_country_${_number}">
+								<?teng frag district ?>
+									<p>
+										<input type="radio" name="districtId" id="region_${county._number}${_number}" value="${id}" ${$selected == 1 ? 'checked="checked"' : ''} /> <label for="region_${county._number}${_number}">${name}</label>
+									</p>
+								<?teng endfrag?>
+							</div>
+						<?teng endfrag?>
+						<p class="button">
+							<input type="submit" value="#{save_butt}" />
+						</p>
+						<?teng include file="_status.html"?>
+					</form>
+					<div class="picture">
+						<img src="#{PATH_IMG}/homepage_screen_weather_set.png" width="232" height="288" alt="" />
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>		
+			<?teng include file="_foot_other.html"?>
+			<?teng include file="_settings_netmonitor.html"?>
+		</div>
+	</body>
+</html>

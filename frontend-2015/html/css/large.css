@@ -1,0 +1,91 @@
+/* 
+* Large - Media Query
+* (min-width: 950px) and (max-width: 1128px)
+*/
+html										{ font-size:106.5%; -webkit-text-size-adjust: auto; }
+body										{ font-size:76.5%; }
+/*body										{ font-size: 13.04px; }*/
+/*body										{ font-size: 13.5px; }*/
+
+#search #tabs 								{ display: block; }
+
+.rss-feed .g-cnt td .hlp				{ padding-bottom: 0px;  }
+.rss-feed .gagdet-cont .perex 			{ display: block !important; }
+
+#head										{ min-height: 4.1em; }
+
+#hint-cont									{ display: block;}
+
+#outer-page.widepage						{ min-width:1240px; max-width:1600px; /*_padding:expression(ms_setPadding(1200,1600)); _width:expression(ms_setWidth(1200,1600)); min-width:1200px !important; max-width:160px !important;*/ }
+#outer-page.widepage #page					{ padding:0 16px; margin: 0 10px; }
+
+.normalpage #outer-page						{ margin: 0 auto; min-width: 950px; max-width: 1100px; }
+.normalpage #head-cont						{ width: auto; min-width: 100%; }
+
+#col_1, #col_2, #col_3 						{ max-width: none; }
+
+/* hlavicka s vyhledavanim */
+#search-cnt 								{ width: 840px; max-width: 840px; left: -30px; overflow: visible; }
+
+#search-cnt .window-container 				{ border-radius:none; padding: 0; margin: 0; position: relative; background: transparent url(/st/img/2011/bubble-white.png) no-repeat 0 0; height: 118px; width: 100%; min-width: inherit; }
+#search-cnt.std .window-container			{ background-image:url(/st/img/2011/bubble-dashed.png); }
+
+#search-cnt .dog 							{ display: block; }
+#search-cnt .window-content					{ width: 783px; top: 24px; }
+#search-cnt-inner 							{  }
+#search h1	 								{ width: 255px; }
+#search h1 img 								{ width: auto; height: auto; top:0; }
+
+/*nase sluzby a pocasi*/
+.newItem a											{ background:url(/st/img/new.gif) no-repeat 100% 50%; padding-right: 25px; }
+
+/* email gadget */
+#gadget-3 .g-cnt form 						{ padding: 20px 40px 5px 40px; }
+.email-feed .table .td.emailContent			{ width: 90%; }
+
+/* stream */
+#gadget-14 .movie.old 						{ height: 9.88em; }
+
+
+/* odkazy na seznam sluzby */
+
+#gadget-6 .services						{ width: 18.5%; }
+#gadget-6 .title						{ height: 1.2em;}
+
+.col_2 #gadget-6 #services #se1			{ width: 19%; min-width: 100px;}
+.col_2 #gadget-6 #services #se2			{ width: 11%; min-width: 68px;}
+.col_2 #gadget-6 #services #se3			{ width: 16%; min-width: 80px; padding-left:20px; }
+
+.col_3 #gadget-6 #services #se1			{ width: 21.7%; padding-right: 8px; }
+.col_3 #gadget-6 #services #se2			{ width: 16.7%; padding-right: 7px; }
+.col_3 #gadget-6 #services #se3			{ width: 19.7%; padding-right: 7px; background: none; padding-left: 0;}
+
+.col #gadget-6 .services				{ padding-right: 10px; }
+
+#gadget-6 #services #se2				{ padding-right: 0; }
+
+.col_3 #gadget-6 .g-cnt .day			{ margin: 6px 7px 0 0; }
+.col_3 #gadget-6 .g-cnt .day.last		{ margin-right: 0; }
+
+#gadget-6 .gift 						{ left:-20px; padding-left: 20px; position: relative; }
+#gadget-6 .gift a 						{ background: url("/st/img/darek.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0); left: -20px; padding-left: 20px; position: relative; } 
+#gadget-6 #services #se2 				{ padding-right: 0; }
+
+/* firmy gadget */
+#gadget-8 .g-cnt .lists 					{ padding: 5px 11px 0px; }
+#gadget-8 .g-cnt li							{ width:24%; }
+
+@media (min-width: 1210px) {
+	#col_2 #gadget-8 .promo-man 				{ display: block; }
+}
+
+/* gadget-14 - videostream*/
+#gadget-14 #more-news.under					{ padding-top:4px; }
+
+/* slovnik */
+#gadget-10 .g-cnt .text						{ width:74%; }
+
+/*------- nastaveni -------*/
+#settings .section							{ max-width: 830px; margin:29px 0 29px 180px !important; }
+#settings .submit-line .cnt					{ margin-left: 202px !important; }
+#head #info 								{ padding: 4px 10px 0 10px !important; }

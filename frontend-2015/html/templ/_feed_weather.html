@@ -1,0 +1,102 @@
+<div id="gadget-4" class="s_win" data-dot="gadgetPocasi">
+<?teng format space="onespace"?>
+	<div class="gagdet-cont">
+		<div class="main-cont">
+			<h3 class="title s_win_title">
+				<span class="text entry-title"><a href="http://www.pocasi.#{_tld}/">#{weather_title} ${title}</a></span>
+				<span class="edit">
+					<?teng if $.userId > 0?>
+						<a href="/nastaveni-pocasi" class="edit-text">Upravit</a>
+					<?teng endif?>
+				</span>
+				<span class="bck"></span>
+			</h3>
+
+				<div class="gadget-settings">
+					<div class="settings-cont">
+						<div class="settings-main">
+							<div class="setting-bck">
+								<div class="title-setting">
+									<?teng if $.userId > 0?>
+										<span class="close-win-img-span"><a href="#" class="close-win-img">Odebrat box</a></span>
+									<?teng endif?>
+									<span class="close-sett"><a href="" class="close-setting-link">Upravit</a></span>
+								</div>
+								<div class="setting-cont">
+									<form action="/">
+										<div class="general-settings">
+											<label>
+												<input type="checkbox" name="auto_detect" id="auto_detect" value="1" />
+												Automatická detekce lokality
+											</label>
+										</div>
+										<div class="row">
+											<label for="county">Vyberte region:</label>
+											<select name="county" id="county">
+												<?teng frag .county?>
+													<option value="${id}" ${$selected ? 'selected="selected"' : ''}>${name}</option>
+												<?teng endfrag?>
+											</select>
+										</div>
+										<div class="row">
+											<label for="district">Vyberte město:</label>
+											<select name="district" id="district">
+												<?teng frag .county?>
+													<?teng frag district?>
+														<option value="${id}" ${$selected ? 'selected="selected"' : ''}>${name}</option>
+													<?teng endfrag?>
+												<?teng endfrag?>
+											</select>
+										</div>
+										<div class="controls">
+											<input type="submit" name="" class="submit" value="Uložit nastavení" />
+											<input type="reset" name="" class="reset" value="Storno" />
+										</div>
+
+										<div class="next-settings">
+											<a href="/nove-nastaveni">Další nastavení Seznamu</a>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<div class="g-cnt s_win_area">
+				<?teng frag items?>
+					<div class="day${$_count-1 == $_number?' last':''}">
+						<p><strong>${case($_number, 0:#weather_today, 1:#weather_tomorrow, 2: date('%A',now()+172800,#time_date_string), 3: date('%A',now()+(259200),#time_date_string), *: '')}:</strong>
+						<?teng if exist(seznam_weatherTypeId) && $seznam_weatherTypeId !~ ''?>
+							<span class="weather-${seznam_weatherTypeId}-img-span"><img src="#{PATH_WEATHER}/${seznam_weatherTypeId}.gif" width="32" height="34" alt="${@('w_'++$seznam_weatherTypeId)}" title="${@('w_'++$seznam_weatherTypeId)}" /></span></p> <!--- --->
+							<p title="${(exist(seznam_temperature) && $seznam_temperature !~ '') ? #weather_act_help : #weather_help}">
+								<?teng if exist(seznam_temperature) && $seznam_temperature !~ ''?>
+									${seznam_temperature} °C
+								<?teng else?>
+									${seznam_minTemperature}/${seznam_maxTemperature} °C
+								<?teng endif?>
+							</p>
+						<?teng else?>
+							<span class="weather-J-img-span"><img src="#{PATH_WEATHER}/J.gif" width="32" height="34" alt="Jasno" title="Jasno" /></span></p> <!--- --->
+							<p title="#{weather_help}">
+								20/25 °C
+							</p>
+						<?teng endif?>
+					</div>
+				<?teng endfrag?>
+				<div class="clear"></div>
+			</div>
+		</div>
+	</div>
+<?teng endformat?>
+</div>
+
+
+	<script type="text/javascript">
+	/* <![CDATA[ */
+		JAK.gadget4 = new JAK.Gadget('gadget-4','${feedId}');
+		JAK.gadget4.extSetting = new JAK.Gadget.WeatherSetting('${feedId}',JAK.gadget4);
+	/* ]]> */
+	</script>
+
+

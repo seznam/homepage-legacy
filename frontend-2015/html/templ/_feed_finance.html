@@ -1,0 +1,79 @@
+<div id="gadget-13" class="s_win" data-dot="gadgetFinance">
+<?teng format space="onespace"?>
+	<div class="gagdet-cont">
+		<div class="main-cont">
+			<h3 class="title s_win_title">
+				<span class="text entry-title">
+					<a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.porovnej24.cz/kurzy/'}">Kurzovní lístek</a>
+				</span>
+				<span class="edit">
+					<?teng if $.userId > 0?>
+						<a href="#" class="edit-text">Upravit</a>
+					<?teng endif?>
+				</span>
+				<span class="bck"></span>
+			</h3>
+			<?teng if $.userId > 0?>
+				<div class="gadget-settings">
+					<div class="settings-cont">
+						<div class="settings-main">
+							<div class="setting-bck">
+								<div class="title-setting">
+
+									<?teng if $.userId > 0?>
+										<span class="close-win-img-span"><a href="#" class="close-win-img">Odebrat box</a></span>
+									<?teng endif?>
+									<span class="close-sett"><a href="" class="close-setting-link">Upravit</a></span>
+								</div>
+								<div class="setting-cont">
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?teng endif?>
+
+			<div class="g-cnt s_win_area">
+					<div class="push">
+						<div id="rate">
+								<?teng frag items?>
+
+								<?teng if $_number > 1 && $_number < 4 ?>
+
+										<span class="curr" title="${reorder(#exchange_show_graph, case($title, 'GBP': 'britské libry', 'USD':' amerického dolaru', 'EUR':'eura', 'SKK':'slovenské koruny'))}">${$title =~ 'Natural 95'?#exchange_natural95:$title}</span>
+										<span class="price">
+											<?teng if $description == 0?>
+												<strong>${numformat($description,0,',',' ')} #{exchange_kc}</strong>
+											<?teng else?>
+												<strong>${numformat($description,2,',',' ')} #{exchange_kc}</strong>
+											<?teng endif?>
+										</span>
+										<span class="tendence">
+											<?teng if $seznam_content == 0?>
+												<img src="#{PATH_IMG_2011}rate-tendency-stable.gif" width="9" height="8" alt="#{exchng_stay}" title="${numformat($seznam_content,2,',',' ')}%" />
+											<?teng elseif $seznam_content > 0?>
+												<img src="#{PATH_IMG_2011}rate-tendency-up.png" width="9" height="8" alt="#{exchng_rise}" title="#{exchng_rise_for} +${numformat($seznam_content,2,',',' ')}%" />
+											<?teng else?>
+												<img src="#{PATH_IMG_2011}rate-tendency-down.png" width="9" height="8" alt="#{exchng_fall}" title="#{exchng_fall_for} ${numformat($seznam_content,2,',',' ')}%" />
+											<?teng endif?>
+										</span>
+
+								<?teng endif?>
+
+							<?teng endfrag?>
+						</div>
+						<h4 class="more-news"><a data-dot="more" href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.porovnej24.cz/kurzy/'}">Celý kurzovní lístek &raquo;</a></h4>
+					<div class="clear"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?teng endformat?>
+</div>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+	JAK.gadget13 = new JAK.Gadget('gadget-13','${feedId}');
+/* ]]> */
+</script>

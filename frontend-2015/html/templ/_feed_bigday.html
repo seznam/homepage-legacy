@@ -1,0 +1,81 @@
+<?teng frag .title?>
+	<div id="gadget-23" class="s_win disableMove" data-dot="bigDay">
+		<?teng format space="onespace"?>
+			<?teng if $titleType =~ "mapy" ?>
+				<div class="gagdet-cont mapy">
+					<div class="main-cont">
+						<h3 class="title s_win_title" style="display:none;"></h3> <!--- hlavicka tu musi byt vzdy, tak ji jen skryjeme --->
+						<div class="g-cnt s_win_area">
+							<?teng if $_first && exist(pictureUrl) && $pictureUrl !~ ''?>
+								<div class="image-wrapper">
+									<?teng set __isImage = 1?> <!--- pomocna promena existence obrazku --->
+									<?teng if exist(url) && $url !~ ''?>
+										<a href="#{SERVICE_URL}/jsTitleExecute?id=${id}&amp;h=${hash}"><img src="#{PATH_BIGDAY_IMG}/${pictureUrl}" alt="" /></a>
+									<?teng else?>
+										<img src="#{PATH_BIGDAY_IMG}/${pictureUrl}" alt="" />
+									<?teng endif?>
+								</div>
+							<?teng endif?>
+							<div class="text-wrapper">
+								<ul>
+									<li>
+										<p><span class="title2">${unescape($perex)}</span></p>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<a href="#" class="edit-text">Zavřít x</a>
+					</div>
+				</div>
+			<?teng else ?>
+				<div class="gagdet-cont">
+					<div class="main-cont">
+						<h3 class="title s_win_title">
+							<span class="text"><a href="http://www.seznam.#{_tld}/">${boxTitle}</a></span>
+							<span class="edit">
+								<a href="#" class="edit-text">Zavřít</a>
+							</span>
+							<span class="bck"></span>
+						</h3>
+
+						<div class="g-cnt s_win_area">
+							<div id="nowbox">
+									<?teng if $_first && exist(pictureUrl) && $pictureUrl !~ ''?>
+										<?teng set __isImage = 1?> <!--- pomocna promena existence obrazku --->
+										<?teng if exist(url) && $url !~ ''?>
+											<a href="#{SERVICE_URL}/jsTitleExecute?id=${id}&amp;h=${hash}"><img width="135" src="#{PATH_BIGDAY_IMG}/${pictureUrl}" alt="" /></a>
+										<?teng else?>
+											<img width="135" src="#{PATH_BIGDAY_IMG}/${pictureUrl}" alt="" />
+										<?teng endif?>
+									<?teng endif?>
+									<div class="cont${!exist(__isImage) ? ' noImage' : ''}">
+										<ul>
+											<li>
+												<?teng if exist(url) && $url !~ '' ?>
+													<strong><a href="#{SERVICE_URL}/jsTitleExecute?id=${id}&h=${hash}">${title}</a></strong>
+													<p>${perex}</p>
+												<?teng else?>
+													<strong>${title}</strong>
+													<p><span class="title2">${perex}</span></p>
+												<?teng endif?>
+											</li>
+										</ul>
+									</div>
+								<div class="clear"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?teng endif ?>
+		<?teng endformat?>
+	</div>
+<?teng endfrag ?>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+	JAK.gadget23 = new JAK.Gadget('gadget-23','');
+	JAK.gadget23.extGadg = new Homepage.BigDayOff('gadget-23','${feedId}');
+/* ]]> */
+</script>
+
+

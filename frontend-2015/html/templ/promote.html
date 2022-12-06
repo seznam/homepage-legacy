@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="cs">
+	<?teng set var_settings = 1 ?>
+	<head>
+		<?teng set var_Promote = 1 ?>
+		<title>#{SERVICE_NAME_TITLE}</title>
+		<?teng include file="_common_files.html"?>
+	</head>
+
+	<body id="www-seznam-cz" class="${.scheme}">
+		<div id="page">
+			<?teng include file="_head.html"?>
+
+			<div id="cont" class="promote">
+				<?teng include file="_menu.html"?>
+
+				<div id="main">
+					<?teng include file="_status.html"?>
+
+					<h2>#{promote_title}</h2>
+					<p>
+						#{promote_help_text}<br />
+					</p>
+
+					<form action="/" method="post">
+						<input type="hidden" name="hashId" value="${.hashId}" />
+						<h2>#{promote_step1}:</h2>
+						<div id="icons">
+							<div>
+								<input type="radio" name="icon" id="icon0" value="#{PATH_IMG_WEB_ICO}#{PATH_IMG}/ico/1_ico_add_seznam_black.gif" checked="checked" />
+								<label for="icon0"><img src="#{PATH_IMG}/ico/1_ico_add_seznam_black.gif" width="76" height="17" alt="#{promote_ad_rss}" /></label>
+							</div>
+							<div>
+								<input type="radio" name="icon" id="icon1" value="#{PATH_IMG_WEB_ICO}#{PATH_IMG}/ico/1_ico_add_seznam_black2.gif" />
+								<label for="icon1"><img src="#{PATH_IMG}/ico/1_ico_add_seznam_black2.gif" width="76" height="17" alt="#{promote_ad_rss}" /></label>
+							</div>
+							<div>
+								<input type="radio" name="icon" id="icon2" value="#{PATH_IMG_WEB_ICO}#{PATH_IMG}/ico/1_ico_add_seznam_blue.gif" />
+								<label for="icon2"><img src="#{PATH_IMG}/ico/1_ico_add_seznam_blue.gif" width="76" height="17" alt="#{promote_ad_rss}" /></label>
+							</div>
+							<div>
+								<input type="radio" name="icon" id="icon3" value="#{PATH_IMG_WEB_ICO}#{PATH_IMG}/ico/1_ico_add_seznam_white.gif" />
+								<label for="icon3"><img src="#{PATH_IMG}/ico/1_ico_add_seznam_white.gif" width="77" height="22" alt="#{promote_ad_rss}" /></label>
+							</div>
+							<div>
+								<input type="radio" name="icon" id="icon4" value="#{PATH_IMG_WEB_ICO}#{PATH_IMG}/ico/1_ico_rss_seznam_black.gif" />
+								<label for="icon4"><img src="#{PATH_IMG}/ico/1_ico_rss_seznam_black.gif" width="79" height="22" alt="#{promote_ad_rss}" /></label>
+							</div>
+							<div>
+								<input type="radio" name="icon" id="icon5" value="#{PATH_IMG_WEB_ICO}#{PATH_IMG}/ico/1_ico_rss_seznam_black2.gif" />
+								<label for="icon5"><img src="#{PATH_IMG}/ico/1_ico_rss_seznam_black2.gif" width="77" height="22" alt="#{promote_ad_rss}" /></label>
+							</div>
+							<div>
+								<input type="radio" name="icon" id="icon6" value="#{PATH_IMG_WEB_ICO}#{PATH_IMG}/ico/1_ico_rss_seznam_blue.gif" />
+								<label for="icon6"><img src="#{PATH_IMG}/ico/1_ico_rss_seznam_blue.gif" width="83" height="21" alt="#{promote_ad_rss}" /></label>
+							</div>
+							<div>
+								<input type="radio" name="icon" id="icon7" value="#{PATH_IMG_WEB_ICO}#{PATH_IMG}/ico/1_ico_rss_seznam_white.gif" />
+								<label for="icon7"><img src="#{PATH_IMG}/ico/1_ico_rss_seznam_white.gif" width="42" height="21" alt="#{promote_ad_rss}" /></label>
+							</div>
+						</div>
+						<div class="clear"></div>
+
+						<div>
+							<h2>#{promote_step2}</h2>
+							<div class="row">
+								<label for="rsssource">#{promote_url}:</label>
+								<input type="text" name="rsssource" id="rsssource" value="http://" />
+							</div>
+							<div class="row">
+								<label for="rssname">#{promote_name}:</label>
+								<input type="text" name="rssname" id="rssname" value="" />
+							</div>
+							<p class="button">
+								<input type="submit" value="#{promote_generate}" id="generateHTML" />
+							</p>
+						</div>
+						<div id="third-step" class="nodisplay">
+							<div>
+								<h2>#{promote_step3}</h2>
+								<textarea rows="6" cols="50" name="html" id="html" readonly="readonly"></textarea>
+							</div>
+
+							<div>
+								<h4>#{promote_add_icon_to_page}</h4>
+								<p>
+								#{promote_add_help}
+								</p>
+								<p>
+									#{promote_add_help2}
+								</p>
+							</div>
+						</div>
+					</form>
+					<script type="text/javascript">
+					/* <![CDATA[ */
+						JAK.promote = new JAK.Promote();
+						JAK.promote.init(JAK.gel('html'),JAK.gel('rssname'),JAK.gel('rsssource'),JAK.gel('icons'),JAK.gel('third-step'));
+					/* ]]> */
+					</script>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<?teng include file="_foot_other.html"?>
+			<?teng include file="_settings_netmonitor.html"?>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<?teng set $.variation = ""?>
+<html lang="cs">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="application-name" content="#{SERVICE_NAME}" />
+	<title>#{SERVICE_NAME_TITLE}</title>
+
+	<?teng if $.columns._count!=3 && $.hp_responsive =~ 'on' ?>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<?teng endif?>
+	<link rel="alternate" type="application/rss+xml" title="Seznam.cz" href="http://seznam.seznamblog.cz/rss" />
+
+	<?teng format space="onespace"?>
+		<link rel="shortcut icon" href="#{PATH_IMG}/favicon.ico" />
+		<meta content="#{PATH_IMG}/logo_share.png" property="og:image"/>
+		<link href="#{PATH_IMG}/logo_share_fb.jpg" rel="image_src">
+
+		<!--- titulek web clip ikony pro iOS6+ --->
+		<meta name="apple-mobile-web-app-title" content="Seznam.cz" />
+		<link rel="apple-touch-icon" href="#{PATH_IMG}/apple/apple-touch-icon.png" />
+
+		<!--- openid --->
+		<link rel="openid2.provider openid.server" href="http://id.szn.#{_tld}/openidserver" />
+		<meta http-equiv="X-XRDS-Location" content="http://id.seznam.#{_tld}/yadis" />
+
+		<script type="text/javascript">
+			/* <![CDATA[  */
+				/* predavani domeny prvniho radu do JS */
+				var _tld = "#{_tld}";
+				var pozice = new Array();
+			/* ]]> */
+		</script>
+
+		<link rel="stylesheet" href="#{PATH_CSS}/top-articles.css#{VERSION}" media="all" />
+
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_COMMON}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_CALENDAR}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_TOP_ARTICELS_CALENDAR}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_HTTPSLINKS}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{DIR_JS_TOP_ARTICLES}/#{FILE_JS_TOP_ARTICLES}#{VERSION}"></script>
+
+		<?teng if $.scheme =~ 'https'?>
+			<!--- zachovani refferu pri https spojeni --->
+			<script type="text/javascript">
+				/* <![CDATA[ */
+					var patterns = [
+					'#{HTTPS_PATTERN1}',
+					'#{HTTPS_PATTERN2}',
+					'#{HTTPS_PATTERN3}'
+					];
+					new JAK.HttpsLinks(patterns,'#{_tld}');
+				/* ]]> */
+			</script>
+		<?teng endif?>
+
+		<meta content="Nejnavštěvovanější český internetový portál nabízející vyhledávač, Email, aktuální zprávy, předpověď počasí a odkazy, které se mohou hodit." name="description" />
+</head>
+
+<body id="www-seznam-cz">
+	<div class="js-top-articles-promo top-articles-promo"></div>
+
+	<a accesskey="1" class="blind" href="http://www.ippi.cz/klavesove-zkratky/neni-mapa-stranek.html">Klávesové zkratky na tomto webu</a>
+
+	<div id="header">
+		<a accesskey="2" href="${scheme}://www.seznam.#{_tld}" id="sznLogo">
+			<img id="logo" src="#{PATH_IMG}/#{SERVICE_LOGO}" width="150" alt="Logo Seznam.cz" title="Seznam" />
+		</a>
+	</div>
+
+	<?teng frag .registration ?>
+		<?teng if exist(status) ?>
+			<?teng if $status =~ "ok" || $status =~ "email_checked" || $status =~ "email_deleted" || $status =~ "email_already_checked" ?>
+				<script type="text/javascript">setTimeout(function() { window.scrollTo(0,0);}, 0);</script>
+				<?teng if $status =~ "ok" ?>
+					<div class="modal-registration-done">
+						<div class="modal-content">
+							<div class="content-wrapper">
+								<strong class="heading">Děkujeme za registraci</strong>
+								<div class="texts">Odeslali jsme Vám na e-mail potvrzovací odkaz.</div>
+							</div>
+							<div class="btn-area">
+								<a href="/nejctenejsi-clanky" class="top-articles-btn">Zavřít</a>
+							</div>
+						</div>
+					</div>
+				<?teng elseif $status =~ "email_checked" ?>
+					<div class="modal-email-checked js-modal-email-checked">
+						<strong class="heading">Vaše e-mailová adresa byla potvrzena</strong>
+						<div class="texts">
+							Od zítřka najdete každé ráno v e-mailu přehled nejčtenějších článků.<br />
+							Odběr kdykoli zrušíte přímo v e-mailu kliknutím na odhlašovací odkaz.
+						</div>
+						<div class="picture">
+							<img class="picture-image" src="#{PATH_IMG}/top_articles_checked.png" />
+						</div>
+						<div class="btn-area">
+							<a href="/nejctenejsi-clanky" class="top-articles-btn">Pokračovat na nejčtenější články</a>
+						</div>
+					</div>
+				<?teng elseif $status =~ "email_already_checked" ?>
+					<div class="modal-email-checked js-modal-email-checked">
+						<strong class="heading">Váš e-mail byl již potvrzen.</strong>
+						<div class="picture">
+							<img class="picture-image" src="#{PATH_IMG}/top_articles_checked.png" />
+						</div>
+						<div class="btn-area">
+							<a href="/nejctenejsi-clanky" class="top-articles-btn">Pokračovat na nejčtenější články</a>
+						</div>
+					</div>
+				<?teng elseif $status =~ "email_deleted" ?>
+					<div class="modal-email-deleted js-modal-email-deleted">
+						<strong class="heading">Odhlásili jste se z odběru nejčtenějších článků</strong>
+						<div class="texts">
+							Pořád je ale můžete sledovat přímo na <a href="/nejctenejsi-clanky">této stránce</a>.
+						</div>
+						<div class="picture">
+							<img class="picture-image" src="#{PATH_IMG}/top_articles_deleted.png" />
+						</div>
+						<div class="btn-area">
+							<a href="/" class="top-articles-btn">Pokračovat na Seznam.cz</a>
+						</div>
+					</div>
+				<?teng endif ?>
+			<?teng endif ?>
+		<?teng endif ?>
+	<?teng endfrag ?>
+
+	<div id="content">
+		<?teng frag top_articles?>
+			<div id="mainTitle">
+				<h1>Nejčtenější články ${case(date('%w', $date, #time_date_string_from), "0","1","2","5" : "z", * : "ze")} <span id="dateWrapper"><button id="calendarOpener">${date('%A, '++#date_format_wo++' %Y', $date, #time_date_string_from)}&nbsp;&nbsp;&nbsp;</button></span></h1>
+
+				<script type="text/javascript">
+					/* <![CDATA[  */
+						window.onload=function(){
+							/*-JAK.CalendarTopArticles.setup("http://jak.seznam.cz/img/widgets/calendar/calendar_icon.gif", "změnit datum", {}, "calendarOpener");-*/
+							JAK.CalendarTopArticles.setup("změnit datum", "calendarOpener", "${date}", "${date('%Y%m%d', now())}", "${date('%Y%m%d', $first_data_date)}");
+						}
+					/* ]]> */
+				</script>
+			</div>
+
+			<h2>Top 10</h2>
+			<ol>
+				<?teng frag articles?>
+					<?teng if $_number =~ 0?>
+						<?teng set $._bar100 = $count?>
+						<?teng set $_progress = 100 ?>
+					<?teng else?>
+						<?teng set $_progress = 100 * $count / $._bar100 ?>
+					<?teng endif?>
+					<li>
+						<div>
+							<span class="bar"><span class="progress" style="width:${_progress}%;"></span></span>
+							<span class="service">${service_name}</span>
+							<a href="${link}" class="link">${title}</a>
+							<span class="clear"></span>
+						</div>
+					</li>
+				<?teng endfrag?>
+			</ol>
+
+			<?teng frag services?>
+				<h2>${service_name}</h2>
+				<ol>
+					<?teng frag articles?>
+						<li><a href="${link}">${title}</a></li>
+					<?teng endfrag?>
+				</ol>
+			<?teng endfrag?>
+		<?teng endfrag?>
+
+		<div class="top-articles-form js-top-articles-form">
+			<a name="regform"></a>
+
+			<h3 class="top-articles-form-header">Nejčtenější články můžete dostávat na e-mail</h3>
+
+			<form action="/nejctenejsi-clanky/registrace" class="js-form" method="post">
+				<?teng if exist(.registration) ?>
+					<?teng frag registration ?>
+						<input type="text" name="email" class="input-field js-email email" value="${email}" placeholder="Váš email">
+						<?teng if exist(status) ?>
+							<?teng if $status =~ "email_already_exists" || $status =~ "email_invalid_format" ?>
+								<p class="status-message error">
+									${case(
+										$status,
+										"email_already_exists" : "Zadaný e-mail již v naší databázi existuje. Zadejte jiný.",
+										"email_invalid_format": "Zadaný e-mail má špatný formát. Zadejte e-mail ve formátu jmeno@domena."
+									)}
+								</p>
+							<?teng endif ?>
+						<?teng endif ?>
+					<?teng endfrag ?>
+				<?teng else ?>
+					<input type="text" name="email" class="input-field js-email email" placeholder="Váš e-mail">
+				<?teng endif ?>
+				<?teng frag .registration ?>
+					<?teng if exist(status) && ($status =~ "bad_captcha" || $status =~ "email_already_exists") ?>
+						<?teng set .__captchaShown = 1 ?>
+					<?teng endif ?>
+				<?teng endfrag ?>
+				<div class="captcha-content js-captcha-content ${exists(.__captchaShown) ? '' : 'hidden'}">
+					<div class="captcha-box">
+						<div class="captcha-image-box">
+							<img src="${.captcha_img}" class="js-captcha-image captcha-image" />
+						</div>
+						<div class="refresh-code-box">
+							<button type="button" class="js-refresh-code-btn refresh-code-btn">Obnovit kód</button>
+						</div>
+					</div>
+					<input type="hidden" name="captcha_hash" class="js-captcha-hash captcha-hash" value="${.captcha_hash}">
+					<div class="captcha-field-box">
+						<input type="text" name="captcha_code" class="input-field captcha-code" placeholder="Kód z obrázku">
+					</div>
+				</div>
+				<?teng frag .registration ?>
+					<?teng if exist(status) && $status =~ "bad_captcha" ?>
+						<p class="status-message error">
+							Kód z obrázku nebyl správně opsán.
+						</p>
+					<?teng endif ?>
+				<?teng endfrag ?>
+				<div class="register-box">
+					<input type="submit" class="top-articles-btn" value="Chci dostávat články">
+				</div>
+			</form>
+
+			<script type="text/javascript">
+				(function() {
+					new TopArticles();
+				})();
+			</script>
+		</div>
+	</div>
+
+	<?teng include file="_foot.html"?>
+
+	<script type="text/javascript">
+		/* <![CDATA[ */
+			var pp_gemius_identifier = '0sI1v67CVS13jThCBi9STWX2.BM19MvLSMm5e.Ce2LL.n7';
+			var pp_gemius_extraparameters = new Array('gA=seznam.cz/homepage_Seznam.cz/nejctenejsi_clanky');
+
+			function gemius_pending(i) {window[i] = window[i] || function() {var x = window[i+'_pdata'] = window[i+'_pdata'] || []; x[x.length]=arguments;};};
+			gemius_pending('gemius_hit'); gemius_pending('gemius_event');
+			gemius_pending('pp_gemius_hit'); gemius_pending('pp_gemius_event');
+			(function(d,t) {try {var
+			gt=d.createElement(t),s=d.getElementsByTagName(t)[0];
+			gt.setAttribute('async','async'); gt.setAttribute('defer','defer');
+			gt.src=location.protocol+'//gacz.hit.gemius.pl/xgemius.js';
+			s.parentNode.insertBefore(gt,s);} catch (e) {}})(document,'script');
+		/* ]]> */
+	</script>
+</body>
+</html>

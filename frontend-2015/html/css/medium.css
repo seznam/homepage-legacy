@@ -1,0 +1,170 @@
+/*
+* Medium - Media Query
+* (min-width: 760px) and (max-width: 949px)
+-*/
+
+body 											{ font-size: 14px; }
+
+#bckimg 										{ display: block; }
+
+#head #info #choose-skin 						{ display: inline; }
+#search #tabs 									{ display: block; }
+#gadget-X	 									{ display: none; }
+
+/* Stream */
+#gadget-14 .movie.old 						{ height: 9.6em; }
+
+
+/* skiny */
+
+#skins #skin-list								{ padding:30px 0 6px; }
+
+/* sloupce obsahu */
+.col_2 #col_1									{ float:left; width:53%; _height:1px; margin-right:3%; }
+.col_2 #col_2									{ float:left; width:44%; _width:43%; _height:1px; }
+
+.col_3 #col_1									{ float:left; width:31.5%; _height:1px; margin-right:2%; }
+.col_3 #col_2									{ float:left; width:32%; _height:1px; margin-right:2%; }
+.col_3 #col_3									{ float:left; width:32%; _height:1px; }
+
+/* novinky gadget */
+#gadget-1.rss-feed .g-cnt td .top-foto 					{ height: auto; width: auto; }
+#gadget-1.rss-feed .g-cnt td.top .text-box strong 		{ font-size: 115.5%; line-height: 1.3; }
+#gadget-1.rss-feed .g-cnt .text-box 					{ margin-left: 169px; }
+
+/* email gadget */
+#gadget-3 .g-cnt .login 						{ width: 40%; }
+.email-feed .g-cnt .superSelect 				{ width: 36%; }
+.email-feed .g-cnt .button 						{ width: 36%; }
+#gadget-3 .g-cnt form 							{ padding:20px 3% 5px 3%; }
+
+.normalpage #head-cont							{ width: auto; min-width: 100%; }
+.normalpage #outer-page 						{ margin: 0 auto; min-width: 530px; max-width: 949px; }
+
+.email-feed .table .td.emailContent				{ width: 89%; }
+
+/*- Email small -*/
+#gadget-3									{ display: block; }
+
+/* email google */
+#gadget-190 .g-cnt .button 					{ width: 5.8em }
+
+/* slovnik */
+#gadget-10 .g-cnt .text						{ width:73%; }
+
+/* Aukro */
+#AukroHP .g-cnt .push						{ padding: 0 20px 0 0  !important; }
+#AukroHP .page1 li							{ width:20%; margin-top:0; margin-right: 4%; }
+#AukroHP #navigace							{ padding:2px 0 12px 0; }
+
+/* hlavicka s vyhledavanim */
+
+#search-cnt 								{ width: auto; max-width: none; }
+#search-cnt .window-container 				{ position: relative; background: rgba(255,255,255,0.9); border-radius: 20px 20px 20px 20px; height: 118px; margin: 0 auto; padding: 0 10px; width: 85%; min-width: 700px; }
+#search-cnt .window-content					{ width: 685px; top: 24px; margin: 0 auto; }
+#search-cnt-inner 							{ display: table-cell; max-width: 470px; vertical-align: top; }
+#search h1	 								{ display: table-cell; width: 235px; padding-right: 5px; }
+#search h1 img 								{ width: 230px; height: auto; position: relative; top: 7px; }
+
+#search 									{ padding: 0; }
+
+#search-cnt .dog 								{ display: none; }
+
+/* odkazy na seznam sluzby */
+#gadget-6 .g-cnt								{ font-size: 13.04px; }
+#gadget-6 .g-cnt .day 							{ margin: 6px 10px 0 0; width: 62px; }
+#gadget-6 #services #se3 						{ padding-right: 5px; }
+/*
+#gadget-6 #services #se1						{ padding-right: 5px; width: 20%; min-width: 91px;}
+#gadget-6 #services #se2						{ padding-right: 4px; width: 13%; min-width: 66px;}
+#gadget-6 #services #se3						{ padding-right: 0px; width: 19%; min-width: 73px;}
+*/
+#gadget-6 .g-cnt .day.preLast					{ margin-right:4px; }
+
+#gadget-6 .services								{ height: 110px; }
+
+#gadget-6 .tip a								{ background: url("/st/img/tip.png") no-repeat 100% 4px; padding-right:15px;  }
+#gadget-6 .tip .noTip							{ background: none; padding-right:0; }
+.col_3 #gadget-6 .tip a							{ background: none; padding-right:0; }
+
+#gadget-6 .new a								{ background: url("/st/img/new.gif") no-repeat 100% 3px; padding-right:25px; }
+
+/*- katalog */
+#gadget-8 .g-cnt .lists							{ padding: 5px 0; }
+#gadget-8 .g-cnt li								{ width:32%; }
+
+/* mixer gadget */
+#gadget-24 #musicPreview 						{ display: block; }
+#gadget-24 #music li 							{ padding:0 1px; }
+
+/* sport gadget */
+#gadget-2 .g-cnt .text-box						{ margin-left: 80px; }
+
+/* tv gadget */
+#gadget-5 .g-cnt #times 						{ padding: 4px 7px 0; }
+#gadget-5 .g-cnt #tv-cont 						{ padding: 4px 7px 0; }
+
+/* zpravy idnes gadget */
+#gadget-0_9 span.perex 							{ display: block; }
+
+/* gadget-14 - videostream*/
+#gadget-14 #more-news.under						{ padding-top:4px; }
+
+/* paticka odkazy */
+#controls #s-links 								{ width: auto; }
+#controls #s-links #set-as-HP					{ display: inline; }
+
+/* slovnik */
+#gadget-10 .g-cnt .left-col,
+#gadget-10 .g-cnt .right-col					{ width:40%; }
+#gadget-10 .g-cnt .left-col div,
+#gadget-10 .g-cnt .right-col div				{ padding-top:0px; }
+
+/* notes */
+#gadget-11 .item .tit-cnt						{ cursor:hand; cursor:pointer; display: inline; }
+
+/* kurzy */
+#gadget-13 .tendence 							{ padding-right:43px; }
+
+/* vyznamny den */
+#gadget-23 .cont p 								{ display: block; }
+
+/* reklama */
+.gadget-commercial 								{padding-top: 16px;}
+
+/* paticka */
+#controls #s-links #set-as-HP span.t		{ background-position: 0 1px; }
+#controls #sett-sett-layout-link span.t		{ background-position: 0 2px; }
+#controls #s-links #firefoxDownload span.t	{ background-position: 0 1px; }
+#controls #set-jump span.t					{ background-position: 0 4px; }
+#controls #set-HP-default-sett span.t		{ background-position: 0 2px; }
+
+
+/*------- nastaveni -------*/
+#head .settings-link-span						{ display: inline; }
+#head #logo 									{ float: left; }
+#head #info 									{ float: right; text-align: right; }
+#settings #rss .feed 							{ width: 45% !important; margin-right: 15px; float: left; }
+#settings #skins 								{ display: block !important; }
+#settings #seek-list							{ float:left; width: 430px; }
+
+#controls #s-links li							{ display: inline; }
+
+.gadget-app-promo 								{ padding: 7px 0px 7px 10px; }
+
+#search .button {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#ececec");
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#ececec));
+	background-image: -moz-linear-gradient(top, #fff, #ececec);
+	background-image: linear-gradient(to bottom, #fff, #ececec);
+	width: auto;
+	min-width: 100px;
+	text-indent: 0;
+}
+
+#search .button:active {
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ececec", endColorstr="#ffffff");
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#ececec), to(#fff));
+	background-image: -moz-linear-gradient(top, #ececec, #fff);
+	background-image: linear-gradient(to bottom, #ececec, #fff);
+};

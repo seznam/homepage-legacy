@@ -1,0 +1,16 @@
+<div id="androidPromotion"></div>
+<script type="text/javascript">
+	<?teng frag .google_rating?>
+		var opt = {
+			'name': 'Seznam.cz',
+			'logo': '/st/img/androidAppPromotion/seznam-app-icon.png',
+			'appLink': 'http://ad.apps.fm/uYk6YE_rBSRRmK8tFMZOnA1UYx23jnVYiu2xeoxCi2dDFjnRcMHj5FmkWB0oMFI_MLISvU-5g31BCcTepYRuGf6toLCwVX3yJ6P89yHKIiQ',
+			'rating': '${rating}',
+			'widgetsImgPath': '/st/img/androidAppPromotion',
+		};
+
+		if(!JAK.Cookie.getInstance().get('sbrowser')) { /* v sbrowseru upoutávku nezobrazujeme */
+			new JAK.AndroidAppPromotion(JAK.gel('androidPromotion'), opt);
+		}
+	<?teng endfrag?>
+</script>

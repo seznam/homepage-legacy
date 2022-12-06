@@ -1,0 +1,95 @@
+<!---
+<div id="gadget-17" class="s_win fb-feed" data-dot="gadgetFacebook" style="display:none">
+<div id="fb-root"></div>
+	<?teng format space="onespace"?>
+	<div class="gagdet-cont">
+		<div class="main-cont">
+			<h3 class="title s_win_title">
+				<span class="text"><a href="http://www.facebook.com">Facebook <span id="log-user"></span></a></span>
+					<span class="edit">
+						<?teng if $.userId > 0?>
+							<a id="fb-settings" href="/prihlaseni" class="edit-text">Upravit</a>
+						<?teng endif?>
+					</span>
+				<span class="bck"></span>
+			</h3>
+			<?teng if $.userId > 0?>
+				<div class="gadget-settings">
+					<div class="settings-cont">
+						<div class="settings-main">
+							<div class="setting-bck">
+								<div class="title-setting">
+								<?teng if $.userId > 0?>
+										<span class="close-win-img-span"><a href="#" class="close-win-img">Odebrat box</a></span>
+									<?teng endif?>
+									<span class="close-sett"><a href="" class="close-setting-link">Upravit</a></span>
+								</div>
+								<div class="setting-cont">
+									<form action="/">
+										<div class="row">
+											<label for="count-fb">Počet zobrazených příspěvků:</label>
+											<?teng set __rowCount = 0?>
+											<?teng frag .facebook?>
+												<select name="count" id="count-fb">
+													<option value="1" ${$rowCount == 1 ? 'selected="selected"' :''}>1</option>
+													<option value="2" ${$rowCount == 2 ? 'selected="selected"' :''}>2</option>
+													<option value="3" ${$rowCount == 3 ? 'selected="selected"' :''}>3</option>
+													<option value="4" ${$rowCount == 4 ? 'selected="selected"' :''}>4</option>
+													<option value="5" ${$rowCount == 5 ? 'selected="selected"' :''}>5</option>
+													<option value="6" ${$rowCount == 6 ? 'selected="selected"' :''}>6</option>
+													<option value="7" ${$rowCount == 7 ? 'selected="selected"' :''}>7</option>
+													<option value="8" ${$rowCount == 8 ? 'selected="selected"' :''}>8</option>
+													<option value="9" ${$rowCount == 9 ? 'selected="selected"' :''}>9</option>
+													<option value="10" ${$rowCount == 10 ? 'selected="selected"' :''}>10</option>
+												</select>
+											<?teng endfrag?>
+										</div>
+										<div>
+											<input type="checkbox" name="showPicture" value="1" id="show-pic${feedId}" ${$showPreview ? 'checked="checked"' : ''} />
+											<label for="show-pic${feedId}" class="label-check">Zobrazit fotku u příspěvku</label>
+										</div>
+										<div class="row"><a href="#" id="fb-logout">Zastavit automatickou aktualizaci</a></div>
+										<div class="controls">
+											<input type="submit" name="" class="submit" value="Uložit nastavení" />
+											<input type="reset" name="" class="reset" value="Storno" />
+										</div>
+
+										<div class="next-settings">
+											<a href="/nove-nastaveni">Další nastavení Seznamu</a>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?teng endif?>
+			<div class="g-cnt s_win_area" id="fb-container"></div>
+			</script>
+		</div>
+	</div>
+	<?teng endformat?>
+</div>
+
+<?teng if $.userId > 0?>
+	<script type="text/javascript">
+	/* <![CDATA[ */
+		JAK.gadget17 = new JAK.Gadget('gadget-17', '${feedId}');
+
+		JAK.gadgetManager.addItem(JAK.gadget17);
+
+
+		<?teng frag .facebook?>
+			<?teng set .fbSession = unescape($sessionId)?>
+			<?teng set .fbShowPicture = ($showPicture =~ '' ? 0: $showPicture)?>
+			<?teng set .fbRowCount = ($rowCount =~ '' ? 0: $rowCount)?>
+			<?teng set .fbUid = ($uid =~ '' ? 0: $uid)?>
+		<?teng endfrag?>
+		JAK.gadget17.extGadg = new JAK.FB('${feedId}',JAK.gadget17, '<?teng ctype "application/x-javascript"?>${.fbSession}<?teng endctype?>', ${.fbShowPicture}, ${.fbRowCount}, '${.fbUid}');
+		JAK.gadget17.extSetting = new JAK.Gadget.FBSetting('${feedId}',JAK.gadget17, 17);
+
+
+	/* ]]> */
+	</script>
+<?teng endif ?>
+--->

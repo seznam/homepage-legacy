@@ -1,0 +1,41 @@
+<?teng format space="onespace"?>
+<!--- WARN :: zde nesmi byt nikde pouzity apostrofy ', jelikoz to leze i do js --->
+	<form id="login-form" action="#{SERVICE_SECURE_LOGIN}" method="post">
+		<input type="hidden" name="loggedURL" value="#{SERVER_EMAIL_LOGGED_URL}" />
+		<input type="hidden" name="serviceId" value="email" />
+		<input type="hidden" name="forceSSL" value="0" />
+		<p>
+			<label for="login">#{eml_name}:</label>
+			<input class="login" size="8" id="login" name="username" type="text"  value="${username}" />
+			
+			<select name="domain" id="domain">
+				<?teng frag domainList?>
+					<option value="${domain}" ${$domain =~ $.domain ?'selected="selected"':''}>@${domain}</option>
+				<?teng endfrag?>
+			</select>
+		</p>
+		
+		<p>
+			<label for="password">#{eml_pass}:</label>
+			<input class="login" size="8" id="password" name="password" type="password" />
+			<input type="submit" value="#{eml_dologin}" class="sub" />
+			<!--- detection of js for webmail --->
+			<input type="hidden" name="js" id="js" value="0" />
+		</p>
+		
+		<p id="remember-line" class="regist">
+			<input type="checkbox" id="remember" name="remember" value="1" ${$prefill == 1  ? 'checked="checked"' : ''} /> <label for="remember" title="#{eml_prefil_title}">#{eml_prefil}</label>
+		</p>
+		
+		<!--- js detection for webmail --->
+		<script type="text/javascript">
+		/* <![CDATA[ */ 
+				<?teng if exist(.javascriptLogin)?>
+					<!--- primo ve strance --->
+					email.init(gE("js"));
+				<?teng endif?>
+		/*	]]> */
+		</script>
+		<div id="nossl-login">#{eml_cannot_log_thru_ssl} <a href="#{SERVER_LOGIN_URL}/?disableSSL=1&amp;loggedURL=#{SERVER_EMAIL_LOGGED_URL}&amp;serviceId=email&amp;forceSSL=0">#{eml_ssl_click_here}</a></div>
+	</form>
+<?teng endformat?>

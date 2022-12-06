@@ -1,0 +1,54 @@
+<div id="controls" data-dot="controls">
+	<!--- to co jde videt v patitce --->
+	<h3 class="blind">Nastavení homepage</h3>
+	<ul id="s-links">
+		<?teng if defined(.beta_switch) ?>
+			<li>
+				<a href="/zkusit-betu" id="try-beta" title="Pomozte nám vyladit nový Seznam.cz"><span id="beta-new"><span class="t">Zkusit nový Seznam.cz</span></span></a>
+			</li>
+		<?teng endif ?>
+		<?teng if $.userId > 0?>
+			<li id="sett-sett-layout-link"><a id="sett-sett-layout-link-href" href="/nastaveni"></span><span class="t">Nastavení</span></a></li>
+			<li id="set-as-HP"><a href="/domovska-stranka"><span class="i"></span><span class="t">Nastavit Seznam jako domovskou stránku</span></a></li>
+			<li id="firefoxDownload">
+				<a href="/prohlizec/" title="Nejsnadnější cesta na Seznam.cz"><span class="i"></span>
+					<span class="t">Seznam.cz prohlížeč</span>
+				</a>
+			</li>
+		<?teng else?>
+			<li id="sett-sett-layout-link"><a href="/prihlaseni-nove-nastaveni"><span class="t">Nastavení</span></a></li>
+			<?teng if $.device =~ 'desktop' ?>
+			<li id="set-as-HP"><a id="set-as-HP-link" href="/domovska-stranka"><span class="t">Nastavit Seznam jako domovskou stránku</span></a></li>
+			<?teng endif?>
+			<?teng if $.anonymId != 0?>
+				<li id="set-HP-default-sett"><a href="/nastavit-vychozi?hashId=${.hashId}"><span class="t">Obnovit všechna nastavení</span></a></li>
+			<?teng endif?>
+			<li id="firefoxDownload">
+				<a href="/prohlizec/" title="Nejsnadnější cesta na Seznam.cz"></span>
+					<span class="t">Seznam.cz prohlížeč</span>
+				</a>
+			</li>
+		<?teng endif?>
+		<li>
+			<a href="/aplikace/" id="set-hp-services" title="Stahujte zdarma mobilní aplikace Mapy.cz, Super.cz, Sport.cz a další"><span class="t">Mobilní aplikace</span></a>
+		</li>
+		<li>
+			<a href="/nejctenejsi-clanky" id="top-articles"><span class="t">Nejčtenější články</span></a>
+		</li>
+	</ul>
+	<div class="clear"></div>
+
+	<!--- samotne vyskakovaci okno --->
+	<div class="center">
+		<div id="common-settings"></div>
+		<script type="text/javascript">
+			/* <![CDATA[ */
+				JAK.settings = new JAK.Settings(${$.userId > 0 ? 'true' : 'false'});
+				JAK.settingsWin = new JAK.SettingsWin(JAK.settings);
+				JAK.settingsWin.init();
+			/* ]]> */
+		</script>
+	</div>
+</div>
+
+

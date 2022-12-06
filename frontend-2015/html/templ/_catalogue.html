@@ -1,0 +1,36 @@
+<?teng frag letter?>
+	<?teng if $letter =~ '0'?>
+			   	
+				<!--- Spocteme pocet sekci na jeden sloupec --->
+				<?teng set .cn = ($.letter.item._count / 4)?>
+
+				<!--- Pripadne zvetsime pocet sekci v jednom sloupci, pokud se tam vse nevejde --->
+				<?teng if $.letter.item._count > 4*$.cn?>
+					<?teng set .cn = $.cn + 1 ?>
+				<?teng endif?>
+
+				<!--- Iterujeme sekce pro dane pismeno --->
+				<?teng set counter = 0?>
+				<?teng frag item?>
+					<!--- Pokud jsme v modulo pocet sekci na sloupec, vytvarime nove ul --->
+					<?teng if ($_number % $.cn) == 0?>
+						<?teng set letter.counter = $letter.counter+1?>
+						<!--- Jeste pred vytvorenim ul se podivame, zda nemame zavrit predchozi --->
+						<?teng if $_number > 0?>
+							</ul>
+						<?teng endif?>
+
+						<!--- Otevreme ul --->
+						<ul class="s${letter.counter}">
+					<?teng endif?>
+					
+						<li><a href="#{SERVER_CATALOGUE_URL}/${link}" title="${title}">${substr($title,0,15,'','...')}</a></li>
+					
+				<?teng endfrag?>
+
+				<!--- Pokud jsme meli nejake polozky, tak mame otevrene ul, zavreme ho --->
+				<?teng if $.letter.item._count > 0?>
+					</ul>
+				<?teng endif?>
+	<?teng endif?>
+<?teng endfrag?>

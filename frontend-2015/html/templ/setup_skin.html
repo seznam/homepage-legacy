@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="cs">
+	<head>
+		<title>#{SERVICE_NAME_TITLE}</title>
+		<?teng include file="_common_files.html"?>
+	</head>
+	
+	<body id="www-seznam-cz" class="${.scheme}">
+		<div id="page">
+			<?teng include file="_head.html"?>
+
+			<div id="cont" class="skin">
+				<?teng include file="_menu.html"?>
+				
+				<div id="main">
+					<?teng include file="_status.html"?>
+					<form action="/setupSkinProcess" method="post" id="skin-form">
+						<input type="hidden" value="${.hashId}" name="hashid" />
+					
+						<h2>#{skin_title_settings}</h2>
+						<input type="hidden" name="hashId" value="${.hashId}" />
+						
+						<div class="row">
+							<div class="coll">
+								<img src="#{PATH_IMG}/skins/skin-0.gif" width="150" height="173" alt="" id="skin-0" title="#{skin_click_select}" />
+								<div>
+									<input type="radio" name="skin" id="skin0" value="0" ${$skin == 0 ? 'checked="checked"' : ''} />
+									<label for="skin0" class="nofl">#{skin_0_title}</label>
+								</div>
+							</div>	
+							<div class="coll">	
+								<img src="#{PATH_IMG}/skins/skin-1.gif" width="150" height="173" alt="" id="skin-1" title="#{skin_click_select}" />
+								<div>
+									<input type="radio" name="skin" id="skin1" value="1" ${$skin == 1 ? 'checked="checked"' : ''} />
+									<label for="skin1" class="nofl">#{skin_1_title}</label>
+								</div>
+							</div>
+							
+							<div class="coll">	
+								<img src="#{PATH_IMG}/skins/skin-2.gif" width="150" height="173" alt="" id="skin-2" title="#{skin_click_select}" />
+								<div>
+									<input type="radio" name="skin" id="skin2" value="2" ${$skin == 2 	 ? 'checked="checked"' : ''} />
+									<label for="skin2" class="nofl">#{skin_2_title}</label>
+								</div>
+							</div>
+							
+							<div class="coll">	
+								<img src="#{PATH_IMG}/skins/skin-3.gif" width="150" height="173" alt="" id="skin-3" title="#{skin_click_select}" />
+								<div>
+									<input type="radio" name="skin" id="skin3" value="3" ${$skin == 3 	 ? 'checked="checked"' : ''} />
+									<label for="skin3" class="nofl">#{skin_3_title}</label>
+								</div>
+							</div>
+							<div class="clear"></div>
+							
+							<div class="coll">	
+								<img src="#{PATH_IMG}/skins/skin-4.gif" width="150" height="173" alt="" id="skin-4" title="#{skin_click_select}" />
+								<div>
+									<input type="radio" name="skin" id="skin4" value="4" ${$skin == 4 	 ? 'checked="checked"' : ''} />
+									<label for="skin4" class="nofl">#{skin_4_title}</label>
+								</div>
+							</div>
+							
+							<div class="coll">	
+								<img src="#{PATH_IMG}/skins/skin-5.gif" width="150" height="173" alt="" id="skin-5" title="#{skin_click_select}" />
+								<div>
+									<input type="radio" name="skin" id="skin5" value="5" ${$skin == 5 	 ? 'checked="checked"' : ''} />
+									<label for="skin5" class="nofl">#{skin_5_title}</label>
+								</div>
+							</div>
+							
+							<div class="coll">	
+								<img src="#{PATH_IMG}/skins/skin-6.gif" width="150" height="173" alt="" id="skin-6" title="#{skin_click_select}" />
+								<div>
+									<input type="radio" name="skin" id="skin6" value="6" ${$skin == 6 	 ? 'checked="checked"' : ''} />
+									<label for="skin4" class="nofl">#{skin_6_title}</label>
+								</div>
+							</div>
+							
+							<div class="coll">	
+								<img src="#{PATH_IMG}/skins/skin-7.gif" width="150" height="173" alt="" id="skin-7" title="#{skin_click_select}" />
+								<div>
+									<input type="radio" name="skin" id="skin7" value="7" ${$skin == 7 	 ? 'checked="checked"' : ''} />
+									<label for="skin7" class="nofl">#{skin_7_title}</label>
+								</div>
+							</div>
+							<div class="clear"></div>
+							
+							<div class="coll">	
+								<img src="#{PATH_IMG}/skins/skin-8.gif" width="150" height="173" alt="" id="skin-8" title="#{skin_click_select}" />
+								<div>
+									<input type="radio" name="skin" id="skin8" value="8" ${$skin == 8 	 ? 'checked="checked"' : ''} />
+									<label for="skin8" class="nofl">#{skin_8_title}</label>
+								</div>
+							</div>
+							
+							<div class="coll">	
+								<img src="#{PATH_IMG}/skins/skin-9.gif" width="150" height="173" alt="" id="skin-9" title="#{skin_click_select}" />
+								<div>
+									<input type="radio" name="skin" id="skin9" value="9" ${$skin == 9 	 ? 'checked="checked"' : ''} />
+									<label for="skin9" class="nofl">#{skin_9_title}</label>
+								</div>
+							</div>
+							
+							<div class="coll">	
+								<img src="#{PATH_IMG}/skins/skin-10.gif" width="150" height="173" alt="" id="skin-10" title="#{skin_click_select}" />
+								<div>
+									<input type="radio" name="skin" id="skin10" value="10" ${$skin == 10 	 ? 'checked="checked"' : ''} />
+									<label for="skin10" class="nofl">#{skin_10_title}</label>
+								</div>
+							</div>
+							
+							<div class="coll">	
+								<img src="#{PATH_IMG}/skins/skin-11.gif" width="150" height="173" alt="" id="skin-11" title="#{skin_click_select}" />
+								<div>
+									<input type="radio" name="skin" id="skin11" value="11" ${$skin == 11 	 ? 'checked="checked"' : ''} />
+									<label for="skin11" class="nofl">#{skin_11_title}</label>
+								</div>
+							</div>
+							<div class="clear"></div>
+							
+							<div class="coll">	
+								<img src="#{PATH_IMG}/skins/skin-14.gif" width="150" height="173" alt="" id="skin-14" title="#{skin_click_select}" />
+								<div>
+									<input type="radio" name="skin" id="skin14" value="14" ${$skin == 14 	 ? 'checked="checked"' : ''} />
+									<label for="skin14" class="nofl">#{skin_14_title}</label>
+								</div>
+							</div>
+							
+							<div class="clear"></div>
+							<div class="row">
+								<label for="externalskin">#{skin_external}:</label>
+								<input type="test" name="externalSkin" id="externalskin" value="${externalSkin}" size="35" />
+								<small>#{skin_ext_hlp}</small>
+							</div>
+						</div>
+						<p class="button">
+							<input type="submit" value="#{save_butt}" />
+						</p>
+					</form>
+				</div>
+				<div class="clear"></div>
+			</div>
+
+			<?teng include file="_foot.html"?>
+			<?teng include file="_settings_netmonitor.html"?>
+		</div>
+	</body>
+</html>

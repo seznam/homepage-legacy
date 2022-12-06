@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="cs">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<link href="#{PATH_IMG}/favicon.ico" rel="shortcut icon" />
+		<link rel="stylesheet" href="#{PATH_CSS}/film.css#{VERSION}" type="text/css" media="all" />
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_COMMON}#{VERSION}"></script>
+		<script type="text/javascript" src="#{SERVICE_URL}#{PATH_JS}/#{FILE_JS_JWPLAYER6}"></script>
+		<!--- SCRIPT WITHOUT OBFUSCATING, obfuscator:http://www.daftlogic.com/projects-online-javascript-obfuscator.htm --->
+		<!--- <script type="text/javascript">jwplayer.key="#{VIDEO_PLAYER_KEY_KUKY}";</script> --->
+		<script type="text/javascript">
+		eval(function(p,a,c,k,e,d){e=function(c){return c};if(!''.replace(/^/,String)){while(c--){d[c]=k[c]||c}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('2.1="0";',3,3,'#{VIDEO_PLAYER_KEY_KUKY}|key|jwplayer'.split('|'),0,{}))
+		</script>
+		<title>Seznam.cz - Kuky se vrací</title>
+	</head>
+	<body class="${.scheme}">
+		<!--- Nastavení přesměrování z upoutávky na přímý přenost, nastavení v conf. --->
+		<script type="text/javascript">
+		/* <![CDATA[ */	
+			var ua = navigator.userAgent.toLowerCase();
+			var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+			var isWindowsPhone = ua.indexOf("windows phone") > -1;
+			if(isAndroid || isWindowsPhone) {
+			  window.location = '#{SERVICE_URL}/film-nedostupny';
+			} else {
+				function redirect() {
+					window.location = '#{REDIRECT_ADDRESS}';
+				}
+			
+				var show_time = new Date();
+				show_time.setFullYear('#{REDIRECT_YEAR}');
+				show_time.setMonth('#{REDIRECT_MONTH}');
+				show_time.setDate('#{REDIRECT_DAY}');
+				show_time.setHours('#{REDIRECT_HOURS}');
+				show_time.setMinutes('#{REDIRECT_MINUTES}');
+				show_time.setSeconds('#{REDIRECT_SECONDS}');
+				show_time.setMilliseconds('#{REDIRECT_MILLISECONDS}');
+				
+				var random_delay = Math.floor((Math.random() * #{REDIRECT_RANDOM_RANGE})) * 1000;
+				var set_delay = show_time.getTime() - '${.display_time}' * 1000 + random_delay;
+
+				if (set_delay >= 0) {
+					setTimeout('redirect()', show_time.getTime() - '${.display_time}' * 1000 + random_delay);
+				}	
+			}
+		/* ]]> */	
+		</script>
+		<div id="page">
+			<div id="bubble-header"></div>
+			<div id="bubble-middle">
+				<div id="bubble-content">
+					<div id="header">
+						<h1 id="logo">
+							<a href="http://www.seznam.#{_tld}" class="seznam">
+								<img src="#{SERVICE_URL}#{PATH_IMG}/xmas/label.png" alt="Seznam.cz"/>
+							</a>
+							<div class="clear"></div>
+						</h1>
+						<img id="strip" src="#{SERVICE_URL}#{PATH_IMG}/xmas/strip.png" alt="Seznam.cz" />
+						<a href="#{SERVICE_URL}" id="closer">Zavřít</a>
+					</div>
+					<div id="player"> </div>
+
+					<script type="text/javascript">                           
+						jwplayer("player").setup({
+							'id': 'player',
+							'autostart': 'true',
+							'width': '666',
+							'height': '390',
+							'primary': 'flash',
+							'rtmp': {
+									'tunneling': true
+								},	
+							'sources':  [{
+						        'file': "http://cdn-live.seznam.cz/kuky_trailer.smil" 
+						        },{
+						        'file': "http://cdn-live.seznam.cz/kuky_trailer.m3u8" 
+						        }]
+						});
+					</script>
+
+					<!--- SCRIPT WITHOUT OBFUSCATING, obfuscator:http://www.daftlogic.com/projects-online-javascript-obfuscator.htm --->
+					<!--- <script type="text/javascript">                           
+					eval(function(p,a,c,k,e,d){e=function(c){return c.toString(36)};if(!''.replace(/^/,String)){while(c--){d[c.toString(a)]=k[c]||c.toString(a)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('c("2").b({\'e\':\'2\',\'9\':\'4\',\'a\':\'d\',\'l\':\'f\',\'k\':{\'j\':4},\'g\':[{\'1\':"0://3-5.8.7/6.h"},{\'1\':"0://3-5.8.7/6.i"}]});',22,22,'http|file|player|cdn|true|live|kuky_trailer|cz|seznam|autostart|width|setup|jwplayer|666|id|390|sources|smil|m3u8|tunneling|rtmp|height'.split('|'),0,{}))
+					</script> --->
+					
+					<div class="textCont">
+						<h2><span>24. 12. kdykoliv během Štědrého dne </span>Kuky se vrací</h2>
+						<p class="about">Tento vánoční dárek najdete přímo na domovské stránce Seznam.cz</p>
+						<p>
+							Nejoblíbenější hračkou šestiletého Ondry je plyšový Kuky. A právě toho mu maminka vyhodí do popelnice. Z Kukyho se totiž sype dřevitá vlna a to není dobré pro Ondrovo astma.
+						</p>
+						<p>
+							Večer před spaním si Ondra představuje, jak se Kuky touží vrátit domů, a co pro to všechno musí podniknout ve světě lesních zvířat a bytostí, která, na rozdíl od něj, nejsou na mazlení zvyklá. A tak naivní dětská fantazie opřená o předškolní vědomosti a živená steskem po milované hračce spřádá dojemný a napínavý příběh o medvídkovi, který chtěl zůstat na poličce, ale musel se postavit na své plyšové nohy a stát se hrdinou.
+						</p>
+					</div>
+				</div>
+			</div>
+			<div id="bubble-footer" class="flip-horizontal"></div>
+			<div id="footer"><img class="bow" src="#{SERVICE_URL}#{PATH_IMG}/xmas/bow.png" alt="Seznam.cz" /></div>
+		</div>
+		<?teng include file="_debug.html"?>
+
+		
+		<!--- analytika --->
+		<?teng if dictexist("QUERYTRACKER") && #QUERYTRACKER =~ 1?>
+			<script type="text/javascript" src="${.scheme}://h.imedia.cz/js/dot-small.js"></script>
+			<script type="text/javascript">
+				DOT.cfg({service: 'hp'});
+			</script>
+		<?teng endif?>		
+		
+		<!-- (C)2000-2012 Gemius SA - gemiusAudience / seznam.cz / Upoutavka -->
+		<script type="text/javascript">
+		
+			var pp_gemius_identifier = new String('0sg1L69kVWzSbpLh8kRwQmZWzbs15AMGfns8oxNUSK3.m7');
+			var pp_gemius_extraparameters = new Array('gA=seznam.cz/homepage_Seznam.cz/Upoutavka');
+
+
+			function gemius_pending(i) { window[i] = window[i] || function() {var x = window[i+'_pdata'] = window[i+'_pdata'] || []; x[x.length]=arguments;};};
+			gemius_pending('gemius_hit'); gemius_pending('gemius_event'); gemius_pending('pp_gemius_hit'); gemius_pending('pp_gemius_event');
+			(function(d,t) {try {var gt=d.createElement(t),s=d.getElementsByTagName(t)[0]; gt.setAttribute('async','async'); gt.setAttribute('defer','defer'); gt.src='https://gacz.hit.gemius.pl/xgemius.js'; s.parentNode.insertBefore(gt,s);} catch (e) {}})(document,'script');
+
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,284 @@
+<?teng if $.columns._count!=3 && $.hp_responsive =~ 'on' ?>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+<?teng endif?>
+<link rel="alternate" type="application/rss+xml" title="Seznam.cz" href="http://seznam.sblog.#{_tld}/rss.xml" />
+<?teng format space="onespace"?>
+<link rel="shortcut icon" href="#{PATH_IMG}/favicon.ico#{VERSION}" />
+<meta content="#{PATH_IMG}/logo_share.png" property="og:image">
+<link href="#{PATH_IMG}/logo_share_fb.jpg" rel="image_src">
+
+<!--- titulek web clip ikony pro iOS6+ --->
+<meta name="apple-mobile-web-app-title" content="Seznam.cz" />
+<link rel="apple-touch-icon" href="#{PATH_IMG}/apple/apple-touch-icon.png" />
+
+<!--- openid --->
+<link rel="openid2.provider openid.server" href="http://id.szn.#{_tld}/openidserver" />
+<meta http-equiv="X-XRDS-Location" content="http://id.seznam.#{_tld}/yadis" />
+
+<script type="text/javascript">
+	/* <![CDATA[  */
+		/* predavani domeny prvniho radu do JS */
+		var _tld = "#{_tld}";
+
+		/* pozice AdBottom je specialni v tom, ze v nekterych skinech neni videt a nemusi byt nactena na zaklade zpracovani prvniho requestu na reklamy */
+		var IMAdBottom 	 	= null;
+
+		/* tyto reklamy se nacitaji jako prvni, vyhodnoti se, ktere se nacetly a podle toho se pak zazada o dalsi reklamy */
+		var IMPrimaryAds 	= [];
+
+		/* reklamy, ktere se pak nactou podle toho, ktere reklamy se nacetly jako prvni */
+		var IMSecondaryAds 	= [];
+	/* ]]> */
+</script>
+
+<?teng if $.userId > 0?>
+	<?teng if exist(var_HP)?>
+		<?teng if exist(externalSkin) && $externalSkin !~ ''?>
+			<link id="link" rel="stylesheet" href="${.externalSkin}" media="all" type="text/css" />
+		<?teng else?>
+			<!---<?teng if exist(.variant) && $.variant =~ 'A' && $skin == 0?>
+				<link id="link" rel="stylesheet" href="#{PATH_CSS}/A-${skin}-#{FILE_CSS}#{VERSION}" media="all" type="text/css" />
+			<?teng elseif exist(.variant) && $.variant =~ 'B' && $skin == 0?>
+				<link id="link" rel="stylesheet" href="#{PATH_CSS}/${skin}-#{FILE_CSS}#{VERSION}" media="all" type="text/css" />
+			<?teng else?>--->
+				<link id="link" rel="stylesheet" href="#{PATH_CSS}/${skin}-#{FILE_CSS}#{VERSION}" media="all" type="text/css" />
+				<?teng frag .skinSelected?>
+					<?teng if exist(staticCssId) && $staticCssId != -1 && $staticCssId != 0 ?>
+						<link id="aditional-link" rel="stylesheet" href="#{PATH_CSS}/${staticCssId}-#{FILE_CSS}#{VERSION}" media="all" type="text/css" />
+					<?teng endif?>
+				<?teng endfrag?>
+			<!---<?teng endif?>--->
+		<?teng endif?>
+	<?teng else?>
+		<?teng if !exist(var_Presets) ?>
+			<?teng if exist(var_Services)?>
+			<link rel="stylesheet" href="#{PATH_CSS}/#{FILE_CSS_SERVICES}#{VERSION}" media="all" type="text/css" />
+	<?teng elseif !exist(var_Settings)?>
+				<link rel="stylesheet" href="#{PATH_CSS}/#{FILE_CSS_OTHER}#{VERSION}" media="all" type="text/css" />
+			<?teng endif?>
+		<?teng else?>
+			<link rel="stylesheet" href="#{PATH_CSS}/#{FILE_CSS_PRESET}#{VERSION}" media="all" type="text/css" />
+		<?teng endif?>
+	<?teng endif?>
+<?teng else?>
+	<?teng if exist(var_HP)?>
+		<?teng if exist(.variant) && $.variant =~ 'A'?>
+			<link id="link" rel="stylesheet" href="#{PATH_CSS}/A-${skin}-#{FILE_CSS}#{VERSION}" media="all" type="text/css" />
+		<?teng elseif exist(.variant) && $.variant =~ 'B'?>
+			<link id="link" rel="stylesheet" href="#{PATH_CSS}/${skin}-#{FILE_CSS}#{VERSION}" media="all" type="text/css" />
+		<?teng else?>
+			<link id="link" rel="stylesheet" href="#{PATH_CSS}/${skin}-#{FILE_CSS}#{VERSION}" media="all" type="text/css" />
+			<?teng frag .skinSelected?>
+				<?teng if $staticCssId != -1 && $staticCssId != 0 ?>
+					<link id="aditional-link" rel="stylesheet" href="#{PATH_CSS}/${staticCssId}-#{FILE_CSS}#{VERSION}" media="(min-width: 730px)" type="text/css" />
+				<?teng endif?>
+			<?teng endfrag?>
+		<?teng endif?>
+	<?teng else?>
+		<!--- info stranky --->
+		<?teng if !exist(var_Presets) || exist(var_Promote) ?>
+			<?teng if !exist(var_Settings)?>
+				<link rel="stylesheet" href="#{PATH_CSS}/#{FILE_CSS_OTHER}#{VERSION}" media="all" type="text/css" />
+			<?teng endif?>
+		<?teng endif?>
+	<?teng endif?>
+<?teng endif?>
+<link rel="stylesheet" href="#{PATH_CSS}/suggest5.css#{VERSION}" media="all" />
+<link rel="stylesheet" href="#{PATH_CSS}/suggest5-words.css#{VERSION}" media="all" />
+<link rel="stylesheet" href="#{PATH_CSS}/suggest.css#{VERSION}" media="all" />
+<?teng if $.hp_responsive =~ 'off' ?>
+	<link rel="stylesheet" href="#{PATH_CSS}/small.css#{VERSION}" media="all" />
+	<link rel="stylesheet" href="#{PATH_CSS}/medium.css#{VERSION}" media="all" />
+	<link rel="stylesheet" href="#{PATH_CSS}/large.css#{VERSION}" media="all" />
+<?teng elseif ($.columns._count == 3 && $.pageId !~ "nove-nastaveni") ?>
+	<link rel="stylesheet" href="#{PATH_CSS}/small.css#{VERSION}" media="all" />
+	<link rel="stylesheet" href="#{PATH_CSS}/medium.css#{VERSION}" media="(min-width: 421px)" />
+	<link rel="stylesheet" href="#{PATH_CSS}/large.css#{VERSION}" media="(min-width: 421px)" />	
+<?teng else?>
+	<link rel="stylesheet" href="#{PATH_CSS}/small.css#{VERSION}" media="all" />
+	<link rel="stylesheet" href="#{PATH_CSS}/medium.css#{VERSION}" media="(min-width: 730px)" />
+	<link rel="stylesheet" href="#{PATH_CSS}/large.css#{VERSION}" media="(min-width: 950px)" />	
+<?teng endif?>
+
+<!--[if lt IE 9]>
+	<link rel="stylesheet" href="#{PATH_CSS}/small.css#{VERSION}" media="all" />
+	<link rel="stylesheet" href="#{PATH_CSS}/medium.css#{VERSION}" media="all" />
+	<link rel="stylesheet" href="#{PATH_CSS}/large.css#{VERSION}" media="all" />	
+<![endif]-->
+
+<?teng if exist(var_HP) || exist(var_Settings) || exist(var_Presets) || exist(var_Promote) || exist(var_Services) ?>
+	<?teng if #JS_COMPRESSED == 0?>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_COMMON}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_SUGGEST}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_SUGGEST5}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_SUGGEST5_WORDS}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_SUGGEST5_USAGE}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_TIME}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_REORDER}"></script>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_PARSER}"></script>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_INTERPOLATOR}"></script>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_WINDOW}"></script>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_BETTERSELECT}"></script>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_BASE64}"></script>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_RPC}"></script>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_FRPC}"></script>	
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_COOKIE}#{VERSION}"></script>  
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_XML}#{VERSION}"></script>  
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_AUDIO}#{VERSION}"></script>  
+	<?teng endif?>
+
+	<!--- zjistim si jestli se pouziva skin se psem v "Services" --->
+	<?teng set .isServiceDogEnable = 0?>
+	<?teng if (!exist(.externalSkin) || !$.externalSkin)
+	&& (($.skin == 0)
+	|| ($.skin == 1)
+	|| ($.skin == 11)
+	|| ($.skin == 2)
+	|| ($.skin == 3))?>
+		<?teng set .isServiceDogEnable = 1?>
+	<?teng endif?>
+	<!--- slovnik a konfigurak pro javascript --->
+	<script type="text/javascript">
+	/* <![CDATA[ */
+		Homepage = {};
+		<?teng include file="_js_conf.js"?>
+		<?teng include file="_js_dict.js"?>
+
+		Homepage.CONF.HASHID = '${.hashId}';
+		Homepage.CONF.USERID = '${.userId}';
+		Homepage.CONF.UPDATE_INTERVAL = #{UPDATE_INTERVAL};
+		Homepage.CONF.UPDATE_INTERVAL_ANONYM = #{UPDATE_INTERVAL_ANONYM};
+		Homepage.FRIENDSHASH = '${.lide_hashId}';
+		Homepage.SKINID = '${skin}';
+		<?teng set __externalSkin = $externalSkin?>
+		Homepage.EXTERNALSKIN = '<?teng ctype "quoted-string"?>${__externalSkin}<?teng endctype?>';
+		Homepage.SUGGEST = ${suggest};
+		Homepage.SUGGEST_LIMIT = #{SUGGEST_LIMIT};
+		Homepage.CONF.SERVICE_URL = '#{SERVICE_URL}';
+		Homepage.CONF.PATH_IMG_WEB_ICO = '#{PATH_IMG_WEB_ICO}';
+		Homepage.CONF.PATH_IMG = '#{PATH_IMG}';
+		Homepage.CONF.SERVER_SEARCH_URL = '#{SERVER_SEARCH_URL}';
+		Homepage.CONF.SERVER_SEARCH_URL_WORLD = ''; /*'{SERVER_SEARCH_URL_WORLD}';*/
+		Homepage.CONF.VARIANT = '<?teng if exist(.variant) ?>${.variant}<?teng endif ?>';
+		Homepage.CONF.JQUERY = '#{PATH_JS_LIB}/#{FILE_JS_JQUERY}#{VERSION}';
+		Homepage.CONF.FLEVEO = '#{PATH_JS}/#{FILE_JS_FLEVEO}#{VERSION}';
+		Homepage.CONF.UPLOADURLAJAX = '#{AJAX_UPLOADURL}';
+		Homepage.CONF.UPLOADURLIFRAME = '#{IFRAME_UPLOADURL}';
+		Homepage.CONF.DOMAIN = '#{DOMAIN}';
+	/* ]]> */
+	</script>
+
+	<!--- inicializace knihoven --->
+	<script type="text/javascript">
+	/* <![CDATA[ */
+		var sId = '';
+	/* ]]> */
+	</script>
+
+	<!--- javascript dane aplikace --->
+	<?teng if #JS_COMPRESSED == 0?>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SUGGEST_SLOVNIK}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_HPWINDOW}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_LOGOLOADER}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_LOADER}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_RESIZE}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_FLAG}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_TABS}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_WMANAGER}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_WMANAGER_WIN}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_WMANAGER_WIN_POINTER}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_GADGET}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_GADGET_SETTINGS}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGS}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGSWIN}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_GADGET_RSSSETTING}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_GADGET_WEATHERSETTING}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_GADGET_ZODIAKSETTING}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_GADGET_EMAILSETTING}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_GADGET_TVSETTING}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_TVPROGRAM}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_TVPROGRAM_SLOT}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SERVICES}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_CATALOGUE}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_LIDE}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_NOTES}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_NOTE}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_EMAIL}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_PROMOTE}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_GADGET_GOODS}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_GADGETMANAGER}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_ADVERT}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_GADGET_FBSETTING}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_STREAMBOX}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_HINT}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGS_SETUP}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGS_SETTINGS}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGS_INTERFACESETTINGS}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGS_ABSTRACTSETTINGS}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGS_LOOKNFEEL}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGS_RSS}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGS_RSS_RSSLIST}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGS_RSS_GROUP}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGS_RSS_FEED}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGS_RSS_RSSEXPORTIMPORT}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGS_RSS_RSSMY}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGS_RSS_ADDFOREIGNFEED}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGS_ADVANCED}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGS_ADVANCED_SEEK}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGS_ADVANCED_SEEK_SEARCH}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGS_ADVANCED_SEEK_MYSEARCH}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGS_ADVANCED_SUGGEST}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SETTINGS_ADVANCED_PROMOETE}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SERVICES_WEB}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SERVICES_WEB_ANIMATION}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SERVICES_WEB_ANIMATION_CANVAS}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SERVICES_WEB_ANIMATION_SIMPLE}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_REZSIZER}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_BIGDAYOFF}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_MUSIC}#{VERSION}"></script> 
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_COOKIE_SELECT}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_CLOGGER}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_ANDROID_APP_PROMOTION}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS_LIB}/#{FILE_JS_SEARCH}#{VERSION}"></script>
+		<?teng if $.userId <= 0?>
+			<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_JUMPLIST}#{VERSION}"></script>
+		<?teng endif?>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_HTTPSLINKS}#{VERSION}"></script>
+
+		<!--- skiny --->
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_ABSTRACTSKIN}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_OWNSKIN}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_THEMESKIN}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_DEFAULTSKIN}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SKIN_MANAGER}#{VERSION}"></script>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_SKIN_LOGO_MANAGER}#{VERSION}"></script>
+
+	<?teng else?>
+		<script type="text/javascript" src="#{PATH_JS}/#{FILE_JS_ALL}#{VERSION}"></script>
+	<?teng endif?>
+
+	<!--- konfigurace cloggeru --->
+	<script type="text/javascript">
+	/* <![CDATA[ */
+		JAK.CLogger.URL = 'http://hp.dot.seznam.' + _tld;
+		JAK.CLogger.SID = 'homepage';
+	/* ]]> */
+	</script>
+
+	<?teng if #JS_ERROR_CATCH == 1 ?>
+		<!--- chytac chyb --->
+		<script type="text/javascript">
+		/* <![CDATA[ */
+			function catchError(a,b,c) {  return true; }; window.onerror=catchError;
+		/* ]]> */
+		</script>
+	<?teng endif?>
+
+<?teng endif?>
+
+<link rel="search" type="application/opensearchdescription+xml" title="Seznam" href="http://download.seznam.#{_tld}/vyhledavani/opensearch/seznam-cz.xml" />
+<link rel="search" type="application/opensearchdescription+xml" title="Firmy.cz" href="http://download.seznam.#{_tld}/vyhledavani/opensearch/firmy-cz.xml" />
+<link rel="search" type="application/opensearchdescription+xml" title="Mapy.cz" href="http://download.seznam.#{_tld}/vyhledavani/opensearch/mapy-cz.xml" />
+<link rel="search" type="application/opensearchdescription+xml" title="Zboží.cz" href="http://download.seznam.#{_tld}/vyhledavani/opensearch/zbozi-cz.xml" />
+

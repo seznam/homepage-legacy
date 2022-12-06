@@ -1,0 +1,7 @@
+/* 
+* Landscape - Media Query
+* (orientation: landscape)
+* chytne se jen u mobilu a tabletu
+*/
+
+#gadget-24 #musicPreview 			{ display: none; }

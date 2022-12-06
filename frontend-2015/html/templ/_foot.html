@@ -1,0 +1,38 @@
+<hr />
+<div id="foot" data-dot="foot">
+	<?teng if (!exist(.variation) || (exist(.variation) && $.variation !~ "")) && $.userId <= 0?>
+		<p class="info-test">
+			Tato verze stránky Seznam.cz je dočasně testovací. Děkujeme za pochopení.
+		</p>
+	<?teng endif?>
+	<p>
+		<a href="http://onas.seznam.#{_tld}/">#{about_seznam}</a> - <a href="http://seznam.sprace.#{_tld}">#{free_positions}</a> - <a href="http://vyvojari.seznam.#{_tld}/">#{developers_seznam}</a> - <a href="http://napoveda.seznam.#{_tld}/cz/seznam/vse-o-hlavni-strance/">#{tech_supp}</a> - <a href="http://reklama.seznam.#{_tld}/">#{advert}</a><?teng if $.device !~ 'desktop' && $.columns._count != 3 ?> - <?teng if $.hp_responsive =~ 'on' ?><a href="/disableResponsive">Přepnout na plnou verzi</a><?teng else?> <a href="/enableResponsive">Přepnout na odlehčenou verzi</a><?teng endif?><?teng endif?><br />
+		Copyright &copy; 1996-${date('%Y',now())}, Seznam.cz, a.s.<br />
+	</p>
+</div>
+<a href="#headLink" class="blind">#{up}</a>
+<?teng endformat?>
+
+<!--- Andulka --->
+<a href="mailto:andulka@semnicneposilejte.cz" class="blind">andulka@semnicneposilejte.cz</a>
+
+<?teng format space="noformat" ?>
+	<!--- teng debug v1.4 --->
+	<?teng if isenabled('errorfragment') || isenabled('debug')?>
+		<div id="teng-debug">
+			<?teng if isenabled('errorfragment')?>
+				<?teng if $._error._count ?>
+					<div id="teng-debug-errors" style="font: 12px courier; color:#000; padding: 10px; background: #FCC1C1; text-align:left;">
+						<?teng frag ._error?>
+							<p style="padding:0; margin:0;">${filename} Line:${line} Col:${column} ${message}</p>
+						<?teng endfrag?>
+					</div>
+				<?teng endif ?>
+			<?teng endif?>
+
+			<?teng if isenabled('debug')?>
+				<pre id="teng-debug-content" style="font:12px courier; color:#000; padding: 10px; background:#E5FFEA; margin:0; text-align:left;"><?teng debug?></pre>
+			<?teng endif?>
+		</div>
+	<?teng endif ?>
+<?teng endformat ?>

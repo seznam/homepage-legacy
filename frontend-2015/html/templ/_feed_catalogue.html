@@ -1,0 +1,101 @@
+<div id="gadget-8" class="s_win" data-dot="gadgetFirmy">
+<?teng format space="onespace"?>
+	<div class="gagdet-cont">
+		<div class="main-cont">
+			<h3 class="title s_win_title">
+				<span class="text entry-title">
+					<a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld}">Firmy.cz</a>
+				</span>
+				<span class="edit">
+					<?teng if $.userId > 0?>
+						<a href="#" class="edit-text">Upravit</a>
+					<?teng endif?>
+				</span>
+				<span class="bck"></span>
+			</h3>
+			<?teng if $.userId > 0?>
+				<div class="gadget-settings">
+					<div class="settings-cont">
+						<div class="settings-main">
+							<div class="setting-bck">
+								<div class="title-setting">
+
+									<?teng if $.userId > 0?>
+										<span class="close-win-img-span"><a href="#" class="close-win-img">Odebrat box</a></span>
+									<?teng endif?>
+									<span class="close-sett"><a href="" class="close-setting-link">Upravit</a></span>
+								</div>
+								<div class="setting-cont">
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			<?teng endif?>
+
+			<div class="g-cnt s_win_area">
+				<!--- <div class="promo">Podívejte se, kde <a href="http://www.firmy.cz/fotime">právě fotíme firmy</a></div> --->
+				<div class="lists">
+					<ul class="cat-list">
+
+						<li><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/?q=autobazar#utm_medium=hp-box&amp;utm_source=seznam.cz'}" title="Autobazar">Autobazar</a></li>
+						<li><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/?q=autoservis#utm_medium=hp-box&amp;utm_source=seznam.cz'}" title="Autoservis">Autoservis</a></li>
+						<li><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/?q=cestovní+kancelář#utm_medium=hp-box&amp;utm_source=seznam.cz'}" title="Cestování">Cestování</a></li>
+						<li><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/?q=dětské+zboží#utm_medium=hp-box&amp;utm_source=seznam.cz'}" title="Dětské zboží">Dětské zboží</a></li>
+						<li><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/?q=elektro#utm_medium=hp-box&amp;utm_source=seznam.cz'}" title="Elektro">Elektro</a></li>
+						<li><a href="http://odkazy.seznam.#{_tld}/Erotika/#utm_medium=hp-box&amp;utm_source=seznam.cz" title="Erotika">Erotika</a></li>
+						<li><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/?q=hračky#utm_medium=hp-box&amp;utm_source=seznam.cz'}" title="Hračky">Hračky</a></li>
+						<li><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/?q=jazyková+škola#utm_medium=hp-box&amp;utm_source=seznam.cz'}" title="Jazyková škola">Jazyk. škola</a></li>
+						<li><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/?q=kadeřnictví#utm_medium=hp-box&amp;utm_source=seznam.cz'}" title="Kadeřnictví">Kadeřnictví</a></li>
+						<li><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/?q=kuchyně#utm_medium=hp-box&amp;utm_source=seznam.cz'}" title="Kuchyně">Kuchyně</a></li>
+						<li><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/?q=lázně#utm_medium=hp-box&amp;utm_source=seznam.cz'}" title="Lázně">Lázně</a></li>
+						<li><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/?q=mobily#utm_medium=hp-box&amp;utm_source=seznam.cz'}" title="Mobily">Mobily</a></li>
+						<li><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/?q=nábytek#utm_medium=hp-box&amp;utm_source=seznam.cz'}" title="Nábytek">Nábytek</a></li>
+						<li><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/?q=okna+a+dveře#utm_medium=hp-box&amp;utm_source=seznam.cz'}" title="Okna a dveře">Okna a dveře</a></li>
+						<li><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/?q=prodej+výpočetní+techniky#utm_medium=hp-box&amp;utm_source=seznam.cz'}" title="Počítače">Počítače</a></li>
+						<li><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/?q=realitní+kancelář#utm_medium=hp-box&amp;utm_source=seznam.cz'}" title="Realitní kancelář">Realitní kancelář</a></li>
+						<li><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/?q=restaurace#utm_medium=hp-box&amp;utm_source=seznam.cz'}" title="Restaurace">Restaurace</a></li>
+						<li><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/?q=stavební+firma#utm_medium=hp-box&amp;utm_source=seznam.cz'}" title="Stavební firma">Stavební firma</a></li>
+						<li><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/?q=stěhování#utm_medium=hp-box&amp;utm_source=seznam.cz'}" title="Stěhování">Stěhování</a></li>
+						<li><a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/?q=ubytování#utm_medium=hp-box&amp;utm_source=seznam.cz'}" title="Ubytování">Ubytování</a></li>
+
+					</ul>
+					<div class="clear"></div>
+
+					<?teng frag items?>
+
+						<!--- styly pro ikony je potreba mit ve dvou verzich kvuli tmavym skinum --->
+						<style>
+							.firmy-light 	{ background:url('${imageLight}') no-repeat 12px center; }
+							.firmy-dark 	{ background:url('${imageDark}') no-repeat 12px center; }
+						</style>
+
+						<div id="firmy-trends" class="firmy-trend-box firmy-${._selectedSkin} " >
+							<span class="text">${text}</span>
+							<span class="links">
+								<?teng frag links?>
+									<a href="${defined(isOutage)? #OFFLINE_HANDLER : $url}#utm_medium=hp-box-trend&amp;utm_source=seznam.cz" title="${keyword}">${keyword}</a>${!$_last?',':''}
+								<?teng endfrag?>
+							</span>
+						</div>
+					<?teng endfrag?>
+
+					<p class="add-firm">
+						<strong>
+						<a href="${defined(isOutage)? #OFFLINE_HANDLER : 'http://www.firmy.'++#_tld++'/'}">Další firmy &raquo;</a>
+						</strong>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?teng endformat?>
+</div>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+	JAK.gadget8 = new JAK.Gadget('gadget-8','${feedId}');
+	JAK.gadget8.extGadg = new JAK.Catalogue('gadget-8','${feedId}');
+/* ]]> */
+</script>

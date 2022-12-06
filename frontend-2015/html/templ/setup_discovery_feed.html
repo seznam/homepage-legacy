@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="cs">
+	<head>
+		<title>#{SERVICE_NAME_TITLE}</title>
+		<?teng include file="_common_files.html"?>
+	</head>
+	
+	<body id="www-seznam-cz" class="${.scheme}">
+		<div id="page">
+			<?teng include file="_head.html"?>
+
+			<div id="cont" class="rss">
+				<?teng include file="_menu.html"?>
+				
+				<div id="main">
+					<form action="/setupFeedDiscoveryProcess" method="post">
+						<?teng include file="_status.html"?>
+						
+						<h2 id="discovery">#{rss_specify_RSS}:</h2>
+						
+						<input type="hidden" name="hid" value="${.hashId}" />
+
+						<ul>
+							<?teng set .i = 1 ?>
+							<?teng frag url?>
+									<li>
+										<input type="checkbox" id="url${.i}" name="url" value="${url}" />
+										<label for="url${.i}">${title}</label>
+									</li>
+								<?teng set .i = $.i + 1?>
+							<?teng endfrag?>
+						</ul>
+
+						<p class="button">
+							<input type="submit" value="#{save_butt_rss_disc}" />
+						</p>
+						<?teng include file="_status.html"?>
+					</form>
+					<!---
+					<div class="picture">
+						<img src="#{PATH_IMG}/homepage_screen_rss_channel.png" width="236" height="379" alt="" />
+					</div>
+					--->
+				</div>
+				<div class="clear"></div>
+			</div>
+			<?teng include file="_foot.html"?>
+			<?teng include file="_settings_netmonitor.html"?>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,134 @@
+/* error pages */
+ * 
+html,
+ body				{ margin: 0; padding: 0; font-family: "Arial CE", Arial, "Helvetica CE", Helvetica, sans-serif; color: 000; background: #FFF; }
+/*- Definice zakladniho font-size, tak aby to spocitala i Opera -*/
+html				{ font-size:106.5%; }
+body				{ font-size:76.5%; }
+a					{ color:#0000CC; }
+a:hover				{ color:#CC0000; }
+img					{ border:0; }
+p, h1				{ margin: 0px; }
+ul					{ padding-left:1.2em; =margin-left:0; }
+
+.clear:after		{ content: "."; display: block; height: 0; clear: both; visibility: hidden; }
+
+#page				{ padding:10px; text-align: center; position: relative; }
+
+#head				{ width: 100%; }
+#head .logoSeznam	{ float: left; }
+#head .linkSeznam	{ float: right; }
+
+#container			{ margin: 60px auto 90px; }
+#container > *		{ vertical-align: middle; display: inline-block; }
+#container #pes404	{ background: transparent url('/st/img/error_pages/pes404.png') left top no-repeat; width: 126px; height: 213px; margin-right: 23px; }
+
+#bubble:before,
+#bubble.left:before {
+	background: transparent url('/st/img/error_pages/bubble-arrow.png') no-repeat left top;
+	width: 8px;
+	height: 15px;
+	position: absolute;
+	left: -7px;
+	top: 40px;
+	content: "";
+}
+#bubble.right:before {
+	left: auto;
+	top: 40px;
+	right: -7px;
+	-ms-transform: rotate(180deg);/*IE9*/
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);/*FF15*/
+	transform: rotate(180deg);
+}
+#bubble {
+	border: 0px dashed #ccc;
+	padding: 25px 42px 39px;
+	text-align: left;
+	position: relative;
+	display: inline-block;
+	margin:0 0 0 7px;
+	background-repeat:
+		no-repeat,
+		no-repeat,
+		no-repeat,
+		no-repeat,
+		repeat-x,
+		repeat-y,
+		repeat-x,
+		repeat-y;
+	background-image:
+		url('/st/img/error_pages/roh_01.png'),
+		url('/st/img/error_pages/roh_02.png'),
+		url('/st/img/error_pages/roh_04.png'),
+		url('/st/img/error_pages/roh_03.png'),
+		url('/st/img/error_pages/s_vodorovne.png'),
+		url('/st/img/error_pages/s_svisle.png'),
+		url('/st/img/error_pages/s_vodorovne.png'),
+		url('/st/img/error_pages/s_svisle.png');
+	background-position:
+		left top,
+		right top,
+		right bottom,
+		left bottom,
+		left top,
+		right top,
+		left bottom,
+		left top;
+}
+#bubble.right { margin: 0 7px 0 0; }
+
+/* CSS pro IE8, šipka k bublině */
+#bubble.ie8:before,
+#bubble.ie8.left:before		{ left: -8px !important; background: transparent url('/st/img/error_pages/bubble-arrow-ie8.png') no-repeat -25px 0; }
+#bubble.ie8.right:before	{ left: auto !important; right: -8px !important; background-position: -17px 0; }
+/* --- */
+
+
+#bubble div.problem		{ color:#C00; font-size: 36px; font-weight: bold; }
+#bubble div.description	{ font-size: 24px; }
+#bubble div.text			{ margin-top: 50px; color: #333; font-size: 14px; line-height: 22px; }
+
+
+#bubble .searchForm					{ margin-top: 10px; width: 100%; }
+#bubble .searchForm > *				{ -moz-box-sizing: border-box; box-sizing: border-box; }
+#bubble .searchForm input				{ font-family: "Arial CE", Arial, "Helvetica CE", Helvetica, sans-serif; height: 36px; display: inline-block; }
+#bubble .searchForm input:focus		{ outline: none; }
+#bubble .searchForm input[type=text]	{
+	padding: 0 10px;
+	position: relative;
+	font-size: 123.5%;
+	background: #fff url('/st/img/error_pages/search-text-bg.png') 0 0 repeat-x;/*když není podpora linear-gradient*/
+	background-image: -webkit-linear-gradient(to bottom, #ccc, #fff 2px);/*Chrome 25*/
+	background-image: -moz-linear-gradient(top, #ccc, #fff 2px);/*FF15*/
+	background-image: linear-gradient(to bottom, #ccc, #fff 2px);
+	border: 1px solid #c1c1c1;
+	border-color: #848484 #c1c1c1 #e1e1e1 #c1c1c1;
+	line-height: 36px;/*IE8*/
+}
+#bubble .searchForm input[type=button],
+#bubble .searchForm input[type=submit] {
+	font-size: 100%;
+	color: #333;
+	text-shadow: 1px 1px 0px #fff;
+	width: 146px;
+	background: #ececec url('/st/img/error_pages/search-submit-bg.png') 0 0 repeat-x;/*když není podpora linear-gradient*/
+	background-image: -webkit-linear-gradient(to bottom, #fff, #ececec);/*Chrome 25*/
+	background-image: -moz-linear-gradient(top, #fff, #ececec);/*FF15*/
+	background-image: linear-gradient(to bottom, #fff, #ececec);
+	border: 1px solid #a1a1a1;
+	border-color: #c5c5c5 #7d7d7d #7b7b7b #a1a1a1;
+}
+#bubble .searchForm input[type=button]:hover,
+#bubble .searchForm input[type=submit]:hover		{ cursor: pointer; }
+#bubble .searchForm input[type=button]:active,
+#bubble .searchForm input[type=submit]:active		{ background: none repeat scroll 0 0 #E5E5E5; }
+
+.e404 #bubble .searchForm input[type=text]			{ width: 382px; float: left; }
+.e404 #bubble .searchForm input[type=submit]		{ width: 146px; margin-left: 1px; }
+
+
+#foot				{ clear: both; margin: 0 auto; }
+#foot p				{ margin-bottom: 10px; color: #666; }
+#foot p:last-child	{ margin-bottom: 0; }

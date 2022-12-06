@@ -1,0 +1,366 @@
+# ------------------------------------------------------------
+# Ridici parametry
+# ------------------------------------------------------------
+# LogMask           Logovaci maska pro standardni logovani
+# ExceptionLogMask  Logovaci maska pro vyjimky
+# Log               Soubor se standardnim logem
+# ExceptionLog      Soubor s logem vyjimek
+# ServiceId         Id sluzby Homepage na userboxu
+# AvailableDomains  Seznam dostupnych domen pro prihlaseni
+# DefaultDomain     Implicitni domena
+# CookieDomain      Domena pro praci s cookies
+# UserGroupId       Skupina, kam se ukladaji uzivatelske
+#                   RSS zdroje. Skupina by mela byt skryta
+#                   pred uzivateli
+# UseJsFeed         Pri hodnote 1 se RSS tahaji pomoci
+#                   JavaScriptu, pokud je 0 pridavaji se
+#                   do tengu.
+# HiddenGroups      Seznam skupin, ktere se neexportuji do
+#                   OPML XML souboru pri exportu
+# BaseUrl           URL base (pouziva se po prihlaseni),
+#                   - nedavat / jako posledni znak
+# FastrpcmcConf     Cesta ke konfiguraci fastrpcmc
+# CatalogueSections Cesta ke konfiguraci zobrazovanych sekci
+#                   katalogu
+# CatalogueGenerateMode  zpusob ziskani cesty katalogove sekce
+#                  mm_old     MoneyMaker do 2006
+#                  mm_new     MoneyMaker od 2006 (Firmy 2006)
+#                  search     Search server, Firmy 2006
+# ReadersAllowedIps Povolene ip adresy, ktere mohou cist statistiky
+#                   ctennosti
+# LoginServer       Adresa centralniho login serveru...
+# LoggedUrl         Adresa na kterou se presmeruje nalogovany
+#                   uzivatel z login serveru
+# ForwardedForHeader Nazev hlavicky, kde je remoteip
+# ABTest            1 ... vydavani A/B variant
+#                   0 ... vydavani A/B variant pozastaveno
+# ABTestCookie      1 ... vydavani A/B cookies
+#                   0 ... vydavani A/B cookies pozastaveno
+# Inet6             Podpora IPv6 prostredi
+#                       Yes ... zapnuto
+#                       No  ... vypnuto
+# ------------------------------------------------------------
+[control]
+LogMask=AI3W2E1F1
+ExceptionLogMask=I3W2E1F1
+Log=__TARGET__/log/homepage-web-dbg_log
+ExceptionLog=__TARGET__/log/homepage-web-dbg_log
+ServiceId=homepage
+AvailableDomains=seznam,email,spoluzaci,post
+DefaultDomain=seznam
+CookieDomain=__HOST__
+UserGroupId=user
+UseJsFeed=0
+BaseUrl=http://__HOST__:__PORT__
+BaseUrlHTTPS=https://__HOST__:__PORT__
+UrlTld=__TLD__
+FastrpcmcConf=__TARGET__/conf/fastrpcmc.conf
+CatalogueSections=/www/homepage/userweb/conf/catalogue_sections.conf
+CatalogueGenerateMode=search
+ReadersAllowedIps=194.212.26.205,212.80.76.5,194.228.32.5,192.168.1.64,212.47.25.165,212.47.25.177
+LoginServer=http://login.szn.__TLD__
+LoginServerHTTPS=https://login.szn.__TLD__
+LoggedUrl=http://__HOST__:__PORT__/ticket
+LoggedUrlHTTPS=https://__HOST__:__PORT__/ticket
+#ForwardedForHeader=X_REMOTE_ADDR
+ForwardedForHeader=X-Forwarded-For
+NoteCount=9
+SorryPage=0
+SetByOtherIds=20074717,20074704,20074753,20260206,20098895
+SetByOtherDelay=5
+ABTest=0
+ABTestCookie=0
+ABTestCookieName=data_dot
+ABTestCookieMaxAge=2160000
+ABTestCookieValuePfx=hp_
+ABTestVariations=A,B,C,D,E,F
+Inet6=Yes
+SportSwitchFromTS=-1
+Proxy=proxy.kancelar.seznam.cz:3128
+
+
+# ------------------------------------------------------------
+# Nastaveni pro RSS zdroje
+# ------------------------------------------------------------
+# Defaults        zakladni feedy, ktere se zobrazi
+#                 neprihlasenemu uzivateli
+#                 format - idFeedu:soupec:radek:pocet
+# MappingFile     dalsi konfigurace
+# FeedListBaseUrl
+# ------------------------------------------------------------
+[feeds]
+Defaults=183:0:0:5,26:0:1:6,1051:0:2:3,181:0:3:3,194:0:4:3,71510:0:5:2,184:1:0:6,94837:1:1:1,182:1:2:0,94856:1:3:0,185:1:4:5,180:1:5:0
+MappingFile=__SOURCE__/conf/feeds_mapping.conf
+FeedListBaseUrl=http://__HOST__:__PORT__
+DefaultCount=5
+OutageUrl=/vypadek
+
+
+# ------------------------------------------------------------
+# Nastaveni SQLite3 databaze
+# ------------------------------------------------------------
+# Database        cesta k souboru uloziste
+# Compressed      zapnuti/vypnuti komprese ulozenych dat
+# Profiler        zapnuti/vypnuti profileru
+# MostUsed        nejcastej pouzivane feedy
+# ------------------------------------------------------------
+[feeds-cached]
+Database=__TARGET__/cache/cache.db
+Compressed=Off
+Profiler=Disabled
+#MostUsed=1024,1080,1004,79967,1038,1042,1047,10398,1006,189,1050,72350,14487,1043,14488,35378,1002,1026,11001,13029,37751,1049,1028,193,10192,1027,1052,1001,1000,1003,187,188,110537
+MostUsed=1052,1001,1000,1003,187,188,110537
+
+
+# ------------------------------------------------------------
+# Nastaveni pro Hledani
+# ------------------------------------------------------------
+# Defaults    defaultni hledaci sluzby
+# ------------------------------------------------------------
+[search-services]
+Defaults=1,2,3,6,4,5
+Mandatory=1
+MaxUserItems=5
+MaxTitleLength=10
+MaxVisibleItems=100
+
+
+# ------------------------------------------------------------
+# Nastaveni pro televize
+# ------------------------------------------------------------
+# DefaultTvChannels  Seznam id televizi, ktere jsou defaultni
+#                    Cisla jsou oddelena carkami.
+# ------------------------------------------------------------
+[tv]
+DefaultTvChannels=1,2,3,4
+
+
+# ------------------------------------------------------------
+# Nastaveni pro kurzy men a ceny PHM
+# ------------------------------------------------------------
+# DefaultCurrencies  Seznam id men, ktere jsou defaultni
+#                    Cisla jsou oddelena carkami.
+# DefaultCurrencyFeed Id feedu s kurzy men
+# DefaultGasFeed      Id feedu s PHM
+# ------------------------------------------------------------
+#
+[rates]
+DefaultCurrencies=1,2,3,4
+DefaultCurrencyFeed=13
+DefaultGasFeed=196
+
+
+# ------------------------------------------------------------
+# Nastaveni pro feed discovery
+# ------------------------------------------------------------
+# WriteTimeout       Timeout pro zapis dat [msec]
+# ReadTimeout        Timeout pro cteni dat [msec]
+# ConnectTimeout     Timeout na spojeni [msec]
+# MaxResponseSize    Maximalni velikost prectenych dat [B]
+# MaxResponseTime    Maximalni doba cteni dat [s]
+# ProxyHost          Adresa proxy serveru
+# ProxyPort          Port proxy serveru
+# ------------------------------------------------------------
+[feed-discovery]
+WriteTimeout=10000
+ReadTimeout=10000
+ConnectTimeout=10000
+MaxResponseSize=2097152
+MaxResponseTime=20
+ProxyHost=proxy.kancelar.seznam.cz
+ProxyPort=3128
+
+
+# ------------------------------------------------------------
+# Parametry userboxu, sboxu, search, frog serveru
+# ------------------------------------------------------------
+# Address         Adresa userboxu [http://host:port/RPC2]
+# ConnectTimeout  Timeout na spojeni [msec]
+# ReadTimeout     Timeout na cteni dat [msec]
+# WriteTimeout    Timeout na zapis dat [msec]
+# KeepAlive       Pouzit (1) keepAlive, defaultne ne (0)
+# TransferMode    Typ komunikace FRPC klienta
+#                 0=pouzij binary, pokud jej server podporuje
+#                   a je pouzit keepAlive rezim
+#                 1=pouzij binary, pokud jej server podporuje
+#                 2=pouzij vzdy binary mod
+# ------------------------------------------------------------
+[frog]
+Address=http://seznam-rpc:3210/RPC2
+ConnectTimeout=100000
+ReadTimeout=200000
+WriteTimeout=100000
+KeepAlive=0
+TransferMode=2
+
+[userbox]
+Address=http://ubox:2815/RPC2
+ConnectTimeout=1000
+ReadTimeout=2000
+WriteTimeout=1000
+KeepAlive=0
+TransferMode=0
+
+[hint]
+Address=http://seznam-rpc:3213/RPC2
+ReadTimeout=3000
+WriteTimeout=3000
+ConnectTimeout=1000
+KeepAlive=0
+TransferMode=1
+
+[sbox]
+Address=http://sbox:2825/RPC2
+ConnectTimeout=1000
+ReadTimeout=2000
+WriteTimeout=1000
+KeepAlive=0
+TransferMode=0
+
+[search]
+Address=http://firmy:2770/RPC2
+ConnectTimeout=1000
+ReadTimeout=2000
+WriteTimeout=1000
+KeepAlive=0
+TransferMode=0
+
+[tvserver]
+Address=http://tv.seznam:4300/RPC2
+ConnectTimeout=10000
+ReadTimeout=20000
+WriteTimeout=10000
+KeepAlive=0
+TransferMode=0
+
+[firmsearch]
+Address=http://firmy:2770/RPC2
+ConnectTimeout=1000
+ReadTimeout=2000
+WriteTimeout=1000
+KeepAlive=0
+TransferMode=0
+
+[tip]
+Address=http://tip.seznam:3230/RPC2
+ConnectTimeout=1000
+ReadTimeout=2000
+WriteTimeout=1000
+KeepAlive=0
+TransferMode=0
+
+[upload]
+Address=http://seznam-rpc:3212/RPC2
+ReadTimeout=3000
+WriteTimeout=3000
+ConnectTimeout=1000
+KeepAlive=0
+TransferMode=1
+
+[mynosql]
+Address=http://seznam-rpc:3215/RPC2
+ConnectTimeout=1000
+ReadTimeout=2000
+WriteTimeout=1000
+KeepAlive=0
+TransferMode=2
+SaveAnonymInfo=1
+
+[repository]
+Address=http://seznam-rpc:3220/RPC2
+ConnectTimeout=1000
+ReadTimeout=2000
+WriteTimeout=1000
+KeepAlive=0
+TransferMode=2
+
+[horoscope]
+Address=http://horoskopy-rpc:3646/RPC2
+ConnectTimeout=1000
+ReadTimeout=2000
+WriteTimeout=1000
+KeepAlive=0
+TransferMode=0
+
+# pro primy prenos kapely Krystof
+[livestream]
+Address=http://kiri:3312/RPC2
+ReadTimeout=2000
+WriteTimeout=2000
+ConnectTimeout=1000
+KeepAlive=0
+TransferMode=1
+
+
+# ------------------------------------------------------------
+# Nastaveni sablon
+# ------------------------------------------------------------
+# Path                  Cesta k sablonam, configu a slovnikum
+# Config                Nazev souboru s konfigurace
+# Dict                  Nazev souboru se slovnikem
+# DefaultLanguage       Implicitni jazyk
+# SupportedLanguages    Podporovane jazyky
+# ------------------------------------------------------------
+[template]
+Path=__TARGET__/template
+Config=__TARGET__/conf/homepage-teng.conf.dev
+Dict=homepage.dict
+DefaultLanguage=cz
+SupportedLanguages=cz
+
+
+# -----------------------------------------------------------------------------
+# skin - nastaveni pro skiny
+# -----------------------------------------------------------------------------
+# UserImageValidity     Doba v sekundach, ktera urcuje interval platnosti
+#                       odkazu na uzivatelsky obrazek. Musi byt delitelny 100
+# -----------------------------------------------------------------------------
+[skins]
+UserImageValidity=3600
+UserImageFormat=JPEG
+UserImageExt=.jpg
+UserImagePath=/favicons/skins/user/
+UserImageTempFolder=/favicons/skins/user/temp/
+UserImageThumbSuffix=_thumb
+ThumbnailWidth=99
+ThumbnailHeight=77
+ThumbnailReflectionHeight=23
+StaticData=/www/homepage/userweb/static
+DefaultSkinId=1
+UserImageQuality=95
+
+
+# -----------------------------------------------------------------------------
+# cookiecacher - ukladani nastaveni do cookie
+# -----------------------------------------------------------------------------
+# ExpirationTime        doba za kterou cookie vyprsi
+# CharsPerCookie        max pocet znaku ktere udrzi jedna cookie
+# MaxCookies            max pocet cookies, ktere muze pouzit cookiecacher jako
+#                       cache
+# CPrefix               prefix pouzivany pro oznaceni cookie (CPrefix#)
+# -----------------------------------------------------------------------------
+[cookiecacher]
+ExpirationTime=86400
+CharsPerCookie=1024
+MaxCookies=5
+CPrefix=cache
+
+
+# -----------------------------------------------------------------------------
+# tokengenerator - casove omezeny token pro anonymni uzivatele
+# -----------------------------------------------------------------------------
+# ExpirationTime        doba za kterou cookie vyprsi
+# -----------------------------------------------------------------------------
+[tokengenerator]
+ExpirationTime=180
+
+
+# -----------------------------------------------------------------------------
+# hintcookies - nastaveni, ktere cookies se kontroluji pri vyhodnocovani
+#               podminky COOKIE_HAS_VALUE v hintech (tzn. ktere cookies se
+#               posilaji na hintserver)
+# -----------------------------------------------------------------------------
+#
+# Cookies                Jmena cookies oddelena carkou bez mezer
+[hintcookies]
+Cookies=isHP

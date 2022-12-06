@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="cs">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<link href="#{SERVICE_URL}#{PATH_IMG}/favicon.ico" rel="shortcut icon" />
+		<link rel="stylesheet" href="#{SERVICE_URL}#{PATH_CSS}/film.css#{VERSION}" type="text/css" media="all" />
+		<script type="text/javascript" src="#{SERVICE_URL}#{PATH_JS}/#{FILE_JS_COMMON}#{VERSION}"></script>
+		<script type="text/javascript" src="#{SERVICE_URL}#{PATH_JS_LIB}/#{FILE_JS_FLASH}#{VERSION}"></script>
+		<script type="text/javascript" src="#{SERVICE_URL}#{PATH_JS}/#{FILE_JS_JWPLAYER6}"></script>
+		<!--- SCRIPT WITHOUT OBFUSCATING, obfuscator:http://www.daftlogic.com/projects-online-javascript-obfuscator.htm  --->
+		<!--- <script type="text/javascript">jwplayer.key="#{VIDEO_PLAYER_KEY_KUKY}";</script> --->
+		<script type="text/javascript">
+		eval(function(p,a,c,k,e,d){e=function(c){return c};if(!''.replace(/^/,String)){while(c--){d[c]=k[c]||c}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('2.1="0";',3,3,'#{VIDEO_PLAYER_KEY_KUKY}|key|jwplayer'.split('|'),0,{}))
+		</script>
+	
+		<script type="text/javascript">
+			var ua = navigator.userAgent.toLowerCase();
+			var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+			var isWindowsPhone = ua.indexOf("windows phone") > -1;
+			if(isAndroid || isWindowsPhone) {
+			  window.location = '#{SERVICE_URL}/film-nedostupny';
+			}
+		</script>
+		<title>Seznam.cz - Kuky se vrací</title>
+	</head>
+	<body class="${.scheme}">
+		<div id="page">
+			<div id="bubble-header"></div>
+			<div id="bubble-middle">
+				<div id="bubble-content">
+	
+					<div id="header">
+						<h1 id="logo">
+							<a href="http://www.seznam.#{_tld}" class="seznam">
+								<img src="#{SERVICE_URL}#{PATH_IMG}/xmas/label.png" alt="Seznam.cz"/>
+							</a>
+							<div class="clear"></div>
+						</h1>
+						<img id="strip" src="#{SERVICE_URL}#{PATH_IMG}/xmas/strip.png" alt="Seznam.cz" />
+						<a href="#{SERVICE_URL}" id="closer">Zavřít</a>
+					</div>
+					
+					<?teng if defined(.movie_live) && $.movie_live =~ 'in_progress' && (!defined(.movie_foreigner) || (defined(.movie_foreigner) && $.movie_foreigner == 0)) ?><!--- vysilame! --->
+						<script type="text/javascript" src="${.scheme}://pro.hit.gemius.pl/gstream.js"></script>
+						<script type="text/javascript">
+							var IDENTIFIER = 'B3.qv2d1f6OZ50koj_OEQIawrfGRAE81WljlDTfy74j.W7';
+							var PREFIX = 'scz';
+							var HITCOLLECTOR = 'http://scz.hit.gemius.pl';
+
+							var playerId = 'player_' + Math.round(Math.random()*1000000);
+							var materialIdentifier = 'kuky';
+							var totalTime = null;
+							var customPackage = [];
+							var additionalPackage = [];
+							var treeId = [];
+
+							gemiusStream.newStream(playerId, materialIdentifier, totalTime, customPackage, additionalPackage, IDENTIFIER, HITCOLLECTOR, treeId);
+							gemiusStream.event(playerId,materialIdentifier,0,'playing');
+						</script>
+						
+						<div id="player"> </div>
+						
+						<!--- SCRIPT WITHOUT OBFUSCATING, obfuscator:http://www.daftlogic.com/projects-online-javascript-obfuscator.htm --->
+						<!--- <script type="text/javascript">                           
+								jwplayer("player").setup({
+									'id': 'player',
+									'autostart': 'true',
+									'width': '666',
+									'height': '390',
+									'primary': 'flash',
+									'rtmp': {
+										'securetoken': '#{VIDEO_PLAYER_SECURE_TOKEN_KUKY}',
+										'tunneling': 'true'
+									},	
+									'sources':  [{
+								        'file': 'http://cdn-live.seznam.cz/kuky_movie.smil'
+								        },{
+								        'file': 'http://cdn-live.seznam.cz/kuky_movie.m3u8'
+							        }]
+								});
+							</script> --->
+						
+						<script type="text/javascript">                           
+						eval(function(p,a,c,k,e,d){e=function(c){return c.toString(36)};if(!''.replace(/^/,String)){while(c--){d[c.toString(a)]=k[c]||c.toString(a)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('d("2").f({\'g\':\'2\',\'b\':\'1\',\'9\':\'c\',\'a\':\'e\',\'p\':\'n\',\'o\':{\'m\':\'h\',\'i\':\'1\'},\'j\':[{\'0\':\'4://3-5.7.6/8.k\'},{\'0\':\'4://3-5.7.6/8.l\'}]});',26,26,'file|true|player|cdn|http|live|cz|seznam|kuky_movie|width|height|autostart|666|jwplayer|390|setup|id|#{VIDEO_PLAYER_SECURE_TOKEN_KUKY}|tunneling|sources|smil|m3u8|securetoken|flash|rtmp|primary'.split('|'),0,{}))
+						</script>
+
+						<div class="textCont">
+							<!--- <img src="#{SERVICE_URL}#{PATH_IMG}/xmas/kuky.png" alt="" /> --->
+							<h2><span>Pohádka: </span>Kuky se vrací</h2>
+							<p class="about">Dobrodružný film Jana Svěráka (Česko, 2010, 93 min)</p>
+							<p>
+								Nejoblíbenější hračkou šestiletého Ondry je plyšový Kuky. A právě toho mu maminka vyhodí do popelnice. Z Kukyho se totiž sype dřevitá vlna a to není dobré pro Ondrovo astma.
+							</p>
+							<p>
+								Večer před spaním si Ondra představuje, jak se Kuky touží vrátit domů, a co pro to všechno musí podniknout ve světě lesních zvířat a bytostí, která, na rozdíl od něj, nejsou na mazlení zvyklá. A tak naivní dětská fantazie opřená o předškolní vědomosti a živená steskem po milované hračce spřádá dojemný a napínavý příběh o medvídkovi, který chtěl zůstat na poličce, ale musel se postavit na své plyšové nohy a stát se hrdinou.
+							</p>
+						</div>
+						
+					<?teng elseif defined(.movie_live) && $.movie_live =~ 'in_progress' && defined(.movie_foreigner) && $.movie_foreigner == 1 ?>
+						<!--- zobrazi se pro zahranicni divaky --->
+						<div class="textCont no-film">
+							<img src="#{SERVICE_URL}#{PATH_IMG}/xmas/kuky.png" alt="" />
+							<h2 class="title-error">
+								We are sorry.
+							</h2>
+							<p>
+								This live stream is available only for Czech Republic.
+							</p>
+						</div>
+					
+					<?teng else ?><!--- primy prenos uz skoncil, zatahnuta opona --->
+						<div class="curtainCont">
+							<img src="#{SERVICE_URL}#{PATH_IMG}/film_opona.jpg" alt="Můžete se těšit na další vysílání někdy příště." />
+						</div>
+					<?teng endif ?>
+				</div>
+			</div>
+			<div id="bubble-footer" class="flip-horizontal"></div>
+			<div id="footer"><img class="bow" src="#{SERVICE_URL}#{PATH_IMG}/xmas/bow.png" alt="Seznam.cz" /></div>
+		</div>
+		<?teng include file="_debug.html"?>
+
+		<!--- analytika --->
+		<?teng if dictexist("QUERYTRACKER") && #QUERYTRACKER =~ 1?>
+			<script type="text/javascript" src="${.scheme}://h.imedia.cz/js/dot-small.js"></script>
+			<script type="text/javascript">
+				DOT.cfg({service: 'hp'});
+			</script>
+		<?teng endif?>		
+		
+		<!-- (C)2000-2012 Gemius SA - gemiusAudience / homepage_Seznam.cz / Filmy_a_pohadky -->
+		<script type="text/javascript">
+		
+			var pp_gemius_identifier = new String('B9BL0GMpEH8tXKrOBKSuGpR8DftiT_bOLbpMTU6OzXn.o7');
+			var pp_gemius_extraparameters = new Array('gA=seznam.cz/homepage_Seznam.cz/Filmy_a_pohadky');
+		
+			function gemius_pending(i) { window[i] = window[i] || function() {var x = window[i+'_pdata'] = window[i+'_pdata'] || []; x[x.length]=arguments;};};
+			gemius_pending('gemius_hit'); gemius_pending('gemius_event'); gemius_pending('pp_gemius_hit'); gemius_pending('pp_gemius_event');
+			(function(d,t) {try {var gt=d.createElement(t),s=d.getElementsByTagName(t)[0]; gt.setAttribute('async','async'); gt.setAttribute('defer','defer'); gt.src='https://gacz.hit.gemius.pl/xgemius.js'; s.parentNode.insertBefore(gt,s);} catch (e) {}})(document,'script');
+			
+		</script>
+
+	</body>
+</html>
